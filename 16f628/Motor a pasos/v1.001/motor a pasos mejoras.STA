@@ -1,0 +1,81 @@
+
+ROM used: 2330 (57%)
+          2967 (72%) including unused fragments
+
+          3 Average locations per line
+          8 Average locations per statement
+
+RAM used: 31 (12%) at main() level
+          52 (20%) worst case
+
+Stack used: 6 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  272   181  63  motor a pasos mejoras.c
+  223     0   0  ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h
+  135    40  14  ..\..\..\..\..\..\..\..\..\Program Files\PICC\drivers\kbd.c
+  162    68  24  ..\..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd420.c
+----- -----
+  792   289 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+ Inline        1             @delay_us1
+0     16   1   0             @const66
+0      2   0   0     3  0.0  kbd_init
+0    129   6   3  4540 10.2  kbd_getc
+ Inline        2             @MUL88
+0      8   0   0             @const87
+ Inline        3   463  4.3  lcd_read_byte
+0     12   1   1   134  2.2  lcd_send_nibble
+0     54   2   3   317  4.3  lcd_send_byte
+0     41   2   2   422  4.7  lcd_init
+0     27   1   3   321  5.5  lcd_gotoxy
+0      8   0   0             @goto10137
+0     40   2   1   308  5.0  lcd_putc
+1    919  39   1  5069 11.4  MAIN
+0     70   3   0             @const133
+0     73   3   0             @const134
+0     56   2   0             @const135
+0     68   3   0             @const136
+0     14   1   0             @const137
+0     12   1   0             @const138
+0     44   2   0             @const139
+0     39   2   0             @const140
+0     59   3   0             @const143
+0     99   4   9             @PRINTF_LU_109
+0     54   2   0             @const148
+0     14   1   0             @const149
+0     12   1   0             @const150
+0     32   1   0             @const151
+0     17   1   0             @const152
+0     59   3   0  1272 12.2  @const153
+0     17   1   0             @const156
+0    227  10   4  1494 12.2  teclado_numeros
+0     21   1   5             @MUL1616
+0      8   0   0             @goto10484
+0     54   2   6   228  5.2  pausa_tec
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               12
+    Statements              289
+    Comments                150
+    Volume (V)              20254
+    Difficulty (D)          76.9
+    Effort to implement (E) 1556616
+    Time to implement (T)   24 hours, 1 minutes
+    Est Delivered Bugs (B)  4
+    Cyclomatic Complexity   80
+    Maintainability (MI)    43
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1407  637  
+00800-00FFF   919  1129  
+
+
+

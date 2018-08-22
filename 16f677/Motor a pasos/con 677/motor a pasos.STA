@@ -1,0 +1,69 @@
+
+ROM used: 1493 (73%)
+          1493 (73%) including unused fragments
+
+          2 Average locations per line
+          7 Average locations per statement
+
+RAM used: 19 (15%) at main() level
+          37 (29%) worst case
+
+Stack used: 5 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  199   127  59  motor a pasos.c
+  329     0   0  ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f677.h
+  409    89  41  ..\..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c
+----- -----
+  937   216 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     19   1   1             @delay_ms1
+0      8   1   0             @const71
+ Inline        3   751  4.5  lcd_read_byte
+0     49   3   2   254  3.7  lcd_read_nibble
+0     44   3   1   391  2.4  lcd_send_nibble
+0     92   6   3   402  3.6  lcd_send_byte
+0     59   4   2   695  5.0  lcd_init
+0     18   1   4   191  5.8  lcd_gotoxy
+0     45   3   1   354  4.7  lcd_putc
+0    656  44   1  4028  9.9  MAIN
+0     36   2   0             @const109
+0     39   3   0             @const110
+0     37   2   0             @const111
+0     36   2   0             @const112
+0     28   2   0             @const113
+0     33   2   0             @const114
+0     30   2   0             @const115
+0     88   6   8             @PRINTF_LU_89
+0     33   2   0             @const118
+0     23   2   0             @const119
+0     18   1   0             @const120
+0     17   1   0             @const121
+0     13   1   0             @const122
+0     19   1   0             @const123
+0     22   1   0             @const124
+0     27   2   1   171  2.6  botones
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              216
+    Comments                168
+    Volume (V)              10065
+    Difficulty (D)          40.5
+    Effort to implement (E) 407620
+    Time to implement (T)   6 hours, 17 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   34
+    Maintainability (MI)    102
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1489  555  
+
+
+

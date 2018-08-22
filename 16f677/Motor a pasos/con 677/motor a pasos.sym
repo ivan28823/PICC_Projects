@@ -1,0 +1,118 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024.0   vaux
+024.1   rv
+025     i
+026     bot
+027     modo
+028     dir
+029-02A p
+02B-02C adc
+02D-02E pasos
+02F-030 pause
+031     lcd_init.i
+031-032 @PRINTF_LU_89.P1
+031     MAIN.@SCRATCH1
+031     botones.@SCRATCH1
+032     lcd_init.@SCRATCH1
+033     @PRINTF_LU_89.@SCRATCH1
+034     @PRINTF_LU_89.@SCRATCH2
+035     @PRINTF_LU_89.@SCRATCH3
+036     @PRINTF_LU_89.@SCRATCH4
+037     @PRINTF_LU_89.@SCRATCH5
+038     @PRINTF_LU_89.@SCRATCH6
+039     lcd_putc.c
+03A     @delay_ms1.P1
+03A     lcd_gotoxy.x
+03B     lcd_gotoxy.y
+03C     lcd_gotoxy.address
+03D     lcd_gotoxy.@SCRATCH1
+03E     lcd_send_byte.address
+03F     lcd_send_byte.n
+040     lcd_read_byte.low
+040     lcd_send_byte.@SCRATCH1
+041     lcd_send_nibble.n
+041     lcd_read_byte.high
+042     lcd_read_nibble.n
+042     lcd_read_byte.@SCRATCH1
+043     lcd_read_nibble.@SCRATCH1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+018C  @delay_ms1
+0004  LCD_INIT_STRING
+0204  lcd_read_byte
+01CB  lcd_read_nibble
+019F  lcd_send_nibble
+01FC  lcd_send_byte
+0258  lcd_init
+0293  lcd_gotoxy
+02A5  lcd_putc
+0345  MAIN
+000C  @const109
+0030  @const110
+0057  @const111
+007C  @const112
+00A0  @const113
+00BC  @const114
+00DD  @const115
+02ED  @PRINTF_LU_89
+00FB  @const118
+011C  @const119
+0133  @const120
+0145  @const121
+0156  @const122
+0163  @const123
+0176  @const124
+02D2  botones
+0345  @cinit1
+035F  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\16f677\Motor a pasos\con 677\
+
+Project Files:
+    motor a pasos.c                                         [23-may.-15 23:37  CRC=87D9140D]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f677.h [28-feb.-12 13:43  CRC=7774C0AB]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=34C6ADB2
+
+Units:
+    motor a pasos (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      motor a pasos.err
+    Ext Symbols: motor a pasos.esym
+    INHX8:       motor a pasos.hex
+    Symbols:     motor a pasos.sym
+    List:        motor a pasos.lst
+    Debug/COFF:  motor a pasos.cof
+    Project:     motor a pasos.PJT
+    Call Tree:   motor a pasos.tre
+    Statistics:  motor a pasos.STA

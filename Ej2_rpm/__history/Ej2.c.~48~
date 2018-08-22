@@ -1,0 +1,105 @@
+#include <18F4550.h>
+#device ADC=10
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+
+#use delay(crystal=20000000)
+
+#bit RBPU = 0xFF1.7     // pull-up all port b
+
+#include "PID_v1.c"
+/// static variables
+static int32 millis=0;
+static int16 cnt_rps=0;
+///
+int32 last_time;
+int16 rpm;
+// Working PID variables
+PidType  myPID;
+
+
+///
+void clrf_ptr(int8 * ptr,int8 len,int8 v);
+void num_to_arr_num(int8 * ptr,unsigned int num,int8 len);
+void show_count(int8 rpm1,int8 rmp2);
+int8 select_disp(int8 dig);
+int8 dec_to_disp(int8 num);
+
+#INT_TIMER0
+void TMR_isr(){
+    set_timer0(60536);
+    millis++;
+}
+#INT_EXT
+void  EXT_isr(void){
+    cnt_rps++;
+}
+
+void main(){
+  PID_init(&myPID,.1,.1,.5,0);
+  PID_SetMode(&myPID,1);
+  PID_SetOutputLimits(&myPID,0,990);
+  PID_SetSampleTime(&myPID,1000);
+
+   RBPU = 0;
+   set_tris_d(0);
+   set_tris_b(0xFF);
+   set_tris_c(0);
+
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);      //13 ms overflow
+   setup_timer_2(T2_DIV_BY_1,249,1);      //50.0 us overflow, 50.0 us interrupt
+
+   setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);
+
+   set_pwm1_duty((int16)997);
+   enable_interrupts(INT_TIMER0);
+   //enable_interrupts(INT_EXT);
+   enable_interrupts(INT_EXT_H2L);
+   enable_interrupts(GLOBAL);
+
+   int8 a;
+   while(TRUE){
+      if(millis - last_time > 999){
+        cnt_rps = cnt_rps/2;
+        myPID.myInput = (float) cnt_rps;
+        rpm = cnt_rps > 99? 99 : cnt_rps ;//*30;
+        last_time = millis;
+        cnt_rps = 0;
+      }
+      a = input_b() >> 1;
+      a = a>99? 99 : a;
+      myPID.mySetpoint =  (float) a;
+      PID_Compute(&myPID);
+      set_pwm1_duty((long)myPID.myOutput);
+
+      show_count(rpm,a);
+   }
+
+}
+void clrf_ptr(int8 * ptr,int8 len,int8 v){
+    while(--len)  *(ptr + len) = v;
+}
+void num_to_arr_num(int8 * ptr,int8 num,int8 len){
+    for(clrf_ptr(ptr,len,0);num>9;*ptr++ = num%10,num/=10);
+    *ptr = num%10;
+}
+void show_count(int8 rpm1,int8 rpm2){
+  static int8 num[4];
+  num_to_arr_num(num,rpm1,2);
+  num_to_arr_num(num+2,rpm2,2);
+  for(int8 i=0; i<4; ++i){
+    output_c(0xFF );
+    output_d(dec_to_disp(num[i]));
+    output_c(select_disp(i));
+    delay_ms(2);
+  }
+}
+int8 select_disp(int8 dig){
+  return *((int8 *)"\xC2\xC1\x83\x43" + dig);
+}
+int8 dec_to_disp(int8 num){
+  return *((int8 *)"\xC0\xF9\xA4\xB0\x99\x92\x82\xF8\x80\x98\xBF\xFF" + num);
+}

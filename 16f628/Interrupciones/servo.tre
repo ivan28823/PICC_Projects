@@ -1,0 +1,34 @@
+ÀÄservo
+   ÀÄmain  0/63  Ram=1
+      ÃÄ??0??
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄpwm_servo  0/70  Ram=7
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÀÄ@delay_us1  0/20  Ram=1
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄpwm_servo  0/70  Ram=7
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÀÄ@delay_us1  0/20  Ram=1
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄpwm_servo  0/70  Ram=7
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@delay_us1  0/20  Ram=1
+      ³  ÀÄ@delay_us1  0/20  Ram=1
+      ÀÄ@delay_ms1  0/21  Ram=1

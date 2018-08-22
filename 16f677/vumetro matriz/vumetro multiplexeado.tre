@@ -1,0 +1,23 @@
+ÀÄvumetro multiplexeado
+   ÃÄMAIN  0/316  Ram=2
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄtexto  0/66  Ram=2
+   ³  ³  ÃÄ@const78  0/36  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_us1  0/14  Ram=1
+   ³  ÃÄcomprobar_adc  0/64  Ram=1
+   ³  ÃÄtexto  0/66  Ram=2
+   ³  ³  ÃÄ@const78  0/36  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄcomprobar_adc  0/64  Ram=1
+   ³  ÃÄtexto  0/66  Ram=2
+   ³  ³  ÃÄ@const78  0/36  Ram=0
+   ³  ³  ÀÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_us1  0/14  Ram=1
+   ³  ÀÄufono  0/36  Ram=1
+   ÀÄcambio  0/38  Ram=1
+      ÀÄ@delay_ms1  0/19  Ram=1

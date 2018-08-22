@@ -1,0 +1,21 @@
+[PROJECT]
+Target=Cerradura.hex
+Processor_Text=PIC16F677
+CCSVersion=5.007
+Compiler=PCM
+[Target Data]
+FileList=Cerradura.c
+[Directories]
+Include=C:\Program Files\PICC\Devices\;C:\Program Files\PICC\Drivers\;C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f677\Cerradura electronica\
+[Cerradura.c]
+Type=4
+[mru-list]
+1=Cerradura.c
+[Opened Files]
+1=Cerradura.c
+2=
+3=..\..\..\..\..\..\..\..\..\..\Program Files\PICC\Drivers\string.h
+4=
+[Units]
+Count=1
+1=Cerradura (main)

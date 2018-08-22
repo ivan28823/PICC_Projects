@@ -1,0 +1,251 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016-019 millis
+01A-01B cnt_rps
+01C-01F last_time
+020-021 rpm
+022-059 myPID
+05A-05D show_count.num
+05E     MAIN.a
+05F-060 PID_SetMode.pid
+05F-062 @SFTOI.P1
+05F     show_count.rpm1
+05F-060 PID_Compute.pid
+05F-060 PID_SetSampleTime.pid
+05F-060 PID_init.pid
+05F     MAIN.@SCRATCH1
+060     show_count.rpm2
+060     MAIN.@SCRATCH2
+061-064 PID_Compute.input
+061-064 PID_init.kp
+061     PID_SetSampleTime.newSampleTime
+061     show_count.i
+061     PID_SetMode.mode
+061     MAIN.@SCRATCH3
+062     @delay_ms1.P1
+062-063 num_to_arr_num.ptr
+062-065 PID_SetSampleTime.ratio
+062.0   PID_SetMode.newAuto
+062     select_disp.dig
+062     MAIN.@SCRATCH4
+062     show_count.@SCRATCH1
+063     dec_to_disp.num
+063-064 PID_Initialize.pid
+063-067 select_disp.@STRPARAM
+063     PID_SetMode.@SCRATCH1
+064-070 dec_to_disp.@STRPARAM
+064     num_to_arr_num.num
+064     PID_SetMode.@SCRATCH2
+065-068 PID_Compute.error
+065     num_to_arr_num.len
+065-068 PID_init.ki
+065     PID_Initialize.@SCRATCH1
+066-067 clrf_ptr.ptr
+066     PID_SetSampleTime.@SCRATCH1
+066     PID_Initialize.@SCRATCH2
+066     num_to_arr_num.@SCRATCH1
+067     PID_SetSampleTime.@SCRATCH2
+067     PID_Initialize.@SCRATCH3
+067     num_to_arr_num.@SCRATCH2
+068     clrf_ptr.len
+068     @DIV88.P1
+068     PID_SetSampleTime.@SCRATCH3
+068     PID_Initialize.@SCRATCH4
+068     select_disp.@SCRATCH1
+069     clrf_ptr.v
+069-06C PID_init.kd
+069-06C PID_Compute.dInput
+069     @DIV88.P1
+069     PID_SetSampleTime.@SCRATCH4
+069     PID_Initialize.@SCRATCH5
+069     select_disp.@SCRATCH2
+06A     PID_SetSampleTime.@SCRATCH5
+06A     PID_Initialize.@SCRATCH6
+06A     clrf_ptr.@SCRATCH1
+06A     @DIV88.@SCRATCH1
+06A     select_disp.@SCRATCH3
+06B     PID_SetSampleTime.@SCRATCH6
+06B     clrf_ptr.@SCRATCH2
+06B     select_disp.@SCRATCH4
+06D-070 PID_Compute.output
+06D     PID_init.controllerDirection
+06E-06F PID_SetOutputLimits.pid
+06E-06F PID_SetControllerDirection.pid
+06E-06F PID_SetTunings.pid
+06E     PID_init.@SCRATCH1
+06F     PID_init.@SCRATCH2
+070-073 PID_SetOutputLimits.min
+070-073 PID_SetTunings.kp
+070     PID_SetControllerDirection.Direction
+071     PID_Compute.@SCRATCH1
+071     PID_SetControllerDirection.@SCRATCH1
+071     dec_to_disp.@SCRATCH1
+072     PID_Compute.@SCRATCH2
+072     PID_SetControllerDirection.@SCRATCH2
+072     dec_to_disp.@SCRATCH2
+073     PID_Compute.@SCRATCH3
+073     PID_SetControllerDirection.@SCRATCH3
+073     dec_to_disp.@SCRATCH3
+074-077 PID_SetTunings.ki
+074-077 PID_SetOutputLimits.max
+074     PID_Compute.@SCRATCH4
+074     PID_SetControllerDirection.@SCRATCH4
+074     dec_to_disp.@SCRATCH4
+075     PID_Compute.@SCRATCH5
+075     PID_SetControllerDirection.@SCRATCH5
+076     PID_Compute.@SCRATCH6
+076     PID_SetControllerDirection.@SCRATCH6
+077     PID_Compute.@SCRATCH7
+077     PID_SetControllerDirection.@SCRATCH7
+078-07B PID_SetTunings.kd
+078     PID_Compute.@SCRATCH8
+078     PID_SetOutputLimits.@SCRATCH1
+078     PID_SetControllerDirection.@SCRATCH8
+079     PID_Compute.@SCRATCH9
+079     PID_SetOutputLimits.@SCRATCH2
+07A     PID_Compute.@SCRATCH10
+07A     PID_SetOutputLimits.@SCRATCH3
+07B     PID_Compute.@SCRATCH11
+07B     PID_SetOutputLimits.@SCRATCH4
+07C-07F PID_SetTunings.SampleTimeInSec
+07C     PID_Compute.@SCRATCH12
+07C     PID_SetOutputLimits.@SCRATCH5
+07D     PID_SetOutputLimits.@SCRATCH6
+080-081 @ITOF.P1
+080-083 @FLT.P2
+080     PID_SetTunings.@SCRATCH1
+081     PID_SetTunings.@SCRATCH2
+082-085 @MULFF.P1
+082     PID_SetTunings.@SCRATCH3
+083     PID_SetTunings.@SCRATCH4
+084-087 @ADDFF.P1
+084-087 @DIVFF.P2
+084-087 @FLT.P3
+084     PID_SetTunings.@SCRATCH5
+085     PID_SetTunings.@SCRATCH6
+086-089 @MULFF.P1
+086     PID_SetTunings.@SCRATCH7
+087     PID_SetTunings.@SCRATCH8
+088-08B @ADDFF.P1
+088-08B @DIVFF.P2
+088     @FLT.@SCRATCH1
+089     @FLT.@SCRATCH2
+08A     @MULFF.@SCRATCH1
+08B     @MULFF.@SCRATCH2
+08C     @ADDFF.@SCRATCH1
+08C     @MULFF.@SCRATCH3
+08C     @DIVFF.@SCRATCH1
+08D     @ADDFF.@SCRATCH2
+08D     @DIVFF.@SCRATCH2
+08E     @ADDFF.@SCRATCH3
+08E     @DIVFF.@SCRATCH3
+08F     @ADDFF.@SCRATCH4
+08F     @DIVFF.@SCRATCH4
+090     @ADDFF.@SCRATCH5
+090     @DIVFF.@SCRATCH5
+091     @ADDFF.@SCRATCH6
+091     @DIVFF.@SCRATCH6
+092     @ADDFF.@SCRATCH7
+093     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF1.7   RBPU
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0000A2  @const757.call
+0000CA  TMR_isr
+0000E8  EXT_isr
+0000F4  @FLT
+00016A  PID_SetOutputLimits
+000470  @ADDFF
+0006DA  PID_SetControllerDirection
+000884  @ITOF
+0008BA  @DIVFF
+000A14  @MULFF
+000B06  PID_SetTunings
+000E1A  PID_init
+000F0C  PID_Initialize
+0010EA  PID_SetMode
+00114A  PID_SetSampleTime
+001260  PID_Compute
+0017A0  @SFTOI
+0017DA  clrf_ptr
+0017FC  @DIV88
+001824  num_to_arr_num
+001886  dec_to_disp
+0018C8  select_disp
+0018F4  @delay_ms1
+00191C  show_count
+001980  MAIN
+001980  @cinit1
+00199E  @cinit2
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Compartido\Microcontroladores\ETS Microc\Ej2_rpm\
+
+Project Files:
+    Ej2.c                                                   [13-ago.-18 21:31  CRC=29999AF7]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [21-jun.-13 17:05  CRC=A157EDDE]
+    PID_v1.c                                                [12-ago.-18 23:29  CRC=42F63760]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h [21-may.-12 11:29  CRC=815AEDE8]
+
+Source signature=109D9C05
+
+Units:
+    Ej2 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Ej2.xsym
+    Errors:      Ej2.err
+    Ext Symbols: Ej2.esym
+    INHX32:      Ej2.hex
+    Symbols:     Ej2.sym
+    List:        Ej2.lst
+    Debug/COFF:  Ej2.cof
+    Project:     Ej2.ccspjt
+    Call Tree:   Ej2.tre
+    Statistics:  Ej2.STA

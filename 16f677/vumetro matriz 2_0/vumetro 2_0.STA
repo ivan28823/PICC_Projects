@@ -1,0 +1,48 @@
+
+ROM used: 706 (34%)
+          706 (34%) including unused fragments
+
+          2 Average locations per line
+          10 Average locations per statement
+
+RAM used: 8 (6%) at main() level
+          21 (16%) worst case
+
+Stack used: 2 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  131    73 100  vumetro 2_0.c
+  329     0   0  ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f677.h
+----- -----
+  460    73 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     19   3   1             @delay_ms1
+0     16   2   1             @delay_us1
+0    130  18   2   776  4.4  main
+0    330  47   0             @const75
+0    101  14   8  6857  7.5  anuncio
+0    106  15   2   390  3.3  comprobar_adc
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              73
+    Comments                136
+    Volume (V)              8956
+    Difficulty (D)          15.3
+    Effort to implement (E) 137359
+    Time to implement (T)   2 hours, 7 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   16
+    Maintainability (MI)    34
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   702  1342  
+
+
+

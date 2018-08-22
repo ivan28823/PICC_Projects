@@ -1,0 +1,47 @@
+
+ROM used: 162 (8%)
+          162 (8%) including unused fragments
+
+          1 Average locations per line
+          6 Average locations per statement
+
+RAM used: 19 (8%) at main() level
+          21 (9%) worst case
+
+Stack used: 3 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   63    25 100  motor a pasos.c
+  223     0   0  ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  286    25 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21  13   1             @delay_ms1
+0      3   2   0     5  1.0  reset
+0     69  43   1   491  6.1  MAIN
+0     22  14   1   156  3.3  led_blink
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              25
+    Comments                69
+    Volume (V)              782
+    Difficulty (D)          10.0
+    Effort to implement (E) 7844
+    Time to implement (T)   7 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   4
+    Maintainability (MI)    153
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0002E    43  0  
+0002F-007FF   115  1886  
+
+
+

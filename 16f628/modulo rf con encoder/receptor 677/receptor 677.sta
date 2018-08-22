@@ -1,0 +1,54 @@
+
+ROM used: 1329 (65%)
+          1329 (65%) including unused fragments
+
+          2 Average locations per line
+          7 Average locations per statement
+
+RAM used: 23 (18%) at main() level
+          36 (28%) worst case
+
+Stack used: 5 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  271   201 100  receptor 677.c
+  329     0   0  ..\..\..\..\..\..\..\Program Files\PICC\devices\16F677.h
+----- -----
+  600   201 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     19   1   1             @delay_ms1
+0     16   1   1             @delay_us1
+0     54   4   1   349  4.6  timer0
+0    362  27   1  3068  8.9  MAIN
+0     16   1   0             @goto10125
+0     66   5   8   259  4.7  pwm_servo
+0     29   2   5             @WRITEBITA
+0    115   9   4   204  3.8  sensor_distancia
+0     20   2   4             @READBITA
+ Inline        5             @DIV1616
+0    378  28   1  2531  3.9  pulsadores
+0    207  16   2   979  3.9  modo_automatico
+
+Program metrics:
+    Functions               6
+    Statements              201
+    Comments                83
+    Volume (V)              9693
+    Difficilty (D)          29.6
+    Effort to implement (E) 286459
+    Time to implement (T)   4 hours, 25 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   42
+    Maintainability (MI)    49
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0002E    43  0  
+0002F-007FF  1282  719  
+
+
+

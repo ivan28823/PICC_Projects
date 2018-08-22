@@ -1,0 +1,108 @@
+
+//programa emisor
+#include <18F4550.h>
+// #fuses HSPLL,NOWDT,NOPROTECT,NOLVP,NODEBUG,USBDIV,PLL5,CPUDIV1,VREGEN, MCLR //20MHz
+#fuses HS,NOWDT,NOPROTECT,NOLVP,NODEBUG,USBDIV,PLL1,CPUDIV1,VREGEN, MCLR,NOBROWNOUT //8MHz
+#use delay(clock=8000000)
+
+#include "lib_rf2gh4_10_4550.h" // Librería modificada para el el nRF24L01 con el PIC 18F4550.
+
+#define LCD_ENABLE_PIN  PIN_D2                                    
+#define LCD_RS_PIN      PIN_D0                                   
+#define LCD_RW_PIN      PIN_D1                                    
+#define LCD_DATA4       PIN_D4                                   
+#define LCD_DATA5       PIN_D5                                    
+#define LCD_DATA6       PIN_D6                                    
+#define LCD_DATA7       PIN_D7
+
+#include <lcd.c>
+
+#byte porta=0xF80               // Dirección de los puertos A, B, C, D y E.
+#byte portb=0xF81
+#byte portc=0xF82
+#byte portd=0xF83
+#byte porte=0xF84
+#use fast_io(a)
+#use fast_io(b)
+#use fast_io(c)
+#use fast_io(d)
+
+int pulsadores();
+
+#int_ext2
+void int_RB2()               // Esta rutina está para un futuro si haces comunicaciones bidireccionales.
+{                            // No tiene efecto en el programa principal, ya que sólo emite.
+   int8 ret1;                // Se encargaría de la recepción de datos. De todas formas no elimines esta parte.
+   ret1 = RF_RECEIVE();
+   if ( (ret1 == 0) || (ret1 == 1) )
+   {
+      do
+      {  
+         ret1 = RF_RECEIVE();
+      }  while ( (ret1 == 0) || (ret1 == 1) );
+   }  
+}
+
+void main()
+{  
+   lcd_init();
+   printf(lcd_putc,"\fIniciando...");
+   set_tris_a(0);
+   set_tris_b(0b11111101);
+   set_tris_c(0b00000000);
+   set_tris_d(0);
+   
+   RF_INT_EN();              // Habilitar interrupción RB0/INT.
+   RF_CONFIG_SPI();          // Configurar módulo SPI del PIC.
+   RF_CONFIG(0x40,0x05);     // Configurar módulo RF canal y dirección de recepción de datos para este PIC.
+   RF_ON();                  // Activar el módulo RF.
+   
+   delay_ms(200);              // Dejamos como mínimo 2.5ms antes de comenzar a enviar.
+   
+   int8 ret2;
+   while(true)
+   {  
+      RF_DATA[0] = pulsadores();     // El contenido del contador lo cargo en RF_DATA[0] para ser enviado.
+      RF_DIR=0x0F;                   // Dirección del receptor.
+      ret2=RF_SEND();                // Envía el dato. "1" No recepcibido "0"Recevido "2"No enviado
+      if(ret2==2)
+         {printf(lcd_putc,"\f No enviado");}
+      if(ret2==1)
+      {
+         printf(lcd_putc,"\f Fuera de rango\n");
+         printf(lcd_putc,"   No recivido");
+      }
+      
+      delay_ms(100);         // Una pausa en cada incremento.
+      output_toggle(PIN_A0); // En cada envío hace cambiar el estado del LED conectado en B7. No es necesario esto; se trata de comprobar de que el programa corre. 
+   }
+}
+
+int pulsadores()
+{
+      if((input(pin_b7) & input(pin_b5))==1)
+      {return (5);}
+      if((input(pin_b7) & input(pin_b4))==1)
+      {return (6);}
+      if((input(pin_b7) & input(pin_b3))==1)
+      {return (7);}
+      if((input(pin_b6) & input(pin_b5))==1)
+      {return (8);}
+      if((input(pin_b6) & input(pin_b4))==1)
+      {return (9);}
+      if((input(pin_b6) & input(pin_b3))==1)
+      {return (10);}
+      if(input(pin_b7)==1)
+      {return (1);}
+      if(input(pin_b6)==1)
+      {return (2);}
+      if(input(pin_b5)==1)
+      {return (3);}
+      if(input(pin_b4)==1)
+      {return (4);}
+      if(input(pin_b3)==1)
+      {return (11);}
+      if((input(pin_b7) & input(pin_b6) & input(pin_b5) & input(pin_b4) & input(pin_b3))==0)
+      {return (0);}
+}
+

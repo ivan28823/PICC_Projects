@@ -1,0 +1,56 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     main.a
+022     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  @delay_ms1
+0019  main
+0019  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\
+
+Project Files:
+    emisor.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\emisor (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      emisor.err
+    Ext Symbols: emisor.esym
+    INHX8:       emisor.hex
+    Symbols:     emisor.sym
+    List:        emisor.lst
+    Debug/COFF:  emisor.cof
+    Project:     emisor.PJT
+    Call Tree:   emisor.tre
+    Statistics:  emisor.sta

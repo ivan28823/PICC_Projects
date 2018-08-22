@@ -1,0 +1,96 @@
+CCS PCM C Compiler, Version 4.114, 93460303               26-dic.-14 00:56
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\Interrupciones\timer0.lst
+
+               ROM used: 42 words (2%)
+                         Largest free fragment is 2006
+               RAM used: 6 (3%) at main() level
+                         8 (4%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #fuses INTRC_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses PUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses BROWNOUT 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+.................... #use delay(clock=4M) 
+....................  
+.................... void main() 
+.................... { 
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  BSF    03.5
+0009:  BSF    0E.3
+000A:  MOVLW  07
+000B:  BCF    03.5
+000C:  MOVWF  1F
+....................    Trisa=0; 
+000D:  BSF    03.5
+000E:  CLRF   05
+....................    Trisb=0; 
+000F:  CLRF   06
+....................    Portb=0; 
+0010:  BCF    03.5
+0011:  CLRF   06
+....................    setup_timer_0(RTCC_INTERNAL | T0_DIV_256); 
+0012:  BSF    03.5
+0013:  MOVF   01,W
+0014:  ANDLW  C0
+0015:  IORLW  07
+0016:  MOVWF  01
+....................    int time=0,leds=0; 
+0017:  BCF    03.5
+0018:  CLRF   21
+0019:  CLRF   22
+....................    while(true) 
+....................    { 
+....................       set_timer0(0); 
+001A:  CLRF   01
+....................       while(get_timer0()<255); 
+001B:  MOVF   01,W
+001C:  SUBLW  FF
+001D:  BTFSS  03.2
+001E:  GOTO   01B
+....................       time++; 
+001F:  INCF   21,F
+....................       if (time==15) 
+0020:  MOVF   21,W
+0021:  SUBLW  0F
+0022:  BTFSS  03.2
+0023:  GOTO   028
+....................       { 
+....................          leds++;       
+0024:  INCF   22,F
+....................          Portb=leds; 
+0025:  MOVF   22,W
+0026:  MOVWF  06
+....................          time=0; 
+0027:  CLRF   21
+....................       } 
+....................    } 
+0028:  GOTO   01A
+.................... } 
+0029:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F50   NOWDT PUT INTRC_IO NOMCLR BROWNOUT NOLVP NOCPD NOPROTECT

@@ -1,0 +1,23 @@
+[PROJECT]
+Target=rgb.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.007
+Compiler=PCH
+CCSVersion=5.007
+[Target Data]
+FileList=rgb.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\ivan-\Documents\MEGA\Compartido\Microcontroladores\ETS Microc\pwm_rgb\rgb]
+Type=4
+[mru-list]
+1=rgb.c
+[Opened Files]
+1=rgb.c
+2=
+3=
+[rgb.c]
+Type=4
+[Units]
+Count=1
+1=rgb (main)

@@ -1,0 +1,1179 @@
+CCS PCM C Compiler, Version 4.130, 59972               19-jul.-16 15:55
+
+               Filename: C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f628\DIRI bluetooth\V2.1\bluetooth2_1.lst
+
+               ROM used: 1030 words (25%)
+                         Largest free fragment is 2048
+               RAM used: 26 (10%) at main() level
+                         39 (15%) worst case
+               Stack:    4 worst case (3 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  03
+0001:  MOVWF  0A
+0002:  GOTO   3B2
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   7F,W
+0009:  MOVWF  20
+000A:  MOVF   0A,W
+000B:  MOVWF  27
+000C:  CLRF   0A
+000D:  SWAPF  20,F
+000E:  MOVF   04,W
+000F:  MOVWF  22
+0010:  MOVF   77,W
+0011:  MOVWF  23
+0012:  MOVF   78,W
+0013:  MOVWF  24
+0014:  MOVF   79,W
+0015:  MOVWF  25
+0016:  MOVF   7A,W
+0017:  MOVWF  26
+0018:  BCF    03.7
+0019:  BCF    03.5
+001A:  MOVLW  8C
+001B:  MOVWF  04
+001C:  BTFSS  00.5
+001D:  GOTO   020
+001E:  BTFSC  0C.5
+001F:  GOTO   035
+0020:  BTFSS  0B.5
+0021:  GOTO   024
+0022:  BTFSC  0B.2
+0023:  GOTO   037
+0024:  MOVF   22,W
+0025:  MOVWF  04
+0026:  MOVF   23,W
+0027:  MOVWF  77
+0028:  MOVF   24,W
+0029:  MOVWF  78
+002A:  MOVF   25,W
+002B:  MOVWF  79
+002C:  MOVF   26,W
+002D:  MOVWF  7A
+002E:  MOVF   27,W
+002F:  MOVWF  0A
+0030:  SWAPF  21,W
+0031:  MOVWF  03
+0032:  SWAPF  7F,F
+0033:  SWAPF  7F,W
+0034:  RETFIE
+0035:  BCF    0A.3
+0036:  GOTO   039
+0037:  BCF    0A.3
+0038:  GOTO   041
+.................... #include <16f648a.h> 
+.................... //////// Standard Header file for the PIC16F648A device //////////////// 
+.................... #device PIC16F648A 
+.................... #list 
+....................  
+.................... #fuses HS,NOWDT,MCLR,NOPUT,NOLVP,NOPROTECT,NOCPD,NOBROWNOUT 
+.................... #use delay(clock=20M) 
+*
+0070:  MOVLW  03
+0071:  SUBWF  3D,F
+0072:  BTFSS  03.0
+0073:  GOTO   07E
+0074:  MOVLW  3D
+0075:  MOVWF  04
+0076:  BCF    03.7
+0077:  MOVF   00,W
+0078:  BTFSC  03.2
+0079:  GOTO   07E
+007A:  GOTO   07C
+007B:  GOTO   07C
+007C:  DECFSZ 00,F
+007D:  GOTO   07B
+007E:  RETURN
+*
+0158:  MOVLW  36
+0159:  MOVWF  04
+015A:  BCF    03.7
+015B:  MOVF   00,W
+015C:  BTFSC  03.2
+015D:  GOTO   16B
+015E:  MOVLW  06
+015F:  MOVWF  78
+0160:  CLRF   77
+0161:  DECFSZ 77,F
+0162:  GOTO   161
+0163:  DECFSZ 78,F
+0164:  GOTO   160
+0165:  MOVLW  7B
+0166:  MOVWF  77
+0167:  DECFSZ 77,F
+0168:  GOTO   167
+0169:  DECFSZ 00,F
+016A:  GOTO   15E
+016B:  RETURN
+.................... ///////////////////////////////////////////////////////////// 
+.................... #define  Servo    PIN_B0 
+.................... #define  RX       PIN_B1 
+.................... #define  TX       PIN_B2 
+.................... #define  Atras    PIN_B4 
+.................... #define  LucesD   PIN_B5 
+.................... #define  LucesT   PIN_B6 
+.................... #define  Led_on   PIN_B7 
+.................... #define  ECHO     PIN_A0 
+.................... #define  TRIG     PIN_A1 
+.................... #define  Adelante PIN_A2 
+....................  
+.................... #define v_centro    1425  //1250 
+.................... #define v_derecha   1775 
+.................... #define v_izquierda 1075 
+.................... #define v_inc       175 
+.................... ///////////////// 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+.................... //Uso de la comunicacion serial 
+.................... #use rs232(baud=9600, rcv=RX, xmit=TX,parity=n, bits=8, stop=1) 
+.................... //Variables generales 
+....................   short flag=false,f_inter=false,f_auto=false; 
+....................   int dato=0,t0=0; 
+....................   long pwm=v_centro,c_util=0,izquierda,derecha,vaux; 
+.................... //Prototipos de funciones 
+....................   void pwm_servo(int pin,int periodo,long alto); 
+....................   void opciones(); 
+....................   void recepciion_datos(); 
+....................   long sensor_distancia(int s_trig,int s_echo); 
+....................   void modo_automatico(); 
+.................... //Recepcion del bluetooth 
+.................... #int_rda   //Interrupcion por comunicacion serial 
+.................... void recepciion_datos() 
+.................... { 
+....................   dato=getc(); 
+*
+0039:  BTFSS  0C.5
+003A:  GOTO   039
+003B:  MOVF   1A,W
+003C:  MOVWF  29
+....................   flag=true; 
+003D:  BSF    28.0
+.................... } 
+003E:  BCF    0C.5
+003F:  BCF    0A.3
+0040:  GOTO   024
+.................... #int_timer0   //Interrupcion por timer 0 
+.................... void Intermitentes() 
+.................... { 
+....................   if(t0>38) 
+0041:  MOVF   2A,W
+0042:  SUBLW  26
+0043:  BTFSC  03.0
+0044:  GOTO   04C
+....................   { 
+....................     output_toggle(LucesT); 
+0045:  BSF    03.5
+0046:  BCF    06.6
+0047:  MOVLW  40
+0048:  BCF    03.5
+0049:  XORWF  06,F
+....................     t0=0; 
+004A:  CLRF   2A
+....................   } 
+....................   else 
+004B:  GOTO   04D
+....................     t0++; 
+004C:  INCF   2A,F
+.................... } 
+.................... //Programa principal 
+004D:  BCF    0B.2
+004E:  BCF    0A.3
+004F:  GOTO   024
+.................... void main() 
+.................... { 
+*
+03B2:  CLRF   04
+03B3:  BCF    03.7
+03B4:  MOVLW  1F
+03B5:  ANDWF  03,F
+03B6:  MOVLW  81
+03B7:  BSF    03.5
+03B8:  MOVWF  19
+03B9:  MOVLW  A6
+03BA:  MOVWF  18
+03BB:  MOVLW  90
+03BC:  BCF    03.5
+03BD:  MOVWF  18
+03BE:  BCF    28.0
+03BF:  BCF    28.1
+03C0:  BCF    28.2
+03C1:  CLRF   29
+03C2:  CLRF   2A
+03C3:  MOVLW  05
+03C4:  MOVWF  2C
+03C5:  MOVLW  91
+03C6:  MOVWF  2B
+03C7:  CLRF   2E
+03C8:  CLRF   2D
+03C9:  MOVLW  07
+03CA:  MOVWF  1F
+....................   Trisa=0xF1;Porta=0; 
+03CB:  MOVLW  F1
+03CC:  BSF    03.5
+03CD:  MOVWF  05
+03CE:  BCF    03.5
+03CF:  CLRF   05
+....................   Trisb=0x02;Portb=0; 
+03D0:  MOVLW  02
+03D1:  BSF    03.5
+03D2:  MOVWF  06
+03D3:  BCF    03.5
+03D4:  CLRF   06
+....................   setup_ccp1(CCP_PWM); 
+03D5:  BSF    03.5
+03D6:  BCF    06.3
+03D7:  BCF    03.5
+03D8:  BCF    06.3
+03D9:  MOVLW  0C
+03DA:  MOVWF  17
+....................   setup_timer_0(T0_INTERNAL|T0_DIV_256); 
+03DB:  BSF    03.5
+03DC:  MOVF   01,W
+03DD:  ANDLW  C0
+03DE:  IORLW  07
+03DF:  MOVWF  01
+....................   setup_timer_1(T1_INTERNAL|T1_DIV_BY_1); 
+03E0:  MOVLW  85
+03E1:  BCF    03.5
+03E2:  MOVWF  10
+....................   setup_timer_2(T2_DIV_BY_1,255,1); 
+03E3:  MOVLW  00
+03E4:  MOVWF  78
+03E5:  IORLW  04
+03E6:  MOVWF  12
+03E7:  MOVLW  FF
+03E8:  BSF    03.5
+03E9:  MOVWF  12
+....................   set_pwm1_duty(0); 
+03EA:  BCF    03.5
+03EB:  CLRF   15
+....................   while(input(PIN_A4)); 
+03EC:  BSF    03.5
+03ED:  BSF    05.4
+03EE:  BCF    03.5
+03EF:  BTFSC  05.4
+03F0:  GOTO   3EC
+....................   pwm_servo(Servo,25,pwm); 
+03F1:  MOVLW  30
+03F2:  MOVWF  35
+03F3:  MOVLW  19
+03F4:  MOVWF  36
+03F5:  MOVF   2C,W
+03F6:  MOVWF  38
+03F7:  MOVF   2B,W
+03F8:  MOVWF  37
+03F9:  CALL   07F
+....................   enable_interrupts(INT_RDA); 
+03FA:  BSF    03.5
+03FB:  BSF    0C.5
+....................   enable_interrupts(GLOBAL); 
+03FC:  MOVLW  C0
+03FD:  BCF    03.5
+03FE:  IORWF  0B,F
+....................   output_high(Led_on); 
+03FF:  BSF    03.5
+0400:  BCF    06.7
+0401:  BCF    03.5
+0402:  BSF    06.7
+....................   do 
+....................   { 
+....................     opciones(); 
+0403:  GOTO   16C
+....................   }while(true); 
+.................... } 
+0404:  GOTO   403
+.................... void pwm_servo(int pin,int periodo,long alto) 
+.................... { 
+*
+007F:  MOVF   37,W
+0080:  SUBLW  20
+0081:  MOVWF  39
+0082:  MOVLW  4E
+0083:  MOVWF  3A
+0084:  MOVF   38,W
+0085:  BTFSS  03.0
+0086:  INCFSZ 38,W
+0087:  SUBWF  3A,F
+*
+0405:  SLEEP
+....................   long bajo=20000-alto; //pwm a 50hz ancho de pulso 20ms 
+....................   for(int a=0;a<periodo;a++) 
+*
+0088:  CLRF   3B
+0089:  MOVF   36,W
+008A:  SUBWF  3B,W
+008B:  BTFSC  03.0
+008C:  GOTO   0C4
+....................   { 
+....................     output_high(pin); 
+008D:  MOVF   35,W
+008E:  MOVWF  3C
+008F:  MOVLW  01
+0090:  MOVWF  3D
+0091:  CLRF   3F
+0092:  CLRF   3E
+0093:  CALL   050
+0094:  MOVF   35,W
+0095:  MOVWF  3C
+0096:  CLRF   3D
+0097:  CLRF   3F
+0098:  MOVLW  80
+0099:  MOVWF  3E
+009A:  CALL   050
+....................     delay_us(alto); 
+009B:  MOVF   38,W
+009C:  MOVWF  3C
+009D:  INCF   3C,F
+009E:  DECF   3C,F
+009F:  BTFSC  03.2
+00A0:  GOTO   0A5
+00A1:  MOVLW  FF
+00A2:  MOVWF  3D
+00A3:  CALL   070
+00A4:  GOTO   09E
+00A5:  MOVF   37,W
+00A6:  MOVWF  3D
+00A7:  CALL   070
+....................     output_low(pin); 
+00A8:  MOVF   35,W
+00A9:  MOVWF  3C
+00AA:  CLRF   3D
+00AB:  CLRF   3F
+00AC:  CLRF   3E
+00AD:  CALL   050
+00AE:  MOVF   35,W
+00AF:  MOVWF  3C
+00B0:  CLRF   3D
+00B1:  CLRF   3F
+00B2:  MOVLW  80
+00B3:  MOVWF  3E
+00B4:  CALL   050
+....................     delay_us(bajo); 
+00B5:  MOVF   3A,W
+00B6:  MOVWF  3C
+00B7:  INCF   3C,F
+00B8:  DECF   3C,F
+00B9:  BTFSC  03.2
+00BA:  GOTO   0BF
+00BB:  MOVLW  FF
+00BC:  MOVWF  3D
+00BD:  CALL   070
+00BE:  GOTO   0B8
+00BF:  MOVF   39,W
+00C0:  MOVWF  3D
+00C1:  CALL   070
+....................   } 
+00C2:  INCF   3B,F
+00C3:  GOTO   089
+.................... } 
+00C4:  RETURN
+.................... void opciones() 
+.................... { 
+....................   if(f_auto) 
+*
+016C:  BTFSS  28.2
+016D:  GOTO   224
+....................     modo_automatico(); 
+....................   if (flag) 
+*
+0224:  BTFSS  28.0
+0225:  GOTO   397
+....................   { 
+....................     flag=false; 
+0226:  BCF    28.0
+....................     if(!f_auto) 
+0227:  BTFSC  28.2
+0228:  GOTO   34A
+....................     { 
+....................       if((dato>='0' && dato <='9') || dato=='q') 
+0229:  MOVF   29,W
+022A:  SUBLW  2F
+022B:  BTFSC  03.0
+022C:  GOTO   231
+022D:  MOVF   29,W
+022E:  SUBLW  39
+022F:  BTFSC  03.0
+0230:  GOTO   235
+0231:  MOVF   29,W
+0232:  SUBLW  71
+0233:  BTFSS  03.2
+0234:  GOTO   276
+....................       { 
+....................         vaux=dato-48; 
+0235:  MOVLW  30
+0236:  SUBWF  29,W
+0237:  MOVWF  33
+0238:  CLRF   34
+....................         c_util = (dato=='q')? 1023 : vaux*102;      
+0239:  MOVF   29,W
+023A:  SUBLW  71
+023B:  BTFSS  03.2
+023C:  GOTO   241
+023D:  MOVLW  03
+023E:  MOVWF  7A
+023F:  MOVLW  FF
+0240:  GOTO   25F
+0241:  MOVF   34,W
+0242:  MOVWF  36
+0243:  MOVF   33,W
+0244:  MOVWF  35
+0245:  CLRF   38
+0246:  MOVLW  66
+0247:  MOVWF  37
+*
+025C:  MOVF   79,W
+025D:  MOVWF  7A
+025E:  MOVF   78,W
+025F:  MOVWF  2D
+0260:  MOVF   7A,W
+0261:  MOVWF  2E
+....................         set_pwm1_duty(c_util); 
+0262:  MOVF   2E,W
+0263:  MOVWF  79
+0264:  MOVF   2D,W
+0265:  MOVWF  78
+0266:  RRF    79,F
+0267:  RRF    78,F
+0268:  RRF    79,F
+0269:  RRF    78,F
+026A:  RRF    79,F
+026B:  MOVF   78,W
+026C:  MOVWF  15
+026D:  RRF    79,F
+026E:  RRF    79,W
+026F:  ANDLW  30
+0270:  MOVWF  77
+0271:  MOVF   17,W
+0272:  ANDLW  CF
+0273:  IORWF  77,W
+0274:  MOVWF  17
+....................       } 
+....................       else  
+0275:  GOTO   34A
+....................         switch(dato) 
+....................         { 
+0276:  MOVLW  42
+0277:  SUBWF  29,W
+0278:  ADDLW  EB
+0279:  BTFSC  03.0
+027A:  GOTO   34A
+027B:  ADDLW  15
+027C:  GOTO   399
+....................           case 'V': //Modo automatico encendido 
+....................             f_auto=true; 
+027D:  BSF    28.2
+....................             pwm_servo(Servo,25,v_centro); 
+027E:  MOVLW  30
+027F:  MOVWF  35
+0280:  MOVLW  19
+0281:  MOVWF  36
+0282:  MOVLW  05
+0283:  MOVWF  38
+0284:  MOVLW  91
+0285:  MOVWF  37
+0286:  CALL   07F
+....................             set_pwm1_duty(1023); 
+0287:  MOVLW  FF
+0288:  MOVWF  15
+0289:  MOVF   17,W
+028A:  ANDLW  CF
+028B:  IORLW  30
+028C:  MOVWF  17
+....................             break; 
+028D:  GOTO   34A
+....................           case 'F':   //Adelante 
+....................             output_high(Adelante); 
+028E:  BSF    03.5
+028F:  BCF    05.2
+0290:  BCF    03.5
+0291:  BSF    05.2
+....................             break; 
+0292:  GOTO   34A
+....................           case 'B':   //Atras 
+....................             output_high(Atras); 
+0293:  BSF    03.5
+0294:  BCF    06.4
+0295:  BCF    03.5
+0296:  BSF    06.4
+....................             break; 
+0297:  GOTO   34A
+....................           case 'L':   //Izquierda 
+....................             if(pwm>v_izquierda) 
+0298:  MOVF   2C,W
+0299:  SUBLW  03
+029A:  BTFSC  03.0
+029B:  GOTO   2B2
+029C:  XORLW  FF
+029D:  BTFSS  03.2
+029E:  GOTO   2A3
+029F:  MOVF   2B,W
+02A0:  SUBLW  33
+02A1:  BTFSC  03.0
+02A2:  GOTO   2B2
+....................             { 
+....................               pwm-=v_inc; 
+02A3:  MOVLW  AF
+02A4:  SUBWF  2B,F
+02A5:  MOVLW  00
+02A6:  BTFSS  03.0
+02A7:  MOVLW  01
+02A8:  SUBWF  2C,F
+....................               pwm_servo(Servo,25,pwm); 
+02A9:  MOVLW  30
+02AA:  MOVWF  35
+02AB:  MOVLW  19
+02AC:  MOVWF  36
+02AD:  MOVF   2C,W
+02AE:  MOVWF  38
+02AF:  MOVF   2B,W
+02B0:  MOVWF  37
+02B1:  CALL   07F
+....................             } 
+....................             break; 
+02B2:  GOTO   34A
+....................           case 'R':   //Derecha 
+....................             if(pwm<v_derecha) 
+02B3:  MOVF   2C,W
+02B4:  SUBLW  06
+02B5:  BTFSS  03.0
+02B6:  GOTO   2CA
+02B7:  BTFSS  03.2
+02B8:  GOTO   2BD
+02B9:  MOVF   2B,W
+02BA:  SUBLW  EE
+02BB:  BTFSS  03.0
+02BC:  GOTO   2CA
+....................             { 
+....................               pwm+=v_inc; 
+02BD:  MOVLW  AF
+02BE:  ADDWF  2B,F
+02BF:  BTFSC  03.0
+02C0:  INCF   2C,F
+....................               pwm_servo(Servo,25,pwm); 
+02C1:  MOVLW  30
+02C2:  MOVWF  35
+02C3:  MOVLW  19
+02C4:  MOVWF  36
+02C5:  MOVF   2C,W
+02C6:  MOVWF  38
+02C7:  MOVF   2B,W
+02C8:  MOVWF  37
+02C9:  CALL   07F
+....................             } 
+....................             break; 
+02CA:  GOTO   34A
+....................           case 'I':   //Adelante - Derecha 
+....................             output_high(Adelante); 
+02CB:  BSF    03.5
+02CC:  BCF    05.2
+02CD:  BCF    03.5
+02CE:  BSF    05.2
+....................             if(pwm<v_derecha) 
+02CF:  MOVF   2C,W
+02D0:  SUBLW  06
+02D1:  BTFSS  03.0
+02D2:  GOTO   2E6
+02D3:  BTFSS  03.2
+02D4:  GOTO   2D9
+02D5:  MOVF   2B,W
+02D6:  SUBLW  EE
+02D7:  BTFSS  03.0
+02D8:  GOTO   2E6
+....................             { 
+....................               pwm+=v_inc; 
+02D9:  MOVLW  AF
+02DA:  ADDWF  2B,F
+02DB:  BTFSC  03.0
+02DC:  INCF   2C,F
+....................               pwm_servo(Servo,25,pwm); 
+02DD:  MOVLW  30
+02DE:  MOVWF  35
+02DF:  MOVLW  19
+02E0:  MOVWF  36
+02E1:  MOVF   2C,W
+02E2:  MOVWF  38
+02E3:  MOVF   2B,W
+02E4:  MOVWF  37
+02E5:  CALL   07F
+....................             } 
+....................             break; 
+02E6:  GOTO   34A
+....................           case 'J':   //Atras - Derecha 
+....................             output_high(Atras); 
+02E7:  BSF    03.5
+02E8:  BCF    06.4
+02E9:  BCF    03.5
+02EA:  BSF    06.4
+....................             if(pwm<v_derecha) 
+02EB:  MOVF   2C,W
+02EC:  SUBLW  06
+02ED:  BTFSS  03.0
+02EE:  GOTO   302
+02EF:  BTFSS  03.2
+02F0:  GOTO   2F5
+02F1:  MOVF   2B,W
+02F2:  SUBLW  EE
+02F3:  BTFSS  03.0
+02F4:  GOTO   302
+....................             { 
+....................               pwm+=v_inc; 
+02F5:  MOVLW  AF
+02F6:  ADDWF  2B,F
+02F7:  BTFSC  03.0
+02F8:  INCF   2C,F
+....................               pwm_servo(Servo,25,pwm); 
+02F9:  MOVLW  30
+02FA:  MOVWF  35
+02FB:  MOVLW  19
+02FC:  MOVWF  36
+02FD:  MOVF   2C,W
+02FE:  MOVWF  38
+02FF:  MOVF   2B,W
+0300:  MOVWF  37
+0301:  CALL   07F
+....................             } 
+....................             break; 
+0302:  GOTO   34A
+....................           case 'G':   //Adelante Izquierda 
+....................             output_high(Adelante); 
+0303:  BSF    03.5
+0304:  BCF    05.2
+0305:  BCF    03.5
+0306:  BSF    05.2
+....................             if(pwm>v_izquierda) 
+0307:  MOVF   2C,W
+0308:  SUBLW  03
+0309:  BTFSC  03.0
+030A:  GOTO   321
+030B:  XORLW  FF
+030C:  BTFSS  03.2
+030D:  GOTO   312
+030E:  MOVF   2B,W
+030F:  SUBLW  33
+0310:  BTFSC  03.0
+0311:  GOTO   321
+....................             { 
+....................               pwm-=v_inc; 
+0312:  MOVLW  AF
+0313:  SUBWF  2B,F
+0314:  MOVLW  00
+0315:  BTFSS  03.0
+0316:  MOVLW  01
+0317:  SUBWF  2C,F
+....................               pwm_servo(Servo,25,pwm); 
+0318:  MOVLW  30
+0319:  MOVWF  35
+031A:  MOVLW  19
+031B:  MOVWF  36
+031C:  MOVF   2C,W
+031D:  MOVWF  38
+031E:  MOVF   2B,W
+031F:  MOVWF  37
+0320:  CALL   07F
+....................             } 
+....................             break; 
+0321:  GOTO   34A
+....................           case 'H':   //Adelante Izquierda 
+....................             output_high(Atras); 
+0322:  BSF    03.5
+0323:  BCF    06.4
+0324:  BCF    03.5
+0325:  BSF    06.4
+....................             if(pwm>v_izquierda) 
+0326:  MOVF   2C,W
+0327:  SUBLW  03
+0328:  BTFSC  03.0
+0329:  GOTO   340
+032A:  XORLW  FF
+032B:  BTFSS  03.2
+032C:  GOTO   331
+032D:  MOVF   2B,W
+032E:  SUBLW  33
+032F:  BTFSC  03.0
+0330:  GOTO   340
+....................             { 
+....................               pwm-=v_inc; 
+0331:  MOVLW  AF
+0332:  SUBWF  2B,F
+0333:  MOVLW  00
+0334:  BTFSS  03.0
+0335:  MOVLW  01
+0336:  SUBWF  2C,F
+....................               pwm_servo(Servo,25,pwm); 
+0337:  MOVLW  30
+0338:  MOVWF  35
+0339:  MOVLW  19
+033A:  MOVWF  36
+033B:  MOVF   2C,W
+033C:  MOVWF  38
+033D:  MOVF   2B,W
+033E:  MOVWF  37
+033F:  CALL   07F
+....................             } 
+....................             break; 
+0340:  GOTO   34A
+....................           case 'S':   //Stop 
+....................             output_low(Adelante); 
+0341:  BSF    03.5
+0342:  BCF    05.2
+0343:  BCF    03.5
+0344:  BCF    05.2
+....................             output_low(Atras); 
+0345:  BSF    03.5
+0346:  BCF    06.4
+0347:  BCF    03.5
+0348:  BCF    06.4
+....................             break; 
+0349:  GOTO   34A
+....................           } 
+....................     } 
+....................     switch(dato) 
+....................     { 
+034A:  MOVF   29,W
+034B:  XORLW  76
+034C:  BTFSC  03.2
+034D:  GOTO   364
+034E:  XORLW  32
+034F:  BTFSC  03.2
+0350:  GOTO   36E
+0351:  XORLW  1C
+0352:  BTFSC  03.2
+0353:  GOTO   374
+0354:  XORLW  20
+0355:  BTFSC  03.2
+0356:  GOTO   378
+0357:  XORLW  2F
+0358:  BTFSC  03.2
+0359:  GOTO   37F
+035A:  XORLW  20
+035B:  BTFSC  03.2
+035C:  GOTO   384
+035D:  XORLW  22
+035E:  BTFSC  03.2
+035F:  GOTO   389
+0360:  XORLW  20
+0361:  BTFSC  03.2
+0362:  GOTO   390
+0363:  GOTO   397
+....................     //No dependientes del modo automatico 
+....................     case 'v': 
+....................       f_auto=false; 
+0364:  BCF    28.2
+....................       output_low(Adelante); 
+0365:  BSF    03.5
+0366:  BCF    05.2
+0367:  BCF    03.5
+0368:  BCF    05.2
+....................       output_low(Atras); 
+0369:  BSF    03.5
+036A:  BCF    06.4
+036B:  BCF    03.5
+036C:  BCF    06.4
+....................       break; 
+036D:  GOTO   397
+....................     case 'D':   //Desconectado 
+....................       Portb=0x80; 
+036E:  MOVLW  80
+036F:  MOVWF  06
+....................       disable_interrupts(int_timer0); 
+0370:  BCF    0B.5
+....................       reset_cpu(); 
+0371:  CLRF   0A
+0372:  GOTO   000
+....................       break; 
+0373:  GOTO   397
+....................      case 'X':   //Intermitentes on 
+....................       set_timer0(0); 
+0374:  CLRF   01
+....................       f_inter=true;  
+0375:  BSF    28.1
+....................       enable_interrupts(int_timer0); 
+0376:  BSF    0B.5
+....................       break; 
+0377:  GOTO   397
+....................     case 'x':   //Intermitentes off 
+....................       disable_interrupts(int_timer0); 
+0378:  BCF    0B.5
+....................       f_inter=false; 
+0379:  BCF    28.1
+....................       output_low(LucesT); 
+037A:  BSF    03.5
+037B:  BCF    06.6
+037C:  BCF    03.5
+037D:  BCF    06.6
+....................       break; 
+037E:  GOTO   397
+....................     case 'W': //Luces D on 
+....................       output_high(LucesD); 
+037F:  BSF    03.5
+0380:  BCF    06.5
+0381:  BCF    03.5
+0382:  BSF    06.5
+....................       break; 
+0383:  GOTO   397
+....................     case 'w': //Luces D off 
+....................       output_low(LucesD); 
+0384:  BSF    03.5
+0385:  BCF    06.5
+0386:  BCF    03.5
+0387:  BCF    06.5
+....................       break; 
+0388:  GOTO   397
+....................     case 'U': //Luces T on 
+....................       if(!f_inter) 
+0389:  BTFSC  28.1
+038A:  GOTO   38F
+....................         output_high(LucesT); 
+038B:  BSF    03.5
+038C:  BCF    06.6
+038D:  BCF    03.5
+038E:  BSF    06.6
+....................       break; 
+038F:  GOTO   397
+....................     case 'u': //Luces T off 
+....................       if(!f_inter) 
+0390:  BTFSC  28.1
+0391:  GOTO   396
+....................         output_low(LucesT); 
+0392:  BSF    03.5
+0393:  BCF    06.6
+0394:  BCF    03.5
+0395:  BCF    06.6
+....................       break; 
+0396:  GOTO   397
+....................     }  
+....................   } 
+.................... } 
+0397:  BCF    0A.3
+0398:  GOTO   404 (RETURN)
+.................... long sensor_distancia(int s_trig,int s_echo) 
+.................... { 
+....................   output_high(s_trig);                    
+*
+00DC:  MOVF   35,W
+00DD:  MOVWF  3C
+00DE:  MOVLW  01
+00DF:  MOVWF  3D
+00E0:  CLRF   3F
+00E1:  CLRF   3E
+00E2:  CALL   050
+00E3:  MOVF   35,W
+00E4:  MOVWF  3C
+00E5:  CLRF   3D
+00E6:  CLRF   3F
+00E7:  MOVLW  80
+00E8:  MOVWF  3E
+00E9:  CALL   050
+....................   delay_us(20);                        
+00EA:  MOVLW  21
+00EB:  MOVWF  77
+00EC:  DECFSZ 77,F
+00ED:  GOTO   0EC
+....................   output_low(s_trig); 
+00EE:  MOVF   35,W
+00EF:  MOVWF  3C
+00F0:  CLRF   3D
+00F1:  CLRF   3F
+00F2:  CLRF   3E
+00F3:  CALL   050
+00F4:  MOVF   35,W
+00F5:  MOVWF  3C
+00F6:  CLRF   3D
+00F7:  CLRF   3F
+00F8:  MOVLW  80
+00F9:  MOVWF  3E
+00FA:  CALL   050
+....................   while(!input(s_echo));                      
+00FB:  MOVF   36,W
+00FC:  MOVWF  3C
+00FD:  MOVLW  01
+00FE:  MOVWF  3D
+00FF:  CLRF   3F
+0100:  MOVLW  80
+0101:  MOVWF  3E
+0102:  CALL   050
+0103:  MOVF   36,W
+0104:  MOVWF  37
+0105:  CLRF   39
+0106:  CLRF   38
+0107:  CALL   0C5
+0108:  BTFSS  78.0
+0109:  GOTO   0FB
+....................   set_timer1(0);                          
+010A:  CLRF   0F
+010B:  CLRF   0E
+....................   while(input(s_echo));                      
+010C:  MOVF   36,W
+010D:  MOVWF  3C
+010E:  MOVLW  01
+010F:  MOVWF  3D
+0110:  CLRF   3F
+0111:  MOVLW  80
+0112:  MOVWF  3E
+0113:  CALL   050
+0114:  MOVF   36,W
+0115:  MOVWF  37
+0116:  CLRF   39
+0117:  CLRF   38
+0118:  CALL   0C5
+0119:  BTFSC  78.0
+011A:  GOTO   10C
+....................   return (get_timer1()/290);     
+011B:  MOVF   0F,W
+011C:  MOVWF  7A
+011D:  MOVF   0E,W
+011E:  MOVWF  77
+011F:  MOVF   0F,W
+0120:  SUBWF  7A,W
+0121:  BTFSS  03.2
+0122:  GOTO   11B
+0123:  MOVF   77,W
+0124:  MOVWF  37
+0125:  MOVF   7A,W
+0126:  MOVWF  38
+0127:  MOVF   38,W
+0128:  MOVWF  3A
+0129:  MOVF   37,W
+012A:  MOVWF  39
+012B:  MOVLW  01
+012C:  MOVWF  3C
+012D:  MOVLW  22
+012E:  MOVWF  3B
+*
+0153:  MOVF   79,W
+0154:  MOVWF  7A
+0155:  MOVF   79,W
+0156:  MOVWF  79
+.................... } 
+0157:  RETURN
+.................... void modo_automatico() 
+.................... { 
+....................   if(sensor_distancia(TRIG,ECHO)>25) 
+*
+016E:  MOVLW  29
+016F:  MOVWF  35
+0170:  MOVLW  28
+0171:  MOVWF  36
+0172:  CALL   0DC
+0173:  MOVF   79,W
+0174:  MOVWF  36
+0175:  MOVF   78,W
+0176:  MOVWF  35
+0177:  MOVF   36,F
+0178:  BTFSS  03.2
+0179:  GOTO   17E
+017A:  MOVF   35,W
+017B:  SUBLW  19
+017C:  BTFSC  03.0
+017D:  GOTO   187
+....................   { 
+....................     output_high(Adelante); 
+017E:  BSF    03.5
+017F:  BCF    05.2
+0180:  BCF    03.5
+0181:  BSF    05.2
+....................     output_low(Atras); 
+0182:  BSF    03.5
+0183:  BCF    06.4
+0184:  BCF    03.5
+0185:  BCF    06.4
+....................   } 
+....................   else 
+0186:  GOTO   224
+....................   { 
+....................     output_low(Adelante); 
+0187:  BSF    03.5
+0188:  BCF    05.2
+0189:  BCF    03.5
+018A:  BCF    05.2
+....................     pwm_servo(Servo,40,v_izquierda); //izquierda 
+018B:  MOVLW  30
+018C:  MOVWF  35
+018D:  MOVLW  28
+018E:  MOVWF  36
+018F:  MOVLW  04
+0190:  MOVWF  38
+0191:  MOVLW  33
+0192:  MOVWF  37
+0193:  CALL   07F
+....................     izquierda=sensor_distancia(TRIG,ECHO); 
+0194:  MOVLW  29
+0195:  MOVWF  35
+0196:  MOVLW  28
+0197:  MOVWF  36
+0198:  CALL   0DC
+0199:  MOVF   79,W
+019A:  MOVWF  30
+019B:  MOVF   78,W
+019C:  MOVWF  2F
+....................     pwm_servo(Servo,40,v_derecha); //derecha 
+019D:  MOVLW  30
+019E:  MOVWF  35
+019F:  MOVLW  28
+01A0:  MOVWF  36
+01A1:  MOVLW  06
+01A2:  MOVWF  38
+01A3:  MOVLW  EF
+01A4:  MOVWF  37
+01A5:  CALL   07F
+....................     derecha=sensor_distancia(TRIG,ECHO); 
+01A6:  MOVLW  29
+01A7:  MOVWF  35
+01A8:  MOVLW  28
+01A9:  MOVWF  36
+01AA:  CALL   0DC
+01AB:  MOVF   79,W
+01AC:  MOVWF  32
+01AD:  MOVF   78,W
+01AE:  MOVWF  31
+....................     if(izquierda>derecha) 
+01AF:  MOVF   32,W
+01B0:  SUBWF  30,W
+01B1:  BTFSS  03.0
+01B2:  GOTO   1EF
+01B3:  BTFSS  03.2
+01B4:  GOTO   1B9
+01B5:  MOVF   2F,W
+01B6:  SUBWF  31,W
+01B7:  BTFSC  03.0
+01B8:  GOTO   1EF
+....................     { 
+....................       pwm_servo(Servo,40,v_derecha); 
+01B9:  MOVLW  30
+01BA:  MOVWF  35
+01BB:  MOVLW  28
+01BC:  MOVWF  36
+01BD:  MOVLW  06
+01BE:  MOVWF  38
+01BF:  MOVLW  EF
+01C0:  MOVWF  37
+01C1:  CALL   07F
+....................       output_high(Atras); 
+01C2:  BSF    03.5
+01C3:  BCF    06.4
+01C4:  BCF    03.5
+01C5:  BSF    06.4
+....................       delay_ms(500); 
+01C6:  MOVLW  02
+01C7:  MOVWF  35
+01C8:  MOVLW  FA
+01C9:  MOVWF  36
+01CA:  CALL   158
+01CB:  DECFSZ 35,F
+01CC:  GOTO   1C8
+....................       output_low(Atras); 
+01CD:  BSF    03.5
+01CE:  BCF    06.4
+01CF:  BCF    03.5
+01D0:  BCF    06.4
+....................       pwm_servo(Servo,40,v_izquierda); //izquierda 
+01D1:  MOVLW  30
+01D2:  MOVWF  35
+01D3:  MOVLW  28
+01D4:  MOVWF  36
+01D5:  MOVLW  04
+01D6:  MOVWF  38
+01D7:  MOVLW  33
+01D8:  MOVWF  37
+01D9:  CALL   07F
+....................       output_high(Adelante); 
+01DA:  BSF    03.5
+01DB:  BCF    05.2
+01DC:  BCF    03.5
+01DD:  BSF    05.2
+....................       delay_ms(700); 
+01DE:  MOVLW  04
+01DF:  MOVWF  35
+01E0:  MOVLW  AF
+01E1:  MOVWF  36
+01E2:  CALL   158
+01E3:  DECFSZ 35,F
+01E4:  GOTO   1E0
+....................       pwm_servo(Servo,40,v_centro); 
+01E5:  MOVLW  30
+01E6:  MOVWF  35
+01E7:  MOVLW  28
+01E8:  MOVWF  36
+01E9:  MOVLW  05
+01EA:  MOVWF  38
+01EB:  MOVLW  91
+01EC:  MOVWF  37
+01ED:  CALL   07F
+....................     } 
+....................     else 
+01EE:  GOTO   224
+....................     { 
+....................       pwm_servo(Servo,40,v_izquierda); 
+01EF:  MOVLW  30
+01F0:  MOVWF  35
+01F1:  MOVLW  28
+01F2:  MOVWF  36
+01F3:  MOVLW  04
+01F4:  MOVWF  38
+01F5:  MOVLW  33
+01F6:  MOVWF  37
+01F7:  CALL   07F
+....................       output_high(Atras); 
+01F8:  BSF    03.5
+01F9:  BCF    06.4
+01FA:  BCF    03.5
+01FB:  BSF    06.4
+....................       delay_ms(500); 
+01FC:  MOVLW  02
+01FD:  MOVWF  35
+01FE:  MOVLW  FA
+01FF:  MOVWF  36
+0200:  CALL   158
+0201:  DECFSZ 35,F
+0202:  GOTO   1FE
+....................       output_low(Atras); 
+0203:  BSF    03.5
+0204:  BCF    06.4
+0205:  BCF    03.5
+0206:  BCF    06.4
+....................       pwm_servo(Servo,40,v_derecha); 
+0207:  MOVLW  30
+0208:  MOVWF  35
+0209:  MOVLW  28
+020A:  MOVWF  36
+020B:  MOVLW  06
+020C:  MOVWF  38
+020D:  MOVLW  EF
+020E:  MOVWF  37
+020F:  CALL   07F
+....................       output_high(Adelante); 
+0210:  BSF    03.5
+0211:  BCF    05.2
+0212:  BCF    03.5
+0213:  BSF    05.2
+....................       delay_ms(700); 
+0214:  MOVLW  04
+0215:  MOVWF  35
+0216:  MOVLW  AF
+0217:  MOVWF  36
+0218:  CALL   158
+0219:  DECFSZ 35,F
+021A:  GOTO   216
+....................       pwm_servo(Servo,40,v_centro); 
+021B:  MOVLW  30
+021C:  MOVWF  35
+021D:  MOVLW  28
+021E:  MOVWF  36
+021F:  MOVLW  05
+0220:  MOVWF  38
+0221:  MOVLW  91
+0222:  MOVWF  37
+0223:  CALL   07F
+....................     }   
+....................   } 
+.................... } 
+
+Configuration Fuses:
+   Word  1: 3F2A   NOWDT NOPUT HS MCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

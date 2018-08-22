@@ -1,0 +1,134 @@
+#include <16f886.h>
+#fuses HS
+#fuses MCLR
+#fuses NOWDT
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#fuses FCMEN
+#fuses IESO
+
+#use delay(clock=20M)
+
+#BYTE TRISA=0x85
+#BYTE TRISB=0x86
+#BYTE TRISC=0x87
+#BYTE PORTA=0x05
+#BYTE PORTB=0x06
+#BYTE PORTC=0x07
+//Funciones
+int separar(int pos,long n);
+//Variables generales
+   short modo=1;
+   int a,numero[4],num1,p,inicio=0,fin=8,t=8;
+   long num=0;
+//Cadenas de constantes
+   int const sec[10]=
+   {
+      0b00000011,0b10011111,0b00100101,0b00001101,0b10011001,
+      0b01001001,0b01000001,0b00011111,0b00000001,0b00011001
+   };
+   int const mtz[]=
+   {
+      0     ,0    ,0    ,0    ,0    ,0,//Espacio
+      255   ,8    ,8    ,8    ,255  ,0,//H
+      126   ,129  ,129  ,129  ,126  ,0,//O
+      255   ,1    ,1    ,1    ,1    ,0,//L
+      127   ,136  ,136  ,136  ,127  ,0,//A
+      0     ,0    ,0    ,0    ,0    ,0,//Espacio
+      255   ,64   ,32   ,64   ,255  ,0,//M
+      254   ,1    ,1    ,1    ,254  ,0,//U
+      255   ,16   ,8    ,4    ,255  ,0,//N
+      255   ,129  ,129  ,129  ,126  ,0,//D
+      126   ,129  ,129  ,129  ,126  ,0,//O
+      0     ,0    ,253  ,253  ,0    ,0,//!
+      0     ,0    ,0    ,0    ,0,0,0,0,//Espacio
+   };//Total =80
+//Programa principal
+void main()
+{
+   Trisb=0;
+   Trisc=0;
+   trisa=0b11110000;
+   Portc=255;
+   Porta=255;
+   Portb=0;
+   do
+   {
+      while(modo)
+      {
+         for(a=0;a<t;a++)
+         {
+            Portb=1;
+            for(p=inicio;p<fin;p++)
+            {
+               Portc=mtz[p];
+               delay_us(2750);
+               portb<<=1;
+            }
+            if(input(pin_a4)==0)
+            {
+               modo=false;
+               portb=0;
+               delay_ms(200);
+               break;
+            }
+         }
+         if(input(pin_a5)==0)
+            {
+               t++;
+               if(t>20)
+                  t=1;
+            }
+         inicio++;
+         fin++;
+         if(fin>=80)
+         {inicio=0;fin=8;}
+      }
+      while(!modo)
+      {  
+         do
+         {
+            for(a=0;a<4;a++)
+            {numero[a]=separar(a,num);}
+            for(num1=0;num1<15;num1++)
+            {
+               for(a=0;a<4;a++)
+               {
+                  switch(a)
+                  {
+                     case 0:porta=0b1110;break;
+                     case 1:porta=0b1101;break;
+                     case 2:porta=0b1011;break;
+                     case 3:porta=0b0111;break;
+                  }
+                  portc=sec[numero[a]];
+                  delay_ms(4);
+               }
+               if(input(pin_a4)==0){break;}
+               if(input(pin_a5)==0)
+               {
+                  modo=true;
+                  Porta=0b1111;
+                  break;
+               }
+            }
+            if(modo==true){break;}
+            num++;
+         }while(num<10000);
+         if(num>10000)num=0;
+      }
+   }while(true);
+}
+int separar(int pos,long n)
+{
+   switch(pos)
+   {
+      case 0:return (n%10);break;
+      case 1:return (((n%1000)%100)/10);break;
+      case 2:return ((n%1000)/100);break;
+      case 3:return (n/1000);break;
+   }
+}

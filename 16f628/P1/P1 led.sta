@@ -1,0 +1,43 @@
+
+ROM used: 66 (3%)
+          66 (3%) including unused fragments
+
+          0 Average locations per line
+          6 Average locations per statement
+
+RAM used: 6 (3%) at main() level
+          8 (4%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   30    11 100  P1 led.c
+  224     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  254    11 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21  32   1    67  1.2  @delay_ms1
+0     41  62   1   240  4.1  main
+
+Program metrics:
+    Functions               2
+    Statements              11
+    Comments                63
+    Volume (V)              362
+    Difficilty (D)          5.3
+    Effort to implement (E) 1911
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    150
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF    62  1982  
+
+
+

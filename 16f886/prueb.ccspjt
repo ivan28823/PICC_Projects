@@ -1,0 +1,22 @@
+[PROJECT]
+Target=prueb.hex
+Processor_Text=PIC16F886
+CCSVersion=5.007
+Compiler=PCM
+[Target Data]
+FileList=prueb.c
+[Directories]
+Include=C:\Program Files\PICC\Devices\;C:\Program Files\PICC\DriversC:\Program Files\PICC\Devices\;C:\Program Files\PICC\Drivers\;C:\Program Files\PICC\Drivers\C:\Program Files\PICC\Devices\
+[prueb.c]
+Type=4
+[mru-list]
+1=prueb.c
+[Opened Files]
+1=prueb.c
+2=..\..\..\..\..\..\..\Program Files\PICC\Devices\16f886.h
+3=
+4=..\P1\P1 led.c
+5=
+[Units]
+Count=1
+1=prueb (main)

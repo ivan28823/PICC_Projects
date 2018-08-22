@@ -1,0 +1,4 @@
+>>> Warning 216 "receptor 677.c" Line 272(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "receptor 677.c" Line 272(0,1): Interrupts disabled during call to prevent re-entrancy:  (pulsadores)
+      Memory usage:   ROM=65%      RAM=18% - 28%
+      0 Errors,  2 Warnings.

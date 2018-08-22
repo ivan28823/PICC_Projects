@@ -1,0 +1,139 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+005.0   lcdrw
+006     PORTB
+006     lcd
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     lcdline
+02A     x
+02B     y
+02C     dato
+02D-02E MAIN.dis
+02F-030 MAIN.timer
+031     lcd_init.i
+031-032 @PRINTF_LU_99.P1
+031     sensor_distancia.trig
+031     MAIN.@SCRATCH1
+032     sensor_distancia.echo
+032     lcd_init.@SCRATCH1
+033-034 sensor_distancia.timer
+033     @PRINTF_LU_99.@SCRATCH1
+034     @PRINTF_LU_99.@SCRATCH2
+035     @READBITA.P1
+035     @WRITEBITA.P2
+035     @PRINTF_LU_99.@SCRATCH3
+035     sensor_distancia.@SCRATCH1
+036     @WRITEBITA.P1
+036-037 @READBITA.P2
+036     @PRINTF_LU_99.@SCRATCH4
+036     sensor_distancia.@SCRATCH2
+037-038 @DIV1616.P1
+037-038 @WRITEBITA.P2
+037     @PRINTF_LU_99.@SCRATCH5
+038     @PRINTF_LU_99.@SCRATCH6
+039-03A @DIV1616.P1
+039     @PRINTF_LU_99.@SCRATCH7
+03B     @DIV1616.@SCRATCH1
+043     @PRINTF_D_99.P1
+044     @PRINTF_D_99.P1
+045     @PRINTF_D_99.@SCRATCH1
+046     @PRINTF_D_99.@SCRATCH2
+047     @PRINTF_D_99.@SCRATCH3
+048     @PRINTF_D_99.@SCRATCH4
+049     @DIV88.P1
+049     lcd_putc.c
+04A     @delay_ms1.P1
+04A     @DIV88.P2
+04A     lcd_gotoxy.x
+04B     lcd_gotoxy.y
+04B     @DIV88.@SCRATCH1
+04C     lcd_gotoxy.address
+04D     lcd_send_byte.address
+04E     lcd_send_byte.n
+04F     lcd_read_byte.low
+04F     lcd_send_byte.@SCRATCH1
+050     lcd_send_nibble.n
+050     lcd_read_byte.high
+051     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085.0   trisrw
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+012F  @delay_ms1
+0031  LCD_INIT_STRING
+00A2  lcd_read_byte
+0211  lcd_send_nibble
+00A1  lcd_send_byte
+01E0  lcd_init
+00F7  lcd_gotoxy
+0112  @goto10084
+0143  lcd_putc
+016B  datos_recividos
+011A  @DIV88
+0186  @PRINTF_D_99
+0393  MAIN
+0039  @const123
+007E  @const126
+032A  @PRINTF_LU_99
+026B  sensor_distancia
+0234  @WRITEBITA
+0254  @READBITA
+0301  @DIV1616
+0393  @cinit1
+03A4  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f628\DIRI bluetooth\Prueba lcd\
+
+Project Files:
+    prueba.c                                                [01-abr.-16 22:16  CRC=DFE68216]
+    ..\..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h [28-feb.-12 12:43  CRC=0C2CE1D5]
+    lib_lcd2x4pb.c                                          [03-mar.-16 22:19  CRC=33D44050]
+
+Source signature=53BBE48B
+
+Units:
+    prueba (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      prueba.err
+    Ext Symbols: prueba.esym
+    INHX8:       prueba.hex
+    Symbols:     prueba.sym
+    List:        prueba.lst
+    Debug/COFF:  prueba.cof
+    Project:     prueba.PJT
+    Call Tree:   prueba.tre
+    Statistics:  prueba.STA

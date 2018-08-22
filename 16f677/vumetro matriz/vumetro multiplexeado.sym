@@ -1,0 +1,86 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     @INTERRUPT_AREA
+02C     @INTERRUPT_AREA
+02D     time
+02E     i
+02F-036 sec
+037     vca
+038.0   txt
+039     texto.inicio
+039     MAIN.@SCRATCH1
+03A     texto.tope
+03A     ufono.uf
+03A     @delay_us1.P1
+03A     MAIN.@SCRATCH2
+03B     comprobar_adc.analog
+03C     cambio.@SCRATCH1
+03D     @delay_ms1.P1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+0053  @delay_ms1
+00CE  @delay_us1
+0066  cambio
+0140  MAIN
+00DC  comprobar_adc
+011C  ufono
+002F  tex
+008C  texto
+0140  @cinit1
+0156  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Microcontroladores\PIC\Pic C\16f677\vumetro matriz\
+
+Project Files:
+    vumetro multiplexeado.c                                 [25-sep.-15 20:56  CRC=B9DBB8CF]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f677.h [28-feb.-12 13:43  CRC=7774C0AB]
+
+Source signature=A8C53A25
+
+Units:
+    vumetro multiplexeado (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      vumetro multiplexeado.err
+    Ext Symbols: vumetro multiplexeado.esym
+    INHX8:       vumetro multiplexeado.hex
+    Symbols:     vumetro multiplexeado.sym
+    List:        vumetro multiplexeado.lst
+    Debug/COFF:  vumetro multiplexeado.cof
+    Project:     vumetro multiplexeado.PJT
+    Call Tree:   vumetro multiplexeado.tre
+    Statistics:  vumetro multiplexeado.STA

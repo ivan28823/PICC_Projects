@@ -1,0 +1,29 @@
+ÀÄLCdser1
+   ÀÄMAIN  0/73  Ram=1
+      ÃÄ??0??
+      ÃÄlcd_serial_init  0/4  Ram=0
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄlcd_clear  0/7  Ram=0
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄlcd_serial_gotoxy  0/19  Ram=2
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄ@const78  0/14  Ram=0
+      ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ÃÄlcd_serial_gotoxy  0/19  Ram=2
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄ@PRINTF_L32U_65  0/87  Ram=12
+      ³  ÃÄ@DIV3232  0/79  Ram=13
+      ³  ÃÄ@PUTCHAR_1_  0/34  Ram=1
+      ³  ÀÄ@DIV3232  0/79  Ram=13
+      ÀÄ@delay_ms1  0/21  Ram=1

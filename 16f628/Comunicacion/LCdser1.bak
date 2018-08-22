@@ -1,0 +1,37 @@
+#include <16f628a.h>
+#fuses INTRC_IO
+#fuses NOWDT
+#fuses NOMCLR
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#use delay(clock=4M)
+
+#BYTE TRISA=0x85
+#BYTE PORTA=0x05
+#BYTE TRISB=0x86
+#BYTE PORTB=0x06                                              
+/////////////////////////////////////////////////////////////////////////////////////
+//Para usar el lcd pues usa 6 bits de stop                                         //
+#use rs232(baud=9600, xmit=PIN_A0, parity=n, bits=8, stop=1,  force_sw, stream=lcd)//
+#include <lcd_serial.c>                                                            //
+/////////////////////////////////////////////////////////////////////////////////////
+
+void main()
+{
+   lcd_serial_init();
+   Trisa=0;
+   int32 a=0;
+   while(true)
+   {
+      lcd_clear();
+      lcd_serial_gotoxy(4,1);
+      fprintf(lcd,"Variable:");
+      lcd_serial_gotoxy(3,2);
+      fprintf(lcd,"%Lu",a);
+      a++;
+      delay_ms(100);
+   }
+}

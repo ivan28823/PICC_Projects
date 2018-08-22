@@ -1,0 +1,79 @@
+
+ROM used:   1650/2048 (81%)
+            1650/2048 (81%) including unused fragments
+
+            1.5 Average locations per line
+            7.0 Average locations per statement
+
+RAM used:   51/128 (40%) at main() level
+            75/128 (59%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  244   143  61  Cerradura.c
+  625     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files\PICC\Devices\16f677.h
+  172    71  30  lcd_pc_a_677.c
+   64    22   9  keypad_4x4.c
+----- -----
+ 1105   236 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   1    1             @delay_ms1
+0      8   0    0             @const573
+ Inline         3   463  4.3  lcd_read_byte
+0     12   1    1   112  2.2  lcd_send_nibble
+0     60   4    3   304  4.3  lcd_send_byte
+0     55   3    2   436  4.7  lcd_init
+0     26   2    3   321  5.5  lcd_gotoxy
+0      8   0    0             @goto10532
+0     45   3    1   308  5.0  lcd_putc
+0     20   1    0             @const602
+ Inline         7   867  8.7  kbd_getc
+0     15   1    0             @const616
+0     14   1    0   156  3.0  AbrirIntExt
+0     12   1    0   102  3.3  LucesLcd
+0    527  32    2  2652 11.5  MAIN
+0     30   2    0             @const642
+0     16   1    0             @const643
+0     27   2    0             @const644
+0     37   2    2             @MUL88
+0     34   2    0             @const649
+0     88   5    8             @PRINTF_LU_596
+0     34   2    0             @const653
+0     36   2    0             @const654
+0     34   2    0             @const655
+0     35   2    0             @const657
+0     77   5    2   453  7.4  IntrClave
+0     29   2    0             @const659
+0     25   2    3   182  6.1  CompararClave
+0     23   1    2   159  5.3  IsMaster
+0    213  13    0   167  3.1  ReciveTecla
+ Inline         5   421  5.7  IsTouched
+ Inline         5             @DIV1616
+0     39   2    1   272  4.2  Abrir
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               16
+    Statements              236
+    Comments                187
+    Volume (V)              11785
+    Difficulty (D)          83.0
+    Effort to implement (E) 978654
+    Time to implement (T)   15 hours, 6 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   40
+    Maintainability (MI)    51
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00032    47  0  
+00033-007FF  1599  398  
+
+
+

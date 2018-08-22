@@ -1,0 +1,58 @@
+
+ROM used: 1030 (25%)
+          1030 (25%) including unused fragments
+
+          2 Average locations per line
+          7 Average locations per statement
+
+RAM used: 26 (10%) at main() level
+          39 (15%) worst case
+
+Stack used: 4 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  255   154 100  bluetooth2_1.c
+  223     0   0  ..\..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h
+----- -----
+  478   154 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   2   1             @delay_ms1
+0     15   1   1             @delay_us1
+0      8   1   0    37  1.3  recepciion_datos
+0     15   1   0    82  3.1  Intermitentes
+0     84   8   0   447  3.8  MAIN
+0     70   7   7   235  4.7  pwm_servo
+0     32   3   6             @WRITEBITA
+0    557  54   0  2866 11.8  opciones
+ Inline        5             @MUL1616
+0     25   2   0             @goto10157
+0    124  12   4   204  3.8  sensor_distancia
+0     23   2   5             @READBITA
+ Inline        5             @DIV1616
+ Inline        2   979  3.9  modo_automatico
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               7
+    Statements              154
+    Comments                92
+    Volume (V)              6394
+    Difficulty (D)          32.6
+    Effort to implement (E) 208462
+    Time to implement (T)   3 hours, 13 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   35
+    Maintainability (MI)    53
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00038    53  0  
+00039-007FF   973  1018  
+00800-00FFF     0  2048  
+
+
+

@@ -1,0 +1,4 @@
+>>> Warning 202 "vumetro matriz.c" Line 132(14,20): Variable never used:   letras
+      Memory usage:   ROM=7%      RAM=2% - 5%
+      0 Errors,  1 Warnings.
+Build Successful.

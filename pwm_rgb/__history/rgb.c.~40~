@@ -1,0 +1,62 @@
+#include <18F4550.h>
+#device ADC=8   // adc a 8 bits
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode)
+
+#use delay(crystal=20000000)
+
+#BYTE LATD  = 0xF8C       // dereccionando el registro latd
+#BIT  RBPU  = 0xFF1.7     // pull-up all port b
+//  variables generales
+int8 cnt_tmr0 = 0, type = 0;    // variables auxiliares
+int8 Color1 = 0, Color2 = 0, Color3 = 0;  // variales para los colores
+/// interrupcion por timer 0
+#INT_TIMER0
+void  TIMER0_isr(void) {  //funcion para generar el pwm para cada color
+    if(!(++cnt_tmr0)){  // incrementa la variable auxiliar
+        if(Color1 > 0)  bit_set(LATD,0);  // pone en estado alto si no es 0
+        if(Color2 > 0)  bit_set(LATD,1);  // pone en estado alto si no es 0
+        if(Color3 > 0)  bit_set(LATD,2);  // pone en estado alto si no es 0
+      cnt_tmr0++; // incrementa
+    }
+    if(cnt_tmr0 == Color1)  bit_clear(LATD,0);  // pone en estado bajo si coinciden
+    if(cnt_tmr0 == Color2)  bit_clear(LATD,1);  // pone en estado bajo si coinciden
+    if(cnt_tmr0 == Color3)  bit_clear(LATD,2);  // pone en estado bajo si coinciden
+    set_timer0(200);  // precarga el timer 0
+}
+// programa principal
+void main(){
+   RBPU = 0;  // pull-up todo el puerto b
+   set_tris_a(0xFF);    // establece entradas/salidas
+   set_tris_d(0xF0);    // establece entradas/salidas
+   set_tris_b(0xFF);    // establece entradas/salidas
+
+   setup_adc(ADC_CLOCK_DIV_32 | ADC_TAD_MUL_8 | VSS_VDD );  // adc clock interno dividido en 64, 8 tda
+   setup_adc_ports(AN0);  // establece los canales analogicos
+   set_adc_channel(0);  // ADC channel 0
+
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1|RTCC_8_bit);   // TIMER0 interno a 8 bits
+   enable_interrupts(INT_TIMER0);     // habilita la interrupcion por timer 0
+   enable_interrupts(GLOBAL);         // habilita todas las interrupciones
+   int i;         // variable auxiliar
+   while(TRUE){     // bucle infinito
+     i = (int8) read_adc(); // lee el puerto analogico
+     switch(type){  // para seleccionar el color
+       // asigna el valor dependiendo del color
+       case 0: Color1 = i ;  break;
+       case 1: Color2 = i ;  break;
+       case 2: Color3 = i ;  break;
+     }
+     if(!input(PIN_B0)){    // si es presionado el boton
+        delay_ms(1);    // rutina antirebote
+        while (!input(PIN_B0)); // rutina antirebote
+        type = type >= 2? 0 : type + 1; // selecciona el color
+     }
+     delay_us(50);    // pausa
+   }
+
+}

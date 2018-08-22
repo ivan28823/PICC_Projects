@@ -1,0 +1,3094 @@
+CCS PCH C Compiler, Version 5.007, 59972               13-ago.-18 21:31
+
+               Filename:   C:\Users\ivan-\Documents\MEGA\Compartido\Microcontroladores\ETS Microc\Ej2_rpm\Ej2.lst
+
+               ROM used:   6998 bytes (21%)
+                           Largest free fragment is 25766
+               RAM used:   98 (5%) at main() level
+                           148 (7%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 31
+
+*
+0000:  GOTO   1980
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  00,0E
+003C:  MOVFF  01,0F
+0040:  MOVFF  02,10
+0044:  MOVFF  03,11
+0048:  BTFSS  FF2.5
+004A:  GOTO   0054
+004E:  BTFSC  FF2.2
+0050:  GOTO   00CA
+0054:  BTFSS  FF2.4
+0056:  GOTO   0060
+005A:  BTFSC  FF2.1
+005C:  GOTO   00E8
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVF   04,W
+0098:  MOVFF  06,FE0
+009C:  MOVFF  05,FD8
+00A0:  RETFIE 0
+.................... #include <18F4550.h> 
+.................... //////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... #device PIC18F4550 
+00A2:  MOVFF  FF2,0D
+00A6:  BCF    FF2.7
+00A8:  CLRF   FF7
+00AA:  ADDLW  BC
+00AC:  MOVWF  FF6
+00AE:  MOVLW  00
+00B0:  ADDWFC FF7,F
+00B2:  TBLRD*+
+00B4:  MOVF   FF5,W
+00B6:  BTFSC  0D.7
+00B8:  BSF    FF2.7
+00BA:  RETURN 0
+00BC:  DATA C0,F9
+00BE:  DATA A4,B0
+00C0:  DATA 99,92
+00C2:  DATA 82,F8
+00C4:  DATA 80,98
+00C6:  DATA BF,FF
+00C8:  DATA 00,00
+*
+00F4:  MOVFF  81,88
+00F8:  MOVF   x85,W
+00FA:  XORWF  x88,F
+00FC:  BTFSS  x88.7
+00FE:  BRA    010A
+0100:  BCF    FD8.2
+0102:  BCF    FD8.0
+0104:  BTFSC  x81.7
+0106:  BSF    FD8.0
+0108:  BRA    0168
+010A:  MOVFF  81,88
+010E:  MOVFF  84,89
+0112:  MOVF   x80,W
+0114:  SUBWF  x89,F
+0116:  BZ    0124
+0118:  BTFSS  x88.7
+011A:  BRA    0168
+011C:  MOVF   FD8,W
+011E:  XORLW  01
+0120:  MOVWF  FD8
+0122:  BRA    0168
+0124:  MOVFF  85,89
+0128:  MOVF   x81,W
+012A:  SUBWF  x89,F
+012C:  BZ    013A
+012E:  BTFSS  x88.7
+0130:  BRA    0168
+0132:  MOVF   FD8,W
+0134:  XORLW  01
+0136:  MOVWF  FD8
+0138:  BRA    0168
+013A:  MOVFF  86,89
+013E:  MOVF   x82,W
+0140:  SUBWF  x89,F
+0142:  BZ    0150
+0144:  BTFSS  x88.7
+0146:  BRA    0168
+0148:  MOVF   FD8,W
+014A:  XORLW  01
+014C:  MOVWF  FD8
+014E:  BRA    0168
+0150:  MOVFF  87,89
+0154:  MOVF   x83,W
+0156:  SUBWF  x89,F
+0158:  BZ    0166
+015A:  BTFSS  x88.7
+015C:  BRA    0168
+015E:  MOVF   FD8,W
+0160:  XORLW  01
+0162:  MOVWF  FD8
+0164:  BRA    0168
+0166:  BCF    FD8.0
+0168:  RETURN 0
+*
+0470:  MOVLW  80
+0472:  BTFSC  FD8.1
+0474:  XORWF  x89,F
+0476:  CLRF   x8E
+0478:  CLRF   x8F
+047A:  MOVFF  85,8D
+047E:  MOVF   x89,W
+0480:  XORWF  x8D,F
+0482:  MOVF   x84,W
+0484:  BTFSC  FD8.2
+0486:  BRA    0640
+0488:  MOVWF  x8C
+048A:  MOVWF  00
+048C:  MOVF   x88,W
+048E:  BTFSC  FD8.2
+0490:  BRA    0652
+0492:  SUBWF  x8C,F
+0494:  BTFSC  FD8.2
+0496:  BRA    059A
+0498:  BNC   0514
+049A:  MOVFF  89,92
+049E:  BSF    x92.7
+04A0:  MOVFF  8A,91
+04A4:  MOVFF  8B,90
+04A8:  CLRF   x8F
+04AA:  BCF    FD8.0
+04AC:  RRCF   x92,F
+04AE:  RRCF   x91,F
+04B0:  RRCF   x90,F
+04B2:  RRCF   x8F,F
+04B4:  DECFSZ x8C,F
+04B6:  BRA    04A8
+04B8:  BTFSS  x8D.7
+04BA:  BRA    04C2
+04BC:  BSF    x8E.0
+04BE:  BRA    067A
+04C0:  BCF    x8E.0
+04C2:  BCF    x8C.0
+04C4:  BSF    x8E.4
+04C6:  CLRF   FEA
+04C8:  MOVLW  87
+04CA:  MOVWF  FE9
+04CC:  BRA    06A0
+04CE:  BCF    x8E.4
+04D0:  BTFSC  x8D.7
+04D2:  BRA    04E8
+04D4:  BTFSS  x8C.0
+04D6:  BRA    04FE
+04D8:  RRCF   x92,F
+04DA:  RRCF   x91,F
+04DC:  RRCF   x90,F
+04DE:  RRCF   x8F,F
+04E0:  INCF   00,F
+04E2:  BTFSC  FD8.2
+04E4:  BRA    0670
+04E6:  BRA    04FE
+04E8:  BTFSC  x92.7
+04EA:  BRA    0504
+04EC:  BCF    FD8.0
+04EE:  RLCF   x8F,F
+04F0:  RLCF   x90,F
+04F2:  RLCF   x91,F
+04F4:  RLCF   x92,F
+04F6:  DECF   00,F
+04F8:  BTFSC  FD8.2
+04FA:  BRA    0670
+04FC:  BRA    04E8
+04FE:  BSF    x8E.6
+0500:  BRA    05D8
+0502:  BCF    x8E.6
+0504:  MOVFF  85,8D
+0508:  BTFSS  x85.7
+050A:  BRA    0510
+050C:  BSF    x92.7
+050E:  BRA    0662
+0510:  BCF    x92.7
+0512:  BRA    0662
+0514:  MOVFF  88,8C
+0518:  MOVFF  88,00
+051C:  MOVF   x84,W
+051E:  SUBWF  x8C,F
+0520:  MOVFF  85,92
+0524:  BSF    x92.7
+0526:  MOVFF  86,91
+052A:  MOVFF  87,90
+052E:  CLRF   x8F
+0530:  BCF    FD8.0
+0532:  RRCF   x92,F
+0534:  RRCF   x91,F
+0536:  RRCF   x90,F
+0538:  RRCF   x8F,F
+053A:  DECFSZ x8C,F
+053C:  BRA    052E
+053E:  BTFSS  x8D.7
+0540:  BRA    0548
+0542:  BSF    x8E.1
+0544:  BRA    067A
+0546:  BCF    x8E.1
+0548:  BCF    x8C.0
+054A:  BSF    x8E.5
+054C:  CLRF   FEA
+054E:  MOVLW  8B
+0550:  MOVWF  FE9
+0552:  BRA    06A0
+0554:  BCF    x8E.5
+0556:  BTFSC  x8D.7
+0558:  BRA    056E
+055A:  BTFSS  x8C.0
+055C:  BRA    0584
+055E:  RRCF   x92,F
+0560:  RRCF   x91,F
+0562:  RRCF   x90,F
+0564:  RRCF   x8F,F
+0566:  INCF   00,F
+0568:  BTFSC  FD8.2
+056A:  BRA    0670
+056C:  BRA    0584
+056E:  BTFSC  x92.7
+0570:  BRA    058A
+0572:  BCF    FD8.0
+0574:  RLCF   x8F,F
+0576:  RLCF   x90,F
+0578:  RLCF   x91,F
+057A:  RLCF   x92,F
+057C:  DECF   00,F
+057E:  BTFSC  FD8.2
+0580:  BRA    0670
+0582:  BRA    056E
+0584:  BSF    x8E.7
+0586:  BRA    05D8
+0588:  BCF    x8E.7
+058A:  MOVFF  89,8D
+058E:  BTFSS  x89.7
+0590:  BRA    0596
+0592:  BSF    x92.7
+0594:  BRA    0662
+0596:  BCF    x92.7
+0598:  BRA    0662
+059A:  MOVFF  89,92
+059E:  BSF    x92.7
+05A0:  MOVFF  8A,91
+05A4:  MOVFF  8B,90
+05A8:  BTFSS  x8D.7
+05AA:  BRA    05B4
+05AC:  BCF    x92.7
+05AE:  BSF    x8E.2
+05B0:  BRA    067A
+05B2:  BCF    x8E.2
+05B4:  CLRF   x8F
+05B6:  BCF    x8C.0
+05B8:  CLRF   FEA
+05BA:  MOVLW  87
+05BC:  MOVWF  FE9
+05BE:  BRA    06A0
+05C0:  BTFSC  x8D.7
+05C2:  BRA    05FC
+05C4:  MOVFF  85,8D
+05C8:  BTFSS  x8C.0
+05CA:  BRA    05D8
+05CC:  RRCF   x92,F
+05CE:  RRCF   x91,F
+05D0:  RRCF   x90,F
+05D2:  RRCF   x8F,F
+05D4:  INCF   00,F
+05D6:  BZ    0670
+05D8:  BTFSS  x8F.7
+05DA:  BRA    05F2
+05DC:  INCF   x90,F
+05DE:  BNZ   05F2
+05E0:  INCF   x91,F
+05E2:  BNZ   05F2
+05E4:  INCF   x92,F
+05E6:  BNZ   05F2
+05E8:  RRCF   x92,F
+05EA:  RRCF   x91,F
+05EC:  RRCF   x90,F
+05EE:  INCF   00,F
+05F0:  BZ    0670
+05F2:  BTFSC  x8E.6
+05F4:  BRA    0502
+05F6:  BTFSC  x8E.7
+05F8:  BRA    0588
+05FA:  BRA    0634
+05FC:  MOVLW  80
+05FE:  XORWF  x92,F
+0600:  BTFSS  x92.7
+0602:  BRA    060C
+0604:  BRA    067A
+0606:  MOVFF  89,8D
+060A:  BRA    0620
+060C:  MOVFF  85,8D
+0610:  MOVF   x92,F
+0612:  BNZ   0620
+0614:  MOVF   x91,F
+0616:  BNZ   0620
+0618:  MOVF   x90,F
+061A:  BNZ   0620
+061C:  CLRF   00
+061E:  BRA    0662
+0620:  BTFSC  x92.7
+0622:  BRA    0634
+0624:  BCF    FD8.0
+0626:  RLCF   x8F,F
+0628:  RLCF   x90,F
+062A:  RLCF   x91,F
+062C:  RLCF   x92,F
+062E:  DECFSZ 00,F
+0630:  BRA    0620
+0632:  BRA    0670
+0634:  BTFSS  x8D.7
+0636:  BRA    063C
+0638:  BSF    x92.7
+063A:  BRA    0662
+063C:  BCF    x92.7
+063E:  BRA    0662
+0640:  MOVFF  88,00
+0644:  MOVFF  89,92
+0648:  MOVFF  8A,91
+064C:  MOVFF  8B,90
+0650:  BRA    0662
+0652:  MOVFF  84,00
+0656:  MOVFF  85,92
+065A:  MOVFF  86,91
+065E:  MOVFF  87,90
+0662:  MOVFF  92,01
+0666:  MOVFF  91,02
+066A:  MOVFF  90,03
+066E:  BRA    06D8
+0670:  CLRF   00
+0672:  CLRF   01
+0674:  CLRF   02
+0676:  CLRF   03
+0678:  BRA    06D8
+067A:  CLRF   x8F
+067C:  COMF   x90,F
+067E:  COMF   x91,F
+0680:  COMF   x92,F
+0682:  COMF   x8F,F
+0684:  INCF   x8F,F
+0686:  BNZ   0692
+0688:  INCF   x90,F
+068A:  BNZ   0692
+068C:  INCF   x91,F
+068E:  BNZ   0692
+0690:  INCF   x92,F
+0692:  BTFSC  x8E.0
+0694:  BRA    04C0
+0696:  BTFSC  x8E.1
+0698:  BRA    0546
+069A:  BTFSC  x8E.2
+069C:  BRA    05B2
+069E:  BRA    0606
+06A0:  MOVF   FEF,W
+06A2:  ADDWF  x90,F
+06A4:  BNC   06B0
+06A6:  INCF   x91,F
+06A8:  BNZ   06B0
+06AA:  INCF   x92,F
+06AC:  BTFSC  FD8.2
+06AE:  BSF    x8C.0
+06B0:  MOVF   FED,F
+06B2:  MOVF   FEF,W
+06B4:  ADDWF  x91,F
+06B6:  BNC   06BE
+06B8:  INCF   x92,F
+06BA:  BTFSC  FD8.2
+06BC:  BSF    x8C.0
+06BE:  MOVF   FED,F
+06C0:  MOVF   FEF,W
+06C2:  BTFSC  FEF.7
+06C4:  BRA    06C8
+06C6:  XORLW  80
+06C8:  ADDWF  x92,F
+06CA:  BTFSC  FD8.0
+06CC:  BSF    x8C.0
+06CE:  BTFSC  x8E.4
+06D0:  BRA    04CE
+06D2:  BTFSC  x8E.5
+06D4:  BRA    0554
+06D6:  BRA    05C0
+06D8:  RETURN 0
+*
+0884:  MOVLW  8E
+0886:  MOVWF  00
+0888:  MOVFF  81,01
+088C:  MOVFF  80,02
+0890:  CLRF   03
+0892:  MOVF   01,F
+0894:  BNZ   08A8
+0896:  MOVFF  02,01
+089A:  CLRF   02
+089C:  MOVLW  08
+089E:  SUBWF  00,F
+08A0:  MOVF   01,F
+08A2:  BNZ   08A8
+08A4:  CLRF   00
+08A6:  BRA    08B8
+08A8:  BCF    FD8.0
+08AA:  BTFSC  01.7
+08AC:  BRA    08B6
+08AE:  RLCF   02,F
+08B0:  RLCF   01,F
+08B2:  DECF   00,F
+08B4:  BRA    08A8
+08B6:  BCF    01.7
+08B8:  RETURN 0
+08BA:  MOVF   x84,W
+08BC:  BTFSC  FD8.2
+08BE:  BRA    0A0A
+08C0:  MOVWF  x90
+08C2:  MOVF   x88,W
+08C4:  BTFSC  FD8.2
+08C6:  BRA    0A0A
+08C8:  SUBWF  x90,F
+08CA:  BNC   08D6
+08CC:  MOVLW  7F
+08CE:  ADDWF  x90,F
+08D0:  BTFSC  FD8.0
+08D2:  BRA    0A0A
+08D4:  BRA    08E2
+08D6:  MOVLW  81
+08D8:  SUBWF  x90,F
+08DA:  BTFSS  FD8.0
+08DC:  BRA    0A0A
+08DE:  BTFSC  FD8.2
+08E0:  BRA    0A0A
+08E2:  MOVFF  90,00
+08E6:  CLRF   01
+08E8:  CLRF   02
+08EA:  CLRF   03
+08EC:  CLRF   x8F
+08EE:  MOVFF  85,8E
+08F2:  BSF    x8E.7
+08F4:  MOVFF  86,8D
+08F8:  MOVFF  87,8C
+08FC:  MOVLW  19
+08FE:  MOVWF  x90
+0900:  MOVF   x8B,W
+0902:  SUBWF  x8C,F
+0904:  BC    0920
+0906:  MOVLW  01
+0908:  SUBWF  x8D,F
+090A:  BC    0920
+090C:  SUBWF  x8E,F
+090E:  BC    0920
+0910:  SUBWF  x8F,F
+0912:  BC    0920
+0914:  INCF   x8F,F
+0916:  INCF   x8E,F
+0918:  INCF   x8D,F
+091A:  MOVF   x8B,W
+091C:  ADDWF  x8C,F
+091E:  BRA    0970
+0920:  MOVF   x8A,W
+0922:  SUBWF  x8D,F
+0924:  BC    094A
+0926:  MOVLW  01
+0928:  SUBWF  x8E,F
+092A:  BC    094A
+092C:  SUBWF  x8F,F
+092E:  BC    094A
+0930:  INCF   x8F,F
+0932:  INCF   x8E,F
+0934:  MOVF   x8A,W
+0936:  ADDWF  x8D,F
+0938:  MOVF   x8B,W
+093A:  ADDWF  x8C,F
+093C:  BNC   0970
+093E:  INCF   x8D,F
+0940:  BNZ   0970
+0942:  INCF   x8E,F
+0944:  BNZ   0970
+0946:  INCF   x8F,F
+0948:  BRA    0970
+094A:  MOVF   x89,W
+094C:  IORLW  80
+094E:  SUBWF  x8E,F
+0950:  BC    096E
+0952:  MOVLW  01
+0954:  SUBWF  x8F,F
+0956:  BC    096E
+0958:  INCF   x8F,F
+095A:  MOVF   x89,W
+095C:  IORLW  80
+095E:  ADDWF  x8E,F
+0960:  MOVF   x8A,W
+0962:  ADDWF  x8D,F
+0964:  BNC   0938
+0966:  INCF   x8E,F
+0968:  BNZ   0938
+096A:  INCF   x8F,F
+096C:  BRA    0938
+096E:  BSF    03.0
+0970:  DECFSZ x90,F
+0972:  BRA    0976
+0974:  BRA    098C
+0976:  BCF    FD8.0
+0978:  RLCF   x8C,F
+097A:  RLCF   x8D,F
+097C:  RLCF   x8E,F
+097E:  RLCF   x8F,F
+0980:  BCF    FD8.0
+0982:  RLCF   03,F
+0984:  RLCF   02,F
+0986:  RLCF   01,F
+0988:  RLCF   x91,F
+098A:  BRA    0900
+098C:  BTFSS  x91.0
+098E:  BRA    099C
+0990:  BCF    FD8.0
+0992:  RRCF   01,F
+0994:  RRCF   02,F
+0996:  RRCF   03,F
+0998:  RRCF   x91,F
+099A:  BRA    09A0
+099C:  DECF   00,F
+099E:  BZ    0A0A
+09A0:  BTFSC  x91.7
+09A2:  BRA    09E0
+09A4:  BCF    FD8.0
+09A6:  RLCF   x8C,F
+09A8:  RLCF   x8D,F
+09AA:  RLCF   x8E,F
+09AC:  RLCF   x8F,F
+09AE:  MOVF   x8B,W
+09B0:  SUBWF  x8C,F
+09B2:  BC    09C2
+09B4:  MOVLW  01
+09B6:  SUBWF  x8D,F
+09B8:  BC    09C2
+09BA:  SUBWF  x8E,F
+09BC:  BC    09C2
+09BE:  SUBWF  x8F,F
+09C0:  BNC   09F6
+09C2:  MOVF   x8A,W
+09C4:  SUBWF  x8D,F
+09C6:  BC    09D2
+09C8:  MOVLW  01
+09CA:  SUBWF  x8E,F
+09CC:  BC    09D2
+09CE:  SUBWF  x8F,F
+09D0:  BNC   09F6
+09D2:  MOVF   x89,W
+09D4:  IORLW  80
+09D6:  SUBWF  x8E,F
+09D8:  BC    09E0
+09DA:  MOVLW  01
+09DC:  SUBWF  x8F,F
+09DE:  BNC   09F6
+09E0:  INCF   03,F
+09E2:  BNZ   09F6
+09E4:  INCF   02,F
+09E6:  BNZ   09F6
+09E8:  INCF   01,F
+09EA:  BNZ   09F6
+09EC:  INCF   00,F
+09EE:  BZ    0A0A
+09F0:  RRCF   01,F
+09F2:  RRCF   02,F
+09F4:  RRCF   03,F
+09F6:  MOVFF  85,90
+09FA:  MOVF   x89,W
+09FC:  XORWF  x90,F
+09FE:  BTFSS  x90.7
+0A00:  BRA    0A06
+0A02:  BSF    01.7
+0A04:  BRA    0A12
+0A06:  BCF    01.7
+0A08:  BRA    0A12
+0A0A:  CLRF   00
+0A0C:  CLRF   01
+0A0E:  CLRF   02
+0A10:  CLRF   03
+0A12:  RETURN 0
+0A14:  MOVF   x82,W
+0A16:  BTFSC  FD8.2
+0A18:  BRA    0AFC
+0A1A:  MOVWF  00
+0A1C:  MOVF   x86,W
+0A1E:  BTFSC  FD8.2
+0A20:  BRA    0AFC
+0A22:  ADDWF  00,F
+0A24:  BNC   0A2E
+0A26:  MOVLW  81
+0A28:  ADDWF  00,F
+0A2A:  BC    0AFC
+0A2C:  BRA    0A36
+0A2E:  MOVLW  7F
+0A30:  SUBWF  00,F
+0A32:  BNC   0AFC
+0A34:  BZ    0AFC
+0A36:  MOVFF  83,8A
+0A3A:  MOVF   x87,W
+0A3C:  XORWF  x8A,F
+0A3E:  BSF    x83.7
+0A40:  BSF    x87.7
+0A42:  MOVF   x85,W
+0A44:  MULWF  x89
+0A46:  MOVFF  FF4,8C
+0A4A:  MOVF   x84,W
+0A4C:  MULWF  x88
+0A4E:  MOVFF  FF4,03
+0A52:  MOVFF  FF3,8B
+0A56:  MULWF  x89
+0A58:  MOVF   FF3,W
+0A5A:  ADDWF  x8C,F
+0A5C:  MOVF   FF4,W
+0A5E:  ADDWFC x8B,F
+0A60:  MOVLW  00
+0A62:  ADDWFC 03,F
+0A64:  MOVF   x85,W
+0A66:  MULWF  x88
+0A68:  MOVF   FF3,W
+0A6A:  ADDWF  x8C,F
+0A6C:  MOVF   FF4,W
+0A6E:  ADDWFC x8B,F
+0A70:  MOVLW  00
+0A72:  CLRF   02
+0A74:  ADDWFC 03,F
+0A76:  ADDWFC 02,F
+0A78:  MOVF   x83,W
+0A7A:  MULWF  x89
+0A7C:  MOVF   FF3,W
+0A7E:  ADDWF  x8B,F
+0A80:  MOVF   FF4,W
+0A82:  ADDWFC 03,F
+0A84:  MOVLW  00
+0A86:  ADDWFC 02,F
+0A88:  MOVF   x83,W
+0A8A:  MULWF  x88
+0A8C:  MOVF   FF3,W
+0A8E:  ADDWF  03,F
+0A90:  MOVF   FF4,W
+0A92:  ADDWFC 02,F
+0A94:  MOVLW  00
+0A96:  CLRF   01
+0A98:  ADDWFC 01,F
+0A9A:  MOVF   x85,W
+0A9C:  MULWF  x87
+0A9E:  MOVF   FF3,W
+0AA0:  ADDWF  x8B,F
+0AA2:  MOVF   FF4,W
+0AA4:  ADDWFC 03,F
+0AA6:  MOVLW  00
+0AA8:  ADDWFC 02,F
+0AAA:  ADDWFC 01,F
+0AAC:  MOVF   x84,W
+0AAE:  MULWF  x87
+0AB0:  MOVF   FF3,W
+0AB2:  ADDWF  03,F
+0AB4:  MOVF   FF4,W
+0AB6:  ADDWFC 02,F
+0AB8:  MOVLW  00
+0ABA:  ADDWFC 01,F
+0ABC:  MOVF   x83,W
+0ABE:  MULWF  x87
+0AC0:  MOVF   FF3,W
+0AC2:  ADDWF  02,F
+0AC4:  MOVF   FF4,W
+0AC6:  ADDWFC 01,F
+0AC8:  INCF   00,F
+0ACA:  BTFSC  01.7
+0ACC:  BRA    0AD8
+0ACE:  RLCF   x8B,F
+0AD0:  RLCF   03,F
+0AD2:  RLCF   02,F
+0AD4:  RLCF   01,F
+0AD6:  DECF   00,F
+0AD8:  MOVLW  00
+0ADA:  BTFSS  x8B.7
+0ADC:  BRA    0AF2
+0ADE:  INCF   03,F
+0AE0:  ADDWFC 02,F
+0AE2:  ADDWFC 01,F
+0AE4:  MOVF   01,W
+0AE6:  BNZ   0AF2
+0AE8:  MOVF   02,W
+0AEA:  BNZ   0AF2
+0AEC:  MOVF   03,W
+0AEE:  BNZ   0AF2
+0AF0:  INCF   00,F
+0AF2:  BTFSC  x8A.7
+0AF4:  BSF    01.7
+0AF6:  BTFSS  x8A.7
+0AF8:  BCF    01.7
+0AFA:  BRA    0B04
+0AFC:  CLRF   00
+0AFE:  CLRF   01
+0B00:  CLRF   02
+0B02:  CLRF   03
+0B04:  RETURN 0
+*
+17A0:  MOVLW  8E
+17A2:  MOVWF  00
+17A4:  MOVF   5F,W
+17A6:  SUBWF  00,F
+17A8:  MOVFF  60,02
+17AC:  MOVFF  61,01
+17B0:  BSF    02.7
+17B2:  MOVF   00,F
+17B4:  BZ    17C8
+17B6:  BCF    FD8.0
+17B8:  MOVF   02,F
+17BA:  BNZ   17C0
+17BC:  MOVF   01,F
+17BE:  BZ    17C8
+17C0:  RRCF   02,F
+17C2:  RRCF   01,F
+17C4:  DECFSZ 00,F
+17C6:  BRA    17B6
+17C8:  BTFSS  x60.7
+17CA:  BRA    17D6
+17CC:  COMF   01,F
+17CE:  COMF   02,F
+17D0:  INCF   01,F
+17D2:  BTFSC  FD8.2
+17D4:  INCF   02,F
+17D6:  GOTO   1B26 (RETURN)
+*
+17FC:  MOVF   x69,W
+17FE:  CLRF   01
+1800:  SUBWF  x68,W
+1802:  BC    180A
+1804:  MOVFF  68,00
+1808:  BRA    1822
+180A:  CLRF   00
+180C:  MOVLW  08
+180E:  MOVWF  x6A
+1810:  RLCF   x68,F
+1812:  RLCF   00,F
+1814:  MOVF   x69,W
+1816:  SUBWF  00,W
+1818:  BTFSC  FD8.0
+181A:  MOVWF  00
+181C:  RLCF   01,F
+181E:  DECFSZ x6A,F
+1820:  BRA    1810
+1822:  RETURN 0
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000) 
+*
+18F4:  CLRF   FEA
+18F6:  MOVLW  62
+18F8:  MOVWF  FE9
+18FA:  MOVF   FEF,W
+18FC:  BZ    1918
+18FE:  MOVLW  06
+1900:  MOVWF  01
+1902:  CLRF   00
+1904:  DECFSZ 00,F
+1906:  BRA    1904
+1908:  DECFSZ 01,F
+190A:  BRA    1902
+190C:  MOVLW  7B
+190E:  MOVWF  00
+1910:  DECFSZ 00,F
+1912:  BRA    1910
+1914:  DECFSZ FEF,F
+1916:  BRA    18FE
+1918:  GOTO   1978 (RETURN)
+....................  
+.................... #bit RBPU = 0xFF1.7     // pull-up all port b 
+....................  
+.................... #include "PID_v1.c"     //libreria para el manejo de un controilador PID 
+.................... /********************************************************************************************** 
+....................  * C PID Library - Version 1.0.1 
+....................  * modified my Matthew Blythe <mblythester@gmail.com> mjblythe.com/hacks 
+....................  * originally by Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com 
+....................  * 
+....................  * This Library is licensed under a GPLv3 License 
+....................  **********************************************************************************************/ 
+....................  typedef float FloatType; 
+....................  //typedef double floatType; 
+....................  #include <stdbool.h> 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////                                                                   //// 
+.................... ////                          stdbool.h                                //// 
+.................... ////                                                                   //// 
+.................... //// Standard boolean definitions                                      //// 
+.................... ////                                                                   //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996,2012 Custom Computer Services           //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... #ifndef __STDBOOL_H__ 
+.................... #define __STDBOOL_H__ 
+....................  
+.................... //remove TRUE and FALSE added by CCS's device .h file 
+.................... #if defined(TRUE) 
+.................... #undef TRUE 
+.................... #endif 
+.................... #if defined(FALSE) 
+.................... #undef FALSE 
+.................... #endif 
+....................  
+.................... typedef int1   bool; 
+.................... #define true   1 
+.................... #define false  0 
+.................... #define __bool_true_false_are_defined  1 
+....................  
+.................... #endif 
+....................  
+....................  
+....................  //Constants used in some of the functions below 
+....................  typedef enum 
+....................  { 
+....................    PID_Mode_Automatic = 1, 
+....................    PID_Mode_Manual    = 0 
+....................  } PidModeType; 
+....................  
+....................  typedef enum 
+....................  { 
+....................    PID_Direction_Direct  = 0, 
+....................    PID_Direction_Reverse = 1 
+....................  } PidDirectionType; 
+....................  
+....................  typedef struct { 
+....................    FloatType dispKp; // * we'll hold on to the tuning parameters in user-entered 
+....................    FloatType dispKi; //   format for display purposes 
+....................    FloatType dispKd; // 
+....................  
+....................    FloatType kp; // * (P)roportional Tuning Parameter 
+....................    FloatType ki; // * (I)ntegral Tuning Parameter 
+....................    FloatType kd; // * (D)erivative Tuning Parameter 
+....................  
+....................    PidDirectionType controllerDirection; 
+....................  
+....................    FloatType myInput; // * Pointers to the Input, Output, and Setpoint variables 
+....................    FloatType myOutput; //   This creates a hard link between the variables and the 
+....................    FloatType mySetpoint; //   PID, freeing the user from having to constantly tell us 
+....................                       //   what these values are.  with pointers we'll just know. 
+....................  
+....................  //  unsigned long lastTime; 
+....................    FloatType ITerm, lastInput; 
+....................  
+....................    unsigned long SampleTime; 
+....................    FloatType outMin, outMax; 
+....................    bool inAuto; 
+....................  } PidType; 
+....................  
+....................  //commonly used functions ************************************************************************** 
+....................  
+....................  //  constructor.  links the PID to the Input, Output, and 
+....................  //  Setpoint.  Initial tuning parameters are also set here 
+....................  void PID_init(PidType* pid, 
+....................      FloatType kp, 
+....................      FloatType ki, 
+....................      FloatType kd, 
+....................      PidDirectionType controllerDirection); 
+....................  
+....................  // sets PID to either Manual (0) or Auto (non-0) 
+....................  void PID_SetMode(PidType* pid, PidModeType mode); 
+....................  
+....................  // performs the PID calculation.  it should be 
+....................  // called every time loop() cycles. ON/OFF and 
+....................  // calculation frequency can be set using SetMode 
+....................  // SetSampleTime respectively 
+....................  bool PID_Compute(PidType* pid); 
+....................  
+....................  // clamps the output to a specific range. 0-255 by default, but 
+....................  // it's likely the user will want to change this depending on 
+....................  // the application 
+....................  void PID_SetOutputLimits(PidType* pid, FloatType min, FloatType max); 
+....................  
+....................  //available but not commonly used functions ******************************************************** 
+....................  
+....................  // While most users will set the tunings once in the 
+....................  // constructor, this function gives the user the option 
+....................  // of changing tunings during runtime for Adaptive control 
+....................  void PID_SetTunings(PidType* pid, FloatType kp, FloatType ki, FloatType kd); 
+....................  
+....................  // Sets the Direction, or "Action" of the controller. DIRECT 
+....................  // means the output will increase when error is positive. REVERSE 
+....................  // means the opposite.  it's very unlikely that this will be needed 
+....................  // once it is set in the constructor. 
+....................  void PID_SetControllerDirection(PidType* pid, PidDirectionType Direction); 
+....................  
+....................  // sets the frequency, in Milliseconds, with which 
+....................  // the PID calculation is performed.  default is 100 
+....................  void PID_SetSampleTime(PidType* pid, int newSampleTime); 
+....................  
+....................  //Display functions **************************************************************** 
+....................  // These functions query the pid for interal values. 
+....................  //  they were created mainly for the pid front-end, 
+....................  // where it's important to know what is actually 
+....................  //  inside the PID. 
+....................  FloatType PID_GetKp(PidType* pid); 
+....................  FloatType PID_GetKi(PidType* pid); 
+....................  FloatType PID_GetKd(PidType* pid); 
+....................  PidModeType PID_GetMode(PidType* pid); 
+....................  PidDirectionType PID_GetDirection(PidType* pid); 
+....................  
+....................  
+....................  
+.................... //#include "pid.h" 
+.................... void PID_Initialize(PidType* pid); 
+....................  
+.................... /*Constructor (...)********************************************************* 
+....................  *    The parameters specified here are those for for which we can't set up 
+....................  *    reliable defaults, so we need to have the user set them. 
+....................  ***************************************************************************/ 
+.................... void PID_init(PidType* pid, FloatType Kp, FloatType Ki, FloatType Kd, 
+....................     PidDirectionType ControllerDirection) { 
+....................   pid->myInput = 0; 
+*
+0E1A:  MOVLW  19
+0E1C:  ADDWF  5F,W
+0E1E:  MOVWF  FE9
+0E20:  MOVLW  00
+0E22:  ADDWFC x60,W
+0E24:  MOVWF  FEA
+0E26:  CLRF   FEF
+0E28:  CLRF   FEC
+0E2A:  CLRF   FEC
+0E2C:  CLRF   FEC
+....................   pid->myOutput = 0; 
+0E2E:  MOVLW  1D
+0E30:  ADDWF  5F,W
+0E32:  MOVWF  FE9
+0E34:  MOVLW  00
+0E36:  ADDWFC x60,W
+0E38:  MOVWF  FEA
+0E3A:  CLRF   FEF
+0E3C:  CLRF   FEC
+0E3E:  CLRF   FEC
+0E40:  CLRF   FEC
+....................   pid->mySetpoint = 0; 
+0E42:  MOVLW  21
+0E44:  ADDWF  5F,W
+0E46:  MOVWF  FE9
+0E48:  MOVLW  00
+0E4A:  ADDWFC x60,W
+0E4C:  MOVWF  FEA
+0E4E:  CLRF   FEF
+0E50:  CLRF   FEC
+0E52:  CLRF   FEC
+0E54:  CLRF   FEC
+....................   pid->ITerm = 0; 
+0E56:  MOVLW  25
+0E58:  ADDWF  5F,W
+0E5A:  MOVWF  FE9
+0E5C:  MOVLW  00
+0E5E:  ADDWFC x60,W
+0E60:  MOVWF  FEA
+0E62:  CLRF   FEF
+0E64:  CLRF   FEC
+0E66:  CLRF   FEC
+0E68:  CLRF   FEC
+....................   pid->lastInput = 0; 
+0E6A:  MOVLW  29
+0E6C:  ADDWF  5F,W
+0E6E:  MOVWF  FE9
+0E70:  MOVLW  00
+0E72:  ADDWFC x60,W
+0E74:  MOVWF  FEA
+0E76:  CLRF   FEF
+0E78:  CLRF   FEC
+0E7A:  CLRF   FEC
+0E7C:  CLRF   FEC
+....................   pid->inAuto = false; 
+0E7E:  MOVLW  37
+0E80:  ADDWF  5F,W
+0E82:  MOVWF  FE9
+0E84:  MOVLW  00
+0E86:  ADDWFC x60,W
+0E88:  MOVWF  FEA
+0E8A:  BCF    FEF.0
+....................  
+....................   PID_SetOutputLimits(pid, 0, 0xffff); 
+0E8C:  MOVFF  60,6F
+0E90:  MOVFF  5F,6E
+0E94:  CLRF   x73
+0E96:  CLRF   x72
+0E98:  CLRF   x71
+0E9A:  CLRF   x70
+0E9C:  CLRF   x77
+0E9E:  SETF   x76
+0EA0:  MOVLW  7F
+0EA2:  MOVWF  x75
+0EA4:  MOVLW  8E
+0EA6:  MOVWF  x74
+0EA8:  CALL   016A
+....................  
+....................   //default Controller Sample Time is 0.1 seconds 
+....................   pid->SampleTime = 100; 
+0EAC:  MOVLW  2D
+0EAE:  ADDWF  5F,W
+0EB0:  MOVWF  FE9
+0EB2:  MOVLW  00
+0EB4:  ADDWFC x60,W
+0EB6:  MOVWF  FEA
+0EB8:  CLRF   FEC
+0EBA:  MOVF   FED,F
+0EBC:  MOVLW  64
+0EBE:  MOVWF  FEF
+....................  
+....................   PID_SetControllerDirection(pid, ControllerDirection); 
+0EC0:  MOVFF  60,6F
+0EC4:  MOVFF  5F,6E
+0EC8:  MOVFF  6D,70
+0ECC:  BRA    06DA
+....................   PID_SetTunings(pid, Kp, Ki, Kd); 
+0ECE:  MOVFF  60,6F
+0ED2:  MOVFF  5F,6E
+0ED6:  MOVFF  64,73
+0EDA:  MOVFF  63,72
+0EDE:  MOVFF  62,71
+0EE2:  MOVFF  61,70
+0EE6:  MOVFF  68,77
+0EEA:  MOVFF  67,76
+0EEE:  MOVFF  66,75
+0EF2:  MOVFF  65,74
+0EF6:  MOVFF  6C,7B
+0EFA:  MOVFF  6B,7A
+0EFE:  MOVFF  6A,79
+0F02:  MOVFF  69,78
+0F06:  BRA    0B06
+0F08:  GOTO   19DE (RETURN)
+....................  
+.................... //  pid->lastTime = millis() - pid->SampleTime; 
+.................... } 
+....................  
+....................  
+.................... /* Compute() ********************************************************************** 
+....................  *     This, as they say, is where the magic happens.  this function should be called 
+....................  *   every time "void loop()" executes.  the function will decide for itself whether a new 
+....................  *   pid Output needs to be computed.  returns true when the output is computed, 
+....................  *   false when nothing has been done. 
+....................  **********************************************************************************/ 
+.................... bool PID_Compute(PidType* pid) { 
+....................   if (!pid->inAuto) { 
+*
+1260:  MOVLW  37
+1262:  ADDWF  5F,W
+1264:  MOVWF  FE9
+1266:  MOVLW  00
+1268:  ADDWFC x60,W
+126A:  MOVWF  FEA
+126C:  BTFSC  FEF.0
+126E:  BRA    1276
+....................     return false; 
+1270:  MOVLW  00
+1272:  MOVWF  01
+1274:  BRA    179C
+....................   } 
+.................... //  unsigned long now = millis(); 
+.................... //  unsigned long timeChange = (now - pid->lastTime); 
+.................... //  if (timeChange >= pid->SampleTime) { 
+....................     /*Compute all the working error variables*/ 
+....................     FloatType input = pid->myInput; 
+....................     FloatType error = pid->mySetpoint - input; 
+1276:  MOVLW  19
+1278:  ADDWF  5F,W
+127A:  MOVWF  FE9
+127C:  MOVLW  00
+127E:  ADDWFC x60,W
+1280:  MOVWF  FEA
+1282:  MOVFF  FEF,61
+1286:  MOVFF  FEC,62
+128A:  MOVFF  FEC,63
+128E:  MOVFF  FEC,64
+1292:  MOVLW  21
+1294:  ADDWF  5F,W
+1296:  MOVWF  FE9
+1298:  MOVLW  00
+129A:  ADDWFC x60,W
+129C:  MOVWF  FEA
+129E:  MOVFF  FEF,71
+12A2:  MOVFF  FEC,72
+12A6:  MOVFF  FEC,73
+12AA:  MOVFF  FEC,74
+12AE:  MOVFF  FEA,76
+12B2:  MOVFF  FE9,75
+12B6:  BSF    FD8.1
+12B8:  MOVFF  74,87
+12BC:  MOVFF  73,86
+12C0:  MOVFF  72,85
+12C4:  MOVFF  71,84
+12C8:  MOVFF  64,8B
+12CC:  MOVFF  63,8A
+12D0:  MOVFF  62,89
+12D4:  MOVFF  61,88
+12D8:  CALL   0470
+12DC:  MOVFF  76,FEA
+12E0:  MOVFF  75,FE9
+12E4:  MOVFF  03,68
+12E8:  MOVFF  02,67
+12EC:  MOVFF  01,66
+12F0:  MOVFF  00,65
+....................     pid->ITerm += (pid->ki * error); 
+12F4:  MOVLW  25
+12F6:  ADDWF  5F,W
+12F8:  MOVWF  01
+12FA:  MOVLW  00
+12FC:  ADDWFC x60,W
+12FE:  MOVWF  03
+1300:  MOVFF  01,71
+1304:  MOVWF  x72
+1306:  MOVWF  FEA
+1308:  MOVFF  01,FE9
+130C:  MOVFF  FEF,73
+1310:  MOVFF  FEC,74
+1314:  MOVFF  FEC,75
+1318:  MOVFF  FEC,76
+131C:  MOVLW  10
+131E:  ADDWF  5F,W
+1320:  MOVWF  FE9
+1322:  MOVLW  00
+1324:  ADDWFC x60,W
+1326:  MOVWF  FEA
+1328:  MOVFF  FEF,77
+132C:  MOVFF  FEC,78
+1330:  MOVFF  FEC,79
+1334:  MOVFF  FEC,7A
+1338:  MOVFF  7A,85
+133C:  MOVFF  79,84
+1340:  MOVFF  78,83
+1344:  MOVFF  77,82
+1348:  MOVFF  68,89
+134C:  MOVFF  67,88
+1350:  MOVFF  66,87
+1354:  MOVFF  65,86
+1358:  CALL   0A14
+135C:  MOVFF  FEA,78
+1360:  MOVFF  FE9,77
+1364:  BCF    FD8.1
+1366:  MOVFF  76,87
+136A:  MOVFF  75,86
+136E:  MOVFF  74,85
+1372:  MOVFF  73,84
+1376:  MOVFF  03,8B
+137A:  MOVFF  02,8A
+137E:  MOVFF  01,89
+1382:  MOVFF  00,88
+1386:  CALL   0470
+138A:  MOVFF  78,FEA
+138E:  MOVFF  77,FE9
+1392:  MOVFF  72,FEA
+1396:  MOVFF  71,FE9
+139A:  MOVFF  00,FEF
+139E:  MOVFF  01,FEC
+13A2:  MOVFF  02,FEC
+13A6:  MOVFF  03,FEC
+....................     if (pid->ITerm > pid->outMax) 
+13AA:  MOVLW  25
+13AC:  ADDWF  5F,W
+13AE:  MOVWF  FE9
+13B0:  MOVLW  00
+13B2:  ADDWFC x60,W
+13B4:  MOVWF  FEA
+13B6:  MOVFF  FEF,71
+13BA:  MOVFF  FEC,72
+13BE:  MOVFF  FEC,73
+13C2:  MOVFF  FEC,74
+13C6:  MOVLW  33
+13C8:  ADDWF  5F,W
+13CA:  MOVWF  FE9
+13CC:  MOVLW  00
+13CE:  ADDWFC x60,W
+13D0:  MOVWF  FEA
+13D2:  MOVFF  FEF,00
+13D6:  MOVFF  FEC,01
+13DA:  MOVFF  FEC,02
+13DE:  MOVFF  FEC,03
+13E2:  MOVFF  03,83
+13E6:  MOVFF  02,82
+13EA:  MOVFF  01,81
+13EE:  MOVFF  00,80
+13F2:  MOVFF  74,87
+13F6:  MOVFF  73,86
+13FA:  MOVFF  72,85
+13FE:  MOVFF  71,84
+1402:  CALL   00F4
+1406:  BNC   1462
+....................       pid->ITerm = pid->outMax; 
+1408:  MOVLW  25
+140A:  ADDWF  5F,W
+140C:  MOVWF  01
+140E:  MOVLW  00
+1410:  ADDWFC x60,W
+1412:  MOVWF  03
+1414:  MOVFF  01,71
+1418:  MOVFF  03,72
+141C:  MOVLW  33
+141E:  ADDWF  5F,W
+1420:  MOVWF  FE9
+1422:  MOVLW  00
+1424:  ADDWFC x60,W
+1426:  MOVWF  FEA
+1428:  MOVFF  FEF,00
+142C:  MOVFF  FEC,01
+1430:  MOVFF  FEC,02
+1434:  MOVFF  FEC,03
+1438:  MOVFF  03,76
+143C:  MOVFF  02,75
+1440:  MOVFF  01,74
+1444:  MOVFF  00,73
+1448:  MOVFF  72,FEA
+144C:  MOVFF  71,FE9
+1450:  MOVFF  00,FEF
+1454:  MOVFF  01,FEC
+1458:  MOVFF  02,FEC
+145C:  MOVFF  03,FEC
+1460:  BRA    1508
+....................     else if (pid->ITerm < pid->outMin) 
+1462:  MOVLW  25
+1464:  ADDWF  5F,W
+1466:  MOVWF  FE9
+1468:  MOVLW  00
+146A:  ADDWFC x60,W
+146C:  MOVWF  FEA
+146E:  MOVFF  FEF,71
+1472:  MOVFF  FEC,72
+1476:  MOVFF  FEC,73
+147A:  MOVFF  FEC,74
+147E:  MOVLW  2F
+1480:  ADDWF  5F,W
+1482:  MOVWF  FE9
+1484:  MOVLW  00
+1486:  ADDWFC x60,W
+1488:  MOVWF  FEA
+148A:  MOVFF  FEF,00
+148E:  MOVFF  FEC,01
+1492:  MOVFF  FEC,02
+1496:  MOVFF  FEC,03
+149A:  MOVFF  74,83
+149E:  MOVFF  73,82
+14A2:  MOVFF  72,81
+14A6:  MOVFF  71,80
+14AA:  MOVFF  03,87
+14AE:  MOVFF  02,86
+14B2:  MOVFF  01,85
+14B6:  MOVFF  00,84
+14BA:  CALL   00F4
+14BE:  BNC   1508
+....................       pid->ITerm = pid->outMin; 
+14C0:  MOVLW  25
+14C2:  ADDWF  5F,W
+14C4:  MOVWF  01
+14C6:  MOVLW  00
+14C8:  ADDWFC x60,W
+14CA:  MOVWF  03
+14CC:  MOVFF  01,71
+14D0:  MOVFF  03,72
+14D4:  MOVLW  2F
+14D6:  ADDWF  5F,W
+14D8:  MOVWF  FE9
+14DA:  MOVLW  00
+14DC:  ADDWFC x60,W
+14DE:  MOVWF  FEA
+14E0:  MOVFF  FEF,00
+14E4:  MOVFF  FEC,01
+14E8:  MOVFF  FEC,02
+14EC:  MOVFF  FEC,03
+14F0:  MOVFF  72,FEA
+14F4:  MOVFF  71,FE9
+14F8:  MOVFF  00,FEF
+14FC:  MOVFF  01,FEC
+1500:  MOVFF  02,FEC
+1504:  MOVFF  03,FEC
+....................     FloatType dInput = (input - pid->lastInput); 
+....................  
+....................     /*Compute PID Output*/ 
+....................     FloatType output = pid->kp * error + pid->ITerm - pid->kd * dInput; 
+1508:  MOVLW  29
+150A:  ADDWF  5F,W
+150C:  MOVWF  FE9
+150E:  MOVLW  00
+1510:  ADDWFC x60,W
+1512:  MOVWF  FEA
+1514:  MOVFF  FEF,00
+1518:  MOVFF  FEC,01
+151C:  MOVFF  FEC,02
+1520:  MOVFF  FEC,03
+1524:  MOVFF  FEA,72
+1528:  MOVFF  FE9,71
+152C:  BSF    FD8.1
+152E:  MOVFF  64,87
+1532:  MOVFF  63,86
+1536:  MOVFF  62,85
+153A:  MOVFF  61,84
+153E:  MOVFF  03,8B
+1542:  MOVFF  02,8A
+1546:  MOVFF  01,89
+154A:  MOVFF  00,88
+154E:  CALL   0470
+1552:  MOVFF  72,FEA
+1556:  MOVFF  71,FE9
+155A:  MOVFF  03,6C
+155E:  MOVFF  02,6B
+1562:  MOVFF  01,6A
+1566:  MOVFF  00,69
+156A:  MOVLW  0C
+156C:  ADDWF  5F,W
+156E:  MOVWF  FE9
+1570:  MOVLW  00
+1572:  ADDWFC x60,W
+1574:  MOVWF  FEA
+1576:  MOVFF  FEF,73
+157A:  MOVFF  FEC,74
+157E:  MOVFF  FEC,75
+1582:  MOVFF  FEC,76
+1586:  MOVFF  76,85
+158A:  MOVFF  75,84
+158E:  MOVFF  74,83
+1592:  MOVFF  73,82
+1596:  MOVFF  68,89
+159A:  MOVFF  67,88
+159E:  MOVFF  66,87
+15A2:  MOVFF  65,86
+15A6:  CALL   0A14
+15AA:  MOVFF  03,76
+15AE:  MOVFF  02,75
+15B2:  MOVFF  01,74
+15B6:  MOVFF  00,73
+15BA:  MOVLW  25
+15BC:  ADDWF  5F,W
+15BE:  MOVWF  FE9
+15C0:  MOVLW  00
+15C2:  ADDWFC x60,W
+15C4:  MOVWF  FEA
+15C6:  MOVFF  FEF,00
+15CA:  MOVFF  FEC,01
+15CE:  MOVFF  FEC,02
+15D2:  MOVFF  FEC,03
+15D6:  MOVFF  FEA,78
+15DA:  MOVFF  FE9,77
+15DE:  BCF    FD8.1
+15E0:  MOVFF  76,87
+15E4:  MOVFF  75,86
+15E8:  MOVFF  74,85
+15EC:  MOVFF  73,84
+15F0:  MOVFF  03,8B
+15F4:  MOVFF  02,8A
+15F8:  MOVFF  01,89
+15FC:  MOVFF  00,88
+1600:  CALL   0470
+1604:  MOVFF  78,FEA
+1608:  MOVFF  77,FE9
+160C:  MOVFF  03,76
+1610:  MOVFF  02,75
+1614:  MOVFF  01,74
+1618:  MOVFF  00,73
+161C:  MOVLW  14
+161E:  ADDWF  5F,W
+1620:  MOVWF  FE9
+1622:  MOVLW  00
+1624:  ADDWFC x60,W
+1626:  MOVWF  FEA
+1628:  MOVFF  FEF,79
+162C:  MOVFF  FEC,7A
+1630:  MOVFF  FEC,7B
+1634:  MOVFF  FEC,7C
+1638:  MOVFF  7C,85
+163C:  MOVFF  7B,84
+1640:  MOVFF  7A,83
+1644:  MOVFF  79,82
+1648:  MOVFF  6C,89
+164C:  MOVFF  6B,88
+1650:  MOVFF  6A,87
+1654:  MOVFF  69,86
+1658:  CALL   0A14
+165C:  MOVFF  FEA,7A
+1660:  MOVFF  FE9,79
+1664:  BSF    FD8.1
+1666:  MOVFF  76,87
+166A:  MOVFF  75,86
+166E:  MOVFF  74,85
+1672:  MOVFF  73,84
+1676:  MOVFF  03,8B
+167A:  MOVFF  02,8A
+167E:  MOVFF  01,89
+1682:  MOVFF  00,88
+1686:  CALL   0470
+168A:  MOVFF  7A,FEA
+168E:  MOVFF  79,FE9
+1692:  MOVFF  03,70
+1696:  MOVFF  02,6F
+169A:  MOVFF  01,6E
+169E:  MOVFF  00,6D
+....................  
+....................     if (output > pid->outMax) 
+16A2:  MOVLW  33
+16A4:  ADDWF  5F,W
+16A6:  MOVWF  FE9
+16A8:  MOVLW  00
+16AA:  ADDWFC x60,W
+16AC:  MOVWF  FEA
+16AE:  MOVFF  FEF,00
+16B2:  MOVFF  FEC,01
+16B6:  MOVFF  FEC,02
+16BA:  MOVFF  FEC,03
+16BE:  MOVFF  03,83
+16C2:  MOVFF  02,82
+16C6:  MOVFF  01,81
+16CA:  MOVFF  00,80
+16CE:  MOVFF  70,87
+16D2:  MOVFF  6F,86
+16D6:  MOVFF  6E,85
+16DA:  MOVFF  6D,84
+16DE:  CALL   00F4
+16E2:  BNC   1702
+....................       output = pid->outMax; 
+16E4:  MOVLW  33
+16E6:  ADDWF  5F,W
+16E8:  MOVWF  FE9
+16EA:  MOVLW  00
+16EC:  ADDWFC x60,W
+16EE:  MOVWF  FEA
+16F0:  MOVFF  FEF,6D
+16F4:  MOVFF  FEC,6E
+16F8:  MOVFF  FEC,6F
+16FC:  MOVFF  FEC,70
+1700:  BRA    1760
+....................     else if (output < pid->outMin) 
+1702:  MOVLW  2F
+1704:  ADDWF  5F,W
+1706:  MOVWF  FE9
+1708:  MOVLW  00
+170A:  ADDWFC x60,W
+170C:  MOVWF  FEA
+170E:  MOVFF  FEF,00
+1712:  MOVFF  FEC,01
+1716:  MOVFF  FEC,02
+171A:  MOVFF  FEC,03
+171E:  MOVFF  70,83
+1722:  MOVFF  6F,82
+1726:  MOVFF  6E,81
+172A:  MOVFF  6D,80
+172E:  MOVFF  03,87
+1732:  MOVFF  02,86
+1736:  MOVFF  01,85
+173A:  MOVFF  00,84
+173E:  CALL   00F4
+1742:  BNC   1760
+....................       output = pid->outMin; 
+1744:  MOVLW  2F
+1746:  ADDWF  5F,W
+1748:  MOVWF  FE9
+174A:  MOVLW  00
+174C:  ADDWFC x60,W
+174E:  MOVWF  FEA
+1750:  MOVFF  FEF,6D
+1754:  MOVFF  FEC,6E
+1758:  MOVFF  FEC,6F
+175C:  MOVFF  FEC,70
+....................     pid->myOutput = output; 
+1760:  MOVLW  1D
+1762:  ADDWF  5F,W
+1764:  MOVWF  FE9
+1766:  MOVLW  00
+1768:  ADDWFC x60,W
+176A:  MOVWF  FEA
+176C:  MOVFF  6D,FEF
+1770:  MOVFF  6E,FEC
+1774:  MOVFF  6F,FEC
+1778:  MOVFF  70,FEC
+....................  
+....................     /*Remember some variables for next time*/ 
+....................     pid->lastInput = input; 
+177C:  MOVLW  29
+177E:  ADDWF  5F,W
+1780:  MOVWF  FE9
+1782:  MOVLW  00
+1784:  ADDWFC x60,W
+1786:  MOVWF  FEA
+1788:  MOVFF  61,FEF
+178C:  MOVFF  62,FEC
+1790:  MOVFF  63,FEC
+1794:  MOVFF  64,FEC
+.................... //    pid->lastTime = now; 
+....................     return true; 
+1798:  MOVLW  01
+179A:  MOVWF  01
+179C:  GOTO   1B14 (RETURN)
+.................... //  } else { 
+.................... //    return false; 
+.................... //  } 
+.................... } 
+....................  
+....................  
+.................... /* SetTunings(...)************************************************************* 
+....................  * This function allows the controller's dynamic performance to be adjusted. 
+....................  * it's called automatically from the constructor, but tunings can also 
+....................  * be adjusted on the fly during normal operation 
+....................  ******************************************************************************/ 
+....................  
+.................... void PID_SetTunings(PidType* pid, FloatType Kp, FloatType Ki, FloatType Kd) { 
+....................   if (Kp < 0 || Ki < 0 || Kd < 0){ 
+*
+0B06:  MOVFF  73,83
+0B0A:  MOVFF  72,82
+0B0E:  MOVFF  71,81
+0B12:  MOVFF  70,80
+0B16:  CLRF   x87
+0B18:  CLRF   x86
+0B1A:  CLRF   x85
+0B1C:  CLRF   x84
+0B1E:  CALL   00F4
+0B22:  BC    0B60
+0B24:  MOVFF  77,83
+0B28:  MOVFF  76,82
+0B2C:  MOVFF  75,81
+0B30:  MOVFF  74,80
+0B34:  CLRF   x87
+0B36:  CLRF   x86
+0B38:  CLRF   x85
+0B3A:  CLRF   x84
+0B3C:  CALL   00F4
+0B40:  BC    0B60
+0B42:  MOVFF  7B,83
+0B46:  MOVFF  7A,82
+0B4A:  MOVFF  79,81
+0B4E:  MOVFF  78,80
+0B52:  CLRF   x87
+0B54:  CLRF   x86
+0B56:  CLRF   x85
+0B58:  CLRF   x84
+0B5A:  CALL   00F4
+0B5E:  BNC   0B62
+....................     return; 
+0B60:  BRA    0E16
+....................   } 
+....................  
+....................   pid->dispKp = Kp; 
+0B62:  MOVFF  6E,FE9
+0B66:  MOVFF  6F,FEA
+0B6A:  MOVFF  70,FEF
+0B6E:  MOVFF  71,FEC
+0B72:  MOVFF  72,FEC
+0B76:  MOVFF  73,FEC
+....................   pid->dispKi = Ki; 
+0B7A:  MOVLW  04
+0B7C:  ADDWF  x6E,W
+0B7E:  MOVWF  FE9
+0B80:  MOVLW  00
+0B82:  ADDWFC x6F,W
+0B84:  MOVWF  FEA
+0B86:  MOVFF  74,FEF
+0B8A:  MOVFF  75,FEC
+0B8E:  MOVFF  76,FEC
+0B92:  MOVFF  77,FEC
+....................   pid->dispKd = Kd; 
+0B96:  MOVLW  08
+0B98:  ADDWF  x6E,W
+0B9A:  MOVWF  FE9
+0B9C:  MOVLW  00
+0B9E:  ADDWFC x6F,W
+0BA0:  MOVWF  FEA
+0BA2:  MOVFF  78,FEF
+0BA6:  MOVFF  79,FEC
+0BAA:  MOVFF  7A,FEC
+0BAE:  MOVFF  7B,FEC
+....................  
+....................   FloatType SampleTimeInSec = ((FloatType) pid->SampleTime) / 1000; 
+0BB2:  MOVLW  2D
+0BB4:  ADDWF  x6E,W
+0BB6:  MOVWF  FE9
+0BB8:  MOVLW  00
+0BBA:  ADDWFC x6F,W
+0BBC:  MOVWF  FEA
+0BBE:  MOVFF  FEC,03
+0BC2:  MOVF   FED,F
+0BC4:  MOVFF  FEF,80
+0BC8:  MOVFF  03,81
+0BCC:  RCALL  0884
+0BCE:  MOVFF  03,83
+0BD2:  MOVFF  02,82
+0BD6:  MOVFF  01,81
+0BDA:  MOVFF  00,80
+0BDE:  MOVFF  03,87
+0BE2:  MOVFF  02,86
+0BE6:  MOVFF  01,85
+0BEA:  MOVFF  00,84
+0BEE:  CLRF   x8B
+0BF0:  CLRF   x8A
+0BF2:  MOVLW  7A
+0BF4:  MOVWF  x89
+0BF6:  MOVLW  88
+0BF8:  MOVWF  x88
+0BFA:  RCALL  08BA
+0BFC:  MOVFF  03,7F
+0C00:  MOVFF  02,7E
+0C04:  MOVFF  01,7D
+0C08:  MOVFF  00,7C
+....................   pid->kp = Kp; 
+0C0C:  MOVLW  0C
+0C0E:  ADDWF  x6E,W
+0C10:  MOVWF  FE9
+0C12:  MOVLW  00
+0C14:  ADDWFC x6F,W
+0C16:  MOVWF  FEA
+0C18:  MOVFF  70,FEF
+0C1C:  MOVFF  71,FEC
+0C20:  MOVFF  72,FEC
+0C24:  MOVFF  73,FEC
+....................   pid->ki = Ki * SampleTimeInSec; 
+0C28:  MOVLW  10
+0C2A:  ADDWF  x6E,W
+0C2C:  MOVWF  FE9
+0C2E:  MOVLW  00
+0C30:  ADDWFC x6F,W
+0C32:  MOVWF  FEA
+0C34:  MOVFF  77,85
+0C38:  MOVFF  76,84
+0C3C:  MOVFF  75,83
+0C40:  MOVFF  74,82
+0C44:  MOVFF  7F,89
+0C48:  MOVFF  7E,88
+0C4C:  MOVFF  7D,87
+0C50:  MOVFF  7C,86
+0C54:  RCALL  0A14
+0C56:  MOVFF  00,FEF
+0C5A:  MOVFF  01,FEC
+0C5E:  MOVFF  02,FEC
+0C62:  MOVFF  03,FEC
+....................   pid->kd = Kd / SampleTimeInSec; 
+0C66:  MOVLW  14
+0C68:  ADDWF  x6E,W
+0C6A:  MOVWF  FE9
+0C6C:  MOVLW  00
+0C6E:  ADDWFC x6F,W
+0C70:  MOVWF  FEA
+0C72:  MOVFF  7B,87
+0C76:  MOVFF  7A,86
+0C7A:  MOVFF  79,85
+0C7E:  MOVFF  78,84
+0C82:  MOVFF  7F,8B
+0C86:  MOVFF  7E,8A
+0C8A:  MOVFF  7D,89
+0C8E:  MOVFF  7C,88
+0C92:  RCALL  08BA
+0C94:  MOVFF  00,FEF
+0C98:  MOVFF  01,FEC
+0C9C:  MOVFF  02,FEC
+0CA0:  MOVFF  03,FEC
+....................  
+....................   if (pid->controllerDirection == PID_Direction_Reverse) { 
+0CA4:  MOVLW  18
+0CA6:  ADDWF  x6E,W
+0CA8:  MOVWF  FE9
+0CAA:  MOVLW  00
+0CAC:  ADDWFC x6F,W
+0CAE:  MOVWF  FEA
+0CB0:  MOVF   FEF,W
+0CB2:  ANDLW  01
+0CB4:  SUBLW  01
+0CB6:  BTFSS  FD8.2
+0CB8:  BRA    0E16
+....................     pid->kp = (0 - pid->kp); 
+0CBA:  MOVLW  0C
+0CBC:  ADDWF  x6E,W
+0CBE:  MOVWF  01
+0CC0:  MOVLW  00
+0CC2:  ADDWFC x6F,W
+0CC4:  MOVWF  03
+0CC6:  MOVFF  01,80
+0CCA:  MOVWF  x81
+0CCC:  MOVLW  0C
+0CCE:  ADDWF  x6E,W
+0CD0:  MOVWF  FE9
+0CD2:  MOVLW  00
+0CD4:  ADDWFC x6F,W
+0CD6:  MOVWF  FEA
+0CD8:  MOVFF  FEF,00
+0CDC:  MOVFF  FEC,01
+0CE0:  MOVFF  FEC,02
+0CE4:  MOVFF  FEC,03
+0CE8:  MOVFF  FEA,83
+0CEC:  MOVFF  FE9,82
+0CF0:  BSF    FD8.1
+0CF2:  CLRF   x87
+0CF4:  CLRF   x86
+0CF6:  CLRF   x85
+0CF8:  CLRF   x84
+0CFA:  MOVFF  03,8B
+0CFE:  MOVFF  02,8A
+0D02:  MOVFF  01,89
+0D06:  MOVFF  00,88
+0D0A:  CALL   0470
+0D0E:  MOVFF  83,FEA
+0D12:  MOVFF  82,FE9
+0D16:  MOVFF  81,FEA
+0D1A:  MOVFF  80,FE9
+0D1E:  MOVFF  00,FEF
+0D22:  MOVFF  01,FEC
+0D26:  MOVFF  02,FEC
+0D2A:  MOVFF  03,FEC
+....................     pid->ki = (0 - pid->ki); 
+0D2E:  MOVLW  10
+0D30:  ADDWF  x6E,W
+0D32:  MOVWF  01
+0D34:  MOVLW  00
+0D36:  ADDWFC x6F,W
+0D38:  MOVWF  03
+0D3A:  MOVFF  01,80
+0D3E:  MOVWF  x81
+0D40:  MOVLW  10
+0D42:  ADDWF  x6E,W
+0D44:  MOVWF  FE9
+0D46:  MOVLW  00
+0D48:  ADDWFC x6F,W
+0D4A:  MOVWF  FEA
+0D4C:  MOVFF  FEF,00
+0D50:  MOVFF  FEC,01
+0D54:  MOVFF  FEC,02
+0D58:  MOVFF  FEC,03
+0D5C:  MOVFF  FEA,83
+0D60:  MOVFF  FE9,82
+0D64:  BSF    FD8.1
+0D66:  CLRF   x87
+0D68:  CLRF   x86
+0D6A:  CLRF   x85
+0D6C:  CLRF   x84
+0D6E:  MOVFF  03,8B
+0D72:  MOVFF  02,8A
+0D76:  MOVFF  01,89
+0D7A:  MOVFF  00,88
+0D7E:  CALL   0470
+0D82:  MOVFF  83,FEA
+0D86:  MOVFF  82,FE9
+0D8A:  MOVFF  81,FEA
+0D8E:  MOVFF  80,FE9
+0D92:  MOVFF  00,FEF
+0D96:  MOVFF  01,FEC
+0D9A:  MOVFF  02,FEC
+0D9E:  MOVFF  03,FEC
+....................     pid->kd = (0 - pid->kd); 
+0DA2:  MOVLW  14
+0DA4:  ADDWF  x6E,W
+0DA6:  MOVWF  01
+0DA8:  MOVLW  00
+0DAA:  ADDWFC x6F,W
+0DAC:  MOVWF  03
+0DAE:  MOVFF  01,80
+0DB2:  MOVWF  x81
+0DB4:  MOVLW  14
+0DB6:  ADDWF  x6E,W
+0DB8:  MOVWF  FE9
+0DBA:  MOVLW  00
+0DBC:  ADDWFC x6F,W
+0DBE:  MOVWF  FEA
+0DC0:  MOVFF  FEF,00
+0DC4:  MOVFF  FEC,01
+0DC8:  MOVFF  FEC,02
+0DCC:  MOVFF  FEC,03
+0DD0:  MOVFF  FEA,83
+0DD4:  MOVFF  FE9,82
+0DD8:  BSF    FD8.1
+0DDA:  CLRF   x87
+0DDC:  CLRF   x86
+0DDE:  CLRF   x85
+0DE0:  CLRF   x84
+0DE2:  MOVFF  03,8B
+0DE6:  MOVFF  02,8A
+0DEA:  MOVFF  01,89
+0DEE:  MOVFF  00,88
+0DF2:  CALL   0470
+0DF6:  MOVFF  83,FEA
+0DFA:  MOVFF  82,FE9
+0DFE:  MOVFF  81,FEA
+0E02:  MOVFF  80,FE9
+0E06:  MOVFF  00,FEF
+0E0A:  MOVFF  01,FEC
+0E0E:  MOVFF  02,FEC
+0E12:  MOVFF  03,FEC
+....................   } 
+0E16:  GOTO   0F08 (RETURN)
+.................... } 
+....................  
+.................... /* SetSampleTime(...) ********************************************************* 
+....................  * sets the period, in Milliseconds, at which the calculation is performed 
+....................  ******************************************************************************/ 
+.................... void PID_SetSampleTime(PidType* pid, int NewSampleTime) { 
+....................   if (NewSampleTime > 0) { 
+*
+114A:  MOVF   x61,F
+114C:  BTFSC  FD8.2
+114E:  BRA    125C
+....................     FloatType ratio = (FloatType) NewSampleTime / (FloatType) pid->SampleTime; 
+1150:  CLRF   x81
+1152:  MOVFF  61,80
+1156:  CALL   0884
+115A:  MOVFF  03,69
+115E:  MOVFF  02,68
+1162:  MOVFF  01,67
+1166:  MOVFF  00,66
+116A:  MOVLW  2D
+116C:  ADDWF  5F,W
+116E:  MOVWF  FE9
+1170:  MOVLW  00
+1172:  ADDWFC x60,W
+1174:  MOVWF  FEA
+1176:  MOVFF  FEC,03
+117A:  MOVF   FED,F
+117C:  MOVFF  FEF,80
+1180:  MOVFF  03,81
+1184:  CALL   0884
+1188:  MOVFF  69,87
+118C:  MOVFF  68,86
+1190:  MOVFF  67,85
+1194:  MOVFF  66,84
+1198:  MOVFF  03,8B
+119C:  MOVFF  02,8A
+11A0:  MOVFF  01,89
+11A4:  MOVFF  00,88
+11A8:  CALL   08BA
+11AC:  MOVFF  03,65
+11B0:  MOVFF  02,64
+11B4:  MOVFF  01,63
+11B8:  MOVFF  00,62
+....................     pid->ki *= ratio; 
+11BC:  MOVLW  10
+11BE:  ADDWF  5F,W
+11C0:  MOVWF  FE9
+11C2:  MOVLW  00
+11C4:  ADDWFC x60,W
+11C6:  MOVWF  FEA
+11C8:  MOVFF  FEF,82
+11CC:  MOVFF  FEC,83
+11D0:  MOVFF  FEC,84
+11D4:  MOVFF  FEC,85
+11D8:  MOVF   FED,F
+11DA:  MOVF   FED,F
+11DC:  MOVF   FED,F
+11DE:  MOVFF  65,89
+11E2:  MOVFF  64,88
+11E6:  MOVFF  63,87
+11EA:  MOVFF  62,86
+11EE:  RCALL  0A14
+11F0:  MOVFF  00,FEF
+11F4:  MOVFF  01,FEC
+11F8:  MOVFF  02,FEC
+11FC:  MOVFF  03,FEC
+....................     pid->kd /= ratio; 
+1200:  MOVLW  14
+1202:  ADDWF  5F,W
+1204:  MOVWF  FE9
+1206:  MOVLW  00
+1208:  ADDWFC x60,W
+120A:  MOVWF  FEA
+120C:  MOVFF  FEF,84
+1210:  MOVFF  FEC,85
+1214:  MOVFF  FEC,86
+1218:  MOVFF  FEC,87
+121C:  MOVF   FED,F
+121E:  MOVF   FED,F
+1220:  MOVF   FED,F
+1222:  MOVFF  65,8B
+1226:  MOVFF  64,8A
+122A:  MOVFF  63,89
+122E:  MOVFF  62,88
+1232:  CALL   08BA
+1236:  MOVFF  00,FEF
+123A:  MOVFF  01,FEC
+123E:  MOVFF  02,FEC
+1242:  MOVFF  03,FEC
+....................     pid->SampleTime = (unsigned long) NewSampleTime; 
+1246:  MOVLW  2D
+1248:  ADDWF  5F,W
+124A:  MOVWF  FE9
+124C:  MOVLW  00
+124E:  ADDWFC x60,W
+1250:  MOVWF  FEA
+1252:  CLRF   03
+1254:  MOVFF  61,FEF
+1258:  MOVFF  03,FEC
+....................   } 
+125C:  GOTO   1A1A (RETURN)
+.................... } 
+....................  
+.................... /* SetOutputLimits(...)**************************************************** 
+....................  *     This function will be used far more often than SetInputLimits.  while 
+....................  *  the input to the controller will generally be in the 0-1023 range (which is 
+....................  *  the default already,)  the output will be a little different.  maybe they'll 
+....................  *  be doing a time window and will need 0-8000 or something.  or maybe they'll 
+....................  *  want to clamp it from 0-125.  who knows.  at any rate, that can all be done 
+....................  *  here. 
+....................  **************************************************************************/ 
+.................... void PID_SetOutputLimits(PidType* pid, FloatType Min, FloatType Max) { 
+....................   if (Min >= Max) { 
+*
+016A:  MOVFF  77,83
+016E:  MOVFF  76,82
+0172:  MOVFF  75,81
+0176:  MOVFF  74,80
+017A:  MOVFF  73,87
+017E:  MOVFF  72,86
+0182:  MOVFF  71,85
+0186:  MOVFF  70,84
+018A:  RCALL  00F4
+018C:  BC    0190
+018E:  BNZ   0192
+....................     return; 
+0190:  BRA    046E
+....................   } 
+....................   pid->outMin = Min; 
+0192:  MOVLW  2F
+0194:  ADDWF  x6E,W
+0196:  MOVWF  FE9
+0198:  MOVLW  00
+019A:  ADDWFC x6F,W
+019C:  MOVWF  FEA
+019E:  MOVFF  70,FEF
+01A2:  MOVFF  71,FEC
+01A6:  MOVFF  72,FEC
+01AA:  MOVFF  73,FEC
+....................   pid->outMax = Max; 
+01AE:  MOVLW  33
+01B0:  ADDWF  x6E,W
+01B2:  MOVWF  FE9
+01B4:  MOVLW  00
+01B6:  ADDWFC x6F,W
+01B8:  MOVWF  FEA
+01BA:  MOVFF  74,FEF
+01BE:  MOVFF  75,FEC
+01C2:  MOVFF  76,FEC
+01C6:  MOVFF  77,FEC
+....................  
+....................   if (pid->inAuto) { 
+01CA:  MOVLW  37
+01CC:  ADDWF  x6E,W
+01CE:  MOVWF  FE9
+01D0:  MOVLW  00
+01D2:  ADDWFC x6F,W
+01D4:  MOVWF  FEA
+01D6:  BTFSS  FEF.0
+01D8:  BRA    046E
+....................     if (pid->myOutput > pid->outMax) { 
+01DA:  MOVLW  1D
+01DC:  ADDWF  x6E,W
+01DE:  MOVWF  FE9
+01E0:  MOVLW  00
+01E2:  ADDWFC x6F,W
+01E4:  MOVWF  FEA
+01E6:  MOVFF  FEF,78
+01EA:  MOVFF  FEC,79
+01EE:  MOVFF  FEC,7A
+01F2:  MOVFF  FEC,7B
+01F6:  MOVLW  33
+01F8:  ADDWF  x6E,W
+01FA:  MOVWF  FE9
+01FC:  MOVLW  00
+01FE:  ADDWFC x6F,W
+0200:  MOVWF  FEA
+0202:  MOVFF  FEF,00
+0206:  MOVFF  FEC,01
+020A:  MOVFF  FEC,02
+020E:  MOVFF  FEC,03
+0212:  MOVFF  03,83
+0216:  MOVFF  02,82
+021A:  MOVFF  01,81
+021E:  MOVFF  00,80
+0222:  MOVFF  7B,87
+0226:  MOVFF  7A,86
+022A:  MOVFF  79,85
+022E:  MOVFF  78,84
+0232:  RCALL  00F4
+0234:  BNC   0280
+....................       pid->myOutput = pid->outMax; 
+0236:  MOVLW  1D
+0238:  ADDWF  x6E,W
+023A:  MOVWF  01
+023C:  MOVLW  00
+023E:  ADDWFC x6F,W
+0240:  MOVWF  03
+0242:  MOVFF  01,78
+0246:  MOVFF  03,79
+024A:  MOVLW  33
+024C:  ADDWF  x6E,W
+024E:  MOVWF  FE9
+0250:  MOVLW  00
+0252:  ADDWFC x6F,W
+0254:  MOVWF  FEA
+0256:  MOVFF  FEF,00
+025A:  MOVFF  FEC,01
+025E:  MOVFF  FEC,02
+0262:  MOVFF  FEC,03
+0266:  MOVFF  79,FEA
+026A:  MOVFF  78,FE9
+026E:  MOVFF  00,FEF
+0272:  MOVFF  01,FEC
+0276:  MOVFF  02,FEC
+027A:  MOVFF  03,FEC
+....................     } else if (pid->myOutput < pid->outMin) { 
+027E:  BRA    0324
+0280:  MOVLW  1D
+0282:  ADDWF  x6E,W
+0284:  MOVWF  FE9
+0286:  MOVLW  00
+0288:  ADDWFC x6F,W
+028A:  MOVWF  FEA
+028C:  MOVFF  FEF,78
+0290:  MOVFF  FEC,79
+0294:  MOVFF  FEC,7A
+0298:  MOVFF  FEC,7B
+029C:  MOVLW  2F
+029E:  ADDWF  x6E,W
+02A0:  MOVWF  FE9
+02A2:  MOVLW  00
+02A4:  ADDWFC x6F,W
+02A6:  MOVWF  FEA
+02A8:  MOVFF  FEF,00
+02AC:  MOVFF  FEC,01
+02B0:  MOVFF  FEC,02
+02B4:  MOVFF  FEC,03
+02B8:  MOVFF  7B,83
+02BC:  MOVFF  7A,82
+02C0:  MOVFF  79,81
+02C4:  MOVFF  78,80
+02C8:  MOVFF  03,87
+02CC:  MOVFF  02,86
+02D0:  MOVFF  01,85
+02D4:  MOVFF  00,84
+02D8:  RCALL  00F4
+02DA:  BNC   0324
+....................       pid->myOutput = pid->outMin; 
+02DC:  MOVLW  1D
+02DE:  ADDWF  x6E,W
+02E0:  MOVWF  01
+02E2:  MOVLW  00
+02E4:  ADDWFC x6F,W
+02E6:  MOVWF  03
+02E8:  MOVFF  01,78
+02EC:  MOVFF  03,79
+02F0:  MOVLW  2F
+02F2:  ADDWF  x6E,W
+02F4:  MOVWF  FE9
+02F6:  MOVLW  00
+02F8:  ADDWFC x6F,W
+02FA:  MOVWF  FEA
+02FC:  MOVFF  FEF,00
+0300:  MOVFF  FEC,01
+0304:  MOVFF  FEC,02
+0308:  MOVFF  FEC,03
+030C:  MOVFF  79,FEA
+0310:  MOVFF  78,FE9
+0314:  MOVFF  00,FEF
+0318:  MOVFF  01,FEC
+031C:  MOVFF  02,FEC
+0320:  MOVFF  03,FEC
+....................     } 
+....................  
+....................     if (pid->ITerm > pid->outMax) { 
+0324:  MOVLW  25
+0326:  ADDWF  x6E,W
+0328:  MOVWF  FE9
+032A:  MOVLW  00
+032C:  ADDWFC x6F,W
+032E:  MOVWF  FEA
+0330:  MOVFF  FEF,78
+0334:  MOVFF  FEC,79
+0338:  MOVFF  FEC,7A
+033C:  MOVFF  FEC,7B
+0340:  MOVLW  33
+0342:  ADDWF  x6E,W
+0344:  MOVWF  FE9
+0346:  MOVLW  00
+0348:  ADDWFC x6F,W
+034A:  MOVWF  FEA
+034C:  MOVFF  FEF,00
+0350:  MOVFF  FEC,01
+0354:  MOVFF  FEC,02
+0358:  MOVFF  FEC,03
+035C:  MOVFF  03,83
+0360:  MOVFF  02,82
+0364:  MOVFF  01,81
+0368:  MOVFF  00,80
+036C:  MOVFF  7B,87
+0370:  MOVFF  7A,86
+0374:  MOVFF  79,85
+0378:  MOVFF  78,84
+037C:  RCALL  00F4
+037E:  BNC   03CA
+....................       pid->ITerm = pid->outMax; 
+0380:  MOVLW  25
+0382:  ADDWF  x6E,W
+0384:  MOVWF  01
+0386:  MOVLW  00
+0388:  ADDWFC x6F,W
+038A:  MOVWF  03
+038C:  MOVFF  01,78
+0390:  MOVFF  03,79
+0394:  MOVLW  33
+0396:  ADDWF  x6E,W
+0398:  MOVWF  FE9
+039A:  MOVLW  00
+039C:  ADDWFC x6F,W
+039E:  MOVWF  FEA
+03A0:  MOVFF  FEF,00
+03A4:  MOVFF  FEC,01
+03A8:  MOVFF  FEC,02
+03AC:  MOVFF  FEC,03
+03B0:  MOVFF  79,FEA
+03B4:  MOVFF  78,FE9
+03B8:  MOVFF  00,FEF
+03BC:  MOVFF  01,FEC
+03C0:  MOVFF  02,FEC
+03C4:  MOVFF  03,FEC
+....................     } else if (pid->ITerm < pid->outMin) { 
+03C8:  BRA    046E
+03CA:  MOVLW  25
+03CC:  ADDWF  x6E,W
+03CE:  MOVWF  FE9
+03D0:  MOVLW  00
+03D2:  ADDWFC x6F,W
+03D4:  MOVWF  FEA
+03D6:  MOVFF  FEF,78
+03DA:  MOVFF  FEC,79
+03DE:  MOVFF  FEC,7A
+03E2:  MOVFF  FEC,7B
+03E6:  MOVLW  2F
+03E8:  ADDWF  x6E,W
+03EA:  MOVWF  FE9
+03EC:  MOVLW  00
+03EE:  ADDWFC x6F,W
+03F0:  MOVWF  FEA
+03F2:  MOVFF  FEF,00
+03F6:  MOVFF  FEC,01
+03FA:  MOVFF  FEC,02
+03FE:  MOVFF  FEC,03
+0402:  MOVFF  7B,83
+0406:  MOVFF  7A,82
+040A:  MOVFF  79,81
+040E:  MOVFF  78,80
+0412:  MOVFF  03,87
+0416:  MOVFF  02,86
+041A:  MOVFF  01,85
+041E:  MOVFF  00,84
+0422:  RCALL  00F4
+0424:  BNC   046E
+....................       pid->ITerm = pid->outMin; 
+0426:  MOVLW  25
+0428:  ADDWF  x6E,W
+042A:  MOVWF  01
+042C:  MOVLW  00
+042E:  ADDWFC x6F,W
+0430:  MOVWF  03
+0432:  MOVFF  01,78
+0436:  MOVFF  03,79
+043A:  MOVLW  2F
+043C:  ADDWF  x6E,W
+043E:  MOVWF  FE9
+0440:  MOVLW  00
+0442:  ADDWFC x6F,W
+0444:  MOVWF  FEA
+0446:  MOVFF  FEF,00
+044A:  MOVFF  FEC,01
+044E:  MOVFF  FEC,02
+0452:  MOVFF  FEC,03
+0456:  MOVFF  79,FEA
+045A:  MOVFF  78,FE9
+045E:  MOVFF  00,FEF
+0462:  MOVFF  01,FEC
+0466:  MOVFF  02,FEC
+046A:  MOVFF  03,FEC
+....................     } 
+....................   } 
+046E:  RETURN 0
+.................... } 
+....................  
+.................... /* SetMode(...)**************************************************************** 
+....................  * Allows the controller Mode to be set to manual (0) or Automatic (non-zero) 
+....................  * when the transition from manual to auto occurs, the controller is 
+....................  * automatically initialized 
+....................  ******************************************************************************/ 
+.................... void PID_SetMode(PidType* pid, PidModeType Mode) 
+*
+10EA:  BCF    x62.0
+10EC:  DECFSZ x61,W
+10EE:  BRA    10F2
+10F0:  BSF    x62.0
+.................... { 
+....................     bool newAuto = (Mode == PID_Mode_Automatic); 
+....................     if(newAuto == !pid->inAuto) 
+10F2:  MOVLW  00
+10F4:  BTFSC  x62.0
+10F6:  MOVLW  01
+10F8:  MOVWF  x63
+10FA:  MOVLW  37
+10FC:  ADDWF  5F,W
+10FE:  MOVWF  FE9
+1100:  MOVLW  00
+1102:  ADDWFC x60,W
+1104:  MOVWF  FEA
+1106:  MOVLW  00
+1108:  BTFSS  FEF.0
+110A:  MOVLW  01
+110C:  SUBWF  x63,W
+110E:  BNZ   111A
+....................     {  /*we just went from manual to auto*/ 
+....................         PID_Initialize(pid); 
+1110:  MOVFF  60,64
+1114:  MOVFF  5F,63
+1118:  BRA    0F0C
+....................     } 
+....................     pid->inAuto = newAuto; 
+111A:  MOVLW  37
+111C:  ADDWF  5F,W
+111E:  MOVWF  01
+1120:  MOVLW  00
+1122:  ADDWFC x60,W
+1124:  MOVWF  03
+1126:  MOVFF  01,63
+112A:  MOVWF  x64
+112C:  BTFSC  x62.0
+112E:  BRA    113C
+1130:  MOVFF  64,FEA
+1134:  MOVFF  63,FE9
+1138:  BCF    FEF.0
+113A:  BRA    1146
+113C:  MOVFF  64,FEA
+1140:  MOVFF  63,FE9
+1144:  BSF    FEF.0
+1146:  GOTO   19EC (RETURN)
+.................... } 
+....................  
+.................... /* Initialize()**************************************************************** 
+....................  *  does all the things that need to happen to ensure a bumpless transfer 
+....................  *  from manual to automatic mode. 
+....................  ******************************************************************************/ 
+.................... void PID_Initialize(PidType* pid) { 
+....................   pid->ITerm = pid->myOutput; 
+*
+0F0C:  MOVLW  25
+0F0E:  ADDWF  x63,W
+0F10:  MOVWF  01
+0F12:  MOVLW  00
+0F14:  ADDWFC x64,W
+0F16:  MOVWF  03
+0F18:  MOVFF  01,65
+0F1C:  MOVWF  x66
+0F1E:  MOVLW  1D
+0F20:  ADDWF  x63,W
+0F22:  MOVWF  FE9
+0F24:  MOVLW  00
+0F26:  ADDWFC x64,W
+0F28:  MOVWF  FEA
+0F2A:  MOVFF  FEF,00
+0F2E:  MOVFF  FEC,01
+0F32:  MOVFF  FEC,02
+0F36:  MOVFF  FEC,03
+0F3A:  MOVFF  66,FEA
+0F3E:  MOVFF  65,FE9
+0F42:  MOVFF  00,FEF
+0F46:  MOVFF  01,FEC
+0F4A:  MOVFF  02,FEC
+0F4E:  MOVFF  03,FEC
+....................   pid->lastInput = pid->myInput; 
+0F52:  MOVLW  29
+0F54:  ADDWF  x63,W
+0F56:  MOVWF  01
+0F58:  MOVLW  00
+0F5A:  ADDWFC x64,W
+0F5C:  MOVWF  03
+0F5E:  MOVFF  01,65
+0F62:  MOVWF  x66
+0F64:  MOVLW  19
+0F66:  ADDWF  x63,W
+0F68:  MOVWF  FE9
+0F6A:  MOVLW  00
+0F6C:  ADDWFC x64,W
+0F6E:  MOVWF  FEA
+0F70:  MOVFF  FEF,00
+0F74:  MOVFF  FEC,01
+0F78:  MOVFF  FEC,02
+0F7C:  MOVFF  FEC,03
+0F80:  MOVFF  66,FEA
+0F84:  MOVFF  65,FE9
+0F88:  MOVFF  00,FEF
+0F8C:  MOVFF  01,FEC
+0F90:  MOVFF  02,FEC
+0F94:  MOVFF  03,FEC
+....................   if (pid->ITerm > pid->outMax) { 
+0F98:  MOVLW  25
+0F9A:  ADDWF  x63,W
+0F9C:  MOVWF  FE9
+0F9E:  MOVLW  00
+0FA0:  ADDWFC x64,W
+0FA2:  MOVWF  FEA
+0FA4:  MOVFF  FEF,65
+0FA8:  MOVFF  FEC,66
+0FAC:  MOVFF  FEC,67
+0FB0:  MOVFF  FEC,68
+0FB4:  MOVLW  33
+0FB6:  ADDWF  x63,W
+0FB8:  MOVWF  FE9
+0FBA:  MOVLW  00
+0FBC:  ADDWFC x64,W
+0FBE:  MOVWF  FEA
+0FC0:  MOVFF  FEF,00
+0FC4:  MOVFF  FEC,01
+0FC8:  MOVFF  FEC,02
+0FCC:  MOVFF  FEC,03
+0FD0:  MOVFF  03,83
+0FD4:  MOVFF  02,82
+0FD8:  MOVFF  01,81
+0FDC:  MOVFF  00,80
+0FE0:  MOVFF  68,87
+0FE4:  MOVFF  67,86
+0FE8:  MOVFF  66,85
+0FEC:  MOVFF  65,84
+0FF0:  CALL   00F4
+0FF4:  BNC   1040
+....................     pid->ITerm = pid->outMax; 
+0FF6:  MOVLW  25
+0FF8:  ADDWF  x63,W
+0FFA:  MOVWF  01
+0FFC:  MOVLW  00
+0FFE:  ADDWFC x64,W
+1000:  MOVWF  03
+1002:  MOVFF  01,65
+1006:  MOVFF  03,66
+100A:  MOVLW  33
+100C:  ADDWF  x63,W
+100E:  MOVWF  FE9
+1010:  MOVLW  00
+1012:  ADDWFC x64,W
+1014:  MOVWF  FEA
+1016:  MOVFF  FEF,00
+101A:  MOVFF  FEC,01
+101E:  MOVFF  FEC,02
+1022:  MOVFF  FEC,03
+1026:  MOVFF  66,FEA
+102A:  MOVFF  65,FE9
+102E:  MOVFF  00,FEF
+1032:  MOVFF  01,FEC
+1036:  MOVFF  02,FEC
+103A:  MOVFF  03,FEC
+....................   } else if (pid->ITerm < pid->outMin) { 
+103E:  BRA    10E6
+1040:  MOVLW  25
+1042:  ADDWF  x63,W
+1044:  MOVWF  FE9
+1046:  MOVLW  00
+1048:  ADDWFC x64,W
+104A:  MOVWF  FEA
+104C:  MOVFF  FEF,65
+1050:  MOVFF  FEC,66
+1054:  MOVFF  FEC,67
+1058:  MOVFF  FEC,68
+105C:  MOVLW  2F
+105E:  ADDWF  x63,W
+1060:  MOVWF  FE9
+1062:  MOVLW  00
+1064:  ADDWFC x64,W
+1066:  MOVWF  FEA
+1068:  MOVFF  FEF,00
+106C:  MOVFF  FEC,01
+1070:  MOVFF  FEC,02
+1074:  MOVFF  FEC,03
+1078:  MOVFF  68,83
+107C:  MOVFF  67,82
+1080:  MOVFF  66,81
+1084:  MOVFF  65,80
+1088:  MOVFF  03,87
+108C:  MOVFF  02,86
+1090:  MOVFF  01,85
+1094:  MOVFF  00,84
+1098:  CALL   00F4
+109C:  BNC   10E6
+....................     pid->ITerm = pid->outMin; 
+109E:  MOVLW  25
+10A0:  ADDWF  x63,W
+10A2:  MOVWF  01
+10A4:  MOVLW  00
+10A6:  ADDWFC x64,W
+10A8:  MOVWF  03
+10AA:  MOVFF  01,65
+10AE:  MOVFF  03,66
+10B2:  MOVLW  2F
+10B4:  ADDWF  x63,W
+10B6:  MOVWF  FE9
+10B8:  MOVLW  00
+10BA:  ADDWFC x64,W
+10BC:  MOVWF  FEA
+10BE:  MOVFF  FEF,00
+10C2:  MOVFF  FEC,01
+10C6:  MOVFF  FEC,02
+10CA:  MOVFF  FEC,03
+10CE:  MOVFF  66,FEA
+10D2:  MOVFF  65,FE9
+10D6:  MOVFF  00,FEF
+10DA:  MOVFF  01,FEC
+10DE:  MOVFF  02,FEC
+10E2:  MOVFF  03,FEC
+....................   } 
+10E6:  GOTO   111A (RETURN)
+.................... } 
+....................  
+.................... /* SetControllerDirection(...)************************************************* 
+....................  * The PID will either be connected to a DIRECT acting process (+Output leads 
+....................  * to +Input) or a REVERSE acting process(+Output leads to -Input.)  we need to 
+....................  * know which one, because otherwise we may increase the output when we should 
+....................  * be decreasing.  This is called from the constructor. 
+....................  ******************************************************************************/ 
+.................... void PID_SetControllerDirection(PidType* pid, PidDirectionType Direction) { 
+....................   if (pid->inAuto && Direction != pid->controllerDirection) { 
+*
+06DA:  MOVLW  37
+06DC:  ADDWF  x6E,W
+06DE:  MOVWF  FE9
+06E0:  MOVLW  00
+06E2:  ADDWFC x6F,W
+06E4:  MOVWF  FEA
+06E6:  BTFSS  FEF.0
+06E8:  BRA    0854
+06EA:  MOVLW  18
+06EC:  ADDWF  x6E,W
+06EE:  MOVWF  FE9
+06F0:  MOVLW  00
+06F2:  ADDWFC x6F,W
+06F4:  MOVWF  FEA
+06F6:  MOVF   FEF,W
+06F8:  SUBWF  x70,W
+06FA:  BTFSC  FD8.2
+06FC:  BRA    0854
+....................     pid->kp = (0 - pid->kp); 
+06FE:  MOVLW  0C
+0700:  ADDWF  x6E,W
+0702:  MOVWF  01
+0704:  MOVLW  00
+0706:  ADDWFC x6F,W
+0708:  MOVWF  03
+070A:  MOVFF  01,71
+070E:  MOVWF  x72
+0710:  MOVLW  0C
+0712:  ADDWF  x6E,W
+0714:  MOVWF  FE9
+0716:  MOVLW  00
+0718:  ADDWFC x6F,W
+071A:  MOVWF  FEA
+071C:  MOVFF  FEF,00
+0720:  MOVFF  FEC,01
+0724:  MOVFF  FEC,02
+0728:  MOVFF  FEC,03
+072C:  MOVFF  FEA,74
+0730:  MOVFF  FE9,73
+0734:  BSF    FD8.1
+0736:  CLRF   x87
+0738:  CLRF   x86
+073A:  CLRF   x85
+073C:  CLRF   x84
+073E:  MOVFF  03,8B
+0742:  MOVFF  02,8A
+0746:  MOVFF  01,89
+074A:  MOVFF  00,88
+074E:  RCALL  0470
+0750:  MOVFF  74,FEA
+0754:  MOVFF  73,FE9
+0758:  MOVFF  72,FEA
+075C:  MOVFF  71,FE9
+0760:  MOVFF  00,FEF
+0764:  MOVFF  01,FEC
+0768:  MOVFF  02,FEC
+076C:  MOVFF  03,FEC
+....................     pid->ki = (0 - pid->ki); 
+0770:  MOVLW  10
+0772:  ADDWF  x6E,W
+0774:  MOVWF  01
+0776:  MOVLW  00
+0778:  ADDWFC x6F,W
+077A:  MOVWF  03
+077C:  MOVFF  01,71
+0780:  MOVWF  x72
+0782:  MOVLW  10
+0784:  ADDWF  x6E,W
+0786:  MOVWF  FE9
+0788:  MOVLW  00
+078A:  ADDWFC x6F,W
+078C:  MOVWF  FEA
+078E:  MOVFF  FEF,00
+0792:  MOVFF  FEC,01
+0796:  MOVFF  FEC,02
+079A:  MOVFF  FEC,03
+079E:  MOVFF  FEA,74
+07A2:  MOVFF  FE9,73
+07A6:  BSF    FD8.1
+07A8:  CLRF   x87
+07AA:  CLRF   x86
+07AC:  CLRF   x85
+07AE:  CLRF   x84
+07B0:  MOVFF  03,8B
+07B4:  MOVFF  02,8A
+07B8:  MOVFF  01,89
+07BC:  MOVFF  00,88
+07C0:  RCALL  0470
+07C2:  MOVFF  74,FEA
+07C6:  MOVFF  73,FE9
+07CA:  MOVFF  72,FEA
+07CE:  MOVFF  71,FE9
+07D2:  MOVFF  00,FEF
+07D6:  MOVFF  01,FEC
+07DA:  MOVFF  02,FEC
+07DE:  MOVFF  03,FEC
+....................     pid->kd = (0 - pid->kd); 
+07E2:  MOVLW  14
+07E4:  ADDWF  x6E,W
+07E6:  MOVWF  01
+07E8:  MOVLW  00
+07EA:  ADDWFC x6F,W
+07EC:  MOVWF  03
+07EE:  MOVFF  01,71
+07F2:  MOVWF  x72
+07F4:  MOVLW  14
+07F6:  ADDWF  x6E,W
+07F8:  MOVWF  FE9
+07FA:  MOVLW  00
+07FC:  ADDWFC x6F,W
+07FE:  MOVWF  FEA
+0800:  MOVFF  FEF,00
+0804:  MOVFF  FEC,01
+0808:  MOVFF  FEC,02
+080C:  MOVFF  FEC,03
+0810:  MOVFF  FEA,74
+0814:  MOVFF  FE9,73
+0818:  BSF    FD8.1
+081A:  CLRF   x87
+081C:  CLRF   x86
+081E:  CLRF   x85
+0820:  CLRF   x84
+0822:  MOVFF  03,8B
+0826:  MOVFF  02,8A
+082A:  MOVFF  01,89
+082E:  MOVFF  00,88
+0832:  RCALL  0470
+0834:  MOVFF  74,FEA
+0838:  MOVFF  73,FE9
+083C:  MOVFF  72,FEA
+0840:  MOVFF  71,FE9
+0844:  MOVFF  00,FEF
+0848:  MOVFF  01,FEC
+084C:  MOVFF  02,FEC
+0850:  MOVFF  03,FEC
+....................   } 
+....................   pid->controllerDirection = Direction; 
+0854:  MOVLW  18
+0856:  ADDWF  x6E,W
+0858:  MOVWF  01
+085A:  MOVLW  00
+085C:  ADDWFC x6F,W
+085E:  MOVWF  03
+0860:  MOVFF  01,71
+0864:  MOVWF  x72
+0866:  BTFSC  x70.0
+0868:  BRA    0876
+086A:  MOVFF  72,FEA
+086E:  MOVFF  71,FE9
+0872:  BCF    FEF.0
+0874:  BRA    0880
+0876:  MOVFF  72,FEA
+087A:  MOVFF  71,FE9
+087E:  BSF    FEF.0
+0880:  GOTO   0ECE (RETURN)
+.................... } 
+....................  
+.................... /* Status Funcions************************************************************* 
+....................  * Just because you set the Kp=-1 doesn't mean it actually happened.  these 
+....................  * functions query the internal state of the PID.  they're here for display 
+....................  * purposes.  this are the functions the PID Front-end uses for example 
+....................  ******************************************************************************/ 
+.................... FloatType PID_GetKp(PidType* pid) { 
+....................   return pid->dispKp; 
+.................... } 
+.................... FloatType PID_GetKi(PidType* pid) { 
+....................   return pid->dispKi; 
+.................... } 
+.................... FloatType PID_GetKd(PidType* pid) { 
+....................   return pid->dispKd; 
+.................... } 
+.................... PidModeType PID_GetMode(PidType* pid) { 
+....................   return pid->inAuto ? PID_Mode_Automatic : PID_Mode_Manual; 
+.................... } 
+.................... PidDirectionType PID_GetDirection(PidType* pid) { 
+....................   return pid->controllerDirection; 
+.................... } 
+....................  
+.................... /// static variables 
+.................... static int32 millis=0;      // variable que cuenta los milisegundos 
+.................... static int16 cnt_rps=0;     // variable que cuenta las repeticiones por segundo 
+.................... /// variables auxiliares 
+.................... int32 last_time; 
+.................... int16 rpm; 
+.................... // Working PID variables 
+.................... PidType  myPID; // structura a el controlador PID 
+.................... /// prototipo de funciones 
+.................... void clrf_ptr(int8 * ptr,int8 len,int8 v); 
+.................... void num_to_arr_num(int8 * ptr,unsigned int num,int8 len); 
+.................... void show_count(int8 rpm1,int8 rmp2); 
+.................... int8 select_disp(int8 dig); 
+.................... int8 dec_to_disp(int8 num); 
+.................... // interrupcion por el timer0 
+.................... #INT_TIMER0 
+.................... void TMR_isr(){ 
+....................     set_timer0(60536);  // precarga el timer 
+*
+00CA:  MOVLW  EC
+00CC:  MOVWF  FD7
+00CE:  MOVLW  78
+00D0:  MOVWF  FD6
+....................     millis++; // se incrementan los milisegundos 
+00D2:  MOVLW  01
+00D4:  ADDWF  16,F
+00D6:  BTFSC  FD8.0
+00D8:  INCF   17,F
+00DA:  BTFSC  FD8.2
+00DC:  INCF   18,F
+00DE:  BTFSC  FD8.2
+00E0:  INCF   19,F
+.................... } 
+.................... // interrupcion externa 
+00E2:  BCF    FF2.2
+00E4:  GOTO   0060
+.................... #INT_EXT 
+.................... void  EXT_isr(void){ 
+....................     cnt_rps++;  // cuenta las rps 
+00E8:  INCF   1A,F
+00EA:  BTFSC  FD8.2
+00EC:  INCF   1B,F
+00EE:  BCF    FF2.1
+00F0:  GOTO   0060
+.................... } 
+....................  
+.................... void main(){ 
+*
+1980:  CLRF   FF8
+1982:  BCF    FD0.7
+1984:  BSF    07.7
+1986:  CLRF   19
+1988:  CLRF   18
+198A:  CLRF   17
+198C:  CLRF   16
+198E:  CLRF   1B
+1990:  CLRF   1A
+1992:  MOVF   FC1,W
+1994:  ANDLW  C0
+1996:  IORLW  0F
+1998:  MOVWF  FC1
+199A:  MOVLW  07
+199C:  MOVWF  FB4
+199E:  CLRF   5A
+19A0:  CLRF   5B
+19A2:  CLRF   5C
+19A4:  CLRF   5D
+....................   //inicializa el controlador pid 
+....................   //PID_init(PID, kp,ki,kd, direccion) 
+....................   PID_init(&myPID,   0.07,  0.095,  0.7,   0); 
+19A6:  CLRF   x60
+19A8:  MOVLW  22
+19AA:  MOVWF  5F
+19AC:  MOVLW  29
+19AE:  MOVWF  x64
+19B0:  MOVLW  5C
+19B2:  MOVWF  x63
+19B4:  MOVLW  0F
+19B6:  MOVWF  x62
+19B8:  MOVLW  7B
+19BA:  MOVWF  x61
+19BC:  MOVLW  5C
+19BE:  MOVWF  x68
+19C0:  MOVLW  8F
+19C2:  MOVWF  x67
+19C4:  MOVLW  42
+19C6:  MOVWF  x66
+19C8:  MOVLW  7B
+19CA:  MOVWF  x65
+19CC:  MOVLW  33
+19CE:  MOVWF  x6C
+19D0:  MOVWF  x6B
+19D2:  MOVWF  x6A
+19D4:  MOVLW  7E
+19D6:  MOVWF  x69
+19D8:  CLRF   x6D
+19DA:  GOTO   0E1A
+....................   PID_SetMode(&myPID,1); 
+19DE:  CLRF   x60
+19E0:  MOVLW  22
+19E2:  MOVWF  5F
+19E4:  MOVLW  01
+19E6:  MOVWF  x61
+19E8:  GOTO   10EA
+....................   PID_SetOutputLimits(&myPID,0,990);  //establece limites 
+19EC:  CLRF   x6F
+19EE:  MOVLW  22
+19F0:  MOVWF  x6E
+19F2:  CLRF   x73
+19F4:  CLRF   x72
+19F6:  CLRF   x71
+19F8:  CLRF   x70
+19FA:  CLRF   x77
+19FC:  MOVLW  80
+19FE:  MOVWF  x76
+1A00:  MOVLW  77
+1A02:  MOVWF  x75
+1A04:  MOVLW  88
+1A06:  MOVWF  x74
+1A08:  CALL   016A
+....................   PID_SetSampleTime(&myPID,500);  // tiempo de muestreo 
+1A0C:  CLRF   x60
+1A0E:  MOVLW  22
+1A10:  MOVWF  5F
+1A12:  MOVLW  F4
+1A14:  MOVWF  x61
+1A16:  GOTO   114A
+....................  
+....................    RBPU = 0;  // pull-up todo el puerto b 
+1A1A:  BCF    FF1.7
+....................    set_tris_d(0); // establece I/O 
+1A1C:  MOVLW  00
+1A1E:  MOVWF  F95
+....................    set_tris_b(0xFF);  // establece I/O 
+1A20:  MOVLW  FF
+1A22:  MOVWF  F93
+....................    set_tris_c(0); // establece I/O 
+1A24:  MOVLW  00
+1A26:  MOVWF  F94
+....................  
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);      //13 ms overflow 
+1A28:  MOVLW  88
+1A2A:  MOVWF  FD5
+....................    setup_timer_2(T2_DIV_BY_1,249,1);      //50.0 us overflow, 50.0 us interrupt 
+1A2C:  MOVLW  00
+1A2E:  IORLW  04
+1A30:  MOVWF  FCA
+1A32:  MOVLW  F9
+1A34:  MOVWF  FCB
+....................  
+....................    // configura el pwm 
+....................    setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L); 
+1A36:  BCF    F94.2
+1A38:  BCF    F8B.2
+1A3A:  MOVLW  0C
+1A3C:  MOVWF  FBD
+1A3E:  CLRF   FB7
+1A40:  CLRF   FB6
+....................    set_pwm1_duty((int16)997);    //estblece el ciclo util 
+1A42:  MOVLW  F9
+1A44:  MOVWF  FBE
+1A46:  MOVF   FBD,W
+1A48:  ANDLW  CF
+1A4A:  IORLW  10
+1A4C:  MOVWF  FBD
+....................    enable_interrupts(INT_TIMER0);   //interrupcion por timer0 
+1A4E:  BSF    FF2.5
+....................    enable_interrupts(INT_EXT_H2L);  //interrupcion externa 
+1A50:  BSF    FF2.4
+1A52:  BCF    FF1.6
+....................    enable_interrupts(GLOBAL); // habilita todas las interrupcicones 
+1A54:  MOVLW  C0
+1A56:  IORWF  FF2,F
+....................  
+....................    int8 a;  // variable auxiliar 
+....................    while(TRUE){ 
+....................       if(millis - last_time > 499){ // cada 500ms de muestra 
+1A58:  MOVF   1C,W
+1A5A:  SUBWF  16,W
+1A5C:  MOVWF  5F
+1A5E:  MOVF   1D,W
+1A60:  SUBWFB 17,W
+1A62:  MOVWF  x60
+1A64:  MOVF   1E,W
+1A66:  SUBWFB 18,W
+1A68:  MOVWF  x61
+1A6A:  MOVF   1F,W
+1A6C:  SUBWFB 19,W
+1A6E:  MOVWF  x62
+1A70:  MOVF   x62,F
+1A72:  BNZ   1A88
+1A74:  MOVF   x61,F
+1A76:  BNZ   1A88
+1A78:  MOVF   x60,W
+1A7A:  SUBLW  00
+1A7C:  BC    1ADA
+1A7E:  XORLW  FF
+1A80:  BNZ   1A88
+1A82:  MOVF   5F,W
+1A84:  SUBLW  F3
+1A86:  BC    1ADA
+....................         cnt_rps = cnt_rps << 1; // cnt_rps * 2 
+1A88:  BCF    FD8.0
+1A8A:  RLCF   1A,F
+1A8C:  RLCF   1B,F
+....................         myPID.myInput = (float) cnt_rps; // establece dato de entrada 
+1A8E:  MOVFF  1B,81
+1A92:  MOVFF  1A,80
+1A96:  CALL   0884
+1A9A:  MOVFF  03,3E
+1A9E:  MOVFF  02,3D
+1AA2:  MOVFF  01,3C
+1AA6:  MOVFF  00,3B
+....................         rpm = cnt_rps > 99? 99 : cnt_rps ;  //para mostrar en el display 
+1AAA:  MOVF   1B,F
+1AAC:  BNZ   1AB4
+1AAE:  MOVF   1A,W
+1AB0:  SUBLW  63
+1AB2:  BC    1ABA
+1AB4:  CLRF   03
+1AB6:  MOVLW  63
+1AB8:  BRA    1AC0
+1ABA:  MOVFF  1B,03
+1ABE:  MOVF   1A,W
+1AC0:  MOVWF  20
+1AC2:  MOVFF  03,21
+....................         last_time = millis; // el ultimo dato se guarda para hacer la resta 
+1AC6:  MOVFF  19,1F
+1ACA:  MOVFF  18,1E
+1ACE:  MOVFF  17,1D
+1AD2:  MOVFF  16,1C
+....................         cnt_rps = 0;  // resetea la variable 
+1AD6:  CLRF   1B
+1AD8:  CLRF   1A
+....................       } 
+....................       a = input_b() >> 1; // lee el puerto 
+1ADA:  SETF   F93
+1ADC:  BCF    FD8.0
+1ADE:  RRCF   F81,W
+1AE0:  MOVWF  5E
+....................       a = a>99? 99 : a; //muestra en display 
+1AE2:  MOVF   5E,W
+1AE4:  SUBLW  63
+1AE6:  BC    1AEC
+1AE8:  MOVLW  63
+1AEA:  BRA    1AEE
+1AEC:  MOVF   5E,W
+1AEE:  MOVWF  5E
+....................       myPID.mySetpoint =  (float) a;  // establece el punto de control 
+1AF0:  CLRF   x81
+1AF2:  MOVFF  5E,80
+1AF6:  CALL   0884
+1AFA:  MOVFF  03,46
+1AFE:  MOVFF  02,45
+1B02:  MOVFF  01,44
+1B06:  MOVFF  00,43
+....................       PID_Compute(&myPID);  // computa el PID 
+1B0A:  CLRF   x60
+1B0C:  MOVLW  22
+1B0E:  MOVWF  5F
+1B10:  GOTO   1260
+....................       set_pwm1_duty((int16)myPID.myOutput);  // saca el dato via pwm 
+1B14:  MOVFF  42,62
+1B18:  MOVFF  41,61
+1B1C:  MOVFF  40,60
+1B20:  MOVFF  3F,5F
+1B24:  BRA    17A0
+1B26:  MOVFF  02,60
+1B2A:  MOVFF  01,5F
+1B2E:  RRCF   x60,F
+1B30:  RRCF   5F,F
+1B32:  RRCF   x60,F
+1B34:  RRCF   5F,F
+1B36:  RRCF   x60,F
+1B38:  MOVFF  5F,FBE
+1B3C:  RRCF   x60,F
+1B3E:  RRCF   x60,W
+1B40:  ANDLW  30
+1B42:  MOVWF  00
+1B44:  MOVF   FBD,W
+1B46:  ANDLW  CF
+1B48:  IORWF  00,W
+1B4A:  MOVWF  FBD
+....................  
+....................       show_count(rpm,a);  // muestra los datos en el display 
+1B4C:  MOVFF  20,5F
+1B50:  MOVFF  5E,60
+1B54:  BRA    191C
+1B56:  BRA    1A58
+....................    } 
+....................  
+.................... } 
+.................... void clrf_ptr(int8 * ptr,int8 len,int8 v){  //limpia el vector 
+1B58:  SLEEP 
+....................     while(--len)  *(ptr + len) = v; 
+*
+17DA:  DECF   x68,F
+17DC:  MOVF   x68,F
+17DE:  BZ    17F8
+17E0:  MOVF   x68,W
+17E2:  ADDWF  x66,W
+17E4:  MOVWF  01
+17E6:  MOVLW  00
+17E8:  ADDWFC x67,W
+17EA:  MOVWF  03
+17EC:  MOVFF  01,FE9
+17F0:  MOVWF  FEA
+17F2:  MOVFF  69,FEF
+17F6:  BRA    17DA
+17F8:  GOTO   1834 (RETURN)
+.................... } 
+.................... void num_to_arr_num(int8 * ptr,int8 num,int8 len){  // de numero a arreglo 
+....................     for(clrf_ptr(ptr,len,0);num>9;*ptr++ = num%10,num/=10); 
+*
+1824:  MOVFF  63,67
+1828:  MOVFF  62,66
+182C:  MOVFF  65,68
+1830:  CLRF   x69
+1832:  BRA    17DA
+1834:  MOVF   x64,W
+1836:  SUBLW  09
+1838:  BC    186A
+183A:  MOVFF  63,03
+183E:  MOVF   x62,W
+1840:  INCF   x62,F
+1842:  BTFSC  FD8.2
+1844:  INCF   x63,F
+1846:  MOVWF  FE9
+1848:  MOVFF  03,FEA
+184C:  MOVFF  64,68
+1850:  MOVLW  0A
+1852:  MOVWF  x69
+1854:  RCALL  17FC
+1856:  MOVFF  00,FEF
+185A:  MOVFF  64,68
+185E:  MOVLW  0A
+1860:  MOVWF  x69
+1862:  RCALL  17FC
+1864:  MOVFF  01,64
+1868:  BRA    1834
+....................     *ptr = num%10; 
+186A:  MOVFF  63,03
+186E:  MOVFF  62,FE9
+1872:  MOVFF  63,FEA
+1876:  MOVFF  64,68
+187A:  MOVLW  0A
+187C:  MOVWF  x69
+187E:  RCALL  17FC
+1880:  MOVFF  00,FEF
+1884:  RETURN 0
+.................... } 
+.................... void show_count(int8 rpm1,int8 rpm2){ // muestra los datos en display 
+....................   static int8 num[4]; 
+....................   num_to_arr_num(num,rpm1,2); 
+*
+191C:  CLRF   x63
+191E:  MOVLW  5A
+1920:  MOVWF  x62
+1922:  MOVFF  5F,64
+1926:  MOVLW  02
+1928:  MOVWF  x65
+192A:  RCALL  1824
+....................   num_to_arr_num(num+2,rpm2,2); 
+192C:  CLRF   x63
+192E:  MOVLW  5C
+1930:  MOVWF  x62
+1932:  MOVFF  60,64
+1936:  MOVLW  02
+1938:  MOVWF  x65
+193A:  RCALL  1824
+....................   for(int8 i=0; i<4; ++i){ 
+193C:  CLRF   x61
+193E:  MOVF   x61,W
+1940:  SUBLW  03
+1942:  BNC   197C
+....................     output_c(0xFF ); 
+1944:  CLRF   F94
+1946:  SETF   F8B
+....................     output_d(dec_to_disp(num[i])); 
+1948:  CLRF   03
+194A:  MOVF   x61,W
+194C:  ADDLW  5A
+194E:  MOVWF  FE9
+1950:  MOVLW  00
+1952:  ADDWFC 03,W
+1954:  MOVWF  FEA
+1956:  MOVFF  FEF,62
+195A:  MOVFF  62,63
+195E:  BRA    1886
+1960:  CLRF   F95
+1962:  MOVFF  01,F8C
+....................     output_c(select_disp(i)); 
+1966:  MOVFF  61,62
+196A:  BRA    18C8
+196C:  CLRF   F94
+196E:  MOVFF  01,F8B
+....................     delay_ms(2); 
+1972:  MOVLW  02
+1974:  MOVWF  x62
+1976:  BRA    18F4
+1978:  INCF   x61,F
+197A:  BRA    193E
+....................   } 
+197C:  GOTO   1B56 (RETURN)
+.................... } 
+.................... int8 select_disp(int8 dig){ // selecciona el display 
+....................   return *((int8 *)"\xC2\xC1\x83\x43" + dig); 
+*
+18C8:  MOVLW  C2
+18CA:  MOVWF  x63
+18CC:  MOVLW  C1
+18CE:  MOVWF  x64
+18D0:  MOVLW  83
+18D2:  MOVWF  x65
+18D4:  MOVLW  43
+18D6:  MOVWF  x66
+18D8:  CLRF   x67
+18DA:  MOVLW  63
+18DC:  ADDWF  x62,W
+18DE:  MOVWF  01
+18E0:  CLRF   03
+18E2:  BTFSC  FD8.0
+18E4:  INCF   03,F
+18E6:  MOVWF  FE9
+18E8:  MOVFF  03,FEA
+18EC:  MOVFF  FEF,01
+18F0:  GOTO   196C (RETURN)
+.................... } 
+.................... int8 dec_to_disp(int8 num){ // de numero a numero en display 
+....................   return *((int8 *)"\xC0\xF9\xA4\xB0\x99\x92\x82\xF8\x80\x98\xBF\xFF" + num); 
+*
+1886:  CLRF   FEA
+1888:  MOVLW  64
+188A:  MOVWF  FE9
+188C:  MOVFF  FF2,71
+1890:  BCF    FF2.7
+1892:  MOVLW  0D
+1894:  MOVWF  01
+1896:  CLRF   FF7
+1898:  MOVLW  00
+189A:  CALL   00A2
+189E:  TBLRD*-
+18A0:  TBLRD*+
+18A2:  MOVFF  FF5,FEE
+18A6:  DECFSZ 01,F
+18A8:  BRA    18A0
+18AA:  BTFSC  x71.7
+18AC:  BSF    FF2.7
+18AE:  MOVLW  64
+18B0:  ADDWF  x63,W
+18B2:  MOVWF  01
+18B4:  CLRF   03
+18B6:  BTFSC  FD8.0
+18B8:  INCF   03,F
+18BA:  MOVWF  FE9
+18BC:  MOVFF  03,FEA
+18C0:  MOVFF  FEF,01
+18C4:  GOTO   1960 (RETURN)
+.................... } 
+
+Configuration Fuses:
+   Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO
+   Word  2: 0E38   PUT NOBROWNOUT BORV21 VREGEN NOWDT WDT128
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

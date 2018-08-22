@@ -1,0 +1,247 @@
+CCS PCM C Compiler, Version 4.114, 93460303               01-dic.-14 17:38
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\Comunicacion\LCdser1.lst
+
+               ROM used: 342 words (17%)
+                         Largest free fragment is 1706
+               RAM used: 6 (3%) at main() level
+                         34 (15%) worst case
+               Stack:    2 locations
+
+*
+0000:  MOVLW  01
+0001:  MOVWF  0A
+0002:  GOTO   10D
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #use delay(clock=4M) 
+*
+0012:  MOVLW  27
+0013:  MOVWF  04
+0014:  BCF    03.7
+0015:  MOVF   00,W
+0016:  BTFSC  03.2
+0017:  GOTO   026
+0018:  MOVLW  01
+0019:  MOVWF  78
+001A:  CLRF   77
+001B:  DECFSZ 77,F
+001C:  GOTO   01B
+001D:  DECFSZ 78,F
+001E:  GOTO   01A
+001F:  MOVLW  4A
+0020:  MOVWF  77
+0021:  DECFSZ 77,F
+0022:  GOTO   021
+0023:  GOTO   024
+0024:  DECFSZ 00,F
+0025:  GOTO   018
+0026:  RETURN
+....................  
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06                                               
+.................... ///////////////////////////////////////////////////////////////////////////////////// 
+.................... //Para usar el lcd pues usa 6 bits de stop                                         // 
+.................... #use rs232(baud=9600, xmit=PIN_A0, parity=n, bits=8, stop=1,  force_sw, stream=lcd)// 
+*
+002B:  BSF    03.5
+002C:  BCF    05.0
+002D:  BCF    03.5
+002E:  BCF    05.0
+002F:  MOVLW  08
+0030:  MOVWF  78
+0031:  GOTO   032
+0032:  NOP
+0033:  BSF    78.7
+0034:  GOTO   043
+0035:  BCF    78.7
+0036:  RRF    31,F
+0037:  BTFSC  03.0
+0038:  BSF    05.0
+0039:  BTFSS  03.0
+003A:  BCF    05.0
+003B:  BSF    78.6
+003C:  GOTO   043
+003D:  BCF    78.6
+003E:  DECFSZ 78,F
+003F:  GOTO   036
+0040:  GOTO   041
+0041:  NOP
+0042:  BSF    05.0
+0043:  MOVLW  1C
+0044:  MOVWF  04
+0045:  DECFSZ 04,F
+0046:  GOTO   045
+0047:  GOTO   048
+0048:  BTFSC  78.7
+0049:  GOTO   035
+004A:  BTFSC  78.6
+004B:  GOTO   03D
+004C:  RETURN
+.................... #include <lcd_serial.c>                                                            // 
+.................... /* 
+.................... Uso de una LCD serial conectda a un sólo pin del microcontrolador. 
+.................... Ivan Moreno 
+.................... */ 
+.................... void lcd_serial_init() 
+.................... { 
+....................    delay_ms(40); 
+*
+0027:  MOVLW  28
+0028:  MOVWF  27
+0029:  CALL   012
+.................... } 
+002A:  GOTO   119 (RETURN)
+.................... void lcd_serial_gotoxy(int x,int y) 
+.................... { 
+....................    fputc('°',lcd); 
+*
+0054:  MOVLW  B0
+0055:  MOVWF  31
+0056:  CALL   02B
+....................    delay_ms(3); 
+0057:  MOVLW  03
+0058:  MOVWF  27
+0059:  CALL   012
+....................    fputc(x,lcd); 
+005A:  MOVF   25,W
+005B:  MOVWF  31
+005C:  CALL   02B
+....................    delay_ms(3); 
+005D:  MOVLW  03
+005E:  MOVWF  27
+005F:  CALL   012
+....................    fputc(y,lcd); 
+0060:  MOVF   26,W
+0061:  MOVWF  31
+0062:  CALL   02B
+....................    delay_ms(3); 
+0063:  MOVLW  03
+0064:  MOVWF  27
+0065:  CALL   012
+.................... } 
+0066:  RETURN
+.................... void lcd_clear() 
+.................... { 
+....................    fputc('ñ',lcd); 
+*
+004D:  MOVLW  F1
+004E:  MOVWF  31
+004F:  CALL   02B
+....................    delay_ms(3); 
+0050:  MOVLW  03
+0051:  MOVWF  27
+0052:  CALL   012
+.................... } 
+0053:  GOTO   121 (RETURN)
+....................  
+.................... ///////////////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... void main() 
+.................... { 
+*
+010D:  CLRF   04
+010E:  BCF    03.7
+010F:  MOVLW  1F
+0110:  ANDWF  03,F
+0111:  BSF    03.5
+0112:  BSF    0E.3
+0113:  BCF    05.0
+0114:  BCF    03.5
+0115:  BSF    05.0
+0116:  MOVLW  07
+0117:  MOVWF  1F
+....................    lcd_serial_init(); 
+0118:  GOTO   027
+....................    Trisa=0; 
+0119:  BSF    03.5
+011A:  CLRF   05
+....................    int32 a=0; 
+011B:  BCF    03.5
+011C:  CLRF   24
+011D:  CLRF   23
+011E:  CLRF   22
+011F:  CLRF   21
+....................    while(true) 
+....................    { 
+....................       lcd_clear(); 
+0120:  GOTO   04D
+....................       lcd_serial_gotoxy(4,1); 
+0121:  MOVLW  04
+0122:  MOVWF  25
+0123:  MOVLW  01
+0124:  MOVWF  26
+0125:  CALL   054
+....................       fprintf(lcd,"Variable:"); 
+0126:  CLRF   25
+0127:  MOVF   25,W
+0128:  CALL   004
+0129:  INCF   25,F
+012A:  MOVWF  77
+012B:  MOVWF  31
+012C:  CALL   02B
+012D:  MOVLW  09
+012E:  SUBWF  25,W
+012F:  BTFSS  03.2
+0130:  GOTO   127
+....................       lcd_serial_gotoxy(3,2); 
+0131:  MOVLW  03
+0132:  MOVWF  25
+0133:  MOVLW  02
+0134:  MOVWF  26
+0135:  CALL   054
+....................       fprintf(lcd,"%Lu",a); 
+0136:  MOVLW  41
+0137:  MOVWF  04
+0138:  MOVF   24,W
+0139:  MOVWF  28
+013A:  MOVF   23,W
+013B:  MOVWF  27
+013C:  MOVF   22,W
+013D:  MOVWF  26
+013E:  MOVF   21,W
+013F:  MOVWF  25
+0140:  GOTO   0B6
+....................       a++; 
+0141:  MOVLW  01
+0142:  ADDWF  21,F
+0143:  BTFSC  03.0
+0144:  INCF   22,F
+0145:  BTFSC  03.2
+0146:  INCF   23,F
+0147:  BTFSC  03.2
+0148:  INCF   24,F
+....................       output_toggle(pin_a1); 
+0149:  BSF    03.5
+014A:  BCF    05.1
+014B:  MOVLW  02
+014C:  BCF    03.5
+014D:  XORWF  05,F
+....................       delay_ms(500); 
+014E:  MOVWF  25
+014F:  MOVLW  FA
+0150:  MOVWF  27
+0151:  CALL   012
+0152:  DECFSZ 25,F
+0153:  GOTO   14F
+....................    } 
+0154:  GOTO   120
+.................... } 
+0155:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F18   NOWDT NOPUT INTRC_IO NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

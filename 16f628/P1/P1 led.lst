@@ -1,0 +1,113 @@
+CCS PCM C Compiler, Version 4.114, 93460303               24-abr.-15 20:35
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\P1\P1 led.lst
+
+               ROM used: 66 words (3%)
+                         Largest free fragment is 1982
+               RAM used: 6 (3%) at main() level
+                         8 (4%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES INTRC_IO                    //Internal RC Osc 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #use delay(clock=4000000) 
+0004:  MOVLW  23
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  GOTO   03C (RETURN)
+.................... #use fast_io(a) 
+.................... #use fast_io(a) 
+....................  
+.................... void main() 
+.................... { 
+0019:  CLRF   04
+001A:  BCF    03.7
+001B:  MOVLW  1F
+001C:  ANDWF  03,F
+001D:  BSF    03.5
+001E:  BSF    0E.3
+001F:  MOVLW  07
+0020:  BCF    03.5
+0021:  MOVWF  1F
+....................    set_tris_b(0); 
+0022:  MOVLW  00
+0023:  TRIS   6
+....................    set_tris_a(0); 
+0024:  TRIS   5
+....................    output_b(0); 
+0025:  BSF    03.5
+0026:  CLRF   06
+0027:  BCF    03.5
+0028:  CLRF   06
+....................    int a; 
+....................    while(true) 
+....................    { 
+....................       for(a=0;a<255;a++) 
+0029:  CLRF   21
+002A:  INCFSZ 21,W
+002B:  GOTO   02D
+002C:  GOTO   040
+....................       { 
+....................          output_a(a); 
+002D:  MOVF   21,W
+002E:  MOVWF  05
+....................          output_b(a+1); 
+002F:  MOVLW  01
+0030:  ADDWF  21,W
+0031:  MOVWF  22
+0032:  BSF    03.5
+0033:  CLRF   06
+0034:  BCF    03.5
+0035:  MOVF   22,W
+0036:  MOVWF  06
+....................          delay_ms(300); 
+0037:  MOVLW  02
+0038:  MOVWF  22
+0039:  MOVLW  96
+003A:  MOVWF  23
+003B:  GOTO   004
+003C:  DECFSZ 22,F
+003D:  GOTO   039
+....................       } 
+003E:  INCF   21,F
+003F:  GOTO   02A
+....................    } 
+0040:  GOTO   029
+.................... } 
+0041:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F18   NOWDT NOPUT INTRC_IO NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

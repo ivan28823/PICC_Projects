@@ -1,0 +1,78 @@
+
+ROM used: 1798 (88%)
+          1798 (88%) including unused fragments
+
+          1 Average locations per line
+          2 Average locations per statement
+
+RAM used: 36 (16%) at main() level
+          54 (24%) worst case
+
+Stack used: 5 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  345   176  23  cerradura-ee.c
+  223     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+ 1351   359  48  ..\..\..\..\..\..\Program Files\PICC\drivers\stdlib.h
+   32     0   0  ..\..\..\..\..\..\Program Files\PICC\drivers\stddef.h
+  423   125  17  ..\..\..\..\..\..\Program Files\PICC\drivers\string.h
+   28     0   0  ..\..\..\..\..\..\Program Files\PICC\drivers\ctype.h
+  409    89  12  ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c
+----- -----
+ 2811   749 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+0     37   2   2             @MUL88
+0     21   1   5             @MUL1616
+0      8   0   0             @const345
+ Inline        3   751  4.5  lcd_read_byte
+0     49   3   2   254  3.7  lcd_read_nibble
+0     43   2   1   391  2.4  lcd_send_nibble
+0     92   5   3   402  3.6  lcd_send_byte
+0     59   3   2   695  5.0  lcd_init
+0     18   1   4   191  5.8  lcd_gotoxy
+0     45   3   1   354  4.7  lcd_putc
+0    797  44   2  5135 13.4  MAIN
+0     21   1   0             @const384
+0     16   1   0             @const385
+0     17   1   0             @const387
+0     22   1   0             @const388
+0      8   0   0             @const389
+0     19   1   0             @const390
+0     22   1   0             @const391
+0     22   1   0             @const392
+0     21   1   3             @DIV88
+0     53   3   2             @PRINTF_U_363
+0     20   1   0             @const400
+0     18   1   0             @const401
+0     23   1   0             @const403
+0     18   1   0             @const404
+0     22   1   0             @const406
+0     18   1   0  1394  3.4  @const407
+0     23   1   0             @const408
+0     99   6   9             @PRINTF_LU_363
+0    142   8   1  1394  3.4  teclado
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               10
+    Statements              749
+    Comments                1028
+    Volume (V)              15478
+    Difficulty (D)          47.9
+    Effort to implement (E) 741208
+    Time to implement (T)   11 hours, 26 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   56
+    Maintainability (MI)    62
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1794  250  
+
+
+

@@ -1,0 +1,20 @@
+[PROJECT]
+Target=receptor.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.007
+Compiler=PCH
+[Target Data]
+FileList=receptor.c
+[Directories]
+Include=C:\Program Files\PICC\Devices\;C:\Program Files\PICC\DriversC:\Program Files\PICC\Devices\;C:\Program Files\PICC\Drivers\;C:\Users\ivan-_000\Documents\PIC\Pic C\comunicación inalambrica\receptor\
+[receptor.c]
+Type=4
+[mru-list]
+1=receptor.c
+[Opened Files]
+1=receptor.c
+2=..\..\16f677\vumetro matriz\vumetro multiplexeado.c
+3=
+[Units]
+Count=1
+1=receptor (main)

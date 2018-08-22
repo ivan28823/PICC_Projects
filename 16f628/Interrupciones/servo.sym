@@ -1,0 +1,64 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     pwm_servo.pin
+021     main.@SCRATCH1
+022     @delay_ms1.P1
+022-023 pwm_servo.alto
+024-025 pwm_servo.bajo
+026     pwm_servo.a
+027     @WRITEBITA.P1
+027     pwm_servo.@SCRATCH1
+028     @delay_us1.P1
+028     @WRITEBITA.P2
+029-02A @WRITEBITA.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  @delay_ms1
+0039  @delay_us1
+0093  main
+004D  pwm_servo
+0019  @WRITEBITA
+0093  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Interrupciones\
+
+Project Files:
+    servo.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Interrupciones\servo (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      servo.err
+    Ext Symbols: servo.esym
+    INHX8:       servo.hex
+    Symbols:     servo.sym
+    List:        servo.lst
+    Debug/COFF:  servo.cof
+    Project:     servo.PJT
+    Call Tree:   servo.tre
+    Statistics:  servo.sta

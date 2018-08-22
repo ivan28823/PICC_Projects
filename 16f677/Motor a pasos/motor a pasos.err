@@ -1,0 +1,4 @@
+>>> Warning 202 "motor a pasos.c" Line 17(20,24): Variable never used:   lado
+      Memory usage:   ROM=8%      RAM=8% - 9%
+      0 Errors,  1 Warnings.
+Build Successful.

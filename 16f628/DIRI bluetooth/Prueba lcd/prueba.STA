@@ -1,0 +1,64 @@
+
+ROM used: 1040 (51%)
+          1040 (51%) including unused fragments
+
+          2 Average locations per line
+          10 Average locations per statement
+
+RAM used: 19 (8%) at main() level
+          55 (25%) worst case
+
+Stack used: 8 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   65    33  32  prueba.c
+  223     0   0  ..\..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+  165    69  68  lib_lcd2x4pb.c
+----- -----
+  453   102 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   2   1             @delay_ms1
+0      8   1   0             @const77
+ Inline        3   476  4.3  lcd_read_byte
+ Inline        1   134  2.2  lcd_send_nibble
+0     86   8   3   304  4.3  lcd_send_byte
+0     84   8   2   409  4.7  lcd_init
+0     27   3   3   321  5.5  lcd_gotoxy
+0      8   1   0             @goto10084
+0     40   4   1   308  5.0  lcd_putc
+0    117  11   0   233  3.9  datos_recividos
+0     21   2   3             @DIV88
+ Inline        6             @PRINTF_D_99
+0    125  12   1   348  3.6  MAIN
+0     69   7   0             @const123
+0     35   3   0             @const126
+0    105  10   9             @PRINTF_LU_99
+0    191  18   6   285  4.8  sensor_distancia
+0     32   3   6             @WRITEBITA
+0     23   2   5             @READBITA
+ Inline        5             @DIV1616
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              102
+    Comments                120
+    Volume (V)              4521
+    Difficulty (D)          36.7
+    Effort to implement (E) 165700
+    Time to implement (T)   2 hours, 33 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   12
+    Maintainability (MI)    70
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00030    45  0  
+00031-007FF   991  1008  
+
+
+

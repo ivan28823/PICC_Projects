@@ -1,0 +1,4 @@
+>>> Warning 216 "vumetro multiplexeado.c" Line 213(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+      Memory usage:   ROM=31%      RAM=22% - 24%
+      0 Errors,  1 Warnings.
+Build Successful.

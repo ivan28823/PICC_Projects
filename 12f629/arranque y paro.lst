@@ -1,0 +1,137 @@
+CCS PCM C Compiler, Version 4.130, 59972               11-may.-15 18:00
+
+               Filename: C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\12f629\arranque y paro.lst
+
+               ROM used: 80 words (8%)
+                         Largest free fragment is 944
+               RAM used: 5 (8%) at main() level
+                         6 (9%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+0004:  CALL   3FF
+0005:  BSF    03.5
+0006:  MOVWF  10
+0007:  MOVLW  00
+0008:  MOVWF  0A
+0009:  GOTO   01E
+.................... #include <12f629.h> 
+.................... //////// Standard Header file for the PIC12F629 device //////////////// 
+.................... #device PIC12F629 
+.................... #list 
+....................  
+....................  
+.................... #FUSES NOWDT                  
+.................... #FUSES INTRC_IO                
+.................... #FUSES NOPUT                     
+.................... #FUSES NOMCLR                  
+.................... #FUSES NOBROWNOUT               
+.................... #FUSES NOPROTECT                 
+.................... #FUSES NOCPD                      
+....................  
+.................... #use delay(clock=4000000) 
+000A:  MOVLW  26
+000B:  MOVWF  04
+000C:  MOVF   00,W
+000D:  BTFSC  03.2
+000E:  GOTO   01D
+000F:  MOVLW  01
+0010:  MOVWF  21
+0011:  CLRF   20
+0012:  DECFSZ 20,F
+0013:  GOTO   012
+0014:  DECFSZ 21,F
+0015:  GOTO   011
+0016:  MOVLW  4A
+0017:  MOVWF  20
+0018:  DECFSZ 20,F
+0019:  GOTO   018
+001A:  GOTO   01B
+001B:  DECFSZ 00,F
+001C:  GOTO   00F
+001D:  RETURN
+.................... #use fast_io(a) 
+....................  
+.................... void main() 
+.................... { 
+001E:  CLRF   04
+001F:  MOVLW  1F
+0020:  ANDWF  03,F
+0021:  MOVLW  07
+0022:  MOVWF  19
+....................    set_tris_a(0b11111000); 
+0023:  MOVLW  F8
+0024:  BSF    03.5
+0025:  MOVWF  05
+....................    output_a(0); 
+0026:  BCF    03.5
+0027:  CLRF   05
+....................    while(true) 
+....................    { 
+....................       if(input(pin_a5)==1) 
+0028:  BTFSS  05.5
+0029:  GOTO   035
+....................       { 
+....................          output_toggle(pin_a0); 
+002A:  MOVLW  01
+002B:  XORWF  05,F
+....................          delay_ms(300); 
+002C:  MOVLW  02
+002D:  MOVWF  25
+002E:  MOVLW  96
+002F:  MOVWF  26
+0030:  CALL   00A
+0031:  DECFSZ 25,F
+0032:  GOTO   02E
+....................          while(input(pin_a5)); 
+0033:  BTFSC  05.5
+0034:  GOTO   033
+....................       } 
+....................       if(input(pin_a4)==1) 
+0035:  BTFSS  05.4
+0036:  GOTO   041
+....................       { 
+....................          output_toggle(pin_a1); 
+0037:  MOVLW  02
+0038:  XORWF  05,F
+....................          delay_ms(300); 
+0039:  MOVWF  25
+003A:  MOVLW  96
+003B:  MOVWF  26
+003C:  CALL   00A
+003D:  DECFSZ 25,F
+003E:  GOTO   03A
+....................          while(input(pin_a4)); 
+003F:  BTFSC  05.4
+0040:  GOTO   03F
+....................       } 
+....................       if(input(pin_a3)==1) 
+0041:  BTFSS  05.3
+0042:  GOTO   04E
+....................       { 
+....................          output_toggle(pin_a2); 
+0043:  MOVLW  04
+0044:  XORWF  05,F
+....................          delay_ms(300); 
+0045:  MOVLW  02
+0046:  MOVWF  25
+0047:  MOVLW  96
+0048:  MOVWF  26
+0049:  CALL   00A
+004A:  DECFSZ 25,F
+004B:  GOTO   047
+....................          while(input(pin_a3)); 
+004C:  BTFSC  05.3
+004D:  GOTO   04C
+....................       } 
+....................    } 
+004E:  GOTO   028
+.................... } 
+004F:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F94   INTRC_IO NOWDT NOPUT NOMCLR NOBROWNOUT NOPROTECT NOCPD

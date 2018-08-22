@@ -1,0 +1,19 @@
+ÀÄmtz628c2
+   ÀÄMAIN  0/123  Ram=1
+      ÃÄ??0??
+      ÃÄlcd_serial_init  0/4  Ram=0
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄlcd_clear  0/4  Ram=0
+      ³  ÀÄ@PUTCHAR_1_  0/40  Ram=1
+      ÃÄlcd_clear  0/4  Ram=0
+      ³  ÀÄ@PUTCHAR_1_  0/40  Ram=1
+      ÃÄ@const81  0/18  Ram=0
+      ÃÄ@PUTCHAR_1_  0/40  Ram=1
+      ÃÄlcd_serial_gotoxy  0/10  Ram=2
+      ³  ÃÄ@PUTCHAR_1_  0/40  Ram=1
+      ³  ÃÄ@PUTCHAR_1_  0/40  Ram=1
+      ³  ÀÄ@PUTCHAR_1_  0/40  Ram=1
+      ÃÄ@const82  0/24  Ram=0
+      ÃÄ@PUTCHAR_1_  0/40  Ram=1
+      ÃÄ@const73  0/221  Ram=0
+      ÀÄ@delay_ms1  0/20  Ram=1

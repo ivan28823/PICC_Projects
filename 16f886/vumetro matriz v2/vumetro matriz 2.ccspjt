@@ -1,0 +1,19 @@
+[PROJECT]
+Target=vumetro matriz 2.hex
+Processor_Text=PIC16F886
+CCSVersion=5.007
+Compiler=PCM
+[Target Data]
+FileList=vumetro matriz 2.c
+[Directories]
+Include=C:\Program Files\PICC\Devices\;C:\Program Files\PICC\Drivers\
+[vumetro matriz 2.c]
+Type=4
+[mru-list]
+1=vumetro matriz 2.c
+[Opened Files]
+1=vumetro matriz 2.c
+2=
+[Units]
+Count=1
+1=vumetro matriz 2 (main)

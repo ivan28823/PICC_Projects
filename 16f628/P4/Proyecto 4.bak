@@ -1,0 +1,58 @@
+#include <16f628a.h>
+
+#use delay(int=4000000)
+#fuses NOWDT
+#fuses NOMCLR
+#fuses NOPUT
+#fuses NOLVP
+#fuses INTRC
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#use fast_io(b
+
+void main(){
+   set_tris_b(0b00000000);
+   set_tris_a(0b11111111);
+   output_b(0);
+   
+   int x=0;
+   while(true){
+      if(input(pin_a0)==1){
+        while(true){ 
+         x=1;
+         for(int y=0;y<8;y++)
+         {
+            output_b(x);
+            delay_ms(30);
+            x=x<<1;
+         }
+     x=128;
+         for(y=0;y<8;y++)
+         {
+            output_b(x);
+            delay_ms(30);
+            x=x>>1;
+         }
+         }
+      }
+      else
+         for(int xy=0;xy<3;xy++)
+         {
+            output_b(0b11001100);
+            delay_ms(50);
+            output_b(0);
+            delay_ms(50);
+         }
+         delay_ms(400);
+         for(xy=0;xy<3;xy++)
+         {
+            output_b(0b00110011);
+            delay_ms(50);
+            output_b(0);
+            delay_ms(50);
+         }
+         delay_ms(400);
+     
+   }
+}

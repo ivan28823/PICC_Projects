@@ -1,0 +1,77 @@
+#include <16f677.h>
+#device adc=10
+
+
+#FUSES NOWDT                 
+#FUSES INTRC_IO               
+#FUSES NOMCLR                   
+#FUSES NOBROWNOUT
+#FUSES NOPUT
+#FUSES NOPROTECT
+#FUSES NOCPD              
+
+#use delay(clock=8000000)
+#BYTE TRISA=0x85
+#BYTE TRISB=0x86
+#BYTE TRISC=0x87
+#BYTE PORTA=0x05
+#BYTE PORTB=0x06
+#BYTE PORTC=0x07
+
+void main()
+{
+   setup_oscillator(OSC_8MHZ);
+   Trisb=0b00110000;
+   Trisc=0;
+   Portc=0;
+   Portb=0;
+   setup_adc_ports(sAN0 | VSS_VREF);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   set_adc_channel(0);
+   
+   long temp;
+   while(true)
+   {
+    //  if (input(pin_b5)==1)
+    //  {
+          inicio:
+          if (input(pin_b5)==0){goto inicio1;}
+          delay_ms(50);
+          temp=read_adc();
+          if(temp<921){Portb=0;}
+          if(temp<102){Portc=0; goto inicio;}
+          if(temp>=1023){Portb=0b11000000; goto cof;}
+          if(temp>=921){Portb=0b01000000; goto cof;}
+          cof:
+          if(temp>=819){Portc=0b11111111; goto inicio;}
+          if(temp>=716){Portc=0b01111111; goto inicio;}
+          if(temp>=614){Portc=0b00111111; goto inicio;}
+          if(temp>=512){Portc=0b00011111; goto inicio;}
+          if(temp>=409){Portc=0b00001111; goto inicio;}
+          if(temp>=307){Portc=0b00000111; goto inicio;}
+          if(temp>=204){Portc=0b00000011; goto inicio;}
+          if(temp>=102){Portc=0b00000001; goto inicio;}
+     // }
+     // else
+     // {
+          inicio1:
+          if (input(pin_b5)==1){goto inicio;}
+          delay_ms(50);
+          temp=read_adc();
+          if(temp<921){Portb=0;}
+          if(temp<102){Portc=0; goto inicio1;}
+          if(temp>=1023){Portb=0b10000000; Portc=0; goto inicio1;}
+          if(temp>=921){Portb=0b01000000; Portc=0; goto inicio1;}
+          cof1:
+          //if(temp<920){Portc=0; goto inicio1;}
+          if(temp>=819){Portc=0b10000000; goto inicio1;}
+          if(temp>=716){Portc=0b01000000; goto inicio1;}
+          if(temp>=614){Portc=0b00100000; goto inicio1;}
+          if(temp>=512){Portc=0b00010000; goto inicio1;}
+          if(temp>=409){Portc=0b00001000; goto inicio1;}
+          if(temp>=307){Portc=0b00000100; goto inicio1;}
+          if(temp>=204){Portc=0b00000010; goto inicio1;}
+          if(temp>=102){Portc=0b00000001; goto inicio1;}
+    //  }
+   }
+}

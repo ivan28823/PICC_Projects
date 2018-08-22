@@ -1,0 +1,47 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+077     @SCRATCH
+078     @SCRATCH
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  sec1
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P6\
+
+Project Files:
+    Pulsadores.c                                            [30-oct.-14 16:47  CRC=449A61E1]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=5CF4258B
+
+Units:
+    Pulsadores (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Pulsadores.err
+    Ext Symbols: Pulsadores.esym
+    Symbols:     Pulsadores.sym

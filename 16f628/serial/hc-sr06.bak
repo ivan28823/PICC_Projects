@@ -1,0 +1,47 @@
+#include <16f628a.h>
+#fuses INTRC_IO
+#fuses NOWDT
+#fuses NOMCLR
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#use delay(clock=4000000)
+/*#BYTE TRISA=0x85
+#BYTE PORTA=0x05
+#BYTE TRISB=0x86
+#BYTE PORTB=0x06
+
+#define trig pin_B2
+#define echo pin_B1
+*/
+#use fast_io(b)
+#use rs232(baud=9600, xmit=PIN_B0,parity=n, bits=8, stop=1, force_sw)
+
+long distancia;
+
+void main()
+{                          
+   set_tris_b(0b00000010);
+   output_b(0);
+   printf("Iniciando...\n\r");
+   delay_ms(500);                           
+   setup_timer_1(T1_INTERNAL|T1_DIV_BY_1);
+   
+   while(true)
+   {
+      output_high(pin_B2);                   
+      delay_us(20);                       
+      output_low(pin_B2);
+      while(!input(pin_B1));                     
+      set_timer1(0);                         
+      while(input(pin_B1));                     
+      distancia=get_timer1()/58;
+      if((distancia<=3) || (distancia>=500))
+         {printf("<<<Error>>>\n\r");}
+      else
+         {printf("Distancia = %Lu\n\r",distancia);}
+      delay_ms(500);
+   }
+}

@@ -1,0 +1,88 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     cnt_tmr0
+017     type
+018     Color1
+019     Color2
+01A     Color3
+01B     MAIN.i
+01C     @delay_ms1.P1
+F83     PSP_DATA
+F8C     LATD
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF1.7   RBPU
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000096  TIMER0_isr
+0000D4  @delay_ms1
+0000FC  MAIN
+0000FC  @cinit1
+000118  @cinit2
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Compartido\Microcontroladores\ETS Microc\pwm_rgb\
+
+Project Files:
+    rgb.c                                                   [20-ago.-18 18:03  CRC=D25D3F5D]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [21-jun.-13 17:05  CRC=A157EDDE]
+
+Source signature=150D1B19
+
+Units:
+    rgb (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   rgb.xsym
+    Errors:      rgb.err
+    Ext Symbols: rgb.esym
+    INHX32:      rgb.hex
+    Symbols:     rgb.sym
+    List:        rgb.lst
+    Debug/COFF:  rgb.cof
+    Project:     rgb.ccspjt
+    Call Tree:   rgb.tre
+    Statistics:  rgb.STA

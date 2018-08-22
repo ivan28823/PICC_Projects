@@ -1,0 +1,61 @@
+
+ROM used:   2654/16384 (8%)
+            2654/16384 (8%) including unused fragments
+
+            1.6 Average locations per line
+            7.2 Average locations per statement
+
+RAM used:   42/2048 (2%) at main() level
+            74/2048 (4%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  231   151  41  receptor.c
+  821     0   0  ..\..\..\..\..\..\..\Program Files\PICC\Devices\18F4550.h
+  572   216  59  lib_rf2gh4_10_4550.h
+----- -----
+ 1624   367 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40   1    1             @delay_ms1
+0     32   1    1             @delay_us1
+0     26   0    0   143  2.2  RF_CONFIG_SPI
+0     22   0    0   108  1.7  RF_INT_EN
+0    520  10    2  2193  2.0  RF_CONFIG
+0     64   1    0   149  1.3  RF_ON
+0    192   4    5   964  6.5  RF_RECEIVE
+0    572  11    4  3125  9.4  int_RB2
+0     50   1    0             @goto10833
+0    548  10    2  1537  5.4  MAIN
+0    122   2    9   272  5.2  pwm_servo
+0     62   1    6             @WRITEBITA
+0    144   3    6   204  3.8  sensor_distancia
+0     46   1    5             @READBITA
+0     68   1    5             @DIV1616
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              367
+    Comments                364
+    Volume (V)              12006
+    Difficulty (D)          37.3
+    Effort to implement (E) 448276
+    Time to implement (T)   6 hours, 55 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   34
+    Maintainability (MI)    52
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-07FFE  2508  30110  
+
+
+

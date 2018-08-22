@@ -1,0 +1,147 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017.0   interRF
+017.1   RCVNW
+018-019 noRF
+01A     DATA_N_SND
+01B     DATA_N_RCV
+01C-023 RF_DATA
+024     RF_DIR
+025     ret2
+026-027 distancia
+028-029 MAIN.derecha
+02A-02B MAIN.izquierda
+02C-02D sensor_distancia.trig
+02C     RF_CONFIG.canal
+02C     MAIN.@SCRATCH1
+02D     RF_CONFIG.dir
+02D     @delay_ms1.P1
+02D     MAIN.@SCRATCH2
+02E-02F sensor_distancia.echo
+030     @READBITA.P1
+030     sensor_distancia.@SCRATCH1
+031-032 @READBITA.P1
+031     sensor_distancia.@SCRATCH2
+032-033 @DIV1616.P1
+034-035 @DIV1616.P1
+036     @DIV1616.@SCRATCH1
+03A     int_RB2.ret1
+03B     int_RB2.recepcion
+03C-03D int_RB2.pwm
+03E     RF_RECEIVE.i
+03E     pwm_servo.periodo
+03F     RF_RECEIVE.mas
+03F-040 pwm_servo.pin
+040     RF_RECEIVE.estado
+041-042 pwm_servo.alto
+041     RF_RECEIVE.@SCRATCH1
+042     RF_RECEIVE.@SCRATCH2
+043-044 pwm_servo.bajo
+045     pwm_servo.a
+046     @WRITEBITA.P1
+046     pwm_servo.@SCRATCH1
+047     @WRITEBITA.P1
+047     @delay_us1.P2
+048-049 @WRITEBITA.P1
+F80     porta
+F81     portb
+F82     portc
+F83     portd
+F83     PSP_DATA
+F84     porte
+F92     TRISA
+F93     TRISB
+F94     TRISC
+F95     TRISD
+F96     TRISE
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF2     INTCON
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000096  RF_RECEIVE
+000156  @WRITEBITA
+000194  @delay_us1
+0001B4  pwm_servo
+00022E  int_RB2
+00046A  @goto10833
+00049C  RF_INT_EN
+0004B2  RF_CONFIG_SPI
+0004CC  RF_CONFIG
+0006D4  @delay_ms1
+0006FC  RF_ON
+00073C  @READBITA
+00076A  @DIV1616
+0007AE  sensor_distancia
+00083E  MAIN
+00083E  @cinit1
+000856  @cinit2
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\comunicación inalambrica\receptor\
+
+Project Files:
+    receptor.c                                              [30-abr.-15 22:18  CRC=521DAF60]
+    ..\..\..\..\..\..\..\Program Files\PICC\Devices\18F4550.h [21-jun.-13 16:05  CRC=A157EDDE]
+    lib_rf2gh4_10_4550.h                                    [18-nov.-12 15:33  CRC=0D4F40F4]
+
+Source signature=0E141F26
+
+Units:
+    receptor (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   receptor.xsym
+    Errors:      receptor.err
+    Ext Symbols: receptor.esym
+    INHX32:      receptor.hex
+    Symbols:     receptor.sym
+    List:        receptor.lst
+    Debug/COFF:  receptor.cof
+    Project:     receptor.ccspjt
+    Call Tree:   receptor.tre
+    Statistics:  receptor.STA

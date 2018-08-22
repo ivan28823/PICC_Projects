@@ -1,0 +1,90 @@
+CCS PCM C Compiler, Version 4.130, 59972               30-oct.-14 16:44
+
+               Filename: C:\Users\Ivan-ua\Documents\PIC\Pic C\P7\Gestion-mem-r.lst
+
+               ROM used: 25 words (1%)
+                         Largest free fragment is 2023
+               RAM used: 5 (2%) at main() level
+                         6 (3%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #use delay(int=4000000) 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses INTRC 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+.................... //#BYTE OPTION_REG=0x81 
+....................  
+.................... void main() 
+.................... { 
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  BSF    03.5
+0009:  BSF    0E.3
+000A:  MOVLW  07
+000B:  BCF    03.5
+000C:  MOVWF  1F
+....................    Trisa=255; 
+000D:  MOVLW  FF
+000E:  BSF    03.5
+000F:  MOVWF  05
+....................    Trisb=0; 
+0010:  CLRF   06
+....................    Portb=0; 
+0011:  BCF    03.5
+0012:  CLRF   06
+....................    int valor; 
+....................    while(true) 
+....................    { 
+....................    valor=Porta; 
+0013:  MOVF   05,W
+0014:  MOVWF  21
+....................    Portb=valor; 
+0015:  MOVF   21,W
+0016:  MOVWF  06
+....................     
+.................... /*      Portb=0b00000001; 
+....................       delay_ms(200); 
+....................       Portb=2; 
+....................       delay_ms(200); 
+....................       Portb=4; 
+....................       delay_ms(200); 
+....................       Portb=8; 
+....................       delay_ms(200); 
+....................       Portb=16; 
+....................       delay_ms(200); 
+....................       Portb=32; 
+....................       delay_ms(200); 
+....................       Portb=64; 
+....................       delay_ms(200); 
+....................       Portb=128; 
+....................       delay_ms(200); 
+....................      */ 
+....................    } 
+0017:  GOTO   013
+.................... } 
+0018:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F19   NOWDT NOPUT INTRC NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

@@ -1,0 +1,91 @@
+CCS PCM C Compiler, Version 4.114, 93460303               26-abr.-15 23:15
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\12f509\arranque y paro12f683.lst
+
+               ROM used: 41 words (2%)
+                         Largest free fragment is 2007
+               RAM used: 5 (4%) at main() level
+                         5 (4%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <12f683.h> 
+.................... //////// Standard Header file for the PIC12F683 device //////////////// 
+.................... #device PIC12F683 
+.................... #list 
+....................  
+....................  
+.................... #FUSES NOWDT                    
+.................... #FUSES INTRC_IO                        
+.................... #FUSES NOPUT                    
+.................... #FUSES NOMCLR                    
+.................... #FUSES NOPROTECT                 
+.................... #FUSES NOCPD                    
+.................... #FUSES NOBROWNOUT               
+.................... #FUSES NOIESO                    
+.................... #FUSES FCMEN                     
+.................... #use delay(clock=4000000) 
+.................... #use fast_io(a) 
+.................... void main() 
+.................... { 
+0004:  CLRF   04
+0005:  MOVLW  1F
+0006:  ANDWF  03,F
+0007:  MOVLW  61
+0008:  BSF    03.5
+0009:  MOVWF  0F
+000A:  MOVF   0F,W
+000B:  BCF    03.5
+000C:  BCF    1F.6
+000D:  BSF    03.5
+000E:  BCF    1F.0
+000F:  BCF    1F.1
+0010:  BCF    1F.2
+0011:  BCF    1F.3
+0012:  MOVLW  07
+0013:  BCF    03.5
+0014:  MOVWF  19
+....................    setup_oscillator(OSC_4MHZ); 
+0015:  MOVLW  61
+0016:  BSF    03.5
+0017:  MOVWF  0F
+0018:  MOVF   0F,W
+....................    set_tris_a(0b111000); 
+0019:  MOVLW  38
+001A:  MOVWF  05
+....................    output_a(0); 
+001B:  BCF    03.5
+001C:  CLRF   05
+....................    while (true) 
+....................    { 
+....................       if(input(pin_a5)==1) 
+001D:  BTFSS  05.5
+001E:  GOTO   022
+....................       { 
+....................          output_high(pin_a0); 
+001F:  BSF    05.0
+....................          while(input(pin_a5)); 
+0020:  BTFSC  05.5
+0021:  GOTO   020
+....................       } 
+....................       if(input(pin_a4)==1) 
+0022:  BTFSS  05.4
+0023:  GOTO   027
+....................       { 
+....................          output_low(pin_a0); 
+0024:  BCF    05.0
+....................          while(input(pin_a4)); 
+0025:  BTFSC  05.4
+0026:  GOTO   025
+....................       } 
+....................    }   
+0027:  GOTO   01D
+.................... } 
+0028:  SLEEP
+
+Configuration Fuses:
+   Word  1: 38D4   INTRC_IO NOWDT NOPUT NOMCLR NOPROTECT NOCPD NOBROWNOUT NOIESO FCMEN

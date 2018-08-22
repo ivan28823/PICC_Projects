@@ -1,0 +1,61 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025-026 main.temp
+027     @delay_ms1.P1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+0004  @delay_ms1
+0017  main
+0017  @cinit1
+0031  @cinit2
+004C  inicio
+008A  cof
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\Nueva carpeta\
+
+Project Files:
+    termometro leds.c                                       [09-nov.-14 23:40  CRC=FAF7505C]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f677.h   [28-feb.-12 13:43  CRC=7774C0AB]
+
+Source signature=E9E0D1B2
+
+Units:
+    termometro leds (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      termometro leds.err
+    Ext Symbols: termometro leds.esym
+    INHX8:       termometro leds.hex
+    Symbols:     termometro leds.sym
+    List:        termometro leds.lst
+    Debug/COFF:  termometro leds.cof
+    Project:     termometro leds.PJT
+    Call Tree:   termometro leds.tre
+    Statistics:  termometro leds.STA

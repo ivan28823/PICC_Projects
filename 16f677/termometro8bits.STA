@@ -1,0 +1,44 @@
+
+ROM used: 409 (20%)
+          409 (20%) including unused fragments
+
+          1 Average locations per line
+          3 Average locations per statement
+
+RAM used: 6 (5%) at main() level
+          8 (6%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   78   121 100  termometro8bits.c
+  329     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f677.h
+----- -----
+  407   121 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     19   5   1             @delay_ms1
+0    386  94   1  3021  5.9  main
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              121
+    Comments                80
+    Volume (V)              3028
+    Difficulty (D)          5.9
+    Effort to implement (E) 17728
+    Time to implement (T)   16 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   26
+    Maintainability (MI)    94
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   405  1639  
+
+
+

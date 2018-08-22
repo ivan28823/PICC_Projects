@@ -1,0 +1,273 @@
+#include <16f648a.h>
+#fuses HS
+#fuses MCLR
+#fuses NOWDT
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#use delay(clock=4M)
+#BYTE TRISA=0x85
+#BYTE PORTA=0x05
+#BYTE TRISB=0x86
+#BYTE PORTB=0x06
+//Uso de librerias
+   #define use_portb_kbd TRUE
+   #include <kbd.c>
+   #include <lcd420.c>
+//Prototipos de funciones
+   long teclado_numeros(int x,int y);
+   short pausa_tec(long t);
+//Variables generales
+   short aux=false;
+   int i,tec,modo,sentido;
+   long pausa,pasos,pa,numero[4],paso_actual=1; 
+   //float ;
+//Programa principal
+void main()
+{
+   port_b_pullups(true);
+   trisa=0b110000;
+   porta=0;
+   kbd_init();
+   lcd_init();
+   lcd_putc("\f    Bienvenidos\n   Control de un\n Motor paso a paso\n       Menu:");
+   delay_ms(2000);
+   while(true)
+   {
+      //porta=0;
+      lcd_putc("\f1: Pasos izquierda\n2: Pasos derecha\n3: Giro infinito\n4: Modo manual");
+      do
+      {
+         tec=kbd_getc();
+         if((tec=='*') | (tec=='#'))
+            tec=0;
+         else
+         {
+            tec-=48;
+            if (tec>4)
+               tec=0;
+         }
+      }while(!tec);
+      modo=tec;
+      if(modo==4)
+      {
+         lcd_putc("\fModo manual\nEstablece el sentido\nPress:* izq # der");
+         do
+         {
+            tec=kbd_getc();
+            if((tec=='*') | (tec=='#'))
+               sentido=tec;
+            else
+               tec=0;
+         }while(!tec);
+         delay_ms(100);
+         lcd_putc("\fSentido:\nacciona el sensor\npara ++ un paso\n # para cancelar");
+         lcd_gotoxy(10,1);
+         switch(sentido)
+         {
+            case '*':
+               lcd_putc("Izquierda");
+            break;
+            case '#':
+               lcd_putc("Derecha");
+            break;
+         }
+         aux=true;
+         while(aux)
+         {
+            if(input(pin_a4)==true)
+            {
+               while(input(pin_a4));
+               if (sentido=='*')
+                  paso_actual*=2;
+               else
+                  paso_actual/=2;
+               if(paso_actual>8)
+                  paso_actual=1;
+               if(paso_actual<1)
+                  paso_actual=8;
+               porta=paso_actual;
+            }
+            if(kbd_getc()=='#')
+               aux=false;
+         }
+      }
+      if(modo==3)
+      {
+         lcd_putc("\fEstablece el sentido\nPress:* izq # der");
+         do
+         {
+            tec=kbd_getc();
+            if((tec=='*') | (tec=='#'))
+               sentido=tec;
+            else
+               tec=0;
+         }while(!tec);
+         delay_ms(100);
+         lcd_putc("\f * aceptar # borrar\n\nPausa en ms:");
+         lcd_gotoxy(5,2);
+         switch(sentido)
+         {
+            case '*':
+               lcd_putc("Izquierda");
+            break;
+            case '#':
+               lcd_putc("Derecha");
+            break;
+         }
+         pausa=teclado_numeros(8,4);
+         if(pausa>1000)
+            pausa=1000;
+         else 
+            if(pausa<1)
+               pausa=1;
+         printf(lcd_putc,"\fGiro infinito\nPausa: %Lu ms\nSentido:\n # para cancelar",pausa);
+         lcd_gotoxy(10,3);
+         switch(sentido)
+         {
+            case '*':
+               lcd_putc("Izquierda");
+            break;
+            case '#':
+               lcd_putc("Derecha");
+            break;
+         }
+         delay_ms(200);
+         aux=true;
+         while(aux)
+         {
+            if (sentido=='*')
+               paso_actual*=2;
+            else
+               paso_actual/=2;
+            if(paso_actual>8)
+               paso_actual=1;
+            if(paso_actual<1)
+               paso_actual=8;
+            porta=paso_actual;
+            aux=pausa_tec(pausa);
+         }
+      }
+      if(modo<3)
+      {
+         lcd_putc("\fSeleccione el numero\n de pasos en el\n sentido");
+         lcd_gotoxy(10,3);
+         if(modo==1)
+            lcd_putc("izquierdo");
+         else
+            lcd_putc("derecho");
+         delay_ms(1500);
+         lcd_putc("\f * aceptar # borrar\nPasos=");
+         pasos=teclado_numeros(8,2);
+         lcd_gotoxy(1,3);
+         lcd_putc("Pausa en ms=");
+         pausa=teclado_numeros(14,3);
+         if(pausa>1000)
+            pausa=1000;
+         else
+            if(pausa<1)
+               pausa=1;
+         delay_ms(1000);
+         printf(lcd_putc,"\fPasos=0 de %Lu\nPausa= %Lu ms\nSentido\n # para cancelar",pasos,pausa);
+         lcd_gotoxy(9,3);
+         if(modo==1)
+            lcd_putc("izquierdo");
+         else
+            lcd_putc("derecho");
+         aux=true;
+         for(pa=0;pa<pasos;pa++)
+         {
+            lcd_gotoxy(7,1);
+            printf(lcd_putc,"%Lu de %Lu  ",pa,pasos);
+            if (modo==1)
+               paso_actual*=2;
+            else
+               paso_actual/=2;
+            if(paso_actual>8)
+               paso_actual=1;
+            if(paso_actual<1)
+               paso_actual=8;
+            porta=paso_actual;
+            aux=pausa_tec(pausa);
+            if(aux==false)
+               break;
+         }
+      }
+   }
+}
+long teclado_numeros(int x,int y)
+{
+   aux=false;
+   for(i=0;i<4;i++)
+   {
+      if(aux==true)
+      {
+         i=0;
+         aux=false;
+      }
+      do
+      {
+         tec=kbd_getc();
+      }while(!tec);
+      if(tec=='*')
+      {
+         if(i!=0)
+            break;
+         else
+            aux=true;
+      }
+      if(tec=='#')
+      {   
+         if(i!=0)
+         {
+            i--;
+            lcd_gotoxy(x+i,y);
+            lcd_putc(' ');
+            i--;
+         }
+         else
+            aux=true;
+      }
+      else
+      {
+         numero[i]=tec-48;
+         lcd_gotoxy(i+x,y);
+         printf(lcd_putc,"%Lu",numero[i]);
+      }
+      if(i==3)
+         i=2;
+      delay_ms(150);
+   }
+   switch(i)
+   {
+      case 1:
+         return (numero[0]);
+      break;
+      case 2:
+         return (numero[0]*10+numero[1]);
+      break;
+      case 3:
+         return (numero[0]*100+numero[1]*10+numero[2]);
+      break;
+      case 4:
+         return(numero[0]*1000+numero[1]*100+numero[2]*10+numero[3]);
+      break;
+   }
+}
+short pausa_tec(long t)
+{
+   long tp;
+   short ind=true;
+   for(tp=0;tp<t;tp++)
+   {
+      delay_us(950);
+      if (kbd_getc()=='#')
+      {
+         ind=false;
+         break;
+      }
+   }
+   return (ind);
+}

@@ -1,0 +1,137 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025-028 MAIN.adc
+029-02C @PRINTF_L32D_89FPFPFR.P1
+029-02C @DIVFF.P2
+029-02A @ITOF.P3
+029     lcd_init.i
+029     MAIN.@SCRATCH1
+02A     lcd_init.@SCRATCH1
+02D     @PRINTF_L32D_89FPFPFR.P1
+02D-030 @DIVFF.P2
+02E     @PRINTF_L32D_89FPFPFR.@SCRATCH1
+02F     @PRINTF_L32D_89FPFPFR.@SCRATCH2
+030     @PRINTF_L32D_89FPFPFR.@SCRATCH3
+031     @DIVFF.@SCRATCH1
+031     @PRINTF_L32D_89FPFPFR.@SCRATCH4
+032     @DIVFF.@SCRATCH2
+032     @PRINTF_L32D_89FPFPFR.@SCRATCH5
+033     @DIVFF.@SCRATCH3
+033     @PRINTF_L32D_89FPFPFR.@SCRATCH6
+034     lcd_putc.c
+034-037 @FTOSD.P1
+034-037 @ADDFF.P2
+034-037 @MULFF.P3
+034-037 @DIV3232.P4
+034     @DIVFF.@SCRATCH4
+035     @delay_ms1.P1
+035     lcd_gotoxy.x
+035     @DIVFF.@SCRATCH5
+036     lcd_gotoxy.y
+036     @DIVFF.@SCRATCH6
+037     lcd_gotoxy.address
+038-03B @DIV3232.P1
+038-03B @ADDFF.P2
+038-03B @MULFF.P3
+038     lcd_gotoxy.@SCRATCH1
+038     @FTOSD.@SCRATCH1
+039     lcd_send_byte.address
+03A     lcd_send_byte.n
+03B     lcd_read_byte.low
+03B     lcd_send_byte.@SCRATCH1
+03C     lcd_read_byte.high
+03C     lcd_send_nibble.n
+03C     @MULFF.@SCRATCH1
+03C     @ADDFF.@SCRATCH1
+03C     @DIV3232.@SCRATCH1
+03D     lcd_read_nibble.n
+03D     lcd_read_byte.@SCRATCH1
+03D     @MULFF.@SCRATCH2
+03D     @ADDFF.@SCRATCH2
+03D     @DIV3232.@SCRATCH2
+03E     lcd_read_nibble.@SCRATCH1
+03E     @MULFF.@SCRATCH3
+03E     @ADDFF.@SCRATCH3
+03E     @DIV3232.@SCRATCH3
+03F     @MULFF.@SCRATCH4
+03F     @ADDFF.@SCRATCH4
+03F     @DIV3232.@SCRATCH4
+040     @MULFF.@SCRATCH5
+040     @ADDFF.@SCRATCH5
+040     @DIV3232.@SCRATCH5
+041     @ADDFF.@SCRATCH6
+042     @ADDFF.@SCRATCH7
+043     @ADDFF.@SCRATCH8
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+001F  @delay_ms1
+0004  LCD_INIT_STRING
+0097  lcd_read_byte
+005E  lcd_read_nibble
+0032  lcd_send_nibble
+008F  lcd_send_byte
+00EB  lcd_init
+0282  lcd_gotoxy
+0294  lcd_putc
+054B  MAIN
+0126  @ITOF
+0143  @MULFF
+01B8  @DIVFF
+000C  @const107
+0012  @const108
+0346  @ADDFF
+0493  @FTOSD
+02C1  @DIV3232
+030F  @PRINTF_L32D_89FPFPFR
+054B  @cinit1
+0565  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\16f677\
+
+Project Files:
+    adconverter.c                                           [08-nov.-14 18:48  CRC=A738E1CA]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f677.h   [28-feb.-12 13:43  CRC=7774C0AB]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=54267B6F
+
+Units:
+    adconverter (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      adconverter.err
+    Ext Symbols: adconverter.esym
+    INHX8:       adconverter.hex
+    Symbols:     adconverter.sym
+    List:        adconverter.lst
+    Debug/COFF:  adconverter.cof
+    Project:     adconverter.PJT
+    Call Tree:   adconverter.tre
+    Statistics:  adconverter.STA

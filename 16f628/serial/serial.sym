@@ -1,0 +1,122 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     caracter
+021     x
+022     y
+023     @PRINTF_U_92.P1
+023     lcd_init.i
+023     lcd_putc.c
+023     @GETCH_1_.@SCRATCH1
+023     MAIN.@SCRATCH1
+024     @PRINTF_U_92.P1
+024     @delay_ms1.P2
+024     lcd_gotoxy.x
+024     lcd_init.@SCRATCH1
+025     lcd_gotoxy.y
+025     @DIV88.P1
+025     @PUTCHAR_1_.P2
+026     @DIV88.P1
+026     lcd_gotoxy.address
+027     lcd_gotoxy.@SCRATCH1
+027     @DIV88.@SCRATCH1
+028     lcd_send_byte.address
+029     lcd_send_byte.n
+02A     lcd_read_byte.low
+02A     lcd_send_byte.@SCRATCH1
+02B     lcd_send_nibble.n
+02B     lcd_read_byte.high
+02C     lcd_read_nibble.n
+02C     lcd_read_byte.@SCRATCH1
+02D     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+034D  @delay_ms1
+0004  LCD_INIT_STRING
+03C6  lcd_read_byte
+038D  lcd_read_nibble
+0361  lcd_send_nibble
+03BE  lcd_send_byte
+041A  lcd_init
+049F  lcd_gotoxy
+04B1  lcd_putc
+0459  @PUTCHAR_1_
+047B  @GETCH_1_
+0528  MAIN
+000C  @const103
+0024  @const104
+0041  @const105
+005E  @const106
+007B  @const107
+0098  @const108
+00B7  @const109
+00D1  @const110
+00E9  @const111
+010C  @const112
+0126  @const113
+0143  @const114
+015D  @const115
+0177  @const116
+0191  @const117
+01AB  @const118
+01C5  @const119
+01DF  @const120
+01F9  @const121
+0218  @const122
+0232  @const123
+024D  @const124
+0268  @const125
+0283  @const126
+029E  @const127
+02B9  @const128
+02D4  @const129
+02EF  @const130
+030C  @const131
+0323  @const132
+04DE  @DIV88
+04F3  @PRINTF_U_92
+0338  @const139
+0528  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\serial\
+
+Project Files:
+    serial.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\serial\serial (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      serial.err
+    Ext Symbols: serial.esym
+    INHX8:       serial.hex
+    Symbols:     serial.sym
+    List:        serial.lst
+    Debug/COFF:  serial.cof
+    Project:     serial.PJT
+    Call Tree:   serial.tre
+    Statistics:  serial.sta

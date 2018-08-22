@@ -1,0 +1,26 @@
+#include <ej1.h>
+
+#INT_TIMER0
+void  TIMER0_isr(void) 
+{
+
+}
+
+void main()
+{
+	setup_adc_ports(AN0);
+	setup_timer_0(RTCC_INTERNAL|RTCC_DIV_64);		//840 ms overflow
+	setup_timer_2(T2_DIV_BY_1,249,1);		//50.0 us overflow, 50.0 us interrupt
+
+	setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);
+	set_pwm1_duty((int16)997);
+
+	enable_interrupts(INT_TIMER0);
+	enable_interrupts(GLOBAL);
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

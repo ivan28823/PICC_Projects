@@ -1,0 +1,5 @@
+>>> Warning 216 "Cerradura.c" Line 243(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "Cerradura.c" Line 243(1,2): Interrupts disabled during call to prevent re-entrancy:  (Abrir)
+      Memory usage:   ROM=81%      RAM=40% - 59%
+      0 Errors,  2 Warnings.
+Build Successful.

@@ -1,0 +1,76 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028.0   inf
+029     i
+02A     vel
+02B     pasos
+02C     lado
+02D     led_blink.rep
+02D     MAIN.@SCRATCH1
+02E     led_blink.r
+02F     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0032  @delay_ms1
+002F  reset
+005D  MAIN
+0047  led_blink
+005D  @cinit1
+0066  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Microcontroladores\PIC\Pic C\16f677\Motor a pasos\
+
+Project Files:
+    motor a pasos.c                                         [27-ago.-15 21:16  CRC=3B3A522A]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=539415D4
+
+Units:
+    motor a pasos (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      motor a pasos.err
+    Ext Symbols: motor a pasos.esym
+    INHX8:       motor a pasos.hex
+    Symbols:     motor a pasos.sym
+    List:        motor a pasos.lst
+    Debug/COFF:  motor a pasos.cof
+    Project:     motor a pasos.PJT
+    Call Tree:   motor a pasos.tre
+    Statistics:  motor a pasos.STA

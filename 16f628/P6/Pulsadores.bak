@@ -1,0 +1,213 @@
+#include <16f628a.h>
+
+#use delay(int=4000000)
+#fuses NOWDT
+#fuses NOMCLR
+#fuses NOPUT
+#fuses NOLVP
+#fuses INTRC
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#BYTE TRISA=0x85
+#BYTE PORTA=0x05
+#BYTE TRISB=0x86
+#BYTE PORTB=0x06
+
+void sec1(void);
+void sec2(void);
+void sec3(void);
+void sec4(void);
+void sec5(void);
+void sec6(void);
+void sec7(void);
+int puls=0;
+void main()
+{
+   trisa=255;
+   trisb=0;
+   portb=0;
+   puls=Porta;
+   while(true)
+   {
+      if(puls==1)
+      {
+         sec1();
+      }
+      if(puls==2)
+      {
+         sec2();
+      }
+      if(puls==4)
+      {
+         sec3();
+      }
+      if(puls==8)
+      {
+         sec4();
+      }
+      if(puls==16)
+      {
+         sec5();
+      }
+      if(puls==32)
+      {
+         sec6();
+      }
+      if(puls==64)
+      {
+         sec7();
+      }
+   }
+}
+void sec1()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      for(int a=0;a<4;a++)
+      {
+         output_b(0b00001111);
+         delay_ms(30);
+         output_b(0);
+         delay_ms(30);
+      }
+      delay_ms(400);
+      for(a=0;a<4;a++)
+      {
+         output_b(0b11110000);
+         delay_ms(30);
+         output_b(0);
+         delay_ms(30);
+      }
+      delay_ms(400);
+   }
+}
+void sec2()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      output_b(0b11001100);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b11001100);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b11001100);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b11001100);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(450);
+      output_b(0b00110011);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b00110011);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b00110011);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(50);
+      output_b(0b00110011);
+      delay_ms(50);
+      output_b(0);
+      delay_ms(450);
+   }
+}
+void sec3()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      int x=0;
+      x=1;
+      for(int y=0;y<8;y++)
+      {
+         output_b(x);
+         delay_ms(30);
+         x=x<<1;
+      }
+      x=128;
+      for(int xy=0;xy<8;xy++)
+      {
+         output_b(x);
+         delay_ms(30);
+         x=x>>1;
+      }
+   }
+}
+void sec4()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      output_b(255);
+      delay_ms(200);
+      output_b(0);
+      delay_ms(200);
+   }
+}
+void sec5()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      output_b(255);
+      delay_ms(200);
+      output_b(0);
+      delay_ms(200);
+   }
+}
+void sec6()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      output_b(255);
+      delay_ms(200);
+      output_b(0);
+      delay_ms(200);
+   }
+}
+/*void sec7()
+{
+   while(true)
+   {
+      if(puls==128)
+      {
+         main();
+      }
+      output_b(255);
+      delay_ms(200);
+      output_b(0);
+      delay_ms(200);
+   }
+}
+*/
+

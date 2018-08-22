@@ -1,0 +1,56 @@
+#include <16f628.h>
+#fuses HS
+#fuses NOWDT
+#fuses NOMCLR
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+#use delay(clock=20000000)
+#BYTE TRISA=0x85
+#BYTE PORTA=0x05
+#BYTE TRISB=0x86
+#BYTE PORTB=0x06
+#define LCD_ENABLE_PIN  PIN_A2                                    
+#define LCD_RS_PIN      PIN_A3                                    
+#define LCD_RW_PIN      PIN_A4                                    
+#define LCD_DATA4       PIN_B4                                    
+#define LCD_DATA5       PIN_B5                                    
+#define LCD_DATA6       PIN_B6                                    
+#define LCD_DATA7       PIN_B7
+#include <lcd.c>
+#use rs232(baud=9600, rcv=PIN_B1, xmit=PIN_B2,parity=n, bits=8, stop=2)
+void main()
+{
+   lcd_init();
+   int caracter,x,y;
+   Trisa=0;
+   Trisb=0b00000100;   
+   while(true)
+   {
+      while(kbhit()==false);
+      caracter=getc();
+      if(caracter=='ñ')
+      {
+         lcd_putc("\f");
+         while(kbhit()==false);
+         caracter=getc();
+      }
+      if (caracter=='°')
+      {
+         while(kbhit()==false);
+         x=getc();
+         //if((x==0) || (x>16))
+         //   {x=1;}
+         while(kbhit()==false);
+         y=getc();
+         //if((y==0) || (y>2))
+         //   {y=1;}
+         lcd_gotoxy(x,y);
+         while(kbhit()==false);
+         caracter=getc();
+      }
+      lcd_putc(caracter);
+   }
+}

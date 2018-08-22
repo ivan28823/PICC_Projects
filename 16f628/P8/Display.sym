@@ -1,0 +1,69 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     unid
+021     dece
+022     cent
+023     main.unidd
+024     main.deced
+025     main.centd
+026     @delay_ms1.P1
+026     condicion.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  @delay_ms1
+0034  main
+00D9  @goto10056
+00E8  @goto10072
+00F7  @goto10088
+0019  condicion
+0034  @cinit1
+0040  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P8\
+
+Project Files:
+    Display.c                                               [01-nov.-14 01:24  CRC=B7E6FAC8]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=D040BE72
+
+Units:
+    Display (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Display.err
+    Ext Symbols: Display.esym
+    INHX8:       Display.hex
+    Symbols:     Display.sym
+    List:        Display.lst
+    Debug/COFF:  Display.cof
+    Project:     Display.PJT
+    Call Tree:   Display.tre
+    Statistics:  Display.STA

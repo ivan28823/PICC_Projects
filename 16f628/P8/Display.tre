@@ -1,0 +1,13 @@
+ÀÄDisplay
+   ÀÄmain  0/165  Ram=3
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ??0??
+      ÃÄcondicion  0/27  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄ@goto10056  0/15  Ram=0
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄ@goto10072  0/15  Ram=0
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄ@goto10088  0/18  Ram=0
+      ÀÄ@delay_ms1  0/21  Ram=1

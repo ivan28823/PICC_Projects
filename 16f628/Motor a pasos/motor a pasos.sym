@@ -1,0 +1,146 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     lcd
+006     kbd
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     kbd_getc.kbd_call_count
+021.0   kbd_getc.kbd_down
+021.1   aux
+022     kbd_getc.last_key
+023     kbd_getc.col
+024     lcdline
+025     i
+026     tec
+027     modo
+028     sentido
+029-02A pausa
+02B-02C pasos
+02D-02E pa
+02F-036 numero
+037-038 pausa_tec.t
+037     lcd_init.i
+037     teclado_numeros.y
+037     MAIN.@SCRATCH1
+038     lcd_init.@SCRATCH1
+038     teclado_numeros.@SCRATCH1
+039-03A pausa_tec.tp
+039     teclado_numeros.@SCRATCH2
+03A-03B @MUL1616.P1
+03A-03B @PRINTF_LU_109.P2
+03B.0   pausa_tec.ind
+03C-03D @MUL1616.P1
+03C     kbd_getc.kchar
+03C     @PRINTF_LU_109.@SCRATCH1
+03C     pausa_tec.@SCRATCH1
+03D     @delay_us1.P1
+03D     kbd_getc.row
+03D     @PRINTF_LU_109.@SCRATCH2
+03E     @MUL88.P1
+03E     kbd_getc.@SCRATCH1
+03E     @PRINTF_LU_109.@SCRATCH3
+03E     @MUL1616.@SCRATCH1
+03F     @MUL88.P1
+03F     @PRINTF_LU_109.@SCRATCH4
+040     @PRINTF_LU_109.@SCRATCH5
+041     @PRINTF_LU_109.@SCRATCH6
+042     @PRINTF_LU_109.@SCRATCH7
+043     lcd_putc.c
+044     @delay_ms1.P1
+044     lcd_gotoxy.x
+045     lcd_gotoxy.y
+046     lcd_gotoxy.address
+047     lcd_send_byte.address
+048     lcd_send_byte.n
+049     lcd_read_byte.low
+049     lcd_send_byte.@SCRATCH1
+04A     lcd_send_nibble.n
+04A     lcd_read_byte.high
+04B     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0200  @delay_ms1
+0454  @delay_us1
+0004  KEYS
+01FE  kbd_init
+02CB  kbd_getc
+0316  @MUL88
+0014  LCD_INIT_STRING
+0222  lcd_read_byte
+0215  lcd_send_nibble
+0221  lcd_send_byte
+0257  lcd_init
+0280  lcd_gotoxy
+029B  @goto10137
+02A3  lcd_putc
+0478  MAIN
+001C  @const131
+0056  @const132
+0093  @const133
+00BF  @const134
+00D6  @const135
+00ED  @const136
+0107  @const137
+034C  @PRINTF_LU_109
+011C  @const140
+0135  @const141
+0168  @const142
+0176  @const143
+0182  @const144
+019C  @const145
+01B3  @const146
+01ED  @const149
+03C4  teclado_numeros
+03AF  @MUL1616
+0443  pausa_tec
+0478  @cinit1
+047F  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\16f628\Motor a pasos\
+
+Project Files:
+    motor a pasos.c                                         [08-jun.-15 18:40  CRC=515BAAA0]
+    ..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h [28-feb.-12 13:43  CRC=4C1C2E83]
+    ..\..\..\..\..\..\..\..\Program Files\PICC\drivers\kbd.c [23-sep.-10 09:09  CRC=8814BCFC]
+    ..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd420.c [14-abr.-09 10:58  CRC=C5A307B3]
+
+Source signature=B0D2A585
+
+Units:
+    motor a pasos (main)
+
+Compiler Settings:
+    Processor:      PIC16F648A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      motor a pasos.err
+    Ext Symbols: motor a pasos.esym
+    INHX8:       motor a pasos.hex
+    Symbols:     motor a pasos.sym
+    List:        motor a pasos.lst
+    Debug/COFF:  motor a pasos.cof
+    Project:     motor a pasos.PJT
+    Call Tree:   motor a pasos.tre
+    Statistics:  motor a pasos.STA

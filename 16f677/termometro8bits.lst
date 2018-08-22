@@ -1,0 +1,504 @@
+CCS PCM C Compiler, Version 4.130, 59972               18-nov.-14 14:03
+
+               Filename: C:\Users\Ivan-ua\Documents\PIC\Pic C\16f677\termometro8bits.lst
+
+               ROM used: 409 words (20%)
+                         Largest free fragment is 1639
+               RAM used: 6 (5%) at main() level
+                         8 (6%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   017
+0003:  NOP
+.................... #include <16f677.h> 
+.................... //////// Standard Header file for the PIC16F677 device //////////////// 
+.................... #device PIC16F677 
+.................... #list 
+....................  
+.................... #device adc=10 
+....................  
+....................  
+.................... #FUSES NOWDT                  
+.................... #FUSES INTRC_IO                
+.................... #FUSES NOMCLR                    
+.................... #FUSES NOBROWNOUT 
+.................... #FUSES NOPUT 
+.................... #FUSES NOPROTECT 
+.................... #FUSES NOCPD               
+....................  
+.................... #use delay(clock=8000000) 
+0004:  MOVLW  27
+0005:  MOVWF  04
+0006:  MOVF   00,W
+0007:  BTFSC  03.2
+0008:  GOTO   016
+0009:  MOVLW  02
+000A:  MOVWF  21
+000B:  CLRF   20
+000C:  DECFSZ 20,F
+000D:  GOTO   00C
+000E:  DECFSZ 21,F
+000F:  GOTO   00B
+0010:  MOVLW  97
+0011:  MOVWF  20
+0012:  DECFSZ 20,F
+0013:  GOTO   012
+0014:  DECFSZ 00,F
+0015:  GOTO   009
+0016:  RETURN
+.................... #BYTE TRISA=0x85 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE TRISC=0x87 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE PORTB=0x06 
+.................... #BYTE PORTC=0x07 
+....................  
+.................... void main() 
+.................... { 
+0017:  CLRF   04
+0018:  MOVLW  1F
+0019:  ANDWF  03,F
+001A:  MOVLW  71
+001B:  BSF    03.5
+001C:  MOVWF  0F
+001D:  MOVF   0F,W
+001E:  BCF    03.5
+001F:  BSF    03.6
+0020:  BCF    1F.0
+0021:  BCF    1F.1
+0022:  BCF    1F.2
+0023:  BCF    1F.3
+0024:  BCF    03.6
+0025:  BCF    1F.6
+0026:  MOVLW  00
+0027:  BSF    03.6
+0028:  MOVWF  1E
+0029:  CLRF   19
+002A:  CLRF   1A
+002B:  BSF    03.5
+002C:  CLRF   1E
+002D:  BCF    03.5
+002E:  CLRF   1B
+002F:  BCF    03.6
+0030:  BCF    0D.5
+....................    setup_oscillator(OSC_8MHZ); 
+0031:  MOVLW  71
+0032:  BSF    03.5
+0033:  MOVWF  0F
+0034:  MOVF   0F,W
+....................    Trisb=0b00110000; 
+0035:  MOVLW  30
+0036:  MOVWF  06
+....................    Trisc=0; 
+0037:  CLRF   07
+....................    Portc=0; 
+0038:  BCF    03.5
+0039:  CLRF   07
+....................    Portb=0; 
+003A:  CLRF   06
+....................    setup_adc_ports(sAN0 | VSS_VREF); 
+003B:  BSF    03.6
+003C:  BCF    1F.0
+003D:  BCF    1F.1
+003E:  BCF    1F.2
+003F:  BCF    1F.3
+0040:  BCF    03.6
+0041:  BSF    1F.6
+0042:  MOVLW  01
+0043:  BSF    03.6
+0044:  MOVWF  1E
+....................    setup_adc(ADC_CLOCK_INTERNAL); 
+0045:  BSF    03.5
+0046:  BCF    03.6
+0047:  BSF    1F.4
+0048:  BSF    1F.5
+0049:  BCF    1F.6
+004A:  BCF    03.5
+004B:  BSF    1F.7
+004C:  BSF    1F.0
+....................    set_adc_channel(0); 
+004D:  MOVLW  00
+004E:  MOVWF  21
+004F:  MOVF   1F,W
+0050:  ANDLW  C3
+0051:  IORWF  21,W
+0052:  MOVWF  1F
+....................     
+....................    long temp; 
+....................    while(true) 
+....................    { 
+....................     //  if (input(pin_b5)==1) 
+....................     //  { 
+....................           inicio: 
+....................           if (input(pin_b5)==0){goto inicio1;} 
+0053:  BSF    03.5
+0054:  BSF    06.5
+0055:  BCF    03.5
+0056:  BTFSS  06.5
+0057:  GOTO   0F4
+....................           delay_ms(50); 
+0058:  MOVLW  32
+0059:  MOVWF  27
+005A:  CALL   004
+....................           temp=read_adc(); 
+005B:  BSF    1F.1
+005C:  BTFSC  1F.1
+005D:  GOTO   05C
+005E:  BSF    03.5
+005F:  MOVF   1E,W
+0060:  BCF    03.5
+0061:  MOVWF  25
+0062:  MOVF   1E,W
+0063:  MOVWF  26
+....................           if(temp<921){Portb=0;} 
+0064:  MOVF   26,W
+0065:  SUBLW  03
+0066:  BTFSS  03.0
+0067:  GOTO   06E
+0068:  BTFSS  03.2
+0069:  GOTO   06D
+006A:  MOVF   25,W
+006B:  SUBLW  98
+006C:  BTFSC  03.0
+006D:  CLRF   06
+....................           if(temp<102){Portc=0; goto inicio;} 
+006E:  MOVF   26,F
+006F:  BTFSS  03.2
+0070:  GOTO   077
+0071:  MOVF   25,W
+0072:  SUBLW  65
+0073:  BTFSS  03.0
+0074:  GOTO   077
+0075:  CLRF   07
+0076:  GOTO   053
+....................           if(temp>=1023){Portb=0b11000000; goto cof;} 
+0077:  MOVF   26,W
+0078:  SUBLW  02
+0079:  BTFSC  03.0
+007A:  GOTO   085
+007B:  XORLW  FF
+007C:  BTFSS  03.2
+007D:  GOTO   082
+007E:  MOVF   25,W
+007F:  SUBLW  FE
+0080:  BTFSC  03.0
+0081:  GOTO   085
+0082:  MOVLW  C0
+0083:  MOVWF  06
+0084:  GOTO   093
+....................           if(temp>=921){Portb=0b01000000; goto cof;} 
+0085:  MOVF   26,W
+0086:  SUBLW  02
+0087:  BTFSC  03.0
+0088:  GOTO   093
+0089:  XORLW  FF
+008A:  BTFSS  03.2
+008B:  GOTO   090
+008C:  MOVF   25,W
+008D:  SUBLW  98
+008E:  BTFSC  03.0
+008F:  GOTO   093
+0090:  MOVLW  40
+0091:  MOVWF  06
+0092:  GOTO   093
+....................           cof: 
+....................           if(temp>=819){Portc=0b11111111; goto inicio;} 
+0093:  MOVF   26,W
+0094:  SUBLW  02
+0095:  BTFSC  03.0
+0096:  GOTO   0A1
+0097:  XORLW  FF
+0098:  BTFSS  03.2
+0099:  GOTO   09E
+009A:  MOVF   25,W
+009B:  SUBLW  32
+009C:  BTFSC  03.0
+009D:  GOTO   0A1
+009E:  MOVLW  FF
+009F:  MOVWF  07
+00A0:  GOTO   053
+....................           if(temp>=716){Portc=0b01111111; goto inicio;} 
+00A1:  MOVF   26,W
+00A2:  SUBLW  01
+00A3:  BTFSC  03.0
+00A4:  GOTO   0AF
+00A5:  XORLW  FF
+00A6:  BTFSS  03.2
+00A7:  GOTO   0AC
+00A8:  MOVF   25,W
+00A9:  SUBLW  CB
+00AA:  BTFSC  03.0
+00AB:  GOTO   0AF
+00AC:  MOVLW  7F
+00AD:  MOVWF  07
+00AE:  GOTO   053
+....................           if(temp>=614){Portc=0b00111111; goto inicio;} 
+00AF:  MOVF   26,W
+00B0:  SUBLW  01
+00B1:  BTFSC  03.0
+00B2:  GOTO   0BD
+00B3:  XORLW  FF
+00B4:  BTFSS  03.2
+00B5:  GOTO   0BA
+00B6:  MOVF   25,W
+00B7:  SUBLW  65
+00B8:  BTFSC  03.0
+00B9:  GOTO   0BD
+00BA:  MOVLW  3F
+00BB:  MOVWF  07
+00BC:  GOTO   053
+....................           if(temp>=512){Portc=0b00011111; goto inicio;} 
+00BD:  MOVF   26,W
+00BE:  SUBLW  01
+00BF:  BTFSC  03.0
+00C0:  GOTO   0C4
+00C1:  MOVLW  1F
+00C2:  MOVWF  07
+00C3:  GOTO   053
+....................           if(temp>=409){Portc=0b00001111; goto inicio;} 
+00C4:  MOVF   26,W
+00C5:  SUBLW  00
+00C6:  BTFSC  03.0
+00C7:  GOTO   0D2
+00C8:  XORLW  FF
+00C9:  BTFSS  03.2
+00CA:  GOTO   0CF
+00CB:  MOVF   25,W
+00CC:  SUBLW  98
+00CD:  BTFSC  03.0
+00CE:  GOTO   0D2
+00CF:  MOVLW  0F
+00D0:  MOVWF  07
+00D1:  GOTO   053
+....................           if(temp>=307){Portc=0b00000111; goto inicio;} 
+00D2:  MOVF   26,W
+00D3:  SUBLW  00
+00D4:  BTFSC  03.0
+00D5:  GOTO   0E0
+00D6:  XORLW  FF
+00D7:  BTFSS  03.2
+00D8:  GOTO   0DD
+00D9:  MOVF   25,W
+00DA:  SUBLW  32
+00DB:  BTFSC  03.0
+00DC:  GOTO   0E0
+00DD:  MOVLW  07
+00DE:  MOVWF  07
+00DF:  GOTO   053
+....................           if(temp>=204){Portc=0b00000011; goto inicio;} 
+00E0:  MOVF   26,F
+00E1:  BTFSS  03.2
+00E2:  GOTO   0E7
+00E3:  MOVF   25,W
+00E4:  SUBLW  CB
+00E5:  BTFSC  03.0
+00E6:  GOTO   0EA
+00E7:  MOVLW  03
+00E8:  MOVWF  07
+00E9:  GOTO   053
+....................           if(temp>=102){Portc=0b00000001; goto inicio;} 
+00EA:  MOVF   26,F
+00EB:  BTFSS  03.2
+00EC:  GOTO   0F1
+00ED:  MOVF   25,W
+00EE:  SUBLW  65
+00EF:  BTFSC  03.0
+00F0:  GOTO   0F4
+00F1:  MOVLW  01
+00F2:  MOVWF  07
+00F3:  GOTO   053
+....................      // } 
+....................      // else 
+....................      // { 
+....................           inicio1: 
+....................           if (input(pin_b5)==1){goto inicio;} 
+00F4:  BSF    03.5
+00F5:  BSF    06.5
+00F6:  BCF    03.5
+00F7:  BTFSC  06.5
+00F8:  GOTO   053
+....................           delay_ms(50); 
+00F9:  MOVLW  32
+00FA:  MOVWF  27
+00FB:  CALL   004
+....................           temp=read_adc(); 
+00FC:  BSF    1F.1
+00FD:  BTFSC  1F.1
+00FE:  GOTO   0FD
+00FF:  BSF    03.5
+0100:  MOVF   1E,W
+0101:  BCF    03.5
+0102:  MOVWF  25
+0103:  MOVF   1E,W
+0104:  MOVWF  26
+....................           if(temp<921){Portb=0;} 
+0105:  MOVF   26,W
+0106:  SUBLW  03
+0107:  BTFSS  03.0
+0108:  GOTO   10F
+0109:  BTFSS  03.2
+010A:  GOTO   10E
+010B:  MOVF   25,W
+010C:  SUBLW  98
+010D:  BTFSC  03.0
+010E:  CLRF   06
+....................           if(temp<102){Portc=0; goto inicio1;} 
+010F:  MOVF   26,F
+0110:  BTFSS  03.2
+0111:  GOTO   118
+0112:  MOVF   25,W
+0113:  SUBLW  65
+0114:  BTFSS  03.0
+0115:  GOTO   118
+0116:  CLRF   07
+0117:  GOTO   0F4
+....................           if(temp>=1023){Portb=0b10000000; Portc=0; goto inicio1;} 
+0118:  MOVF   26,W
+0119:  SUBLW  02
+011A:  BTFSC  03.0
+011B:  GOTO   127
+011C:  XORLW  FF
+011D:  BTFSS  03.2
+011E:  GOTO   123
+011F:  MOVF   25,W
+0120:  SUBLW  FE
+0121:  BTFSC  03.0
+0122:  GOTO   127
+0123:  MOVLW  80
+0124:  MOVWF  06
+0125:  CLRF   07
+0126:  GOTO   0F4
+....................           if(temp>=921){Portb=0b01000000; Portc=0; goto inicio1;} 
+0127:  MOVF   26,W
+0128:  SUBLW  02
+0129:  BTFSC  03.0
+012A:  GOTO   136
+012B:  XORLW  FF
+012C:  BTFSS  03.2
+012D:  GOTO   132
+012E:  MOVF   25,W
+012F:  SUBLW  98
+0130:  BTFSC  03.0
+0131:  GOTO   136
+0132:  MOVLW  40
+0133:  MOVWF  06
+0134:  CLRF   07
+0135:  GOTO   0F4
+....................           cof1: 
+....................           //if(temp<920){Portc=0; goto inicio1;} 
+....................           if(temp>=819){Portc=0b10000000; goto inicio1;} 
+0136:  MOVF   26,W
+0137:  SUBLW  02
+0138:  BTFSC  03.0
+0139:  GOTO   144
+013A:  XORLW  FF
+013B:  BTFSS  03.2
+013C:  GOTO   141
+013D:  MOVF   25,W
+013E:  SUBLW  32
+013F:  BTFSC  03.0
+0140:  GOTO   144
+0141:  MOVLW  80
+0142:  MOVWF  07
+0143:  GOTO   0F4
+....................           if(temp>=716){Portc=0b01000000; goto inicio1;} 
+0144:  MOVF   26,W
+0145:  SUBLW  01
+0146:  BTFSC  03.0
+0147:  GOTO   152
+0148:  XORLW  FF
+0149:  BTFSS  03.2
+014A:  GOTO   14F
+014B:  MOVF   25,W
+014C:  SUBLW  CB
+014D:  BTFSC  03.0
+014E:  GOTO   152
+014F:  MOVLW  40
+0150:  MOVWF  07
+0151:  GOTO   0F4
+....................           if(temp>=614){Portc=0b00100000; goto inicio1;} 
+0152:  MOVF   26,W
+0153:  SUBLW  01
+0154:  BTFSC  03.0
+0155:  GOTO   160
+0156:  XORLW  FF
+0157:  BTFSS  03.2
+0158:  GOTO   15D
+0159:  MOVF   25,W
+015A:  SUBLW  65
+015B:  BTFSC  03.0
+015C:  GOTO   160
+015D:  MOVLW  20
+015E:  MOVWF  07
+015F:  GOTO   0F4
+....................           if(temp>=512){Portc=0b00010000; goto inicio1;} 
+0160:  MOVF   26,W
+0161:  SUBLW  01
+0162:  BTFSC  03.0
+0163:  GOTO   167
+0164:  MOVLW  10
+0165:  MOVWF  07
+0166:  GOTO   0F4
+....................           if(temp>=409){Portc=0b00001000; goto inicio1;} 
+0167:  MOVF   26,W
+0168:  SUBLW  00
+0169:  BTFSC  03.0
+016A:  GOTO   175
+016B:  XORLW  FF
+016C:  BTFSS  03.2
+016D:  GOTO   172
+016E:  MOVF   25,W
+016F:  SUBLW  98
+0170:  BTFSC  03.0
+0171:  GOTO   175
+0172:  MOVLW  08
+0173:  MOVWF  07
+0174:  GOTO   0F4
+....................           if(temp>=307){Portc=0b00000100; goto inicio1;} 
+0175:  MOVF   26,W
+0176:  SUBLW  00
+0177:  BTFSC  03.0
+0178:  GOTO   183
+0179:  XORLW  FF
+017A:  BTFSS  03.2
+017B:  GOTO   180
+017C:  MOVF   25,W
+017D:  SUBLW  32
+017E:  BTFSC  03.0
+017F:  GOTO   183
+0180:  MOVLW  04
+0181:  MOVWF  07
+0182:  GOTO   0F4
+....................           if(temp>=204){Portc=0b00000010; goto inicio1;} 
+0183:  MOVF   26,F
+0184:  BTFSS  03.2
+0185:  GOTO   18A
+0186:  MOVF   25,W
+0187:  SUBLW  CB
+0188:  BTFSC  03.0
+0189:  GOTO   18D
+018A:  MOVLW  02
+018B:  MOVWF  07
+018C:  GOTO   0F4
+....................           if(temp>=102){Portc=0b00000001; goto inicio1;} 
+018D:  MOVF   26,F
+018E:  BTFSS  03.2
+018F:  GOTO   194
+0190:  MOVF   25,W
+0191:  SUBLW  65
+0192:  BTFSC  03.0
+0193:  GOTO   197
+0194:  MOVLW  01
+0195:  MOVWF  07
+0196:  GOTO   0F4
+....................     //  } 
+....................    } 
+0197:  GOTO   053
+.................... } 
+0198:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3CD4   INTRC_IO NOWDT NOPUT NOMCLR NOPROTECT NOCPD NOBROWNOUT IESO FCMEN

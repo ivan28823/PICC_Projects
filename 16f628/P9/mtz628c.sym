@@ -1,0 +1,68 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     main.time
+022     main.tm
+023     main.b
+024     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0058  @delay_ms1
+0004  sec1
+0010  sec2
+001C  sec3
+0028  sec4
+0034  sec5
+0040  sec6
+004C  sec7
+006C  main
+006C  @cinit1
+0072  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P9\
+
+Project Files:
+    mtz628c.c                                               [02-nov.-14 19:18  CRC=73BA1974]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=8C13DD1E
+
+Units:
+    mtz628c (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      mtz628c.err
+    Ext Symbols: mtz628c.esym
+    INHX8:       mtz628c.hex
+    Symbols:     mtz628c.sym
+    List:        mtz628c.lst
+    Debug/COFF:  mtz628c.cof
+    Project:     mtz628c.PJT
+    Call Tree:   mtz628c.tre
+    Statistics:  mtz628c.STA

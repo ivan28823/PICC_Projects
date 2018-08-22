@@ -1,0 +1,41 @@
+#include <16f886.h>
+#fuses HS
+#fuses MCLR
+#fuses NOWDT
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+
+#use delay(clock=20M)
+
+#BYTE TRISA=0x85
+#BYTE TRISB=0x86
+#BYTE TRISC=0x87
+#BYTE PORTA=0x05
+#BYTE PORTB=0x06
+#BYTE PORTC=0x07
+
+
+void main()
+{
+   Trisb=0;
+   Portb=255;
+   Trisc=0;
+   Portc=255;
+   trisa=0;
+   Porta=255;
+   delay_ms(500);
+   while(true)
+   {
+      int a;
+      for(a=0;a<255;a++)
+      {
+         Portb=a;
+         Portc=a;
+         Porta=a;
+         delay_ms(300);
+      }
+   }
+}

@@ -1,0 +1,188 @@
+CCS PCM C Compiler, Version 4.114, 93460303               28-oct.-14 14:43
+
+               Filename: C:\Users\Ivan-ua\Documents\PIC\Pic C\P2\Proyecto 2.lst
+
+               ROM used: 118 words (6%)
+                         Largest free fragment is 1930
+               RAM used: 6 (3%) at main() level
+                         7 (3%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #use delay(int=4000000) 
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... #fuses NOWDT 
+.................... #fuses MCLR 
+.................... #fuses NOPUT 
+.................... #fuses INTRC 
+.................... #fuses NOBROWNOUT 
+.................... #fuses NOLVP 
+.................... #fuses NOCPD 
+.................... #fuses NOPROTECT 
+.................... #use fast_io(b)  
+....................  
+.................... void main(){ 
+0019:  CLRF   04
+001A:  BCF    03.7
+001B:  MOVLW  1F
+001C:  ANDWF  03,F
+001D:  BSF    03.5
+001E:  BSF    0E.3
+001F:  MOVLW  07
+0020:  BCF    03.5
+0021:  MOVWF  1F
+....................    set_tris_b(0b00000000); 
+0022:  MOVLW  00
+0023:  TRIS   6
+....................    do{ 
+....................    output_b(0b11001100); 
+0024:  MOVLW  CC
+0025:  MOVWF  06
+....................    delay_ms(50); 
+0026:  MOVLW  32
+0027:  MOVWF  22
+0028:  CALL   004
+....................    output_b(0); 
+0029:  CLRF   06
+....................    delay_ms(50); 
+002A:  MOVLW  32
+002B:  MOVWF  22
+002C:  CALL   004
+....................    output_b(0b11001100); 
+002D:  MOVLW  CC
+002E:  MOVWF  06
+....................    delay_ms(50); 
+002F:  MOVLW  32
+0030:  MOVWF  22
+0031:  CALL   004
+....................    output_b(0); 
+0032:  CLRF   06
+....................    delay_ms(50); 
+0033:  MOVLW  32
+0034:  MOVWF  22
+0035:  CALL   004
+....................    output_b(0b11001100); 
+0036:  MOVLW  CC
+0037:  MOVWF  06
+....................    delay_ms(50); 
+0038:  MOVLW  32
+0039:  MOVWF  22
+003A:  CALL   004
+....................    output_b(0); 
+003B:  CLRF   06
+....................    delay_ms(50); 
+003C:  MOVLW  32
+003D:  MOVWF  22
+003E:  CALL   004
+....................    output_b(0b11001100); 
+003F:  MOVLW  CC
+0040:  MOVWF  06
+....................    delay_ms(50); 
+0041:  MOVLW  32
+0042:  MOVWF  22
+0043:  CALL   004
+....................    output_b(0); 
+0044:  CLRF   06
+....................    delay_ms(450); 
+0045:  MOVLW  02
+0046:  MOVWF  21
+0047:  MOVLW  E1
+0048:  MOVWF  22
+0049:  CALL   004
+004A:  DECFSZ 21,F
+004B:  GOTO   047
+....................    output_b(0b00110011); 
+004C:  MOVLW  33
+004D:  MOVWF  06
+....................    delay_ms(50); 
+004E:  MOVLW  32
+004F:  MOVWF  22
+0050:  CALL   004
+....................    output_b(0); 
+0051:  CLRF   06
+....................    delay_ms(50); 
+0052:  MOVLW  32
+0053:  MOVWF  22
+0054:  CALL   004
+....................    output_b(0b00110011); 
+0055:  MOVLW  33
+0056:  MOVWF  06
+....................    delay_ms(50); 
+0057:  MOVLW  32
+0058:  MOVWF  22
+0059:  CALL   004
+....................    output_b(0); 
+005A:  CLRF   06
+....................    delay_ms(50); 
+005B:  MOVLW  32
+005C:  MOVWF  22
+005D:  CALL   004
+....................    output_b(0b00110011); 
+005E:  MOVLW  33
+005F:  MOVWF  06
+....................    delay_ms(50); 
+0060:  MOVLW  32
+0061:  MOVWF  22
+0062:  CALL   004
+....................    output_b(0); 
+0063:  CLRF   06
+....................    delay_ms(50); 
+0064:  MOVLW  32
+0065:  MOVWF  22
+0066:  CALL   004
+....................    output_b(0b00110011); 
+0067:  MOVLW  33
+0068:  MOVWF  06
+....................    delay_ms(50); 
+0069:  MOVLW  32
+006A:  MOVWF  22
+006B:  CALL   004
+....................    output_b(0); 
+006C:  CLRF   06
+....................    delay_ms(450); 
+006D:  MOVLW  02
+006E:  MOVWF  21
+006F:  MOVLW  E1
+0070:  MOVWF  22
+0071:  CALL   004
+0072:  DECFSZ 21,F
+0073:  GOTO   06F
+....................    } 
+....................    while(TRUE); 
+....................     
+.................... } 
+0074:  GOTO   024
+0075:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F39   NOWDT NOPUT INTRC MCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

@@ -1,0 +1,72 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 distancia
+022-023 @PRINTF_LU_60.P1
+022     main.@SCRATCH1
+023     @delay_ms1.P1
+023     main.@SCRATCH2
+024-025 @DIV1616.P1
+024     @PRINTF_LU_60.@SCRATCH1
+025     @PRINTF_LU_60.@SCRATCH2
+026-027 @DIV1616.P1
+026     @PRINTF_LU_60.@SCRATCH3
+027     @PRINTF_LU_60.@SCRATCH4
+028     @DIV1616.@SCRATCH1
+028     @PRINTF_LU_60.@SCRATCH5
+029     @PRINTF_LU_60.@SCRATCH6
+02A     @PRINTF_LU_60.@SCRATCH7
+02B     @PUTCHAR_1_.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+005E  @delay_ms1
+003F  @PUTCHAR_1_
+00FB  main
+0004  @const70
+0073  @DIV1616
+0017  @const74
+0029  @const75
+0098  @PRINTF_LU_60
+00FB  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\serial\
+
+Project Files:
+    hc-sr06.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\serial\hc-sr06 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      hc-sr06.err
+    Ext Symbols: hc-sr06.esym
+    INHX8:       hc-sr06.hex
+    Symbols:     hc-sr06.sym
+    List:        hc-sr06.lst
+    Debug/COFF:  hc-sr06.cof
+    Project:     hc-sr06.PJT
+    Call Tree:   hc-sr06.tre
+    Statistics:  hc-sr06.sta

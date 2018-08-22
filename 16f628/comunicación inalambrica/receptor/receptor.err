@@ -1,0 +1,3 @@
+>>> Warning 216 "receptor.c" Line 230(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_us1)
+>>> Warning 216 "receptor.c" Line 230(1,2): Interrupts disabled during call to prevent re-entrancy:  (@WRITEBITA)
+>>> Warning 216 "receptor.c" Line 230(1,2): Interrupts disabled during call to prevent re-entrancy:  (pwm_servo)

@@ -1,0 +1,112 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028.0   flag
+028.1   f_inter
+028.2   f_auto
+029     dato
+02A     t0
+02B-02C pwm
+02D-02E c_util
+02F-030 izquierda
+031-032 derecha
+033-034 vaux
+035     pwm_servo.pin
+035-036 @MUL1616.P1
+035     sensor_distancia.s_trig
+035     modo_automatico.@SCRATCH1
+036     @delay_ms1.P1
+036     sensor_distancia.s_echo
+036     pwm_servo.periodo
+036     modo_automatico.@SCRATCH2
+037-038 @MUL1616.P1
+037     @READBITA.P2
+037-038 pwm_servo.alto
+037     sensor_distancia.@SCRATCH1
+038-039 @READBITA.P1
+038     sensor_distancia.@SCRATCH2
+039-03A @DIV1616.P1
+039-03A pwm_servo.bajo
+039     @MUL1616.@SCRATCH1
+03B     pwm_servo.a
+03B-03C @DIV1616.P1
+03C     @WRITEBITA.P1
+03C     pwm_servo.@SCRATCH1
+03D     @WRITEBITA.P1
+03D     @delay_us1.P2
+03D     @DIV1616.@SCRATCH1
+03E-03F @WRITEBITA.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0158  @delay_ms1
+0070  @delay_us1
+0039  recepciion_datos
+0041  Intermitentes
+03B2  MAIN
+007F  pwm_servo
+0050  @WRITEBITA
+016C  opciones
+0248  @MUL1616
+0399  @goto10157
+00DC  sensor_distancia
+00C5  @READBITA
+012F  @DIV1616
+016E  modo_automatico
+03B2  @cinit1
+03CB  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f628\DIRI bluetooth\V2.1\
+
+Project Files:
+    bluetooth2_1.c                                          [04-may.-16 21:56  CRC=013AC166]
+    ..\..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h [28-feb.-12 13:43  CRC=4C1C2E83]
+
+Source signature=99731E6C
+
+Units:
+    bluetooth2_1 (main)
+
+Compiler Settings:
+    Processor:      PIC16F648A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      bluetooth2_1.err
+    Ext Symbols: bluetooth2_1.esym
+    INHX8:       bluetooth2_1.hex
+    Symbols:     bluetooth2_1.sym
+    List:        bluetooth2_1.lst
+    Debug/COFF:  bluetooth2_1.cof
+    Project:     bluetooth2_1.PJT
+    Call Tree:   bluetooth2_1.tre
+    Statistics:  bluetooth2_1.STA

@@ -1,0 +1,145 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 num1
+022-023 num2
+024-025 num3
+026     inte
+027     cl
+028     tec
+029     reg
+02A     t1
+02B     t2
+02C     t3
+02D     t4
+02E     e1
+02F     e2
+030     e3
+031     e4
+032.0   carga
+033     lcd_init.i
+033-034 @PRINTF_LU_90.P1
+033-034 @MUL1616.P2
+033     MAIN.@SCRATCH1
+033     teclado.@SCRATCH1
+034     lcd_init.@SCRATCH1
+034     MAIN.@SCRATCH2
+035     @MUL88.P1
+035-036 @MUL1616.P2
+035     @PRINTF_LU_90.@SCRATCH1
+036     @MUL88.P1
+036     @PRINTF_LU_90.@SCRATCH2
+037     @MUL1616.@SCRATCH1
+037     @PRINTF_LU_90.@SCRATCH3
+038     @PRINTF_LU_90.@SCRATCH4
+039     @PRINTF_LU_90.@SCRATCH5
+03A     @PRINTF_LU_90.@SCRATCH6
+03B     @PRINTF_LU_90.@SCRATCH7
+03C     lcd_putc.c
+03D     @delay_ms1.P1
+03D     lcd_gotoxy.x
+03E     lcd_gotoxy.y
+03F     lcd_gotoxy.address
+040     lcd_gotoxy.@SCRATCH1
+041     lcd_send_byte.address
+042     lcd_send_byte.n
+043     lcd_read_byte.low
+043     lcd_send_byte.@SCRATCH1
+044     lcd_send_nibble.n
+044     lcd_read_byte.high
+045     lcd_read_nibble.n
+045     lcd_read_byte.@SCRATCH1
+046     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00FF  @delay_ms1
+0004  LCD_INIT_STRING
+0178  lcd_read_byte
+013F  lcd_read_nibble
+0114  lcd_send_nibble
+0170  lcd_send_byte
+01CC  lcd_init
+0242  lcd_gotoxy
+0254  lcd_putc
+0800  MAIN
+0208  @MUL1616
+021D  @MUL88
+000C  @const124
+0012  @const125
+0021  @const126
+002B  @const130
+0036  @const131
+0D7E  @goto10240
+0D86  @goto10243
+003C  @const142
+0051  @const144
+005F  @const145
+006F  @const147
+030C  @PRINTF_LU_90
+0080  @const151
+0093  @const152
+00A2  @const154
+00B6  @const156
+00C7  @const160
+00DC  @const162
+00EF  @const164
+0281  teclado
+0800  @cinit1
+080D  @cinit2
+0816  inicio
+0AF2  cierto
+0952  dig
+0B66  cambio
+0A06  comprobar
+0B99  cambio1
+0C2D  cambio2
+0C8C  cambio3
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P10\
+
+Project Files:
+    tecladob.c                                              [12-nov.-14 20:32  CRC=76001DFC]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h  [28-feb.-12 13:43  CRC=4C1C2E83]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=F7952579
+
+Units:
+    tecladob (main)
+
+Compiler Settings:
+    Processor:      PIC16F648A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      tecladob.err
+    Ext Symbols: tecladob.esym
+    INHX8:       tecladob.hex
+    Symbols:     tecladob.sym
+    List:        tecladob.lst
+    Debug/COFF:  tecladob.cof
+    Project:     tecladob.PJT
+    Call Tree:   tecladob.tre
+    Statistics:  tecladob.STA

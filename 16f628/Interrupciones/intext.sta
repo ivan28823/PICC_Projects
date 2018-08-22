@@ -1,0 +1,45 @@
+
+ROM used: 129 (6%)
+          129 (6%) including unused fragments
+
+          0 Average locations per line
+          9 Average locations per statement
+
+RAM used: 14 (6%) at main() level
+          17 (8%) worst case
+
+Stack used: 3 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   41    15 100  intext.c
+  224     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  265    15 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21  16   1             @delay_ms1
+0     20  16   1    69  1.6  atender_int_ext
+0     41  32   0   212  2.7  MAIN
+
+Program metrics:
+    Functions               2
+    Statements              15
+    Comments                63
+    Volume (V)              336
+    Difficilty (D)          4.2
+    Effort to implement (E) 1427
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    145
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0002E    43  0  
+0002F-007FF    82  1919  
+
+
+

@@ -1,0 +1,146 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     lcdlat
+006     PORTB
+006     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 num1
+022-023 num2
+024-025 num3
+026     inte
+027     cl
+028     tec
+029     reg
+02A     t1
+02B     t2
+02C     t3
+02D     t4
+02E     e1
+02F     e2
+030     e3
+031     e4
+032.0   carga
+033     lcd_init.i
+033-034 @MUL1616.P1
+033-034 @PRINTF_LU_92.P2
+033     MAIN.@SCRATCH1
+033     teclado.@SCRATCH1
+034     lcd_init.@SCRATCH1
+034     MAIN.@SCRATCH2
+035     @MUL88.P1
+035-036 @MUL1616.P2
+035     @PRINTF_LU_92.@SCRATCH1
+036     @MUL88.P1
+036     @PRINTF_LU_92.@SCRATCH2
+037     @MUL1616.@SCRATCH1
+037     @PRINTF_LU_92.@SCRATCH3
+038     @PRINTF_LU_92.@SCRATCH4
+039     @PRINTF_LU_92.@SCRATCH5
+03A     @PRINTF_LU_92.@SCRATCH6
+03B     @PRINTF_LU_92.@SCRATCH7
+03C     lcd_putc.c
+03D     @delay_ms1.P1
+03D     lcd_gotoxy.x
+03E     lcd_gotoxy.y
+03F     lcd_gotoxy.address
+040     lcd_gotoxy.@SCRATCH1
+041     lcd_send_byte.address
+042     lcd_send_byte.n
+043     lcd_read_byte.low
+043     lcd_send_byte.@SCRATCH1
+044     lcd_send_nibble.n
+044     lcd_read_byte.high
+045     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     lcdtris
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00FF  @delay_ms1
+0004  LCD_INIT_STRING
+012C  lcd_read_byte
+0120  lcd_read_nibble
+0114  lcd_send_nibble
+0126  lcd_send_byte
+0166  lcd_init
+01D1  lcd_gotoxy
+01E3  lcd_putc
+02FE  MAIN
+0197  @MUL1616
+01AC  @MUL88
+000C  @const126
+0012  @const127
+0021  @const128
+002B  @const132
+0036  @const133
+078E  @goto10203
+0796  @goto10206
+003C  @const144
+0051  @const146
+005F  @const147
+006F  @const149
+029B  @PRINTF_LU_92
+0080  @const153
+0093  @const154
+00A2  @const156
+00B6  @const158
+00C7  @const162
+00DC  @const164
+00EF  @const166
+0210  teclado
+02FE  @cinit1
+030B  @cinit2
+0312  inicio
+057A  cierto
+0432  dig
+05DC  cambio
+04C0  comprobar
+05FF  cambio1
+0671  cambio2
+06BA  cambio3
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P10\
+
+Project Files:
+    lcd3.c                                                  [18-nov.-14 01:20  CRC=39D6FAE1]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=7B7CB5B0
+
+Units:
+    lcd3 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      lcd3.err
+    Ext Symbols: lcd3.esym
+    INHX8:       lcd3.hex
+    Symbols:     lcd3.sym
+    List:        lcd3.lst
+    Debug/COFF:  lcd3.cof
+    Project:     lcd3.PJT
+    Call Tree:   lcd3.tre
+    Statistics:  lcd3.STA

@@ -1,0 +1,85 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     MAIN.caracter
+022     MAIN.x
+023     MAIN.y
+024     lcd_init.i
+024     MAIN.@SCRATCH1
+025     lcd_putc.c
+025     lcd_init.@SCRATCH1
+026     @delay_ms1.P1
+026     lcd_gotoxy.x
+027     lcd_gotoxy.y
+028     lcd_gotoxy.address
+029     lcd_gotoxy.@SCRATCH1
+02A     lcd_send_byte.address
+02B     lcd_send_byte.n
+02C     lcd_read_byte.low
+02C     lcd_send_byte.@SCRATCH1
+02D     lcd_read_byte.high
+02D     lcd_send_nibble.n
+02E     lcd_read_nibble.n
+02E     lcd_read_byte.@SCRATCH1
+02F     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0012  @delay_ms1
+0004  LCD_INIT_STRING
+008D  lcd_read_byte
+0054  lcd_read_nibble
+0026  lcd_send_nibble
+0085  lcd_send_byte
+00E3  lcd_init
+0122  lcd_gotoxy
+0134  lcd_putc
+0161  MAIN
+000C  @const104
+0161  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Comunicacion\
+
+Project Files:
+    Lcd serial.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628.h
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Comunicacion\Lcd serial (main)
+
+Compiler Settings:
+    Processor:      PIC16F628
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Lcd serial.err
+    Ext Symbols: Lcd serial.esym
+    INHX8:       Lcd serial.hex
+    Symbols:     Lcd serial.sym
+    List:        Lcd serial.lst
+    Debug/COFF:  Lcd serial.cof
+    Project:     Lcd serial.PJT
+    Call Tree:   Lcd serial.tre
+    Statistics:  Lcd serial.sta

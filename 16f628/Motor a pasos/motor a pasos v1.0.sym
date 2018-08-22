@@ -1,0 +1,98 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+006     lcd
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     lcdline
+021     MAIN.c
+022-023 MAIN.t
+024     lcd_init.i
+024-025 @PRINTF_LU_94.P1
+024     MAIN.@SCRATCH1
+024     teclado_getc.@SCRATCH1
+025     lcd_init.@SCRATCH1
+026     @PRINTF_LU_94.@SCRATCH1
+027     @PRINTF_LU_94.@SCRATCH2
+028     @PRINTF_LU_94.@SCRATCH3
+029     @PRINTF_LU_94.@SCRATCH4
+02A     @PRINTF_LU_94.@SCRATCH5
+02B     @PRINTF_LU_94.@SCRATCH6
+02C     @PRINTF_LU_94.@SCRATCH7
+02D     lcd_putc.c
+02E     @delay_ms1.P1
+02E     lcd_gotoxy.x
+02F     lcd_gotoxy.y
+030     lcd_gotoxy.address
+031     lcd_send_byte.address
+032     lcd_send_byte.n
+033     lcd_read_byte.low
+033     lcd_send_byte.@SCRATCH1
+034     lcd_send_nibble.n
+034     lcd_read_byte.high
+035     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0064  @delay_ms1
+0004  LCD_INIT_STRING
+0086  lcd_read_byte
+0079  lcd_send_nibble
+0085  lcd_send_byte
+00BB  lcd_init
+00E4  lcd_gotoxy
+0100  @goto10083
+0108  lcd_putc
+0222  MAIN
+000C  @const104
+0046  @const107
+01BE  @PRINTF_LU_94
+0130  teclado_getc
+0222  @cinit1
+0228  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\16f628\Motor a pasos\
+
+Project Files:
+    motor a pasos v1.0.c                                    [08-jun.-15 19:20  CRC=D1985B8F]
+    ..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h [28-feb.-12 13:43  CRC=4C1C2E83]
+    ..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd420.c [14-abr.-09 10:58  CRC=C5A307B3]
+
+Source signature=A8FA9978
+
+Units:
+    motor a pasos v1.0 (main)
+
+Compiler Settings:
+    Processor:      PIC16F648A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      motor a pasos v1.0.err
+    Ext Symbols: motor a pasos v1.0.esym
+    INHX8:       motor a pasos v1.0.hex
+    Symbols:     motor a pasos v1.0.sym
+    List:        motor a pasos v1.0.lst
+    Debug/COFF:  motor a pasos v1.0.cof
+    Project:     motor a pasos v1.0.PJT
+    Call Tree:   motor a pasos v1.0.tre
+    Statistics:  motor a pasos v1.0.STA

@@ -1,0 +1,58 @@
+
+ROM used: 645 (16%)
+          645 (16%) including unused fragments
+
+          1 Average locations per line
+          5 Average locations per statement
+
+RAM used: 7 (3%) at main() level
+          27 (11%) worst case
+
+Stack used: 5 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   73    55  45  motor a pasos v1.0.c
+  223     0   0  ..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h
+  162    68  55  ..\..\..\..\..\..\..\..\Program Files\PICC\drivers\lcd420.c
+----- -----
+  458   123 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   3   1             @delay_ms1
+0      8   1   0             @const72
+ Inline        3   463  4.3  lcd_read_byte
+0     12   2   1   134  2.2  lcd_send_nibble
+0     54   8   3   317  4.3  lcd_send_byte
+0     41   6   2   422  4.7  lcd_init
+0     28   4   3   321  5.5  lcd_gotoxy
+0      8   1   0   134  2.2  @goto10083
+0     40   6   1   308  5.0  lcd_putc
+0     99  15   1   414  4.1  MAIN
+0     58   9   0             @const104
+0     30   5   0   308  5.0  @const107
+0    100  16   9  1301  3.4  @PRINTF_LU_94
+0    142  22   1  1301  3.4  teclado_getc
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               11
+    Statements              123
+    Comments                121
+    Volume (V)              8453
+    Difficulty (D)          44.3
+    Effort to implement (E) 374148
+    Time to implement (T)   5 hours, 46 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   47
+    Maintainability (MI)    51
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   641  1403  
+00800-00FFF     0  2048  
+
+
+

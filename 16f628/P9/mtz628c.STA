@@ -1,0 +1,51 @@
+
+ROM used: 340 (17%)
+          340 (17%) including unused fragments
+
+          1 Average locations per line
+          4 Average locations per statement
+
+RAM used: 5 (2%) at main() level
+          9 (4%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  114    89 100  mtz628c.c
+  223     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  337    89 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   6   1             @delay_ms1
+0     12   4   0             @const65
+0     12   4   0   984  6.6  @const67
+0     12   4   0             @const69
+0     12   4   0             @const71
+0     12   4   0             @const73
+0     12   4   0             @const75
+0     12   4   0             @const77
+0    232  68   0  3512  4.5  main
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              89
+    Comments                63
+    Volume (V)              5018
+    Difficulty (D)          10.7
+    Effort to implement (E) 53829
+    Time to implement (T)   50 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   19
+    Maintainability (MI)    100
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   336  1708  
+
+
+

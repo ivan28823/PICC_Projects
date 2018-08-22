@@ -1,0 +1,59 @@
+#include <18F4550.h>
+#device ADC=10
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode)
+
+#use delay(crystal=20000000)
+
+char flag_50,flag_100;
+int16 pwm_duty;
+
+#INT_TIMER0
+void  TIMER0_isr(void) 
+{
+   flag_50 = 0;
+   flag_100 = 0;
+   if(flag_100 && !flag_50){
+       pwm_duty = 997;
+   }else if (!flag_100 && flag_50){
+       if(pwm_duty > 500)
+         pwm_duty -= 50;
+       else 
+         pwm_duty = 500;
+    }
+}
+
+void main(){
+   flag_50 = 0;
+   flag_100 = 0;
+   set_tris_b(0x00);
+   setup_adc(ADC_CLOCK_DIV_64 | ADC_TAD_MUL_8 | VSS_VDD );
+   setup_adc_ports(AN0);
+   set_adc_channel(0);
+   
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_64);      //840 ms overflow
+   setup_timer_2(T2_DIV_BY_1,249,1);      //50.0 us overflow, 50.0 us interrupt
+
+   setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);
+   set_pwm1_duty((int16)997);
+
+   enable_interrupts(INT_TIMER0);
+   enable_interrupts(GLOBAL);
+
+   long temp;
+   while(TRUE){
+      temp = read_adc() >>1;
+      //output_b(temp & 0xFF);
+      if(temp > 0 && temp <=25){output_b(0x01);pwm_duty = 0;}
+      else if(temp > 25 && temp <=28){output_b(0x02);pwm_duty = 0;}
+      else if(temp > 28 && temp <=45){output_b(0x04);flag_50 = 1;}
+      else if(temp > 45 && temp <=100){output_b(0x08);flag_100 = 1;}
+      set_pwm1_duty(pwm_duty);
+      delay_ms(100);
+   }
+
+}

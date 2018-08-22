@@ -1,0 +1,23 @@
+#include <rgb.h>
+
+#INT_TIMER0
+void  TIMER0_isr(void) 
+{
+
+}
+
+void main()
+{
+	setup_adc_ports(AN0_TO_AN2);
+	setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1|RTCC_8_bit);		//51.2 us overflow
+
+
+	enable_interrupts(INT_TIMER0);
+	enable_interrupts(GLOBAL);
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

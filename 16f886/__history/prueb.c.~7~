@@ -1,0 +1,28 @@
+#include <16f886.h>
+#fuses INTRC_IO
+#fuses MCLR
+#fuses NOWDT
+#fuses NOPUT
+#fuses NOLVP
+#fuses NOPROTECT
+#fuses NOCPD
+#fuses NOBROWNOUT
+
+#use delay(clock=4M)
+
+#use fast_io(b)
+
+void main()
+{
+   set_tris_b(0);
+   output_b(0);
+   while(true)
+   {
+      int a;
+      for(a=0;a<254;a++)
+      {
+         output_b(a);
+         delay_ms(500);
+      }
+   }
+}

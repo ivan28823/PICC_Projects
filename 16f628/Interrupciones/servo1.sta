@@ -1,0 +1,45 @@
+
+ROM used: 170 (8%)
+          170 (8%) including unused fragments
+
+          1 Average locations per line
+          10 Average locations per statement
+
+RAM used: 5 (2%) at main() level
+          18 (8%) worst case
+
+Stack used: 2 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   46    17 100  servo1.c
+  224     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  270    17 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20  12   1             @delay_us1
+0     44  26   0   199  4.0  main
+0     70  41   8   259  4.7  pwm_servo
+0     32  19   6             @WRITEBITA
+
+Program metrics:
+    Functions               2
+    Statements              17
+    Comments                68
+    Volume (V)              554
+    Difficilty (D)          8.4
+    Effort to implement (E) 4668
+    Time to implement (T)   4 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    126
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   166  1878  
+
+
+

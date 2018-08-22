@@ -1,0 +1,104 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     @INTERRUPT_AREA
+02C     @INTERRUPT_AREA
+02D-02E pwm
+02F-030 izquierda
+031-032 derecha
+033     timer
+034.0   modo
+034.1   servo
+035     sensor_distancia.trig
+035     pwm_servo.periodo
+035     MAIN.@SCRATCH1
+035     modo_automatico.@SCRATCH1
+036     sensor_distancia.echo
+036     pwm_servo.pin
+036     modo_automatico.@SCRATCH2
+037-038 pwm_servo.alto
+037     @READBITA.P1
+037     sensor_distancia.@SCRATCH1
+038     @READBITA.P1
+038     sensor_distancia.@SCRATCH2
+039-03A @DIV1616.P1
+039-03A pwm_servo.bajo
+03B     pwm_servo.a
+03B-03C @DIV1616.P1
+03C     @WRITEBITA.P1
+03C     pwm_servo.@SCRATCH1
+03D     @delay_us1.P1
+03D     @WRITEBITA.P2
+03D     @DIV1616.@SCRATCH1
+03E     @WRITEBITA.P1
+041     timer0.@SCRATCH1
+041     pulsadores.@SCRATCH1
+042     @delay_ms1.P1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+002F  @delay_ms1
+020F  @delay_us1
+01BC  timer0
+03B7  MAIN
+0521  @goto10125
+021F  pwm_servo
+01F2  @WRITEBITA
+0275  sensor_distancia
+0261  @READBITA
+02BF  @DIV1616
+0042  pulsadores
+02E8  modo_automatico
+03B7  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\receptor 677\
+
+Project Files:
+    receptor 677.c
+    ..\..\..\..\..\..\..\Program Files\PICC\devices\16F677.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\receptor 677\receptor 677 (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      receptor 677.err
+    Ext Symbols: receptor 677.esym
+    INHX8:       receptor 677.hex
+    Symbols:     receptor 677.sym
+    List:        receptor 677.lst
+    Debug/COFF:  receptor 677.cof
+    Project:     receptor 677.PJT
+    Call Tree:   receptor 677.tre
+    Statistics:  receptor 677.sta

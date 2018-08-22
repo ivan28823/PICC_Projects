@@ -1,0 +1,64 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025-026 main.temp
+027     @delay_ms1.P1
+027     main.@SCRATCH1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+0004  @delay_ms1
+0017  main
+0017  @cinit1
+0031  @cinit2
+0053  inicio
+00F4  inicio1
+0093  cof
+0136  cof1
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\16f677\
+
+Project Files:
+    termometro8bits.c                                       [18-nov.-14 14:03  CRC=7F938EFB]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f677.h   [28-feb.-12 13:43  CRC=7774C0AB]
+
+Source signature=6E7D1051
+
+Units:
+    termometro8bits (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      termometro8bits.err
+    Ext Symbols: termometro8bits.esym
+    INHX8:       termometro8bits.hex
+    Symbols:     termometro8bits.sym
+    List:        termometro8bits.lst
+    Debug/COFF:  termometro8bits.cof
+    Project:     termometro8bits.PJT
+    Call Tree:   termometro8bits.tre
+    Statistics:  termometro8bits.STA

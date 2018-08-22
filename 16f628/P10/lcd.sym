@@ -1,0 +1,105 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+006     lcdlat
+006     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-054 abecedario
+055     x
+056     y
+057-05A z
+05B     lcd_init.i
+05B-05E @PRINTF_L32U_88.P1
+05B     MAIN.@SCRATCH1
+05C     lcd_init.@SCRATCH1
+05F     @PRINTF_L32U_88.@SCRATCH1
+060     @PRINTF_L32U_88.@SCRATCH2
+061     @PRINTF_L32U_88.@SCRATCH3
+062     @PRINTF_L32U_88.@SCRATCH4
+063     @PRINTF_L32U_88.@SCRATCH5
+064     @PRINTF_L32U_88.@SCRATCH6
+065     @PRINTF_L32U_88.@SCRATCH7
+066     @PRINTF_L32U_88.@SCRATCH8
+067-06A @DIV3232.P1
+067     lcd_putc.c
+068     lcd_gotoxy.x
+068     @delay_ms1.P1
+069     lcd_gotoxy.y
+06A     lcd_gotoxy.address
+06B-06E @DIV3232.P1
+06B     lcd_gotoxy.@SCRATCH1
+06C     lcd_send_byte.address
+06D     lcd_send_byte.n
+06E     lcd_read_byte.low
+06E     lcd_send_byte.@SCRATCH1
+06F     lcd_read_byte.high
+06F     lcd_send_nibble.n
+06F     @DIV3232.@SCRATCH1
+070     lcd_read_byte.@SCRATCH1
+070     @DIV3232.@SCRATCH2
+071     @DIV3232.@SCRATCH3
+072     @DIV3232.@SCRATCH4
+073     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+086     lcdtris
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+002D  @delay_ms1
+0004  LCD_INIT_STRING
+005A  lcd_read_byte
+004E  lcd_read_nibble
+0042  lcd_send_nibble
+0054  lcd_send_byte
+0094  lcd_init
+00C5  lcd_gotoxy
+00D7  lcd_putc
+01AA  MAIN
+000C  @const105
+0021  @const106
+0104  @DIV3232
+0153  @PRINTF_L32U_88
+01AA  @cinit1
+01BA  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P10\
+
+Project Files:
+    lcd.c                                                   [06-nov.-14 00:43  CRC=A3F7EE20]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=E59DA8EF
+
+Units:
+    lcd (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      lcd.err
+    Ext Symbols: lcd.esym
+    INHX8:       lcd.hex
+    Symbols:     lcd.sym
+    List:        lcd.lst
+    Debug/COFF:  lcd.cof
+    Project:     lcd.PJT
+    Call Tree:   lcd.tre
+    Statistics:  lcd.STA

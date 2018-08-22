@@ -1,0 +1,64 @@
+#include <18F4550.h>
+#device ADC=8
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode)
+
+#use delay(crystal=20000000)
+
+#BYTE LATD = 0xF8C
+//const int16 pins[3] = {PIN_D0, PIN_D1, PIN_D2};
+
+static int8 cnt_tmr0 = 0;
+static int8 ptrColors[3] = {0,0,0};
+int8 j;
+#INT_TIMER0
+void  TIMER0_isr(void) {
+    if(!(++cnt_tmr0)){
+        if(ptrColors[0] > 0)
+          bit_set(LATD,0);
+        if(ptrColors[1] > 0)
+          bit_set(LATD,1);
+        if(ptrColors[2] > 0)
+          bit_set(LATD,2);
+      cnt_tmr0++;
+    }
+    if(cnt_tmr0 == ptrColors[0])
+        bit_clear(LATD,0);
+    if(cnt_tmr0 == ptrColors[1])
+        bit_clear(LATD,1);
+    if(cnt_tmr0 == ptrColors[2])
+        bit_clear(LATD,2);
+    /*for(j=0; j<3; j++){
+      if(cnt_tmr0 == ptrColors[j])
+        bit_clear(LATD,j);
+        //output_low(pins[j]);
+    }*/
+    set_timer0(240);
+}
+
+void main(){
+   set_tris_a(0xFF);
+   set_tris_d(0xF0);
+
+   setup_adc(ADC_CLOCK_DIV_64 | ADC_TAD_MUL_8 | VSS_VDD );  // adc clock interno dividido en 64, 8 tda
+
+   setup_adc_ports(AN0_TO_AN2);
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1|RTCC_8_bit);      //51.2 us overflow
+   enable_interrupts(INT_TIMER0);
+
+   enable_interrupts(GLOBAL);
+
+   while(TRUE){
+     for(int i = 0; i<3; i++){
+        set_adc_channel(i); 
+        delay_ms(1);
+        ptrColors[i] = (int8)read_adc();
+     }
+     delay_ms(10);
+   }
+
+}

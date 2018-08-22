@@ -1,0 +1,50 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+013     CCP_1_LOW
+013     CCP_1
+014     CCP_1_HIGH
+019.6   C1OUT
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025     main.@SCRATCH1
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  main
+0004  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\12f509\
+
+Project Files:
+    arranque y paro12f683.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\12f683.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\12f509\arranque y paro12f683 (main)
+
+Compiler Settings:
+    Processor:      PIC12F683
+    Pointer Size:   8
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      arranque y paro12f683.err
+    Ext Symbols: arranque y paro12f683.esym
+    INHX8:       arranque y paro12f683.hex
+    Symbols:     arranque y paro12f683.sym
+    List:        arranque y paro12f683.lst
+    Debug/COFF:  arranque y paro12f683.cof
+    Project:     arranque y paro12f683.PJT
+    Call Tree:   arranque y paro12f683.tre
+    Statistics:  arranque y paro12f683.sta

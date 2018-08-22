@@ -1,0 +1,57 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     main.valor
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  main
+0004  @cinit1
+000D  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P7\
+
+Project Files:
+    Gestion-mem-r.c                                         [30-oct.-14 12:29  CRC=9E357C2E]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=B68F3FD8
+
+Units:
+    Gestion-mem-r (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Gestion-mem-r.err
+    Ext Symbols: Gestion-mem-r.esym
+    INHX8:       Gestion-mem-r.hex
+    Symbols:     Gestion-mem-r.sym
+    List:        Gestion-mem-r.lst
+    Debug/COFF:  Gestion-mem-r.cof
+    Project:     Gestion-mem-r.PJT
+    Call Tree:   Gestion-mem-r.tre
+    Statistics:  Gestion-mem-r.STA

@@ -1,0 +1,187 @@
+CCS PCM C Compiler, Version 4.114, 93460303               25-nov.-14 13:52
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\Interrupciones\intext.lst
+
+               ROM used: 129 words (6%)
+                         Largest free fragment is 1919
+               RAM used: 14 (6%) at main() level
+                         17 (8%) worst case
+               Stack:    3 worst case (1 in main + 2 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   058
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   7F,W
+0009:  MOVWF  20
+000A:  MOVF   0A,W
+000B:  MOVWF  27
+000C:  CLRF   0A
+000D:  SWAPF  20,F
+000E:  MOVF   04,W
+000F:  MOVWF  22
+0010:  MOVF   77,W
+0011:  MOVWF  23
+0012:  MOVF   78,W
+0013:  MOVWF  24
+0014:  MOVF   79,W
+0015:  MOVWF  25
+0016:  MOVF   7A,W
+0017:  MOVWF  26
+0018:  BCF    03.7
+0019:  BCF    03.5
+001A:  BTFSS  0B.4
+001B:  GOTO   01E
+001C:  BTFSC  0B.1
+001D:  GOTO   044
+001E:  MOVF   22,W
+001F:  MOVWF  04
+0020:  MOVF   23,W
+0021:  MOVWF  77
+0022:  MOVF   24,W
+0023:  MOVWF  78
+0024:  MOVF   25,W
+0025:  MOVWF  79
+0026:  MOVF   26,W
+0027:  MOVWF  7A
+0028:  MOVF   27,W
+0029:  MOVWF  0A
+002A:  SWAPF  21,W
+002B:  MOVWF  03
+002C:  SWAPF  7F,F
+002D:  SWAPF  7F,W
+002E:  RETFIE
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #fuses INTRC//_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+.................... #use delay(clock=4000000) 
+002F:  MOVLW  2B
+0030:  MOVWF  04
+0031:  BCF    03.7
+0032:  MOVF   00,W
+0033:  BTFSC  03.2
+0034:  GOTO   043
+0035:  MOVLW  01
+0036:  MOVWF  78
+0037:  CLRF   77
+0038:  DECFSZ 77,F
+0039:  GOTO   038
+003A:  DECFSZ 78,F
+003B:  GOTO   037
+003C:  MOVLW  4A
+003D:  MOVWF  77
+003E:  DECFSZ 77,F
+003F:  GOTO   03E
+0040:  GOTO   041
+0041:  DECFSZ 00,F
+0042:  GOTO   035
+0043:  RETURN
+....................  
+.................... #int_ext 
+.................... void atender_int_ext() 
+.................... { 
+....................    porta=1; 
+0044:  MOVLW  01
+0045:  MOVWF  05
+....................    delay_ms(500); 
+0046:  MOVLW  02
+0047:  MOVWF  2A
+0048:  MOVLW  FA
+0049:  MOVWF  2B
+004A:  CALL   02F
+004B:  DECFSZ 2A,F
+004C:  GOTO   048
+....................    Porta=0; 
+004D:  CLRF   05
+....................    delay_ms(500); 
+004E:  MOVLW  02
+004F:  MOVWF  2A
+0050:  MOVLW  FA
+0051:  MOVWF  2B
+0052:  CALL   02F
+0053:  DECFSZ 2A,F
+0054:  GOTO   050
+.................... } 
+....................  
+0055:  BCF    0B.1
+0056:  BCF    0A.3
+0057:  GOTO   01E
+.................... void main() 
+.................... { 
+0058:  CLRF   04
+0059:  BCF    03.7
+005A:  MOVLW  1F
+005B:  ANDWF  03,F
+005C:  BSF    03.5
+005D:  BSF    0E.3
+005E:  MOVLW  07
+005F:  BCF    03.5
+0060:  MOVWF  1F
+....................    trisa=0b00000000; 
+0061:  BSF    03.5
+0062:  CLRF   05
+....................    trisb=0b00000001; 
+0063:  MOVLW  01
+0064:  MOVWF  06
+....................    ext_int_edge(0,l_to_h); 
+0065:  BSF    01.6
+....................    enable_interrupts(int_ext); 
+0066:  BCF    03.5
+0067:  BSF    0B.4
+....................    enable_interrupts(global); 
+0068:  MOVLW  C0
+0069:  IORWF  0B,F
+....................    while(true) 
+....................    { 
+....................       portb=0b11111110; 
+006A:  MOVLW  FE
+006B:  MOVWF  06
+006C:  CLRF   28
+006D:  BTFSC  0B.7
+006E:  BSF    28.7
+006F:  BCF    0B.7
+....................       delay_ms(200); 
+0070:  MOVLW  C8
+0071:  MOVWF  2B
+0072:  CALL   02F
+0073:  BTFSC  28.7
+0074:  BSF    0B.7
+....................       portb=0; 
+0075:  CLRF   06
+0076:  CLRF   28
+0077:  BTFSC  0B.7
+0078:  BSF    28.7
+0079:  BCF    0B.7
+....................       delay_ms(200); 
+007A:  MOVLW  C8
+007B:  MOVWF  2B
+007C:  CALL   02F
+007D:  BTFSC  28.7
+007E:  BSF    0B.7
+....................    } 
+007F:  GOTO   06A
+.................... } 
+0080:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F19   NOWDT NOPUT INTRC NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

@@ -1,0 +1,8 @@
+ÀÄvumetro matriz
+   ÀÄmain  0/60  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ??0??
+      ÀÄanuncio  0/144  Ram=8
+         ÃÄ@const78  0/387  Ram=0
+         ÃÄ@delay_ms1  (Inline)  Ram=1
+         ÀÄ@delay_us1  (Inline)  Ram=1

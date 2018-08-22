@@ -1,0 +1,257 @@
+CCS PCM C Compiler, Version 4.114, 93460303               01-ene.-15 19:24
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\serial\hc-sr06.lst
+
+               ROM used: 384 words (19%)
+                         Largest free fragment is 1664
+               RAM used: 9 (4%) at main() level
+                         17 (8%) worst case
+               Stack:    2 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   0FB
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #use delay(clock=4000000) 
+*
+005E:  MOVLW  23
+005F:  MOVWF  04
+0060:  BCF    03.7
+0061:  MOVF   00,W
+0062:  BTFSC  03.2
+0063:  GOTO   072
+0064:  MOVLW  01
+0065:  MOVWF  78
+0066:  CLRF   77
+0067:  DECFSZ 77,F
+0068:  GOTO   067
+0069:  DECFSZ 78,F
+006A:  GOTO   066
+006B:  MOVLW  4A
+006C:  MOVWF  77
+006D:  DECFSZ 77,F
+006E:  GOTO   06D
+006F:  GOTO   070
+0070:  DECFSZ 00,F
+0071:  GOTO   064
+0072:  RETURN
+.................... /*#BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+....................  
+.................... #define trig pin_B2 
+.................... #define echo pin_B1 
+.................... */ 
+.................... #use fast_io(b) 
+.................... #use rs232(baud=9600, xmit=PIN_B0,parity=n, bits=8, stop=1, force_sw) 
+*
+003F:  BCF    06.0
+0040:  MOVLW  08
+0041:  MOVWF  78
+0042:  GOTO   043
+0043:  NOP
+0044:  BSF    78.7
+0045:  GOTO   054
+0046:  BCF    78.7
+0047:  RRF    2B,F
+0048:  BTFSC  03.0
+0049:  BSF    06.0
+004A:  BTFSS  03.0
+004B:  BCF    06.0
+004C:  BSF    78.6
+004D:  GOTO   054
+004E:  BCF    78.6
+004F:  DECFSZ 78,F
+0050:  GOTO   047
+0051:  GOTO   052
+0052:  NOP
+0053:  BSF    06.0
+0054:  MOVLW  1C
+0055:  MOVWF  04
+0056:  DECFSZ 04,F
+0057:  GOTO   056
+0058:  GOTO   059
+0059:  BTFSC  78.7
+005A:  GOTO   046
+005B:  BTFSC  78.6
+005C:  GOTO   04E
+005D:  RETURN
+....................  
+.................... long distancia; 
+....................  
+.................... void main() 
+.................... {                           
+*
+00FB:  CLRF   04
+00FC:  BCF    03.7
+00FD:  MOVLW  1F
+00FE:  ANDWF  03,F
+00FF:  BSF    03.5
+0100:  BSF    0E.3
+0101:  BCF    03.5
+0102:  BSF    06.0
+0103:  MOVLW  07
+0104:  MOVWF  1F
+....................    set_tris_b(0b00000010); 
+0105:  MOVLW  02
+0106:  TRIS   6
+....................    output_b(0); 
+0107:  CLRF   06
+....................    printf("Iniciando...\n\r"); 
+0108:  CLRF   22
+0109:  MOVF   22,W
+010A:  CALL   004
+010B:  INCF   22,F
+010C:  MOVWF  77
+010D:  MOVWF  2B
+010E:  CALL   03F
+010F:  MOVLW  0E
+0110:  SUBWF  22,W
+0111:  BTFSS  03.2
+0112:  GOTO   109
+....................    delay_ms(500);                            
+0113:  MOVLW  02
+0114:  MOVWF  22
+0115:  MOVLW  FA
+0116:  MOVWF  23
+0117:  CALL   05E
+0118:  DECFSZ 22,F
+0119:  GOTO   115
+....................    setup_timer_1(T1_INTERNAL|T1_DIV_BY_1); 
+011A:  MOVLW  85
+011B:  MOVWF  10
+....................     
+....................    while(true) 
+....................    { 
+....................       output_high(pin_B2);                    
+011C:  BSF    06.2
+....................       delay_us(20);                        
+011D:  MOVLW  06
+011E:  MOVWF  77
+011F:  DECFSZ 77,F
+0120:  GOTO   11F
+0121:  NOP
+....................       output_low(pin_B2); 
+0122:  BCF    06.2
+....................       while(!input(pin_B1));                      
+0123:  BTFSS  06.1
+0124:  GOTO   123
+....................       set_timer1(0);                          
+0125:  CLRF   0F
+0126:  CLRF   0E
+....................       while(input(pin_B1));                      
+0127:  BTFSC  06.1
+0128:  GOTO   127
+....................       distancia=get_timer1()/58; 
+0129:  MOVF   0F,W
+012A:  MOVWF  7A
+012B:  MOVF   0E,W
+012C:  MOVWF  77
+012D:  MOVF   0F,W
+012E:  SUBWF  7A,W
+012F:  BTFSS  03.2
+0130:  GOTO   129
+0131:  MOVF   77,W
+0132:  MOVWF  22
+0133:  MOVF   7A,W
+0134:  MOVWF  23
+0135:  MOVF   23,W
+0136:  MOVWF  25
+0137:  MOVF   22,W
+0138:  MOVWF  24
+0139:  CLRF   27
+013A:  MOVLW  3A
+013B:  MOVWF  26
+013C:  GOTO   073
+013D:  MOVF   79,W
+013E:  MOVWF  21
+013F:  MOVF   78,W
+0140:  MOVWF  20
+....................       if((distancia<=3) || (distancia>=500)) 
+0141:  MOVF   21,F
+0142:  BTFSS  03.2
+0143:  GOTO   148
+0144:  MOVF   20,W
+0145:  SUBLW  03
+0146:  BTFSC  03.0
+0147:  GOTO   153
+0148:  MOVF   21,W
+0149:  SUBLW  00
+014A:  BTFSC  03.0
+014B:  GOTO   15F
+014C:  XORLW  FF
+014D:  BTFSS  03.2
+014E:  GOTO   153
+014F:  MOVF   20,W
+0150:  SUBLW  F3
+0151:  BTFSC  03.0
+0152:  GOTO   15F
+....................          {printf("<<<Error>>>\n\r");} 
+0153:  CLRF   22
+0154:  MOVF   22,W
+0155:  CALL   017
+0156:  INCF   22,F
+0157:  MOVWF  77
+0158:  MOVWF  2B
+0159:  CALL   03F
+015A:  MOVLW  0D
+015B:  SUBWF  22,W
+015C:  BTFSS  03.2
+015D:  GOTO   154
+....................       else 
+015E:  GOTO   177
+....................          {printf("Distancia = %Lu\n\r",distancia);} 
+015F:  CLRF   22
+0160:  MOVF   22,W
+0161:  CALL   029
+0162:  INCF   22,F
+0163:  MOVWF  77
+0164:  MOVWF  2B
+0165:  CALL   03F
+0166:  MOVLW  0C
+0167:  SUBWF  22,W
+0168:  BTFSS  03.2
+0169:  GOTO   160
+016A:  MOVLW  10
+016B:  MOVWF  04
+016C:  MOVF   21,W
+016D:  MOVWF  23
+016E:  MOVF   20,W
+016F:  MOVWF  22
+0170:  GOTO   098
+0171:  MOVLW  0A
+0172:  MOVWF  2B
+0173:  CALL   03F
+0174:  MOVLW  0D
+0175:  MOVWF  2B
+0176:  CALL   03F
+....................       delay_ms(500); 
+0177:  MOVLW  02
+0178:  MOVWF  22
+0179:  MOVLW  FA
+017A:  MOVWF  23
+017B:  CALL   05E
+017C:  DECFSZ 22,F
+017D:  GOTO   179
+....................    } 
+017E:  GOTO   11C
+.................... } 
+017F:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F18   NOWDT NOPUT INTRC_IO NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

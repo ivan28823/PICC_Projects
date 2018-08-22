@@ -1,0 +1,82 @@
+#include <16f677.h>
+#device adc=16
+
+#fuses NOWDT,INTRC_IO,MCLR,NOBROWNOUT,NOPUT,NOPROTECT,NOCPD,IESO,FCMEN
+#use delay(clock=8M)
+
+#byte TRISA=0x85
+#byte TRISB=0x86
+#byte TRISC=0x87
+#byte PORTA=0x05
+#byte PORTB=0x06
+#byte PORTC=0x07
+
+#define tam_psw 10
+
+#include <lcd_pc_a_677.c>
+#include <keypad_4x4.c>
+//Prototipos de funciones
+   void IntrClave(char *clave);
+   short CompararClave(char *s1,char *s2);
+//Uso de variables generales
+   //short ;
+   const char master_key[tam_psw+1]={"20821997CD"};
+   int key;
+   char psw[tam_psw],psw_intr[tam_psw];
+   //long ;
+//Programa principal
+void main()
+{
+   setup_oscillator(OSC_8MHZ);
+   TRISC=0;TRISA=0;TRISB=0;
+   PORTC=0;PORTA=0;PORTB=0;
+   lcd_init();
+   if(read_eeprom(255)!=1)
+   {
+      for (int i = 0; i < tam_psw; ++i)
+         write_eeprom(i,master_key[i]);
+      write_eeprom(255,1);
+   }
+   for (int i = 0; i < tam_psw; ++i)
+      psw[i]=read_eeprom(i);
+   while(true)
+   {
+      lcd_putc("\fIntroduce\n la Clave");
+      do
+      {
+         key=kbd_getc();
+      }while(!key);
+      IntrClave(psw_intr);
+      if (CompararClave(psw,psw_intr))
+         lcd_putc("\f Abierto");
+      else
+         lcd_putc("\f   Clave\n  Incorrecta");
+      delay_ms(1000);
+   }
+}
+void IntrClave(char *clave)
+{
+   lcd_putc("\f  Clave:\n  [          ]");
+   lcd_gotoxy(4,2);
+   for (int i = 0; i < tam_psw ; ++i)
+   {
+      do
+      {
+         key=kbd_getc();
+         if(key=='*' || key=='#')
+            key=0;
+         //delay_ms(50);
+      }while(!key);
+      delay_ms(150);
+      clave[i]=key;
+      lcd_putc('*');
+   }
+   delay_ms(1000);
+}
+short CompararClave(char *s1,char *s2)
+{
+   for (int i = 0; i < tam_psw; ++i)
+      if(s1[i]!=s2[i])
+         return 0;
+   return 1;
+}

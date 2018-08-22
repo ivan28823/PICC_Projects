@@ -1,0 +1,91 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     contador
+029-02A MAIN.pwm
+02B-02C MAIN.distancia
+02D.0   MAIN.ac
+02E     pwm_servo.pin
+02E     sensor_distancia.echo
+02E     MAIN.@SCRATCH1
+02F-030 pwm_servo.alto
+02F     sensor_distancia.trig
+030     @READBITA.P1
+030     sensor_distancia.@SCRATCH1
+031-032 @READBITA.P1
+031-032 pwm_servo.bajo
+031     sensor_distancia.@SCRATCH2
+032-033 @DIV1616.P1
+033     pwm_servo.a
+034-035 @DIV1616.P1
+034     @WRITEBITA.P2
+034     pwm_servo.@SCRATCH1
+035     @delay_us1.P1
+035     @WRITEBITA.P2
+036-037 @WRITEBITA.P1
+036     @DIV1616.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+005F  @delay_us1
+002F  estado
+0120  MAIN
+0073  pwm_servo
+003F  @WRITEBITA
+00C2  sensor_distancia
+00AB  @READBITA
+00F7  @DIV1616
+0120  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\
+
+Project Files:
+    servo.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\modulo rf con encoder\servo (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      servo.err
+    Ext Symbols: servo.esym
+    INHX8:       servo.hex
+    Symbols:     servo.sym
+    List:        servo.lst
+    Debug/COFF:  servo.cof
+    Project:     servo.PJT
+    Call Tree:   servo.tre
+    Statistics:  servo.sta

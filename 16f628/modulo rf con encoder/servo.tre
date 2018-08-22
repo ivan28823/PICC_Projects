@@ -1,0 +1,24 @@
+ÀÄservo
+   ÃÄMAIN  0/189  Ram=1
+   ³  ÃÄ??0??
+   ³  ÃÄpwm_servo  0/56  Ram=7
+   ³  ³  ÃÄ@WRITEBITA  0/32  Ram=6
+   ³  ³  ÃÄ@delay_us1  0/20  Ram=1
+   ³  ³  ÃÄ@delay_us1  0/20  Ram=1
+   ³  ³  ÃÄ@WRITEBITA  0/32  Ram=6
+   ³  ³  ÃÄ@delay_us1  0/20  Ram=1
+   ³  ³  ÀÄ@delay_us1  0/20  Ram=1
+   ³  ÃÄsensor_distancia  0/94  Ram=4
+   ³  ³  ÃÄ@WRITEBITA  0/32  Ram=6
+   ³  ³  ÃÄ@WRITEBITA  0/32  Ram=6
+   ³  ³  ÃÄ@READBITA  0/23  Ram=5
+   ³  ³  ÃÄ@READBITA  0/23  Ram=5
+   ³  ³  ÀÄ@DIV1616  (Inline)  Ram=5
+   ³  ÀÄpwm_servo  0/56  Ram=7
+   ³     ÃÄ@WRITEBITA  0/32  Ram=6
+   ³     ÃÄ@delay_us1  0/20  Ram=1
+   ³     ÃÄ@delay_us1  0/20  Ram=1
+   ³     ÃÄ@WRITEBITA  0/32  Ram=6
+   ³     ÃÄ@delay_us1  0/20  Ram=1
+   ³     ÀÄ@delay_us1  0/20  Ram=1
+   ÀÄestado  0/16  Ram=0

@@ -1,0 +1,103 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+005     PORTA
+006     PORTB
+007     PORTC
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021-023 MAIN.msj_m
+024     MAIN.k
+025     MAIN.l
+026     MAIN.aux
+027.0   MAIN.f_mod
+028     MAIN.modo
+029-030 MAIN.msj_md
+031     MAIN.j
+032-033 Mostrar.carateres
+032     @delay_us1.P1
+032     MAIN.@SCRATCH1
+033     MAIN.@SCRATCH2
+034-035 comprobar_adc.a
+034     Mostrar.tam
+035     Mostrar.tiempo
+036-047 Mostrar.letras_arr
+048     Mostrar.inicio
+049     Mostrar.id_char
+04A-04B Mostrar.i_mat
+04C-04D Mostrar.i
+04E-04F Mostrar.j
+050     @delay_ms1.P1
+050     Mostrar.@SCRATCH1
+051     id_letras.c
+051     Mostrar.@SCRATCH2
+052     Mostrar.@SCRATCH3
+053     Mostrar.@SCRATCH4
+054-055 @MUL1616.P1
+054     Mostrar.@SCRATCH5
+055     Mostrar.@SCRATCH6
+056-057 @MUL1616.P1
+058     @MUL1616.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B     @SCRATCH
+085     TRISA
+086     TRISB
+087     TRISC
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  abcd.call
+00000D  abcd.data
+000187  cmsj.call
+00018B  cmsj.data
+0001AA  id_letras
+0001C5  @MUL1616
+0001DA  @delay_ms1
+0001EE  Mostrar
+0002F8  comprobar_adc
+00035A  @delay_us1
+00036D  MAIN
+00036D  @cinit1
+00037F  @cinit2
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Compartido\PIC\Pic C\16f886\vumetro matriz v2\
+
+Project Files:
+    vumetro matriz 2.c                                      [11-may.-18 00:41  CRC=0E40FE76]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\Devices\16f886.h [21-jun.-13 17:04  CRC=885B8569]
+
+Source signature=1EF80948
+
+Units:
+    vumetro matriz 2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F886
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   vumetro matriz 2.xsym
+    Errors:      vumetro matriz 2.err
+    Ext Symbols: vumetro matriz 2.esym
+    INHX8:       vumetro matriz 2.hex
+    Symbols:     vumetro matriz 2.sym
+    List:        vumetro matriz 2.lst
+    Debug/COFF:  vumetro matriz 2.cof
+    Project:     vumetro matriz 2.ccspjt
+    Call Tree:   vumetro matriz 2.tre
+    Statistics:  vumetro matriz 2.STA

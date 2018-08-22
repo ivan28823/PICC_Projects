@@ -1,0 +1,146 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-021 strtok.save
+022-025 _Randseed
+026-029 tec
+02A-02E ee
+02F     rep
+030     numt
+031     inte
+032     cl
+033-034 contra
+035-036 num
+037-038 num1
+039-03C numero
+03D-03E @PRINTF_LU_363.P1
+03D-03E @MUL1616.P2
+03D     lcd_init.i
+03D     MAIN.@SCRATCH1
+03D     teclado.@SCRATCH1
+03E     @PRINTF_U_363.P1
+03E     lcd_init.@SCRATCH1
+03E     MAIN.@SCRATCH2
+03F     @MUL88.P1
+03F-040 @MUL1616.P2
+03F     @PRINTF_U_363.P3
+03F     @PRINTF_LU_363.@SCRATCH1
+040     @MUL88.P1
+040     @DIV88.P2
+040     @PRINTF_LU_363.@SCRATCH2
+041     @DIV88.P1
+041     @MUL1616.@SCRATCH1
+041     @PRINTF_LU_363.@SCRATCH3
+042     @DIV88.@SCRATCH1
+042     @PRINTF_LU_363.@SCRATCH4
+043     @PRINTF_LU_363.@SCRATCH5
+044     @PRINTF_LU_363.@SCRATCH6
+045     @PRINTF_LU_363.@SCRATCH7
+046     lcd_putc.c
+047     lcd_gotoxy.x
+047     @delay_ms1.P1
+048     lcd_gotoxy.y
+049     lcd_gotoxy.address
+04A     lcd_gotoxy.@SCRATCH1
+04B     lcd_send_byte.address
+04C     lcd_send_byte.n
+04D     lcd_read_byte.low
+04D     lcd_send_byte.@SCRATCH1
+04E     lcd_send_nibble.n
+04E     lcd_read_byte.high
+04F     lcd_read_nibble.n
+04F     lcd_read_byte.@SCRATCH1
+050     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+012D  @delay_ms1
+024A  @MUL88
+0235  @MUL1616
+0004  LCD_INIT_STRING
+01A6  lcd_read_byte
+016D  lcd_read_nibble
+0142  lcd_send_nibble
+019E  lcd_send_byte
+01FA  lcd_init
+026F  lcd_gotoxy
+0281  lcd_putc
+03E9  MAIN
+000C  @const384
+0021  @const385
+0031  @const387
+0042  @const388
+0058  @const389
+0060  @const390
+0073  @const391
+0089  @const392
+033C  @DIV88
+0351  @PRINTF_U_363
+009F  @const400
+00B3  @const401
+00C5  @const403
+00DC  @const404
+00EE  @const406
+0104  @const407
+0116  @const408
+0386  @PRINTF_LU_363
+02AE  teclado
+03E9  @cinit1
+03F3  @cinit2
+0136  StrtoulGO
+0136  StrtolGO
+0449  inicio
+049D  dig
+061D  compara
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P10\
+
+Project Files:
+    cerradura-ee.c                                          [19-nov.-14 19:56  CRC=F48A8DF2]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\stdlib.h   [08-jun.-11 14:39  CRC=0B6669CF]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\stddef.h   [16-jul.-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\string.h   [14-jul.-11 10:13  CRC=23EDEC8F]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\ctype.h    [03-ene.-08 13:55  CRC=2D1F019F]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=1C208D2A
+
+Units:
+    cerradura-ee (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      cerradura-ee.err
+    Ext Symbols: cerradura-ee.esym
+    INHX8:       cerradura-ee.hex
+    Symbols:     cerradura-ee.sym
+    List:        cerradura-ee.lst
+    Debug/COFF:  cerradura-ee.cof
+    Project:     cerradura-ee.PJT
+    Call Tree:   cerradura-ee.tre
+    Statistics:  cerradura-ee.STA

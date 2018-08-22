@@ -1,0 +1,12 @@
+읕servo1
+   읕main  0/44  Ram=0
+      쳐??0??
+      읕pwm_servo  0/70  Ram=8
+         쳐@WRITEBITA  0/32  Ram=6
+         쳐@WRITEBITA  0/32  Ram=6
+         쳐@delay_us1  0/20  Ram=1
+         쳐@delay_us1  0/20  Ram=1
+         쳐@WRITEBITA  0/32  Ram=6
+         쳐@WRITEBITA  0/32  Ram=6
+         쳐@delay_us1  0/20  Ram=1
+         읕@delay_us1  0/20  Ram=1

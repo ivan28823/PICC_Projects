@@ -1,0 +1,1279 @@
+CCS PCM C Compiler, Version 5.007, 59972               11-may.-18 00:41
+
+               Filename:   C:\Users\ivan-\Documents\MEGA\Compartido\PIC\Pic C\16f886\vumetro matriz v2\vumetro matriz 2.lst
+
+               ROM used:   1070 words (13%)
+                           Largest free fragment is 2048
+               RAM used:   8 (2%) at main() level
+                           62 (17%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  03
+0001:  MOVWF  0A
+0002:  GOTO   36D
+0003:  NOP
+.................... #include <16f886.h> 
+.................... //////// Standard Header file for the PIC16F886 device //////////////// 
+.................... #device PIC16F886 
+0004:  MOVWF  7B
+0005:  MOVLW  00
+0006:  ADDWF  7A,W
+0007:  MOVWF  0A
+0008:  MOVF   7B,W
+0009:  ADDLW  0D
+000A:  BTFSC  03.0
+000B:  INCF   0A,F
+000C:  MOVWF  02
+000D:  RETLW  3E
+000E:  RETLW  45
+000F:  RETLW  49
+0010:  RETLW  51
+0011:  RETLW  3E
+0012:  RETLW  00
+0013:  RETLW  11
+0014:  RETLW  21
+0015:  RETLW  7F
+0016:  RETLW  01
+0017:  RETLW  01
+0018:  RETLW  00
+0019:  RETLW  21
+001A:  RETLW  43
+001B:  RETLW  45
+001C:  RETLW  49
+001D:  RETLW  31
+001E:  RETLW  00
+001F:  RETLW  22
+0020:  RETLW  41
+0021:  RETLW  49
+0022:  RETLW  49
+0023:  RETLW  36
+0024:  RETLW  00
+0025:  RETLW  0C
+0026:  RETLW  14
+0027:  RETLW  24
+0028:  RETLW  7F
+0029:  RETLW  04
+002A:  RETLW  00
+002B:  RETLW  72
+002C:  RETLW  51
+002D:  RETLW  51
+002E:  RETLW  51
+002F:  RETLW  4E
+0030:  RETLW  00
+0031:  RETLW  3E
+0032:  RETLW  49
+0033:  RETLW  49
+0034:  RETLW  49
+0035:  RETLW  26
+0036:  RETLW  00
+0037:  RETLW  40
+0038:  RETLW  47
+0039:  RETLW  48
+003A:  RETLW  50
+003B:  RETLW  60
+003C:  RETLW  00
+003D:  RETLW  36
+003E:  RETLW  49
+003F:  RETLW  49
+0040:  RETLW  49
+0041:  RETLW  36
+0042:  RETLW  00
+0043:  RETLW  32
+0044:  RETLW  49
+0045:  RETLW  49
+0046:  RETLW  49
+0047:  RETLW  3E
+0048:  RETLW  00
+0049:  RETLW  1F
+004A:  RETLW  24
+004B:  RETLW  44
+004C:  RETLW  44
+004D:  RETLW  7F
+004E:  RETLW  00
+004F:  RETLW  7F
+0050:  RETLW  49
+0051:  RETLW  49
+0052:  RETLW  49
+0053:  RETLW  36
+0054:  RETLW  00
+0055:  RETLW  3E
+0056:  RETLW  41
+0057:  RETLW  41
+0058:  RETLW  41
+0059:  RETLW  22
+005A:  RETLW  00
+005B:  RETLW  7F
+005C:  RETLW  41
+005D:  RETLW  41
+005E:  RETLW  41
+005F:  RETLW  3E
+0060:  RETLW  00
+0061:  RETLW  7F
+0062:  RETLW  49
+0063:  RETLW  49
+0064:  RETLW  49
+0065:  RETLW  41
+0066:  RETLW  00
+0067:  RETLW  7F
+0068:  RETLW  48
+0069:  RETLW  48
+006A:  RETLW  48
+006B:  RETLW  40
+006C:  RETLW  00
+006D:  RETLW  3E
+006E:  RETLW  41
+006F:  RETLW  41
+0070:  RETLW  45
+0071:  RETLW  26
+0072:  RETLW  00
+0073:  RETLW  7F
+0074:  RETLW  08
+0075:  RETLW  08
+0076:  RETLW  08
+0077:  RETLW  7F
+0078:  RETLW  00
+0079:  RETLW  00
+007A:  RETLW  41
+007B:  RETLW  7F
+007C:  RETLW  41
+007D:  RETLW  00
+007E:  RETLW  00
+007F:  RETLW  00
+0080:  RETLW  02
+0081:  RETLW  41
+0082:  RETLW  41
+0083:  RETLW  7E
+0084:  RETLW  00
+0085:  RETLW  7F
+0086:  RETLW  08
+0087:  RETLW  14
+0088:  RETLW  22
+0089:  RETLW  41
+008A:  RETLW  00
+008B:  RETLW  7F
+008C:  RETLW  01
+008D:  RETLW  01
+008E:  RETLW  01
+008F:  RETLW  01
+0090:  RETLW  00
+0091:  RETLW  7F
+0092:  RETLW  20
+0093:  RETLW  18
+0094:  RETLW  20
+0095:  RETLW  7F
+0096:  RETLW  00
+0097:  RETLW  7F
+0098:  RETLW  10
+0099:  RETLW  08
+009A:  RETLW  04
+009B:  RETLW  7F
+009C:  RETLW  00
+009D:  RETLW  3E
+009E:  RETLW  41
+009F:  RETLW  41
+00A0:  RETLW  41
+00A1:  RETLW  3E
+00A2:  RETLW  00
+00A3:  RETLW  7F
+00A4:  RETLW  48
+00A5:  RETLW  48
+00A6:  RETLW  48
+00A7:  RETLW  30
+00A8:  RETLW  00
+00A9:  RETLW  3C
+00AA:  RETLW  42
+00AB:  RETLW  42
+00AC:  RETLW  42
+00AD:  RETLW  3D
+00AE:  RETLW  00
+00AF:  RETLW  7F
+00B0:  RETLW  48
+00B1:  RETLW  4C
+00B2:  RETLW  4A
+00B3:  RETLW  31
+00B4:  RETLW  00
+00B5:  RETLW  32
+00B6:  RETLW  49
+00B7:  RETLW  49
+00B8:  RETLW  49
+00B9:  RETLW  26
+00BA:  RETLW  00
+00BB:  RETLW  40
+00BC:  RETLW  40
+00BD:  RETLW  7F
+00BE:  RETLW  40
+00BF:  RETLW  40
+00C0:  RETLW  00
+00C1:  RETLW  7E
+00C2:  RETLW  01
+00C3:  RETLW  01
+00C4:  RETLW  01
+00C5:  RETLW  7E
+00C6:  RETLW  00
+00C7:  RETLW  7C
+00C8:  RETLW  02
+00C9:  RETLW  01
+00CA:  RETLW  02
+00CB:  RETLW  7C
+00CC:  RETLW  00
+00CD:  RETLW  7E
+00CE:  RETLW  01
+00CF:  RETLW  06
+00D0:  RETLW  01
+00D1:  RETLW  7E
+00D2:  RETLW  00
+00D3:  RETLW  63
+00D4:  RETLW  14
+00D5:  RETLW  08
+00D6:  RETLW  14
+00D7:  RETLW  63
+00D8:  RETLW  00
+00D9:  RETLW  72
+00DA:  RETLW  09
+00DB:  RETLW  09
+00DC:  RETLW  09
+00DD:  RETLW  7E
+00DE:  RETLW  00
+00DF:  RETLW  43
+00E0:  RETLW  45
+00E1:  RETLW  49
+00E2:  RETLW  51
+00E3:  RETLW  61
+00E4:  RETLW  00
+00E5:  RETLW  06
+00E6:  RETLW  15
+00E7:  RETLW  15
+00E8:  RETLW  15
+00E9:  RETLW  0F
+00EA:  RETLW  00
+00EB:  RETLW  3F
+00EC:  RETLW  09
+00ED:  RETLW  09
+00EE:  RETLW  09
+00EF:  RETLW  06
+00F0:  RETLW  00
+00F1:  RETLW  0E
+00F2:  RETLW  11
+00F3:  RETLW  11
+00F4:  RETLW  11
+00F5:  RETLW  09
+00F6:  RETLW  00
+00F7:  RETLW  06
+00F8:  RETLW  09
+00F9:  RETLW  09
+00FA:  RETLW  09
+00FB:  RETLW  3F
+00FC:  RETLW  00
+00FD:  RETLW  0E
+00FE:  RETLW  15
+00FF:  RETLW  15
+0100:  RETLW  15
+0101:  RETLW  0D
+0102:  RETLW  00
+0103:  RETLW  08
+0104:  RETLW  1F
+0105:  RETLW  28
+0106:  RETLW  28
+0107:  RETLW  00
+0108:  RETLW  00
+0109:  RETLW  19
+010A:  RETLW  25
+010B:  RETLW  25
+010C:  RETLW  25
+010D:  RETLW  3E
+010E:  RETLW  00
+010F:  RETLW  3F
+0110:  RETLW  08
+0111:  RETLW  08
+0112:  RETLW  08
+0113:  RETLW  07
+0114:  RETLW  00
+0115:  RETLW  00
+0116:  RETLW  09
+0117:  RETLW  2F
+0118:  RETLW  01
+0119:  RETLW  00
+011A:  RETLW  00
+011B:  RETLW  02
+011C:  RETLW  01
+011D:  RETLW  01
+011E:  RETLW  01
+011F:  RETLW  5E
+0120:  RETLW  00
+0121:  RETLW  3F
+0122:  RETLW  04
+0123:  RETLW  0A
+0124:  RETLW  11
+0125:  RETLW  00
+0126:  RETLW  00
+0127:  RETLW  3E
+0128:  RETLW  01
+0129:  RETLW  01
+012A:  RETLW  01
+012B:  RETLW  00
+012C:  RETLW  00
+012D:  RETLW  1F
+012E:  RETLW  10
+012F:  RETLW  0F
+0130:  RETLW  10
+0131:  RETLW  1F
+0132:  RETLW  00
+0133:  RETLW  1F
+0134:  RETLW  10
+0135:  RETLW  10
+0136:  RETLW  0F
+0137:  RETLW  00
+0138:  RETLW  00
+0139:  RETLW  0E
+013A:  RETLW  11
+013B:  RETLW  11
+013C:  RETLW  11
+013D:  RETLW  0E
+013E:  RETLW  00
+013F:  RETLW  3F
+0140:  RETLW  24
+0141:  RETLW  24
+0142:  RETLW  24
+0143:  RETLW  18
+0144:  RETLW  00
+0145:  RETLW  18
+0146:  RETLW  24
+0147:  RETLW  24
+0148:  RETLW  24
+0149:  RETLW  3F
+014A:  RETLW  00
+014B:  RETLW  00
+014C:  RETLW  0F
+014D:  RETLW  10
+014E:  RETLW  10
+014F:  RETLW  00
+0150:  RETLW  00
+0151:  RETLW  09
+0152:  RETLW  15
+0153:  RETLW  15
+0154:  RETLW  15
+0155:  RETLW  12
+0156:  RETLW  00
+0157:  RETLW  10
+0158:  RETLW  10
+0159:  RETLW  3E
+015A:  RETLW  11
+015B:  RETLW  11
+015C:  RETLW  00
+015D:  RETLW  1E
+015E:  RETLW  01
+015F:  RETLW  01
+0160:  RETLW  02
+0161:  RETLW  1F
+0162:  RETLW  00
+0163:  RETLW  00
+0164:  RETLW  1E
+0165:  RETLW  01
+0166:  RETLW  01
+0167:  RETLW  1E
+0168:  RETLW  00
+0169:  RETLW  1E
+016A:  RETLW  01
+016B:  RETLW  0E
+016C:  RETLW  01
+016D:  RETLW  1E
+016E:  RETLW  00
+016F:  RETLW  11
+0170:  RETLW  0A
+0171:  RETLW  04
+0172:  RETLW  0A
+0173:  RETLW  11
+0174:  RETLW  00
+0175:  RETLW  39
+0176:  RETLW  05
+0177:  RETLW  05
+0178:  RETLW  05
+0179:  RETLW  3E
+017A:  RETLW  00
+017B:  RETLW  11
+017C:  RETLW  13
+017D:  RETLW  15
+017E:  RETLW  19
+017F:  RETLW  11
+0180:  RETLW  00
+0181:  RETLW  00
+0182:  RETLW  00
+0183:  RETLW  00
+0184:  RETLW  00
+0185:  RETLW  00
+0186:  RETLW  00
+0187:  BSF    0A.0
+0188:  BCF    0A.1
+0189:  BCF    0A.2
+018A:  ADDWF  02,F
+018B:  RETLW  20
+018C:  RETLW  20
+018D:  RETLW  48
+018E:  RETLW  65
+018F:  RETLW  63
+0190:  RETLW  68
+0191:  RETLW  6F
+0192:  RETLW  20
+0193:  RETLW  70
+0194:  RETLW  6F
+0195:  RETLW  72
+0196:  RETLW  20
+0197:  RETLW  43
+0198:  RETLW  48
+0199:  RETLW  20
+019A:  RETLW  49
+019B:  RETLW  4E
+019C:  RETLW  43
+019D:  RETLW  20
+019E:  RETLW  20
+019F:  RETLW  49
+01A0:  RETLW  76
+01A1:  RETLW  61
+01A2:  RETLW  6E
+01A3:  RETLW  32
+01A4:  RETLW  38
+01A5:  RETLW  38
+01A6:  RETLW  32
+01A7:  RETLW  33
+01A8:  RETLW  20
+01A9:  RETLW  00
+*
+01C5:  MOVLW  10
+01C6:  MOVWF  58
+01C7:  CLRF   77
+01C8:  CLRF   7A
+01C9:  RRF    55,F
+01CA:  RRF    54,F
+01CB:  BTFSS  03.0
+01CC:  GOTO   1D3
+01CD:  MOVF   56,W
+01CE:  ADDWF  77,F
+01CF:  BTFSC  03.0
+01D0:  INCF   7A,F
+01D1:  MOVF   57,W
+01D2:  ADDWF  7A,F
+01D3:  RRF    7A,F
+01D4:  RRF    77,F
+01D5:  RRF    79,F
+01D6:  RRF    78,F
+01D7:  DECFSZ 58,F
+01D8:  GOTO   1C9
+01D9:  RETURN
+....................  
+.................... #list 
+....................  
+.................... #device adc=10 
+....................  
+.................... #FUSES NOWDT,INTRC_IO,MCLR,NOBROWNOUT,NOPUT,NOPROTECT,NOCPD,IESO,FCMEN 
+.................... #use delay(clock=8M) 
+01DA:  MOVLW  50
+01DB:  MOVWF  04
+01DC:  BCF    03.7
+01DD:  MOVF   00,W
+01DE:  BTFSC  03.2
+01DF:  GOTO   1ED
+01E0:  MOVLW  02
+01E1:  MOVWF  78
+01E2:  CLRF   77
+01E3:  DECFSZ 77,F
+01E4:  GOTO   1E3
+01E5:  DECFSZ 78,F
+01E6:  GOTO   1E2
+01E7:  MOVLW  97
+01E8:  MOVWF  77
+01E9:  DECFSZ 77,F
+01EA:  GOTO   1E9
+01EB:  DECFSZ 00,F
+01EC:  GOTO   1E0
+01ED:  RETURN
+*
+035A:  MOVLW  08
+035B:  SUBWF  32,F
+035C:  BTFSS  03.0
+035D:  GOTO   36A
+035E:  MOVLW  32
+035F:  MOVWF  04
+0360:  BCF    03.7
+0361:  BCF    03.0
+0362:  RRF    00,F
+0363:  MOVF   00,W
+0364:  BTFSC  03.2
+0365:  GOTO   36A
+0366:  GOTO   368
+0367:  NOP
+0368:  DECFSZ 00,F
+0369:  GOTO   367
+036A:  BCF    0A.3
+036B:  BCF    0A.4
+036C:  GOTO   418 (RETURN)
+....................  
+.................... #BYTE TRISA=0x85 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE TRISC=0x87 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE PORTB=0x06 
+.................... #BYTE PORTC=0x07 
+.................... const int abcd[]= 
+.................... { 
+....................       //Codigo ascii  '0' = 48                    Char      PI    PF    ID 
+....................       62 ,  69 ,  73 ,  81 ,  62 ,  0  ,  // 0  De 0  -  5     0 
+....................       17 ,  33 ,  127   ,  1  ,  1  ,  0  ,  // 1  De 6  -  11       1 
+....................       33 ,  67 ,  69 ,  73 ,  49 ,  0  ,  // 2  De 12 -  17       2 
+....................       34 ,  65 ,  73 ,  73 ,  54 ,  0  ,  // 3  De 18 -  23       3 
+....................       12 ,  20 ,  36 ,  127   ,  4  ,  0  ,  // 4  De 24 -  29       4 
+....................       114   ,  81 ,  81 ,  81 ,  78 ,  0  ,  // 5  De 30 -  35       5 
+....................       62 ,  73 ,  73 ,  73 ,  38 ,  0  ,  // 6  De 36 -  41       6 
+....................       64 ,  71 ,  72 ,  80 ,  96 ,  0  ,  // 7  De 42 -  47       7 
+....................       54 ,  73 ,  73 ,  73 ,  54 ,  0  ,  // 8  De 48 -  53       8 
+....................       50 ,  73 ,  73 ,  73 ,  62 ,  0  ,  // 9  De 54 -  59       9 
+....................       //10 elementos de 0 a 59 
+....................       //Codigo ascii  'A' = 65 
+....................       31 ,  36 ,  68 ,  68 ,  127   ,  0  ,  // A  De 60 -  65       10 
+....................       127   ,  73 ,  73 ,  73 ,  54 ,  0  ,  // B  De 66 -  71       11 
+....................       62 ,  65 ,  65 ,  65 ,  34 ,  0  ,  // C  De 72 -  77       12 
+....................       127   ,  65 ,  65 ,  65 ,  62 ,  0  ,  // D  De 78 -  83       13 
+....................       127   ,  73 ,  73 ,  73 ,  65 ,  0  ,  // E  De 84 -  89       14 
+....................       127   ,  72 ,  72 ,  72 ,  64 ,  0  ,  // F  De 90 -  95       15 
+....................       62 ,  65 ,  65 ,  69 ,  38 ,  0  ,  // G  De 96 -  101   16 
+....................       127   ,  8  ,  8  ,  8  ,  127   ,  0  ,  // H  De 102   -  107   17 
+....................       0  ,  65 ,  127   ,  65 ,  0  ,  0  ,  // I  De 108   -  113   18 
+....................       0  ,  2  ,  65 ,  65 ,  126   ,  0  ,  // J  De 114   -  119   19 
+....................       127   ,  8  ,  20 ,  34 ,  65 ,  0  ,  // K  De 120   -  125   20 
+....................       127   ,  1  ,  1  ,  1  ,  1  ,  0  ,  // L  De 126   -  131   21 
+....................       127   ,  32 ,  24 ,  32 ,  127   ,  0  ,  // M  De 132   -  137   22 
+....................       127   ,  16 ,  8  ,  4  ,  127   ,  0  ,  // N  De 138   -  143   23 
+....................       62 ,  65 ,  65 ,  65 ,  62 ,  0  ,  // O  De 144   -  149   24 
+....................       127   ,  72 ,  72 ,  72 ,  48 ,  0  ,  // P  De 150   -  155   25 
+....................       60 ,  66 ,  66 ,  66 ,  61 ,  0  ,  // Q  De 156   -  161   26 
+....................       127   ,  72 ,  76 ,  74 ,  49 ,  0  ,  // R  De 162   -  167   27 
+....................       50 ,  73 ,  73 ,  73 ,  38 ,  0  ,  // S  De 168   -  173   28 
+....................       64 ,  64 ,  127   ,  64 ,  64 ,  0  ,  // T  De 174   -  179   29 
+....................       126   ,  1  ,  1  ,  1  ,  126   ,  0  ,  // U  De 180   -  185   30 
+....................       124   ,  2  ,  1  ,  2  ,  124   ,  0  ,  // V  De 186   -  191   31 
+....................       126   ,  1  ,  6  ,  1  ,  126   ,  0  ,  // W  De 192   -  197   32 
+....................       99 ,  20 ,  8  ,  20 ,  99 ,  0  ,  // X  De 198   -  203   33 
+....................       114   ,  9  ,  9  ,  9  ,  126   ,  0  ,  // Y  De 204   -  209   34 
+....................       67 ,  69 ,  73 ,  81 ,  97 ,  0  ,  // Z  De 210   -  215   35 
+....................       //26 elementos de 60 a 215 
+....................       //Codigo ascii  'a' = 97 
+....................       6  ,  21 ,  21 ,  21 ,  15 ,  0  ,  // a  De 216   -  221   36 
+....................       63 ,  9  ,  9  ,  9  ,  6  ,  0  ,  // b  De 222   -  227   37 
+....................       14 ,  17 ,  17 ,  17 ,  9  ,  0  ,  // c  De 228   -  233   38 
+....................       6  ,  9  ,  9  ,  9  ,  63 ,  0  ,  // d  De 234   -  239   39 
+....................       14 ,  21 ,  21 ,  21 ,  13 ,  0  ,  // e  De 240   -  245   40 
+....................       8  ,  31 ,  40 ,  40 ,  0  ,  0  ,  // f  De 246   -  251   41 
+....................       25 ,  37 ,  37 ,  37 ,  62 ,  0  ,  // g  De 252   -  257   42 
+....................       63 ,  8  ,  8  ,  8  ,  7  ,  0  ,  // h  De 258   -  263   43 
+....................       0  ,  9  ,  47 ,  1  ,  0  ,  0  ,  // i  De 264   -  269   44 
+....................       2  ,  1  ,  1  ,  1  ,  94 ,  0  ,  // j  De 270   -  275   45 
+....................       63 ,  4  ,  10 ,  17 ,  0  ,  0  ,  // k  De 276   -  281   46 
+....................       62 ,  1  ,  1  ,  1  ,  0  ,  0  ,  // l  De 282   -  287   47 
+....................       31 ,  16 ,  15 ,  16 ,  31 ,  0  ,  // m  De 288   -  293   48 
+....................       31 ,  16 ,  16 ,  15 ,  0  ,  0  ,  // n  De 294   -  299   49 
+....................       14 ,  17 ,  17 ,  17 ,  14 ,  0  ,  // o  De 300   -  305   50 
+....................       63 ,  36 ,  36 ,  36 ,  24 ,  0  ,  // p  De 306   -  311   51 
+....................       24 ,  36 ,  36 ,  36 ,  63 ,  0  ,  // q  De 312   -  317   52 
+....................       0  ,  15 ,  16 ,  16 ,  0  ,  0  ,  // r  De 318   -  323   53 
+....................       9  ,  21 ,  21 ,  21 ,  18 ,  0  ,  // s  De 324   -  329   54 
+....................       16 ,  16 ,  62 ,  17 ,  17 ,  0  ,  // t  De 330   -  335   55 
+....................       30 ,  1  ,  1  ,  2  ,  31 ,  0  ,  // u  De 336   -  341   56 
+....................       0  ,  30 ,  1  ,  1  ,  30 ,  0  ,  // v  De 342   -  347   57 
+....................       30 ,  1  ,  14 ,  1  ,  30 ,  0  ,  // w  De 348   -  353   58 
+....................       17 ,  10 ,  4  ,  10 ,  17 ,  0  ,  // x  De 354   -  359   59 
+....................       57 ,  5  ,  5  ,  5  ,  62 ,  0  ,  // y  De 360   -  365   60 
+....................       17 ,  19 ,  21 ,  25 ,  17 ,  0  ,  // z  De 366   -  371   61 
+....................       //26 elementos de 216 a 371 
+....................       //Codigo ascii  ' ' = 32 
+....................       0  , 0  ,  0  ,  0 , 0  ,  0    // Espacio De 372 - 377    62 
+....................       //1 elemento de 272 a 377  
+.................... }; 
+....................  
+.................... int comprobar_adc(long a) 
+.................... { 
+....................    return ((a<114)? 0:(a<277)? 1:(a<341)? 3:(a<455)? 7:(a<568)? 15:(a<682)? 31:(a<796)? 63:(a<910)? 127 : 255); 
+*
+02F8:  MOVF   35,F
+02F9:  BTFSS  03.2
+02FA:  GOTO   301
+02FB:  MOVF   34,W
+02FC:  SUBLW  71
+02FD:  BTFSS  03.0
+02FE:  GOTO   301
+02FF:  MOVLW  00
+0300:  GOTO   356
+0301:  MOVF   35,W
+0302:  SUBLW  01
+0303:  BTFSS  03.0
+0304:  GOTO   30D
+0305:  BTFSS  03.2
+0306:  GOTO   30B
+0307:  MOVF   34,W
+0308:  SUBLW  14
+0309:  BTFSS  03.0
+030A:  GOTO   30D
+030B:  MOVLW  01
+030C:  GOTO   356
+030D:  MOVF   35,W
+030E:  SUBLW  01
+030F:  BTFSS  03.0
+0310:  GOTO   319
+0311:  BTFSS  03.2
+0312:  GOTO   317
+0313:  MOVF   34,W
+0314:  SUBLW  54
+0315:  BTFSS  03.0
+0316:  GOTO   319
+0317:  MOVLW  03
+0318:  GOTO   356
+0319:  MOVF   35,W
+031A:  SUBLW  01
+031B:  BTFSS  03.0
+031C:  GOTO   325
+031D:  BTFSS  03.2
+031E:  GOTO   323
+031F:  MOVF   34,W
+0320:  SUBLW  C6
+0321:  BTFSS  03.0
+0322:  GOTO   325
+0323:  MOVLW  07
+0324:  GOTO   356
+0325:  MOVF   35,W
+0326:  SUBLW  02
+0327:  BTFSS  03.0
+0328:  GOTO   331
+0329:  BTFSS  03.2
+032A:  GOTO   32F
+032B:  MOVF   34,W
+032C:  SUBLW  37
+032D:  BTFSS  03.0
+032E:  GOTO   331
+032F:  MOVLW  0F
+0330:  GOTO   356
+0331:  MOVF   35,W
+0332:  SUBLW  02
+0333:  BTFSS  03.0
+0334:  GOTO   33D
+0335:  BTFSS  03.2
+0336:  GOTO   33B
+0337:  MOVF   34,W
+0338:  SUBLW  A9
+0339:  BTFSS  03.0
+033A:  GOTO   33D
+033B:  MOVLW  1F
+033C:  GOTO   356
+033D:  MOVF   35,W
+033E:  SUBLW  03
+033F:  BTFSS  03.0
+0340:  GOTO   349
+0341:  BTFSS  03.2
+0342:  GOTO   347
+0343:  MOVF   34,W
+0344:  SUBLW  1B
+0345:  BTFSS  03.0
+0346:  GOTO   349
+0347:  MOVLW  3F
+0348:  GOTO   356
+0349:  MOVF   35,W
+034A:  SUBLW  03
+034B:  BTFSS  03.0
+034C:  GOTO   355
+034D:  BTFSS  03.2
+034E:  GOTO   353
+034F:  MOVF   34,W
+0350:  SUBLW  8D
+0351:  BTFSS  03.0
+0352:  GOTO   355
+0353:  MOVLW  7F
+0354:  GOTO   356
+0355:  MOVLW  FF
+0356:  MOVWF  78
+0357:  BCF    0A.3
+0358:  BCF    0A.4
+0359:  GOTO   410 (RETURN)
+.................... } 
+.................... int id_letras(char c) 
+.................... { 
+....................    return ((c==' ' || c==0)?62 : (c>='a')? c-61 : (c>='A')? c-55 : c-48); 
+*
+01AA:  MOVF   51,W
+01AB:  SUBLW  20
+01AC:  BTFSC  03.2
+01AD:  GOTO   1B1
+01AE:  MOVF   51,F
+01AF:  BTFSS  03.2
+01B0:  GOTO   1B3
+01B1:  MOVLW  3E
+01B2:  GOTO   1C3
+01B3:  MOVF   51,W
+01B4:  SUBLW  60
+01B5:  BTFSC  03.0
+01B6:  GOTO   1BA
+01B7:  MOVLW  3D
+01B8:  SUBWF  51,W
+01B9:  GOTO   1C3
+01BA:  MOVF   51,W
+01BB:  SUBLW  40
+01BC:  BTFSC  03.0
+01BD:  GOTO   1C1
+01BE:  MOVLW  37
+01BF:  SUBWF  51,W
+01C0:  GOTO   1C3
+01C1:  MOVLW  30
+01C2:  SUBWF  51,W
+01C3:  MOVWF  78
+01C4:  RETURN
+.................... } 
+.................... void Mostrar(int carateres[],int tam,int tiempo) 
+*
+01EE:  CLRF   48
+01EF:  MOVLW  03
+01F0:  MOVWF  49
+.................... {  
+....................    int letras_arr[18],inicio=0,id_char=3; 
+....................    long i_mat,i,j; 
+....................    for (i = 0; i < 3; ++i) 
+01F1:  CLRF   4D
+01F2:  CLRF   4C
+01F3:  MOVF   4D,F
+01F4:  BTFSS  03.2
+01F5:  GOTO   24A
+01F6:  MOVF   4C,W
+01F7:  SUBLW  02
+01F8:  BTFSS  03.0
+01F9:  GOTO   24A
+....................    { 
+....................       i_mat=id_letras(carateres[i]); 
+01FA:  MOVF   32,W
+01FB:  ADDWF  4C,W
+01FC:  MOVWF  04
+01FD:  BCF    03.7
+01FE:  BTFSC  33.0
+01FF:  BSF    03.7
+0200:  MOVF   00,W
+0201:  MOVWF  50
+0202:  MOVWF  51
+0203:  CALL   1AA
+0204:  CLRF   4B
+0205:  MOVF   78,W
+0206:  MOVWF  4A
+....................       for (j = 0; j < 6; ++j) 
+0207:  CLRF   4F
+0208:  CLRF   4E
+0209:  MOVF   4F,F
+020A:  BTFSS  03.2
+020B:  GOTO   246
+020C:  MOVF   4E,W
+020D:  SUBLW  05
+020E:  BTFSS  03.0
+020F:  GOTO   246
+....................          letras_arr[j+(i*6)]=abcd[j+(i_mat*6)]; 
+0210:  MOVF   4D,W
+0211:  MOVWF  55
+0212:  MOVF   4C,W
+0213:  MOVWF  54
+0214:  CLRF   57
+0215:  MOVLW  06
+0216:  MOVWF  56
+0217:  CALL   1C5
+0218:  MOVF   79,W
+0219:  MOVWF  7A
+021A:  MOVF   78,W
+021B:  ADDWF  4E,W
+021C:  MOVWF  50
+021D:  MOVF   4F,W
+021E:  MOVWF  51
+021F:  MOVF   7A,W
+0220:  BTFSC  03.0
+0221:  INCFSZ 7A,W
+0222:  ADDWF  51,F
+0223:  MOVLW  36
+0224:  ADDWF  50,W
+0225:  MOVWF  04
+0226:  BCF    03.7
+0227:  BTFSC  51.0
+0228:  BSF    03.7
+0229:  MOVF   4B,W
+022A:  MOVWF  55
+022B:  MOVF   4A,W
+022C:  MOVWF  54
+022D:  CLRF   57
+022E:  MOVLW  06
+022F:  MOVWF  56
+0230:  CALL   1C5
+0231:  MOVF   79,W
+0232:  MOVWF  7A
+0233:  MOVF   78,W
+0234:  ADDWF  4E,W
+0235:  MOVWF  54
+0236:  MOVF   4F,W
+0237:  MOVWF  55
+0238:  MOVF   7A,W
+0239:  BTFSC  03.0
+023A:  INCFSZ 7A,W
+023B:  ADDWF  55,F
+023C:  MOVF   55,W
+023D:  MOVWF  7A
+023E:  MOVF   54,W
+023F:  CALL   004
+0240:  MOVWF  78
+0241:  MOVWF  00
+0242:  INCF   4E,F
+0243:  BTFSC  03.2
+0244:  INCF   4F,F
+0245:  GOTO   209
+0246:  INCF   4C,F
+0247:  BTFSC  03.2
+0248:  INCF   4D,F
+0249:  GOTO   1F3
+....................    } 
+....................    do 
+....................    { 
+....................       for (j = 0; j < tiempo; ++j) 
+024A:  CLRF   4F
+024B:  CLRF   4E
+024C:  MOVF   4F,F
+024D:  BTFSS  03.2
+024E:  GOTO   275
+024F:  MOVF   35,W
+0250:  SUBWF  4E,W
+0251:  BTFSC  03.0
+0252:  GOTO   275
+....................       { 
+....................          Portb=1; 
+0253:  MOVLW  01
+0254:  MOVWF  06
+....................          for (i = inicio; i < inicio+8 ; ++i) 
+0255:  CLRF   4D
+0256:  MOVF   48,W
+0257:  MOVWF  4C
+0258:  MOVLW  08
+0259:  ADDWF  48,W
+025A:  MOVF   4D,F
+025B:  BTFSS  03.2
+025C:  GOTO   271
+025D:  SUBWF  4C,W
+025E:  BTFSC  03.0
+025F:  GOTO   271
+....................          { 
+....................             Portc=letras_arr[i]; 
+0260:  MOVLW  36
+0261:  ADDWF  4C,W
+0262:  MOVWF  04
+0263:  BCF    03.7
+0264:  BTFSC  4D.0
+0265:  BSF    03.7
+0266:  MOVF   00,W
+0267:  MOVWF  07
+....................             delay_us(2000); 
+0268:  MOVLW  02
+0269:  MOVWF  50
+026A:  CALL   1DA
+....................             Portb<<=1; 
+026B:  BCF    03.0
+026C:  RLF    06,F
+026D:  INCF   4C,F
+026E:  BTFSC  03.2
+026F:  INCF   4D,F
+0270:  GOTO   258
+....................          } 
+0271:  INCF   4E,F
+0272:  BTFSC  03.2
+0273:  INCF   4F,F
+0274:  GOTO   24C
+....................       } 
+....................       inicio++; 
+0275:  INCF   48,F
+....................       if(inicio>5) 
+0276:  MOVF   48,W
+0277:  SUBLW  05
+0278:  BTFSC  03.0
+0279:  GOTO   2F3
+....................       { 
+....................          for (i = 0; i < 12; ++i) 
+027A:  CLRF   4D
+027B:  CLRF   4C
+027C:  MOVF   4D,F
+027D:  BTFSS  03.2
+027E:  GOTO   2A8
+027F:  MOVF   4C,W
+0280:  SUBLW  0B
+0281:  BTFSS  03.0
+0282:  GOTO   2A8
+....................             letras_arr[i]=letras_arr[i+6]; 
+0283:  MOVLW  36
+0284:  ADDWF  4C,W
+0285:  MOVWF  78
+0286:  MOVF   4D,W
+0287:  MOVWF  7A
+0288:  BTFSC  03.0
+0289:  INCF   7A,F
+028A:  MOVF   78,W
+028B:  MOVWF  50
+028C:  MOVF   7A,W
+028D:  MOVWF  51
+028E:  MOVLW  06
+028F:  ADDWF  4C,W
+0290:  MOVWF  52
+0291:  MOVF   4D,W
+0292:  MOVWF  53
+0293:  BTFSC  03.0
+0294:  INCF   53,F
+0295:  MOVLW  36
+0296:  ADDWF  52,W
+0297:  MOVWF  04
+0298:  BCF    03.7
+0299:  BTFSC  53.0
+029A:  BSF    03.7
+029B:  MOVF   00,W
+029C:  MOVWF  54
+029D:  MOVF   50,W
+029E:  MOVWF  04
+029F:  BCF    03.7
+02A0:  BTFSC  51.0
+02A1:  BSF    03.7
+02A2:  MOVF   54,W
+02A3:  MOVWF  00
+02A4:  INCF   4C,F
+02A5:  BTFSC  03.2
+02A6:  INCF   4D,F
+02A7:  GOTO   27C
+....................          i_mat = (id_char<tam)? id_letras(carateres[id_char]) : 62 ; 
+02A8:  MOVF   34,W
+02A9:  SUBWF  49,W
+02AA:  BTFSC  03.0
+02AB:  GOTO   2B9
+02AC:  MOVF   49,W
+02AD:  ADDWF  32,W
+02AE:  MOVWF  04
+02AF:  BCF    03.7
+02B0:  BTFSC  33.0
+02B1:  BSF    03.7
+02B2:  MOVF   00,W
+02B3:  MOVWF  50
+02B4:  MOVWF  51
+02B5:  CALL   1AA
+02B6:  CLRF   7A
+02B7:  MOVF   78,W
+02B8:  GOTO   2BB
+02B9:  CLRF   7A
+02BA:  MOVLW  3E
+02BB:  MOVWF  4A
+02BC:  MOVF   7A,W
+02BD:  MOVWF  4B
+....................          for (i = 0; i < 6; ++i) 
+02BE:  CLRF   4D
+02BF:  CLRF   4C
+02C0:  MOVF   4D,F
+02C1:  BTFSS  03.2
+02C2:  GOTO   2F1
+02C3:  MOVF   4C,W
+02C4:  SUBLW  05
+02C5:  BTFSS  03.0
+02C6:  GOTO   2F1
+....................             letras_arr[i+12]=abcd[i+(i_mat*6)]; 
+02C7:  MOVLW  0C
+02C8:  ADDWF  4C,W
+02C9:  MOVWF  50
+02CA:  MOVF   4D,W
+02CB:  MOVWF  51
+02CC:  BTFSC  03.0
+02CD:  INCF   51,F
+02CE:  MOVLW  36
+02CF:  ADDWF  50,W
+02D0:  MOVWF  04
+02D1:  BCF    03.7
+02D2:  BTFSC  51.0
+02D3:  BSF    03.7
+02D4:  MOVF   4B,W
+02D5:  MOVWF  55
+02D6:  MOVF   4A,W
+02D7:  MOVWF  54
+02D8:  CLRF   57
+02D9:  MOVLW  06
+02DA:  MOVWF  56
+02DB:  CALL   1C5
+02DC:  MOVF   79,W
+02DD:  MOVWF  7A
+02DE:  MOVF   78,W
+02DF:  ADDWF  4C,W
+02E0:  MOVWF  54
+02E1:  MOVF   4D,W
+02E2:  MOVWF  55
+02E3:  MOVF   7A,W
+02E4:  BTFSC  03.0
+02E5:  INCFSZ 7A,W
+02E6:  ADDWF  55,F
+02E7:  MOVF   55,W
+02E8:  MOVWF  7A
+02E9:  MOVF   54,W
+02EA:  CALL   004
+02EB:  MOVWF  78
+02EC:  MOVWF  00
+02ED:  INCF   4C,F
+02EE:  BTFSC  03.2
+02EF:  INCF   4D,F
+02F0:  GOTO   2C0
+....................          id_char++; 
+02F1:  INCF   49,F
+....................          inicio=0; 
+02F2:  CLRF   48
+....................       } 
+....................    }while(id_char<=tam); 
+02F3:  MOVF   49,W
+02F4:  SUBWF  34,W
+02F5:  BTFSC  03.0
+02F6:  GOTO   24A
+02F7:  RETURN
+.................... } 
+.................... //Programa pricipal 
+.................... void main() 
+*
+036D:  MOVLW  71
+036E:  BSF    03.5
+036F:  MOVWF  0F
+0370:  MOVF   0F,W
+0371:  BSF    03.6
+0372:  MOVF   09,W
+0373:  ANDLW  C0
+0374:  MOVWF  09
+0375:  BCF    03.6
+0376:  BCF    1F.4
+0377:  BCF    1F.5
+0378:  MOVLW  00
+0379:  BSF    03.6
+037A:  MOVWF  08
+037B:  BCF    03.5
+037C:  CLRF   07
+037D:  CLRF   08
+037E:  CLRF   09
+037F:  BCF    03.7
+0380:  MOVLW  1F
+0381:  ANDWF  03,F
+.................... { 
+....................    Trisc=0;Portc=0; 
+0382:  BSF    03.5
+0383:  BCF    03.6
+0384:  CLRF   07
+0385:  BCF    03.5
+0386:  CLRF   07
+....................    Trisb=0;Portb=0; 
+0387:  BSF    03.5
+0388:  CLRF   06
+0389:  BCF    03.5
+038A:  CLRF   06
+....................    Trisa=0xFF; //0b11111111 
+038B:  MOVLW  FF
+038C:  BSF    03.5
+038D:  MOVWF  05
+....................    setup_oscillator(OSC_8MHZ); 
+038E:  MOVLW  71
+038F:  MOVWF  0F
+0390:  MOVF   0F,W
+....................    setup_adc_ports(sAN0 | sAN1 | VSS_VREF); 
+0391:  BSF    03.6
+0392:  MOVF   09,W
+0393:  ANDLW  C0
+0394:  MOVWF  09
+0395:  BCF    03.6
+0396:  BSF    1F.4
+0397:  BCF    1F.5
+0398:  MOVLW  03
+0399:  BSF    03.6
+039A:  MOVWF  08
+....................    setup_adc(ADC_CLOCK_INTERNAL); 
+039B:  BCF    03.5
+039C:  BCF    03.6
+039D:  BSF    1F.6
+039E:  BSF    1F.7
+039F:  BSF    03.5
+03A0:  BSF    1F.7
+03A1:  BCF    03.5
+03A2:  BSF    1F.0
+....................    const int m_t1=31; 
+....................    const int cmsj[m_t1]= 
+....................    {"  Hecho por CH INC  Ivan28823 "}; 
+....................    int msj_m[3]; 
+....................    int k,l,aux=0; 
+03A3:  CLRF   26
+....................  
+....................    do 
+....................    { 
+....................       for (k = 0 , l = aux; k < 3; ++k , ++l) 
+03A4:  CLRF   24
+03A5:  MOVF   26,W
+03A6:  MOVWF  25
+03A7:  MOVF   24,W
+03A8:  SUBLW  02
+03A9:  BTFSS  03.0
+03AA:  GOTO   3B6
+....................          msj_m[k]=cmsj[l]; 
+03AB:  MOVLW  21
+03AC:  ADDWF  24,W
+03AD:  MOVWF  04
+03AE:  BCF    03.7
+03AF:  MOVF   25,W
+03B0:  CALL   187
+03B1:  MOVWF  78
+03B2:  MOVWF  00
+03B3:  INCF   24,F
+03B4:  INCF   25,F
+03B5:  GOTO   3A7
+....................       Mostrar(msj_m,3,8); 
+03B6:  CLRF   33
+03B7:  MOVLW  21
+03B8:  MOVWF  32
+03B9:  MOVLW  03
+03BA:  MOVWF  34
+03BB:  MOVLW  08
+03BC:  MOVWF  35
+03BD:  CALL   1EE
+....................       //aux=(aux+3<m_t1)? aux+1 : 0; 
+....................       aux++; 
+03BE:  INCF   26,F
+....................    }while(aux+3<m_t1); 
+03BF:  MOVLW  03
+03C0:  ADDWF  26,W
+03C1:  SUBLW  1E
+03C2:  BTFSC  03.0
+03C3:  GOTO   3A4
+....................    short f_mod=false; 
+....................    int modo=2; 
+....................    int msj_md[8]={" Modo 1"}; 
+03C4:  BCF    27.0
+03C5:  MOVLW  02
+03C6:  MOVWF  28
+03C7:  MOVLW  20
+03C8:  MOVWF  29
+03C9:  MOVLW  4D
+03CA:  MOVWF  2A
+03CB:  MOVLW  6F
+03CC:  MOVWF  2B
+03CD:  MOVLW  64
+03CE:  MOVWF  2C
+03CF:  MOVLW  6F
+03D0:  MOVWF  2D
+03D1:  MOVLW  20
+03D2:  MOVWF  2E
+03D3:  MOVLW  31
+03D4:  MOVWF  2F
+03D5:  CLRF   30
+....................    while(true) 
+....................    { 
+....................       set_adc_channel(modo-1); 
+03D6:  MOVLW  01
+03D7:  SUBWF  28,W
+03D8:  MOVWF  32
+03D9:  RLF    32,W
+03DA:  MOVWF  77
+03DB:  RLF    77,F
+03DC:  MOVLW  FC
+03DD:  ANDWF  77,F
+03DE:  MOVF   1F,W
+03DF:  ANDLW  C3
+03E0:  IORWF  77,W
+03E1:  MOVWF  1F
+....................       delay_us(15); 
+03E2:  MOVLW  09
+03E3:  MOVWF  77
+03E4:  DECFSZ 77,F
+03E5:  GOTO   3E4
+03E6:  GOTO   3E7
+....................       if(!f_mod) 
+03E7:  BTFSC  27.0
+03E8:  GOTO   3FA
+....................       {    
+....................          msj_md[6]=(modo==2)? '1' : '2'; 
+03E9:  MOVF   28,W
+03EA:  SUBLW  02
+03EB:  BTFSS  03.2
+03EC:  GOTO   3EF
+03ED:  MOVLW  31
+03EE:  GOTO   3F0
+03EF:  MOVLW  32
+03F0:  MOVWF  2F
+....................          Mostrar(msj_md,8,12); 
+03F1:  CLRF   33
+03F2:  MOVLW  29
+03F3:  MOVWF  32
+03F4:  MOVLW  08
+03F5:  MOVWF  34
+03F6:  MOVLW  0C
+03F7:  MOVWF  35
+03F8:  CALL   1EE
+....................          f_mod=true; 
+03F9:  BSF    27.0
+....................       } 
+....................       portb=1; 
+03FA:  MOVLW  01
+03FB:  MOVWF  06
+....................       for(int j=0;j<8;++j) 
+03FC:  CLRF   31
+03FD:  MOVF   31,W
+03FE:  SUBLW  07
+03FF:  BTFSS  03.0
+0400:  GOTO   42C
+....................       { 
+....................          Portc=comprobar_adc(read_adc()); 
+0401:  BSF    1F.1
+0402:  BTFSC  1F.1
+0403:  GOTO   402
+0404:  MOVF   1E,W
+0405:  MOVWF  7A
+0406:  BSF    03.5
+0407:  MOVF   1E,W
+0408:  BCF    03.5
+0409:  MOVWF  32
+040A:  MOVF   1E,W
+040B:  MOVWF  33
+040C:  MOVWF  35
+040D:  MOVF   32,W
+040E:  MOVWF  34
+040F:  GOTO   2F8
+0410:  MOVF   78,W
+0411:  MOVWF  07
+....................          delay_us(2250); 
+0412:  MOVLW  02
+0413:  MOVWF  50
+0414:  CALL   1DA
+0415:  MOVLW  FA
+0416:  MOVWF  32
+0417:  GOTO   35A
+....................          portb<<=1; 
+0418:  BCF    03.0
+0419:  RLF    06,F
+....................          if(!input(PIN_A5)) 
+041A:  BSF    03.5
+041B:  BSF    05.5
+041C:  BCF    03.5
+041D:  BTFSC  05.5
+041E:  GOTO   42A
+....................          { 
+....................             modo=(modo==1)? 2 : 1; 
+041F:  DECFSZ 28,W
+0420:  GOTO   423
+0421:  MOVLW  02
+0422:  GOTO   424
+0423:  MOVLW  01
+0424:  MOVWF  28
+....................             f_mod=false; 
+0425:  BCF    27.0
+....................             delay_ms(200); 
+0426:  MOVLW  C8
+0427:  MOVWF  50
+0428:  CALL   1DA
+....................             break; 
+0429:  GOTO   42C
+....................          } 
+042A:  INCF   31,F
+042B:  GOTO   3FD
+....................       } 
+042C:  GOTO   3D6
+....................    } 
+.................... } 
+042D:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2CF4   INTRC_IO NOWDT NOPUT MCLR NOPROTECT NOCPD NOBROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

@@ -1,0 +1,16 @@
+읕hc-sr06
+   읕main  0/133  Ram=2
+      쳐??0??
+      쳐@const70  0/19  Ram=0
+      쳐@PUTCHAR_1_  0/31  Ram=1
+      쳐@delay_ms1  0/21  Ram=1
+      쳐@DIV1616  0/37  Ram=5
+      쳐@const74  0/18  Ram=0
+      쳐@PUTCHAR_1_  0/31  Ram=1
+      쳐@const75  0/22  Ram=0
+      쳐@PUTCHAR_1_  0/31  Ram=1
+      쳐@PRINTF_LU_60  0/99  Ram=9
+      �  읕@PUTCHAR_1_  0/31  Ram=1
+      쳐@PUTCHAR_1_  0/31  Ram=1
+      쳐@PUTCHAR_1_  0/31  Ram=1
+      읕@delay_ms1  0/21  Ram=1

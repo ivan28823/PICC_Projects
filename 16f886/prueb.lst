@@ -1,0 +1,657 @@
+CCS PCM C Compiler, Version 5.007, 59972               29-may.-15 23:41
+
+               Filename:   C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\16f886\prueb.lst
+
+               ROM used:   484 words (6%)
+                           Largest free fragment is 2048
+               RAM used:   20 (5%) at main() level
+                           30 (8%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  01
+0001:  MOVWF  0A
+0002:  GOTO   100
+0003:  NOP
+.................... #include <16f886.h> 
+.................... //////// Standard Header file for the PIC16F886 device //////////////// 
+.................... #device PIC16F886 
+0004:  BCF    0A.0
+0005:  BCF    0A.1
+0006:  BCF    0A.2
+0007:  ADDWF  02,F
+0008:  RETLW  03
+0009:  RETLW  9F
+000A:  RETLW  25
+000B:  RETLW  0D
+000C:  RETLW  99
+000D:  RETLW  49
+000E:  RETLW  41
+000F:  RETLW  1F
+0010:  RETLW  01
+0011:  RETLW  19
+0012:  BCF    0A.0
+0013:  BCF    0A.1
+0014:  BCF    0A.2
+0015:  ADDWF  02,F
+0016:  RETLW  00
+0017:  RETLW  00
+0018:  RETLW  00
+0019:  RETLW  00
+001A:  RETLW  00
+001B:  RETLW  00
+001C:  RETLW  FF
+001D:  RETLW  08
+001E:  RETLW  08
+001F:  RETLW  08
+0020:  RETLW  FF
+0021:  RETLW  00
+0022:  RETLW  7E
+0023:  RETLW  81
+0024:  RETLW  81
+0025:  RETLW  81
+0026:  RETLW  7E
+0027:  RETLW  00
+0028:  RETLW  FF
+0029:  RETLW  01
+002A:  RETLW  01
+002B:  RETLW  01
+002C:  RETLW  01
+002D:  RETLW  00
+002E:  RETLW  7F
+002F:  RETLW  88
+0030:  RETLW  88
+0031:  RETLW  88
+0032:  RETLW  7F
+0033:  RETLW  00
+0034:  RETLW  00
+0035:  RETLW  00
+0036:  RETLW  00
+0037:  RETLW  00
+0038:  RETLW  00
+0039:  RETLW  00
+003A:  RETLW  FF
+003B:  RETLW  40
+003C:  RETLW  20
+003D:  RETLW  40
+003E:  RETLW  FF
+003F:  RETLW  00
+0040:  RETLW  FE
+0041:  RETLW  01
+0042:  RETLW  01
+0043:  RETLW  01
+0044:  RETLW  FE
+0045:  RETLW  00
+0046:  RETLW  FF
+0047:  RETLW  10
+0048:  RETLW  08
+0049:  RETLW  04
+004A:  RETLW  FF
+004B:  RETLW  00
+004C:  RETLW  FF
+004D:  RETLW  81
+004E:  RETLW  81
+004F:  RETLW  81
+0050:  RETLW  7E
+0051:  RETLW  00
+0052:  RETLW  7E
+0053:  RETLW  81
+0054:  RETLW  81
+0055:  RETLW  81
+0056:  RETLW  7E
+0057:  RETLW  00
+0058:  RETLW  00
+0059:  RETLW  00
+005A:  RETLW  FD
+005B:  RETLW  FD
+005C:  RETLW  00
+005D:  RETLW  00
+005E:  RETLW  00
+005F:  RETLW  00
+0060:  RETLW  00
+0061:  RETLW  00
+0062:  RETLW  00
+0063:  RETLW  00
+0064:  RETLW  00
+0065:  RETLW  00
+*
+007A:  CLRF   78
+007B:  CLRF   79
+007C:  CLRF   77
+007D:  CLRF   7A
+007E:  MOVF   37,W
+007F:  BTFSS  03.2
+0080:  GOTO   084
+0081:  MOVF   36,W
+0082:  BTFSC  03.2
+0083:  GOTO   09E
+0084:  MOVLW  10
+0085:  MOVWF  38
+0086:  BCF    03.0
+0087:  RLF    34,F
+0088:  RLF    35,F
+0089:  RLF    77,F
+008A:  RLF    7A,F
+008B:  MOVF   37,W
+008C:  SUBWF  7A,W
+008D:  BTFSS  03.2
+008E:  GOTO   091
+008F:  MOVF   36,W
+0090:  SUBWF  77,W
+0091:  BTFSS  03.0
+0092:  GOTO   09A
+0093:  MOVF   36,W
+0094:  SUBWF  77,F
+0095:  BTFSS  03.0
+0096:  DECF   7A,F
+0097:  MOVF   37,W
+0098:  SUBWF  7A,F
+0099:  BSF    03.0
+009A:  RLF    78,F
+009B:  RLF    79,F
+009C:  DECFSZ 38,F
+009D:  GOTO   086
+009E:  RETURN
+*
+00F8:  BCF    0A.0
+00F9:  BCF    0A.1
+00FA:  BCF    0A.2
+00FB:  ADDWF  02,F
+00FC:  GOTO   0A5
+00FD:  GOTO   0B1
+00FE:  GOTO   0D3
+00FF:  GOTO   0EA
+*
+01DC:  BSF    0A.0
+01DD:  BCF    0A.1
+01DE:  BCF    0A.2
+01DF:  ADDWF  02,F
+01E0:  GOTO   192
+01E1:  GOTO   195
+01E2:  GOTO   198
+01E3:  GOTO   19B
+....................  
+.................... #list 
+....................  
+.................... #fuses HS 
+.................... #fuses MCLR 
+.................... #fuses NOWDT 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #fuses FCMEN 
+.................... #fuses IESO 
+....................  
+.................... #use delay(clock=20M) 
+*
+0066:  MOVLW  2D
+0067:  MOVWF  04
+0068:  BCF    03.7
+0069:  MOVF   00,W
+006A:  BTFSC  03.2
+006B:  GOTO   079
+006C:  MOVLW  06
+006D:  MOVWF  78
+006E:  CLRF   77
+006F:  DECFSZ 77,F
+0070:  GOTO   06F
+0071:  DECFSZ 78,F
+0072:  GOTO   06E
+0073:  MOVLW  7B
+0074:  MOVWF  77
+0075:  DECFSZ 77,F
+0076:  GOTO   075
+0077:  DECFSZ 00,F
+0078:  GOTO   06C
+0079:  RETURN
+....................  
+.................... #BYTE TRISA=0x85 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE TRISC=0x87 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE PORTB=0x06 
+.................... #BYTE PORTC=0x07 
+.................... //Funciones 
+....................    int separar(int pos,long n); 
+.................... //Variables generales 
+....................    short modo=1; 
+....................    int a,numero[4],num1,p,inicio=0,fin=8,t=8; 
+....................    long num=0; 
+.................... //Cadenas de constantes 
+....................    int const diplay[10]= 
+....................    { 
+....................       0b00000011,//Numero 0 
+....................       0b10011111,//Numero 1 
+....................       0b00100101,//Numero 2 
+....................       0b00001101,//Numero 3 
+....................       0b10011001,//Numero 4 
+....................       0b01001001,//Numero 5 
+....................       0b01000001,//Numero 6 
+....................       0b00011111,//Numero 7 
+....................       0b00000001,//Numero 8 
+....................       0b00011001 //Numero 9 
+....................    }; 
+....................    int const mtz[]= 
+....................    { 
+....................       0     ,0    ,0    ,0    ,0    ,0,//Espacio 
+....................       255   ,8    ,8    ,8    ,255  ,0,//H 
+....................       126   ,129  ,129  ,129  ,126  ,0,//O 
+....................       255   ,1    ,1    ,1    ,1    ,0,//L 
+....................       127   ,136  ,136  ,136  ,127  ,0,//A 
+....................       0     ,0    ,0    ,0    ,0    ,0,//Espacio 
+....................       255   ,64   ,32   ,64   ,255  ,0,//M 
+....................       254   ,1    ,1    ,1    ,254  ,0,//U 
+....................       255   ,16   ,8    ,4    ,255  ,0,//N 
+....................       255   ,129  ,129  ,129  ,126  ,0,//D 
+....................       126   ,129  ,129  ,129  ,126  ,0,//O 
+....................       0     ,0    ,253  ,253  ,0    ,0,//! 
+....................       0     ,0    ,0    ,0    ,0,0,0,0,//Espacio 
+....................    };//Total =80 
+.................... //Programa principal 
+.................... void main() 
+*
+0100:  BSF    20.0
+0101:  CLRF   28
+0102:  MOVLW  08
+0103:  MOVWF  29
+0104:  MOVWF  2A
+0105:  CLRF   2C
+0106:  CLRF   2B
+0107:  BSF    03.5
+0108:  BSF    03.6
+0109:  MOVF   09,W
+010A:  ANDLW  C0
+010B:  MOVWF  09
+010C:  BCF    03.6
+010D:  BCF    1F.4
+010E:  BCF    1F.5
+010F:  MOVLW  00
+0110:  BSF    03.6
+0111:  MOVWF  08
+0112:  BCF    03.5
+0113:  CLRF   07
+0114:  CLRF   08
+0115:  CLRF   09
+0116:  BCF    03.7
+0117:  MOVLW  1F
+0118:  ANDWF  03,F
+.................... { 
+....................    Trisb=0; 
+0119:  BSF    03.5
+011A:  BCF    03.6
+011B:  CLRF   06
+....................    Trisc=0; 
+011C:  CLRF   07
+....................    Trisa=0b11110000; 
+011D:  MOVLW  F0
+011E:  MOVWF  05
+....................    Portc=255; 
+011F:  MOVLW  FF
+0120:  BCF    03.5
+0121:  MOVWF  07
+....................    Porta=255; 
+0122:  MOVWF  05
+....................    Portb=0; 
+0123:  CLRF   06
+....................    for(;;) 
+....................    { 
+....................       while(modo) 
+0124:  BTFSS  20.0
+0125:  GOTO   161
+....................       {          
+....................          for(a=0;a<t;a++) 
+0126:  CLRF   21
+0127:  MOVF   2A,W
+0128:  SUBWF  21,W
+0129:  BTFSC  03.0
+012A:  GOTO   157
+....................          { 
+....................             Portb=1; 
+012B:  MOVLW  01
+012C:  MOVWF  06
+....................             for(p=inicio;p<fin;p++) 
+012D:  MOVF   28,W
+012E:  MOVWF  27
+012F:  MOVF   29,W
+0130:  SUBWF  27,W
+0131:  BTFSC  03.0
+0132:  GOTO   155
+....................             { 
+....................                Portc=mtz[p]; 
+0133:  MOVF   27,W
+0134:  CALL   012
+0135:  MOVWF  78
+0136:  MOVWF  07
+....................                delay_ms(2); 
+0137:  MOVLW  02
+0138:  MOVWF  2D
+0139:  CALL   066
+....................                portb<<=1; 
+013A:  BCF    03.0
+013B:  RLF    06,F
+....................                if(input(pin_a5)==0) 
+013C:  BSF    03.5
+013D:  BSF    05.5
+013E:  BCF    03.5
+013F:  BTFSC  05.5
+0140:  GOTO   148
+....................                { 
+....................                   t++; 
+0141:  INCF   2A,F
+....................                   if(t>20) 
+0142:  MOVF   2A,W
+0143:  SUBLW  14
+0144:  BTFSC  03.0
+0145:  GOTO   148
+....................                      t=1; 
+0146:  MOVLW  01
+0147:  MOVWF  2A
+....................                } 
+....................                if(input(pin_a4)==0) 
+0148:  BSF    03.5
+0149:  BSF    05.4
+014A:  BCF    03.5
+014B:  BTFSC  05.4
+014C:  GOTO   153
+....................                { 
+....................                   modo=false; 
+014D:  BCF    20.0
+....................                   portb=0; 
+014E:  CLRF   06
+....................                   delay_ms(200); 
+014F:  MOVLW  C8
+0150:  MOVWF  2D
+0151:  CALL   066
+....................                   break; 
+0152:  GOTO   155
+....................                } 
+0153:  INCF   27,F
+0154:  GOTO   12F
+....................             } 
+0155:  INCF   21,F
+0156:  GOTO   127
+....................          } 
+....................          inicio++; 
+0157:  INCF   28,F
+....................          fin++; 
+0158:  INCF   29,F
+....................          if(fin>=80) 
+0159:  MOVF   29,W
+015A:  SUBLW  4F
+015B:  BTFSC  03.0
+015C:  GOTO   160
+....................          { 
+....................             inicio=0; 
+015D:  CLRF   28
+....................             fin=8; 
+015E:  MOVLW  08
+015F:  MOVWF  29
+....................          } 
+0160:  GOTO   124
+....................       } 
+....................       while(!modo) 
+0161:  BTFSC  20.0
+0162:  GOTO   1DA
+....................       {   
+....................          do 
+....................          { 
+....................             for(a=0;a<4;a++) 
+0163:  CLRF   21
+0164:  MOVF   21,W
+0165:  SUBLW  03
+0166:  BTFSS  03.0
+0167:  GOTO   182
+....................             {numero[a]=separar(a,num);} 
+0168:  MOVLW  22
+0169:  ADDWF  21,W
+016A:  MOVWF  78
+016B:  CLRF   7A
+016C:  BTFSC  03.0
+016D:  INCF   7A,F
+016E:  MOVF   78,W
+016F:  MOVWF  2D
+0170:  MOVF   7A,W
+0171:  MOVWF  2E
+0172:  MOVF   21,W
+0173:  MOVWF  2F
+0174:  MOVF   2C,W
+0175:  MOVWF  31
+0176:  MOVF   2B,W
+0177:  MOVWF  30
+0178:  GOTO   09F
+0179:  MOVF   2D,W
+017A:  MOVWF  04
+017B:  BCF    03.7
+017C:  BTFSC  2E.0
+017D:  BSF    03.7
+017E:  MOVF   78,W
+017F:  MOVWF  00
+0180:  INCF   21,F
+0181:  GOTO   164
+....................             for(num1=0;num1<20;num1++) 
+0182:  CLRF   26
+0183:  MOVF   26,W
+0184:  SUBLW  13
+0185:  BTFSS  03.0
+0186:  GOTO   1BD
+....................             { 
+....................                for(a=0;a<4;a++) 
+0187:  CLRF   21
+0188:  MOVF   21,W
+0189:  SUBLW  03
+018A:  BTFSS  03.0
+018B:  GOTO   1AA
+....................                { 
+....................                   switch(a) 
+018C:  MOVF   21,W
+018D:  ADDLW  FC
+018E:  BTFSC  03.0
+018F:  GOTO   19D
+0190:  ADDLW  04
+0191:  GOTO   1DC
+....................                   { 
+....................                      case 0:porta=0b1110;break; 
+0192:  MOVLW  0E
+0193:  MOVWF  05
+0194:  GOTO   19D
+....................                      case 1:porta=0b1101;break; 
+0195:  MOVLW  0D
+0196:  MOVWF  05
+0197:  GOTO   19D
+....................                      case 2:porta=0b1011;break; 
+0198:  MOVLW  0B
+0199:  MOVWF  05
+019A:  GOTO   19D
+....................                      case 3:porta=0b0111;break; 
+019B:  MOVLW  07
+019C:  MOVWF  05
+....................                   } 
+....................                   portc=diplay[numero[a]]; 
+019D:  MOVLW  22
+019E:  ADDWF  21,W
+019F:  MOVWF  04
+01A0:  BCF    03.7
+01A1:  MOVF   00,W
+01A2:  CALL   004
+01A3:  MOVWF  78
+01A4:  MOVWF  07
+....................                   delay_ms(2); 
+01A5:  MOVLW  02
+01A6:  MOVWF  2D
+01A7:  CALL   066
+01A8:  INCF   21,F
+01A9:  GOTO   188
+....................                } 
+....................                if(input(pin_a4)==0){break;} 
+01AA:  BSF    03.5
+01AB:  BSF    05.4
+01AC:  BCF    03.5
+01AD:  BTFSS  05.4
+01AE:  GOTO   1BD
+....................                if(input(pin_a5)==0) 
+01AF:  BSF    03.5
+01B0:  BSF    05.5
+01B1:  BCF    03.5
+01B2:  BTFSC  05.5
+01B3:  GOTO   1BB
+....................                { 
+....................                   modo=true; 
+01B4:  BSF    20.0
+....................                   Porta=0b1111; 
+01B5:  MOVLW  0F
+01B6:  MOVWF  05
+....................                   delay_ms(150); 
+01B7:  MOVLW  96
+01B8:  MOVWF  2D
+01B9:  CALL   066
+....................                   break; 
+01BA:  GOTO   1BD
+....................                } 
+01BB:  INCF   26,F
+01BC:  GOTO   183
+....................             } 
+....................             if(modo==true){break;} 
+01BD:  BTFSC  20.0
+01BE:  GOTO   1CC
+....................             num++; 
+01BF:  INCF   2B,F
+01C0:  BTFSC  03.2
+01C1:  INCF   2C,F
+....................          }while(num<10000); 
+01C2:  MOVF   2C,W
+01C3:  SUBLW  27
+01C4:  BTFSS  03.0
+01C5:  GOTO   1CC
+01C6:  BTFSS  03.2
+01C7:  GOTO   163
+01C8:  MOVF   2B,W
+01C9:  SUBLW  0F
+01CA:  BTFSC  03.0
+01CB:  GOTO   163
+....................          if(num>10000)num=0; 
+01CC:  MOVF   2C,W
+01CD:  SUBLW  26
+01CE:  BTFSC  03.0
+01CF:  GOTO   1D9
+01D0:  XORLW  FF
+01D1:  BTFSS  03.2
+01D2:  GOTO   1D7
+01D3:  MOVF   2B,W
+01D4:  SUBLW  10
+01D5:  BTFSC  03.0
+01D6:  GOTO   1D9
+01D7:  CLRF   2C
+01D8:  CLRF   2B
+01D9:  GOTO   161
+....................       } 
+01DA:  GOTO   124
+....................    } 
+.................... } 
+.................... int separar(int pos,long n) 
+01DB:  SLEEP
+.................... { 
+....................    switch(pos) 
+*
+009F:  MOVF   2F,W
+00A0:  ADDLW  FC
+00A1:  BTFSC  03.0
+00A2:  GOTO   0F5
+00A3:  ADDLW  04
+00A4:  GOTO   0F8
+....................    { 
+....................       case 0:return (n%10);break; 
+00A5:  MOVF   31,W
+00A6:  MOVWF  35
+00A7:  MOVF   30,W
+00A8:  MOVWF  34
+00A9:  CLRF   37
+00AA:  MOVLW  0A
+00AB:  MOVWF  36
+00AC:  CALL   07A
+00AD:  MOVF   77,W
+00AE:  MOVWF  78
+00AF:  GOTO   0F5
+00B0:  GOTO   0F5
+....................       case 1:return (((n%1000)%100)/10);break; 
+00B1:  MOVF   31,W
+00B2:  MOVWF  35
+00B3:  MOVF   30,W
+00B4:  MOVWF  34
+00B5:  MOVLW  03
+00B6:  MOVWF  37
+00B7:  MOVLW  E8
+00B8:  MOVWF  36
+00B9:  CALL   07A
+00BA:  MOVF   77,W
+00BB:  MOVWF  32
+00BC:  MOVF   7A,W
+00BD:  MOVWF  33
+00BE:  MOVWF  35
+00BF:  MOVF   32,W
+00C0:  MOVWF  34
+00C1:  CLRF   37
+00C2:  MOVLW  64
+00C3:  MOVWF  36
+00C4:  CALL   07A
+00C5:  MOVF   77,W
+00C6:  MOVWF  32
+00C7:  MOVF   7A,W
+00C8:  MOVWF  33
+00C9:  MOVWF  35
+00CA:  MOVF   32,W
+00CB:  MOVWF  34
+00CC:  CLRF   37
+00CD:  MOVLW  0A
+00CE:  MOVWF  36
+00CF:  CALL   07A
+00D0:  MOVF   78,W
+00D1:  GOTO   0F5
+00D2:  GOTO   0F5
+....................       case 2:return ((n%1000)/100);break; 
+00D3:  MOVF   31,W
+00D4:  MOVWF  35
+00D5:  MOVF   30,W
+00D6:  MOVWF  34
+00D7:  MOVLW  03
+00D8:  MOVWF  37
+00D9:  MOVLW  E8
+00DA:  MOVWF  36
+00DB:  CALL   07A
+00DC:  MOVF   77,W
+00DD:  MOVWF  32
+00DE:  MOVF   7A,W
+00DF:  MOVWF  33
+00E0:  MOVWF  35
+00E1:  MOVF   32,W
+00E2:  MOVWF  34
+00E3:  CLRF   37
+00E4:  MOVLW  64
+00E5:  MOVWF  36
+00E6:  CALL   07A
+00E7:  MOVF   78,W
+00E8:  GOTO   0F5
+00E9:  GOTO   0F5
+....................       case 3:return (n/1000);break; 
+00EA:  MOVF   31,W
+00EB:  MOVWF  35
+00EC:  MOVF   30,W
+00ED:  MOVWF  34
+00EE:  MOVLW  03
+00EF:  MOVWF  37
+00F0:  MOVLW  E8
+00F1:  MOVWF  36
+00F2:  CALL   07A
+00F3:  MOVF   78,W
+00F4:  GOTO   0F5
+....................    } 
+00F5:  BCF    0A.3
+00F6:  BCF    0A.4
+00F7:  GOTO   179 (RETURN)
+.................... } 
+
+Configuration Fuses:
+   Word  1: 2CF2   HS NOWDT NOPUT MCLR NOPROTECT NOCPD NOBROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

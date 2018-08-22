@@ -1,0 +1,57 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     main.x
+022     y
+023     xy
+024     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  @delay_ms1
+0019  main
+0019  @cinit1
+0022  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P3\
+
+Project Files:
+    Proyecto 3.c                                            [28-oct.-14 17:53  CRC=C2C19BF1]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+
+Source signature=DB1B5F9B
+
+Units:
+    Proyecto 3 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Proyecto 3.err
+    Ext Symbols: Proyecto 3.esym
+    INHX8:       Proyecto 3.hex
+    Symbols:     Proyecto 3.sym
+    List:        Proyecto 3.lst
+    Debug/COFF:  Proyecto 3.cof
+    Project:     Proyecto 3.PJT
+    Call Tree:   Proyecto 3.tre
+    Statistics:  Proyecto 3.STA

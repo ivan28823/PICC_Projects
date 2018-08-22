@@ -1,0 +1,101 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+006     lcd
+006     lcdlat
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     numt
+021     e1
+022     e2
+023     e3
+024     e4
+025     lcd_init.i
+025     @PRINTF_U_92.P1
+025     MAIN.@SCRATCH1
+026     @PRINTF_U_92.P1
+026     lcd_init.@SCRATCH1
+027     @DIV88.P1
+027     lcd_putc.c
+028     @DIV88.P1
+028     lcd_gotoxy.x
+028     @delay_ms1.P1
+029     lcd_gotoxy.y
+029     @DIV88.@SCRATCH1
+02A     lcd_gotoxy.address
+02B     lcd_gotoxy.@SCRATCH1
+02C     lcd_send_byte.address
+02D     lcd_send_byte.n
+02E     lcd_read_byte.low
+02E     lcd_send_byte.@SCRATCH1
+02F     lcd_send_nibble.n
+02F     lcd_read_byte.high
+030     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     lcdtris
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+003C  @delay_ms1
+0004  LCD_INIT_STRING
+0069  lcd_read_byte
+005D  lcd_read_nibble
+0051  lcd_send_nibble
+0063  lcd_send_byte
+00A3  lcd_init
+00D4  lcd_gotoxy
+00E6  lcd_putc
+015D  MAIN
+000C  @const106
+0012  @const107
+0020  @const108
+0113  @DIV88
+0128  @PRINTF_U_92
+002E  @const116
+015D  @cinit1
+0168  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Ivan-ua\Documents\PIC\Pic C\P10\
+
+Project Files:
+    lcd2.c                                                  [06-nov.-14 21:52  CRC=F6781968]
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h  [28-feb.-12 13:43  CRC=0C2CE1D5]
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c      [24-oct.-11 11:06  CRC=9ABC6C7D]
+
+Source signature=381DD437
+
+Units:
+    lcd2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      lcd2.err
+    Ext Symbols: lcd2.esym
+    INHX8:       lcd2.hex
+    Symbols:     lcd2.sym
+    List:        lcd2.lst
+    Debug/COFF:  lcd2.cof
+    Project:     lcd2.PJT
+    Call Tree:   lcd2.tre
+    Statistics:  lcd2.STA

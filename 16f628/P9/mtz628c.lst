@@ -1,0 +1,387 @@
+CCS PCM C Compiler, Version 4.130, 59972               02-nov.-14 19:18
+
+               Filename: C:\Users\Ivan-ua\Documents\PIC\Pic C\P9\mtz628c.lst
+
+               ROM used: 340 words (17%)
+                         Largest free fragment is 1708
+               RAM used: 5 (2%) at main() level
+                         9 (4%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   06C
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #fuses HS 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+.................... #use delay(clock=20000000) 
+0058:  MOVLW  24
+0059:  MOVWF  04
+005A:  BCF    03.7
+005B:  MOVF   00,W
+005C:  BTFSC  03.2
+005D:  GOTO   06B
+005E:  MOVLW  06
+005F:  MOVWF  78
+0060:  CLRF   77
+0061:  DECFSZ 77,F
+0062:  GOTO   061
+0063:  DECFSZ 78,F
+0064:  GOTO   060
+0065:  MOVLW  7B
+0066:  MOVWF  77
+0067:  DECFSZ 77,F
+0068:  GOTO   067
+0069:  DECFSZ 00,F
+006A:  GOTO   05E
+006B:  RETURN
+....................  
+.................... byte const sec1[8]={255,129,129,129,129,129,129,255}; 
+.................... byte const sec2[8]={66,255,66,66,66,66,255,66}; 
+.................... byte const sec3[8]={36,36,255,36,36,255,36,36}; 
+.................... byte const sec4[8]={24,24,24,255,255,24,24,24}; 
+.................... byte const sec5[8]={255,255,255,255,255,255,255,255}; 
+.................... byte const sec6[8]={255,254,252,248,240,224,192,128}; 
+.................... byte const sec7[8]={255-1,255-2,255-4,255-8,255-16,255-32,255-64,255-128}; 
+....................  
+.................... void main() 
+.................... { 
+006C:  CLRF   04
+006D:  BCF    03.7
+006E:  MOVLW  1F
+006F:  ANDWF  03,F
+0070:  MOVLW  07
+0071:  MOVWF  1F
+....................    Trisb=0; 
+0072:  BSF    03.5
+0073:  CLRF   06
+....................    Trisa=0; 
+0074:  CLRF   05
+....................    Portb=0; 
+0075:  BCF    03.5
+0076:  CLRF   06
+....................    Porta=0; 
+0077:  CLRF   05
+....................    int time=0; 
+....................    int tm=30; 
+....................    int b=0; 
+0078:  CLRF   21
+0079:  MOVLW  1E
+007A:  MOVWF  22
+007B:  CLRF   23
+....................    for(time=0;time<8;time++) 
+007C:  CLRF   21
+007D:  MOVF   21,W
+007E:  SUBLW  07
+007F:  BTFSS  03.0
+0080:  GOTO   088
+....................    { 
+....................       Porta=1; 
+0081:  MOVLW  01
+0082:  MOVWF  05
+....................       delay_ms(1); 
+0083:  MOVWF  24
+0084:  CALL   058
+....................       Porta=0; 
+0085:  CLRF   05
+....................    } 
+0086:  INCF   21,F
+0087:  GOTO   07D
+....................    while(true) 
+....................    { 
+....................       for(time=0;time<tm;time++) 
+0088:  CLRF   21
+0089:  MOVF   22,W
+008A:  SUBWF  21,W
+008B:  BTFSC  03.0
+008C:  GOTO   0A5
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+008D:  MOVLW  02
+008E:  MOVWF  05
+008F:  MOVLW  03
+0090:  MOVWF  05
+0091:  CLRF   05
+....................          for(b=0;b<8;b++) 
+0092:  CLRF   23
+0093:  MOVF   23,W
+0094:  SUBLW  07
+0095:  BTFSS  03.0
+0096:  GOTO   0A3
+....................          { 
+....................             Portb=sec1[b]; 
+0097:  MOVF   23,W
+0098:  CALL   004
+0099:  MOVWF  78
+009A:  MOVWF  06
+....................             delay_ms(2); 
+009B:  MOVLW  02
+009C:  MOVWF  24
+009D:  CALL   058
+....................             Porta=1; Porta=0; 
+009E:  MOVLW  01
+009F:  MOVWF  05
+00A0:  CLRF   05
+....................          } 
+00A1:  INCF   23,F
+00A2:  GOTO   093
+....................       } 
+00A3:  INCF   21,F
+00A4:  GOTO   089
+....................       for(time=0;time<tm;time++) 
+00A5:  CLRF   21
+00A6:  MOVF   22,W
+00A7:  SUBWF  21,W
+00A8:  BTFSC  03.0
+00A9:  GOTO   0C2
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+00AA:  MOVLW  02
+00AB:  MOVWF  05
+00AC:  MOVLW  03
+00AD:  MOVWF  05
+00AE:  CLRF   05
+....................          for(b=0;b<8;b++) 
+00AF:  CLRF   23
+00B0:  MOVF   23,W
+00B1:  SUBLW  07
+00B2:  BTFSS  03.0
+00B3:  GOTO   0C0
+....................          { 
+....................             Portb=sec2[b]; 
+00B4:  MOVF   23,W
+00B5:  CALL   010
+00B6:  MOVWF  78
+00B7:  MOVWF  06
+....................             delay_ms(2); 
+00B8:  MOVLW  02
+00B9:  MOVWF  24
+00BA:  CALL   058
+....................             Porta=1; Porta=0; 
+00BB:  MOVLW  01
+00BC:  MOVWF  05
+00BD:  CLRF   05
+....................          } 
+00BE:  INCF   23,F
+00BF:  GOTO   0B0
+....................       } 
+00C0:  INCF   21,F
+00C1:  GOTO   0A6
+....................       for(time=0;time<tm;time++) 
+00C2:  CLRF   21
+00C3:  MOVF   22,W
+00C4:  SUBWF  21,W
+00C5:  BTFSC  03.0
+00C6:  GOTO   0DF
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+00C7:  MOVLW  02
+00C8:  MOVWF  05
+00C9:  MOVLW  03
+00CA:  MOVWF  05
+00CB:  CLRF   05
+....................          for(b=0;b<8;b++) 
+00CC:  CLRF   23
+00CD:  MOVF   23,W
+00CE:  SUBLW  07
+00CF:  BTFSS  03.0
+00D0:  GOTO   0DD
+....................          { 
+....................             Portb=sec3[b]; 
+00D1:  MOVF   23,W
+00D2:  CALL   01C
+00D3:  MOVWF  78
+00D4:  MOVWF  06
+....................             delay_ms(2); 
+00D5:  MOVLW  02
+00D6:  MOVWF  24
+00D7:  CALL   058
+....................             Porta=1; Porta=0; 
+00D8:  MOVLW  01
+00D9:  MOVWF  05
+00DA:  CLRF   05
+....................          } 
+00DB:  INCF   23,F
+00DC:  GOTO   0CD
+....................       } 
+00DD:  INCF   21,F
+00DE:  GOTO   0C3
+....................       for(time=0;time<tm;time++) 
+00DF:  CLRF   21
+00E0:  MOVF   22,W
+00E1:  SUBWF  21,W
+00E2:  BTFSC  03.0
+00E3:  GOTO   0FC
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+00E4:  MOVLW  02
+00E5:  MOVWF  05
+00E6:  MOVLW  03
+00E7:  MOVWF  05
+00E8:  CLRF   05
+....................          for(b=0;b<8;b++) 
+00E9:  CLRF   23
+00EA:  MOVF   23,W
+00EB:  SUBLW  07
+00EC:  BTFSS  03.0
+00ED:  GOTO   0FA
+....................          { 
+....................             Portb=sec4[b]; 
+00EE:  MOVF   23,W
+00EF:  CALL   028
+00F0:  MOVWF  78
+00F1:  MOVWF  06
+....................             delay_ms(2); 
+00F2:  MOVLW  02
+00F3:  MOVWF  24
+00F4:  CALL   058
+....................             Porta=1; Porta=0; 
+00F5:  MOVLW  01
+00F6:  MOVWF  05
+00F7:  CLRF   05
+....................          } 
+00F8:  INCF   23,F
+00F9:  GOTO   0EA
+....................       } 
+00FA:  INCF   21,F
+00FB:  GOTO   0E0
+....................       for(time=0;time<tm;time++) 
+00FC:  CLRF   21
+00FD:  MOVF   22,W
+00FE:  SUBWF  21,W
+00FF:  BTFSC  03.0
+0100:  GOTO   119
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+0101:  MOVLW  02
+0102:  MOVWF  05
+0103:  MOVLW  03
+0104:  MOVWF  05
+0105:  CLRF   05
+....................          for(b=0;b<8;b++) 
+0106:  CLRF   23
+0107:  MOVF   23,W
+0108:  SUBLW  07
+0109:  BTFSS  03.0
+010A:  GOTO   117
+....................          { 
+....................             Portb=sec5[b]; 
+010B:  MOVF   23,W
+010C:  CALL   034
+010D:  MOVWF  78
+010E:  MOVWF  06
+....................             delay_ms(2); 
+010F:  MOVLW  02
+0110:  MOVWF  24
+0111:  CALL   058
+....................             Porta=1; Porta=0; 
+0112:  MOVLW  01
+0113:  MOVWF  05
+0114:  CLRF   05
+....................          } 
+0115:  INCF   23,F
+0116:  GOTO   107
+....................       } 
+0117:  INCF   21,F
+0118:  GOTO   0FD
+....................       for(time=0;time<tm;time++) 
+0119:  CLRF   21
+011A:  MOVF   22,W
+011B:  SUBWF  21,W
+011C:  BTFSC  03.0
+011D:  GOTO   136
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+011E:  MOVLW  02
+011F:  MOVWF  05
+0120:  MOVLW  03
+0121:  MOVWF  05
+0122:  CLRF   05
+....................          for(b=0;b<8;b++) 
+0123:  CLRF   23
+0124:  MOVF   23,W
+0125:  SUBLW  07
+0126:  BTFSS  03.0
+0127:  GOTO   134
+....................          { 
+....................             Portb=sec6[b]; 
+0128:  MOVF   23,W
+0129:  CALL   040
+012A:  MOVWF  78
+012B:  MOVWF  06
+....................             delay_ms(2); 
+012C:  MOVLW  02
+012D:  MOVWF  24
+012E:  CALL   058
+....................             Porta=1; Porta=0; 
+012F:  MOVLW  01
+0130:  MOVWF  05
+0131:  CLRF   05
+....................          } 
+0132:  INCF   23,F
+0133:  GOTO   124
+....................       } 
+0134:  INCF   21,F
+0135:  GOTO   11A
+....................       for(time=0;time<255;time++) 
+0136:  CLRF   21
+0137:  INCFSZ 21,W
+0138:  GOTO   13A
+0139:  GOTO   152
+....................       { 
+....................          Porta=2; Porta=3; Porta=0; 
+013A:  MOVLW  02
+013B:  MOVWF  05
+013C:  MOVLW  03
+013D:  MOVWF  05
+013E:  CLRF   05
+....................          for(b=0;b<8;b++) 
+013F:  CLRF   23
+0140:  MOVF   23,W
+0141:  SUBLW  07
+0142:  BTFSS  03.0
+0143:  GOTO   150
+....................          { 
+....................             Portb=sec7[b]; 
+0144:  MOVF   23,W
+0145:  CALL   04C
+0146:  MOVWF  78
+0147:  MOVWF  06
+....................             delay_ms(2); 
+0148:  MOVLW  02
+0149:  MOVWF  24
+014A:  CALL   058
+....................             Porta=1; Porta=0; 
+014B:  MOVLW  01
+014C:  MOVWF  05
+014D:  CLRF   05
+....................          } 
+014E:  INCF   23,F
+014F:  GOTO   140
+....................       } 
+0150:  INCF   21,F
+0151:  GOTO   137
+....................    } 
+0152:  GOTO   088
+.................... } 
+0153:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F0A   NOWDT NOPUT HS NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

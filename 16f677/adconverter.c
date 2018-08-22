@@ -1,0 +1,49 @@
+#include <16f677.h>
+#device adc=16
+
+#FUSES NOWDT                 
+#FUSES INTRC_IO               
+#FUSES NOMCLR                   
+#FUSES NOBROWNOUT
+#FUSES NOPUT
+#FUSES NOPROTECT
+#FUSES NOCPD             
+//#define OSC_8MHZ 
+
+#use delay(clock=8000000)
+#BYTE TRISA=0x85
+#BYTE TRISB=0x86
+#BYTE TRISC=0x87
+#BYTE PORTA=0x05
+#BYTE PORTB=0x06
+#BYTE PORTC=0x07
+
+//#include <lcd.c>
+#define LCD_ENABLE_PIN  PIN_C0                                   
+#define LCD_RS_PIN      PIN_C1                                    
+#define LCD_RW_PIN      PIN_C2                                    
+#define LCD_DATA4       PIN_C4                                      
+#define LCD_DATA5       PIN_C5                                    
+#define LCD_DATA6       PIN_C6                                    
+#define LCD_DATA7       PIN_C7
+#include <lcd.c>
+
+void main()
+{
+   lcd_init();
+   setup_adc_ports(sAN0);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   //set_adc_chanel(0);
+   float adc;
+   //long adcp;
+   while(true)
+   {
+      adc=read_adc();
+      adc=adc*100;
+      adc=adc/65535;
+      lcd_putc("\f");
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"Valor=%g",adc);
+      delay_ms(500);
+   }
+}

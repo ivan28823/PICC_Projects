@@ -1,0 +1,48 @@
+
+ROM used: 104 (1%)
+          104 (1%) including unused fragments
+
+          0 Average locations per line
+          2 Average locations per statement
+
+RAM used: 7 (2%) at main() level
+          9 (2%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  168    50 100  vumetro atriz 8x40.c
+  418     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f886.h
+----- -----
+  586    50 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     22  21   1             @delay_ms1
+0     17  16   1             @delay_us1
+0     61  59   1   464  3.8  MAIN
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              50
+    Comments                172
+    Volume (V)              471
+    Difficulty (D)          3.5
+    Effort to implement (E) 1664
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    125
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   100  1944  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

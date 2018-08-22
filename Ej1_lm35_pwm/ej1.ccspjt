@@ -1,0 +1,23 @@
+[PROJECT]
+Target=ej1.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.007
+Compiler=PCH
+CCSVersion=5.007
+[Target Data]
+FileList=ej1.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\ivan-\Desktop\Ej1_lm35_pwm\ej1]
+Type=4
+[mru-list]
+1=ej1.c
+[Opened Files]
+1=ej1.c
+2=..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+3=
+[ej1.c]
+Type=4
+[Units]
+Count=1
+1=ej1 (main)

@@ -1,0 +1,74 @@
+004     @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+005     PORTA
+006.0   CLR
+006     PORTB
+006.1   CLK
+006.2   DTA
+007     PORTC
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021     i
+022     @delay_ms1.P1
+022     MAIN.@SCRATCH1
+023     @delay_us1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B     @SCRATCH
+085     TRISA
+086     TRISB
+087     TRISC
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0004  @delay_ms1
+001A  @delay_us1
+002B  MAIN
+002B  @cinit1
+003E  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f886\vumetro 8x40\
+
+Project Files:
+    vumetro atriz 8x40.c                                    [26-dic.-15 23:32  CRC=31C95DDB]
+    ..\..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f886.h [28-feb.-12 12:43  CRC=AAA4E837]
+
+Source signature=87132E49
+
+Units:
+    vumetro atriz 8x40 (main)
+
+Compiler Settings:
+    Processor:      PIC16F886
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      vumetro atriz 8x40.err
+    Ext Symbols: vumetro atriz 8x40.esym
+    INHX8:       vumetro atriz 8x40.hex
+    Symbols:     vumetro atriz 8x40.sym
+    List:        vumetro atriz 8x40.lst
+    Debug/COFF:  vumetro atriz 8x40.cof
+    Project:     vumetro atriz 8x40.PJT
+    Call Tree:   vumetro atriz 8x40.tre
+    Statistics:  vumetro atriz 8x40.STA

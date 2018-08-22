@@ -1,0 +1,251 @@
+CCS PCM C Compiler, Version 4.114, 93460303               18-ene.-15 17:56
+
+               Filename: C:\Users\ivan-_000\Documents\PIC\Pic C\Interrupciones\servo.lst
+
+               ROM used: 210 words (10%)
+                         Largest free fragment is 1838
+               RAM used: 6 (3%) at main() level
+                         15 (7%) worst case
+               Stack:    2 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   093
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #fuses INTRC_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... /*#BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06*/ 
+.................... #use fast_io(b) 
+.................... #use delay(clock=4M) 
+*
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+*
+0039:  MOVLW  12
+003A:  SUBWF  28,F
+003B:  BTFSS  03.0
+003C:  GOTO   04C
+003D:  MOVLW  28
+003E:  MOVWF  04
+003F:  BCF    03.7
+0040:  MOVLW  FC
+0041:  ANDWF  00,F
+0042:  BCF    03.0
+0043:  RRF    00,F
+0044:  RRF    00,F
+0045:  MOVF   00,W
+0046:  BTFSC  03.2
+0047:  GOTO   04C
+0048:  GOTO   04A
+0049:  NOP
+004A:  DECFSZ 00,F
+004B:  GOTO   049
+004C:  RETURN
+.................... #define i 1100 
+.................... #define d 2000 
+.................... #define c 1600 
+....................  
+.................... void pwm_servo(int pin,long alto); 
+.................... void main() 
+.................... { 
+*
+0093:  CLRF   04
+0094:  BCF    03.7
+0095:  MOVLW  1F
+0096:  ANDWF  03,F
+0097:  BSF    03.5
+0098:  BSF    0E.3
+0099:  MOVLW  07
+009A:  BCF    03.5
+009B:  MOVWF  1F
+....................    set_tris_b(0); 
+009C:  MOVLW  00
+009D:  TRIS   6
+....................    output_low(pin_b0); 
+009E:  BCF    06.0
+....................    while(true) 
+....................    { 
+....................       delay_ms(1000); 
+009F:  MOVLW  04
+00A0:  MOVWF  21
+00A1:  MOVLW  FA
+00A2:  MOVWF  22
+00A3:  CALL   004
+00A4:  DECFSZ 21,F
+00A5:  GOTO   0A1
+....................       pwm_servo(pin_b0,i); 
+00A6:  MOVLW  30
+00A7:  MOVWF  21
+00A8:  MOVLW  04
+00A9:  MOVWF  23
+00AA:  MOVLW  4C
+00AB:  MOVWF  22
+00AC:  CALL   04D
+....................       delay_ms(1000); 
+00AD:  MOVLW  04
+00AE:  MOVWF  21
+00AF:  MOVLW  FA
+00B0:  MOVWF  22
+00B1:  CALL   004
+00B2:  DECFSZ 21,F
+00B3:  GOTO   0AF
+....................       pwm_servo(pin_b0,d); 
+00B4:  MOVLW  30
+00B5:  MOVWF  21
+00B6:  MOVLW  07
+00B7:  MOVWF  23
+00B8:  MOVLW  D0
+00B9:  MOVWF  22
+00BA:  CALL   04D
+....................       delay_ms(1000); 
+00BB:  MOVLW  04
+00BC:  MOVWF  21
+00BD:  MOVLW  FA
+00BE:  MOVWF  22
+00BF:  CALL   004
+00C0:  DECFSZ 21,F
+00C1:  GOTO   0BD
+....................       pwm_servo(pin_b0,c); 
+00C2:  MOVLW  30
+00C3:  MOVWF  21
+00C4:  MOVLW  06
+00C5:  MOVWF  23
+00C6:  MOVLW  40
+00C7:  MOVWF  22
+00C8:  CALL   04D
+....................       delay_ms(1000); 
+00C9:  MOVLW  04
+00CA:  MOVWF  21
+00CB:  MOVLW  FA
+00CC:  MOVWF  22
+00CD:  CALL   004
+00CE:  DECFSZ 21,F
+00CF:  GOTO   0CB
+....................       //pwm_servo(pin_b0,); 
+....................    } 
+00D0:  GOTO   09F
+.................... } 
+.................... void pwm_servo (int pin,long alto) 
+.................... { 
+00D1:  SLEEP
+....................   //pwm a 50hz ancho de pulso 20ms 
+....................   long bajo; 
+....................   int a; 
+....................   bajo=20000-alto; 
+*
+004D:  MOVF   22,W
+004E:  SUBLW  20
+004F:  MOVWF  24
+0050:  MOVLW  4E
+0051:  MOVWF  25
+0052:  MOVF   23,W
+0053:  BTFSS  03.0
+0054:  INCFSZ 23,W
+0055:  SUBWF  25,F
+....................   for(a=0;a<50;a++) 
+0056:  CLRF   26
+0057:  MOVF   26,W
+0058:  SUBLW  31
+0059:  BTFSS  03.0
+005A:  GOTO   092
+....................   { 
+....................      output_high(pin); 
+005B:  MOVF   21,W
+005C:  MOVWF  27
+005D:  MOVLW  01
+005E:  MOVWF  28
+005F:  CLRF   2A
+0060:  CLRF   29
+0061:  CALL   019
+0062:  MOVF   21,W
+0063:  MOVWF  27
+0064:  CLRF   28
+0065:  CLRF   2A
+0066:  MOVLW  80
+0067:  MOVWF  29
+0068:  CALL   019
+....................      delay_us(alto); 
+0069:  MOVF   23,W
+006A:  MOVWF  27
+006B:  INCF   27,F
+006C:  DECF   27,F
+006D:  BTFSC  03.2
+006E:  GOTO   073
+006F:  MOVLW  FF
+0070:  MOVWF  28
+0071:  CALL   039
+0072:  GOTO   06C
+0073:  MOVF   22,W
+0074:  MOVWF  28
+0075:  CALL   039
+....................      output_low(pin); 
+0076:  MOVF   21,W
+0077:  MOVWF  27
+0078:  CLRF   28
+0079:  CLRF   2A
+007A:  CLRF   29
+007B:  CALL   019
+007C:  MOVF   21,W
+007D:  MOVWF  27
+007E:  CLRF   28
+007F:  CLRF   2A
+0080:  MOVLW  80
+0081:  MOVWF  29
+0082:  CALL   019
+....................      delay_us(bajo); 
+0083:  MOVF   25,W
+0084:  MOVWF  27
+0085:  INCF   27,F
+0086:  DECF   27,F
+0087:  BTFSC  03.2
+0088:  GOTO   08D
+0089:  MOVLW  FF
+008A:  MOVWF  28
+008B:  CALL   039
+008C:  GOTO   086
+008D:  MOVF   24,W
+008E:  MOVWF  28
+008F:  CALL   039
+....................   } 
+0090:  INCF   26,F
+0091:  GOTO   057
+.................... } 
+0092:  RETURN
+
+Configuration Fuses:
+   Word  1: 3F18   NOWDT NOPUT INTRC_IO NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

@@ -1,0 +1,49 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+019.6   C1OUT
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025     main.@SCRATCH1
+026     @delay_ms1.P1
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+000A  @delay_ms1
+001E  main
+001E  @cinit1
+0023  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\MEGA\PIC\Pic C\12f629\
+
+Project Files:
+    arranque y paro.c                                       [28-abr.-15 23:51  CRC=912ED1C4]
+    ..\..\..\..\..\..\..\Program Files\PICC\devices\12f629.h [28-feb.-12 13:43  CRC=655F13D8]
+
+Source signature=5BECF974
+
+Units:
+    arranque y paro (main)
+
+Compiler Settings:
+    Processor:      PIC12F629
+    Pointer Size:   8
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      arranque y paro.err
+    Ext Symbols: arranque y paro.esym
+    INHX8:       arranque y paro.hex
+    Symbols:     arranque y paro.sym
+    List:        arranque y paro.lst
+    Debug/eCOD:  arranque y paro.cod
+    Project:     arranque y paro.PJT

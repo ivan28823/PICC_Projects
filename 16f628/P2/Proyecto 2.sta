@@ -1,0 +1,43 @@
+
+ROM used: 118 (6%)
+          118 (6%) including unused fragments
+
+          0 Average locations per line
+          3 Average locations per statement
+
+RAM used: 6 (3%) at main() level
+          7 (3%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   53    35 100  Proyecto 2.c
+  224     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+----- -----
+  277    35 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21  18   1             @delay_ms1
+0     93  79   1   869  2.4  main
+
+Program metrics:
+    Functions               1
+    Statements              35
+    Comments                63
+    Volume (V)              872
+    Difficilty (D)          2.4
+    Effort to implement (E) 2087
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    65
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   114  1930  
+
+
+

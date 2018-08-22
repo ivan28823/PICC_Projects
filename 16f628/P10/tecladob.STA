@@ -1,0 +1,76 @@
+
+ROM used: 2302 (56%)
+          3470 (85%) including unused fragments
+
+          3 Average locations per line
+          7 Average locations per statement
+
+RAM used: 26 (10%) at main() level
+          44 (17%) worst case
+
+Stack used: 5 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  278   247  74  tecladob.c
+  223     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f648a.h
+  409    89  26  ..\..\..\..\..\..\Program Files\PICC\drivers\lcd.c
+----- -----
+  910   336 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+0      8   0   0   436  5.0  @const72
+ Inline        3   751  4.5  lcd_read_byte
+0     49   2   2   254  3.7  lcd_read_nibble
+0     43   2   1   391  2.4  lcd_send_nibble
+0     92   4   3   402  3.6  lcd_send_byte
+0     60   3   2   695  5.0  lcd_init
+0     18   1   4   191  5.8  lcd_gotoxy
+0     45   2   1   354  4.7  lcd_putc
+1   1406  61   2  7824 11.9  MAIN
+0     21   1   5             @MUL1616
+0     37   2   2             @MUL88
+0      6   0   0             @const124
+0     15   1   0             @const125
+0     10   0   0             @const126
+0     11   0   0             @const130
+0      6   0   0             @const131
+1      8   0   0             @goto10240
+1      8   0   0             @goto10243
+0     21   1   0             @const142
+0     14   1   0             @const144
+0     16   1   0             @const145
+0     17   1   0             @const147
+0    100   4   9             @PRINTF_LU_90
+0     19   1   0             @const151
+0     15   1   0             @const152
+0     20   1   0             @const154
+0     17   1   0             @const156
+0     21   1   0             @const160
+0     19   1   0             @const162
+0     16   1   0             @const164
+0    139   6   1  1364  3.4  teclado
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               10
+    Statements              336
+    Comments                152
+    Volume (V)              16976
+    Difficulty (D)          48.2
+    Effort to implement (E) 818162
+    Time to implement (T)   12 hours, 38 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   45
+    Maintainability (MI)    62
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   876  1168  
+00800-00FFF  1422  626  
+
+
+

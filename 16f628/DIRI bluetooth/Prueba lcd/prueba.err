@@ -1,0 +1,6 @@
+>>> Warning 216 "prueba.c" Line 66(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "prueba.c" Line 66(0,1): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+>>> Warning 216 "prueba.c" Line 66(0,1): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
+      Memory usage:   ROM=51%      RAM=8% - 25%
+      0 Errors,  3 Warnings.
+Build Successful.

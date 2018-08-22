@@ -1,0 +1,112 @@
+CCS PCM C Compiler, Version 4.130, 59972               13-feb.-16 12:36
+
+               Filename: C:\Users\ivan-\Documents\MEGA\Electronica\Microcontroladores\PIC\Pic C\16f628\modulo rf cuarto\control rf.lst
+
+               ROM used: 61 words (3%)
+                         Largest free fragment is 1987
+               RAM used: 5 (2%) at main() level
+                         5 (2%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #use delay(clock=4M) 
+.................... #BYTE TRISA=0x85 
+.................... #BYTE PORTA=0x05 
+.................... #BYTE TRISB=0x86 
+.................... #BYTE PORTB=0x06 
+....................  
+.................... void main() 
+.................... { 
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  BSF    03.5
+0009:  BSF    0E.3
+000A:  MOVLW  07
+000B:  BCF    03.5
+000C:  MOVWF  1F
+....................    Trisa=0xFF; 
+000D:  MOVLW  FF
+000E:  BSF    03.5
+000F:  MOVWF  05
+....................    Trisb=0; 
+0010:  CLRF   06
+....................    Portb=0; 
+0011:  BCF    03.5
+0012:  CLRF   06
+....................    while(true) 
+....................    { 
+....................       while(input(pin_a0)) 
+....................          output_high(pin_b0); 
+0013:  BSF    03.5
+0014:  BSF    05.0
+0015:  BCF    03.5
+0016:  BTFSS  05.0
+0017:  GOTO   01D
+0018:  BSF    03.5
+0019:  BCF    06.0
+001A:  BCF    03.5
+001B:  BSF    06.0
+001C:  GOTO   013
+....................       while(input(pin_a1)) 
+....................          output_low(pin_b0); 
+001D:  BSF    03.5
+001E:  BSF    05.1
+001F:  BCF    03.5
+0020:  BTFSS  05.1
+0021:  GOTO   027
+0022:  BSF    03.5
+0023:  BCF    06.0
+0024:  BCF    03.5
+0025:  BCF    06.0
+0026:  GOTO   01D
+....................       while(input(pin_a3)) 
+....................          output_high(pin_b1); 
+0027:  BSF    03.5
+0028:  BSF    05.3
+0029:  BCF    03.5
+002A:  BTFSS  05.3
+002B:  GOTO   031
+002C:  BSF    03.5
+002D:  BCF    06.1
+002E:  BCF    03.5
+002F:  BSF    06.1
+0030:  GOTO   027
+....................       while(input(pin_a4)) 
+....................          output_low(pin_b1);    
+0031:  BSF    03.5
+0032:  BSF    05.4
+0033:  BCF    03.5
+0034:  BTFSS  05.4
+0035:  GOTO   03B
+0036:  BSF    03.5
+0037:  BCF    06.1
+0038:  BCF    03.5
+0039:  BCF    06.1
+003A:  GOTO   031
+....................           
+....................    } 
+003B:  GOTO   013
+.................... } 
+003C:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F18   NOWDT NOPUT INTRC_IO NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

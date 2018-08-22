@@ -1,0 +1,84 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021-024 MAIN.a
+025     lcd_serial_gotoxy.x
+025-028 @PRINTF_L32U_65.P1
+025     MAIN.@SCRATCH1
+026     lcd_serial_gotoxy.y
+027     @delay_ms1.P1
+029     @PRINTF_L32U_65.@SCRATCH1
+02A     @PRINTF_L32U_65.@SCRATCH2
+02B     @PRINTF_L32U_65.@SCRATCH3
+02C     @PRINTF_L32U_65.@SCRATCH4
+02D     @PRINTF_L32U_65.@SCRATCH5
+02E     @PRINTF_L32U_65.@SCRATCH6
+02F     @PRINTF_L32U_65.@SCRATCH7
+030     @PRINTF_L32U_65.@SCRATCH8
+031     @PUTCHAR_1_.P1
+031-034 @DIV3232.P2
+035-038 @DIV3232.P1
+039     @DIV3232.@SCRATCH1
+03A     @DIV3232.@SCRATCH2
+03B     @DIV3232.@SCRATCH3
+03C     @DIV3232.@SCRATCH4
+03D     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0012  @delay_ms1
+002B  @PUTCHAR_1_
+0027  lcd_serial_init
+0054  lcd_serial_gotoxy
+004D  lcd_clear
+010D  MAIN
+0004  @const78
+0067  @DIV3232
+00B6  @PRINTF_L32U_65
+010D  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Comunicacion\
+
+Project Files:
+    LCdser1.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+    ..\..\..\..\..\..\Program Files\PICC\drivers\lcd_serial.c
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Comunicacion\LCdser1 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      LCdser1.err
+    Ext Symbols: LCdser1.esym
+    INHX8:       LCdser1.hex
+    Symbols:     LCdser1.sym
+    List:        LCdser1.lst
+    Debug/COFF:  LCdser1.cof
+    Project:     LCdser1.PJT
+    Call Tree:   LCdser1.tre
+    Statistics:  LCdser1.sta

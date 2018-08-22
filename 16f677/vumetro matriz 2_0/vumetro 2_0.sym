@@ -1,0 +1,79 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+006.6   cl
+006.7   data
+007     PORTC
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @SCRATCH
+026     main.i
+027     j
+028     anuncio.letrero
+028     main.@SCRATCH1
+029-02A anuncio.inicio
+029     main.@SCRATCH2
+02A-02B comprobar_adc.analog
+02B-02C anuncio.fin
+02D-02E anuncio.fin_msj
+02F     anuncio.i
+030     j
+031-032 i
+033     @delay_ms1.P1
+033     anuncio.@SCRATCH1
+034     @delay_us1.P1
+085     TRISA
+086     TRISB
+087     TRISC
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+ROM Allocation:
+014E  @delay_ms1
+0161  @delay_us1
+0240  main
+0004  letras
+0171  anuncio
+01D6  comprobar_adc
+0240  @cinit1
+025A  @cinit2
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-\Documents\MEGA\Microcontroladores\PIC\Pic C\16f677\vumetro matriz 2_0\
+
+Project Files:
+    vumetro 2_0.c                                           [26-sep.-15 23:04  CRC=6F72A1D9]
+    ..\..\..\..\..\..\..\..\..\Program Files\PICC\devices\16f677.h [28-feb.-12 13:43  CRC=7774C0AB]
+
+Source signature=5E5C232F
+
+Units:
+    vumetro 2_0 (main)
+
+Compiler Settings:
+    Processor:      PIC16F677
+    Pointer Size:   8
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      vumetro 2_0.err
+    Ext Symbols: vumetro 2_0.esym
+    INHX8:       vumetro 2_0.hex
+    Symbols:     vumetro 2_0.sym
+    List:        vumetro 2_0.lst
+    Debug/COFF:  vumetro 2_0.cof
+    Project:     vumetro 2_0.PJT
+    Call Tree:   vumetro 2_0.tre
+    Statistics:  vumetro 2_0.STA

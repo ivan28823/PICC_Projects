@@ -1,0 +1,60 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+005     PORTA
+006     PORTB
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     time
+021-022 b
+023-024 cs
+025-026 c
+027     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+085     TRISA
+086     TRISB
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00E1  @delay_ms1
+0004  sec
+00F5  main
+00F5  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Mtz serial\
+
+Project Files:
+    matriz-pc.c
+    ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+
+Units:
+    C:\Users\ivan-_000\Documents\PIC\Pic C\Mtz serial\matriz-pc (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      matriz-pc.err
+    Ext Symbols: matriz-pc.esym
+    INHX8:       matriz-pc.hex
+    Symbols:     matriz-pc.sym
+    List:        matriz-pc.lst
+    Debug/COFF:  matriz-pc.cof
+    Project:     matriz-pc.PJT
+    Call Tree:   matriz-pc.tre
+    Statistics:  matriz-pc.sta

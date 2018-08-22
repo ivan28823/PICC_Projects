@@ -1,0 +1,211 @@
+CCS PCM C Compiler, Version 4.130, 59972               29-oct.-14 23:32
+
+               Filename: C:\Users\Ivan-ua\Documents\PIC\Pic C\P5\Proyecto 5.lst
+
+               ROM used: 129 words (6%)
+                         Largest free fragment is 1919
+               RAM used: 8 (4%) at main() level
+                         10 (4%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16f628a.h> 
+.................... //////// Standard Header file for the PIC16F628A device //////////////// 
+.................... #device PIC16F628A 
+.................... #list 
+....................  
+....................  
+.................... #use delay(int=4000000) 
+0004:  MOVLW  25
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... #fuses NOWDT 
+.................... #fuses NOMCLR 
+.................... #fuses NOPUT 
+.................... #fuses NOLVP 
+.................... #fuses INTRC 
+.................... #fuses NOPROTECT 
+.................... #fuses NOCPD 
+.................... #fuses NOBROWNOUT 
+.................... #use fast_io(b) 
+....................  
+.................... void main() 
+.................... { 
+0019:  CLRF   04
+001A:  BCF    03.7
+001B:  MOVLW  1F
+001C:  ANDWF  03,F
+001D:  BSF    03.5
+001E:  BSF    0E.3
+001F:  MOVLW  07
+0020:  BCF    03.5
+0021:  MOVWF  1F
+0022:  MOVLW  FF
+0023:  MOVWF  21
+0024:  BCF    22.0
+....................    int contador=255; 
+....................    short cond=0; 
+....................    set_tris_b(0); 
+0025:  MOVLW  00
+0026:  TRIS   6
+....................    set_tris_a(0xFF); 
+0027:  MOVLW  FF
+0028:  TRIS   5
+....................    int8 time=1000; 
+0029:  MOVLW  E8
+002A:  MOVWF  23
+....................    output_b(contador); 
+002B:  MOVF   21,W
+002C:  MOVWF  06
+....................    delay_ms(2000); 
+002D:  MOVLW  08
+002E:  MOVWF  24
+002F:  MOVLW  FA
+0030:  MOVWF  25
+0031:  CALL   004
+0032:  DECFSZ 24,F
+0033:  GOTO   02F
+....................    contador=0; 
+0034:  CLRF   21
+....................    output_b(contador); 
+0035:  MOVF   21,W
+0036:  MOVWF  06
+....................    delay_ms(1000); 
+0037:  MOVLW  04
+0038:  MOVWF  24
+0039:  MOVLW  FA
+003A:  MOVWF  25
+003B:  CALL   004
+003C:  DECFSZ 24,F
+003D:  GOTO   039
+....................    while(true) 
+....................    { 
+....................       if(input(pin_a3)==1) 
+003E:  BSF    03.5
+003F:  BSF    05.3
+0040:  BCF    03.5
+0041:  BTFSS  05.3
+0042:  GOTO   04E
+....................       { 
+....................          time=time-100; 
+0043:  MOVLW  64
+0044:  SUBWF  23,F
+....................          delay_ms(200); 
+0045:  MOVLW  C8
+0046:  MOVWF  25
+0047:  CALL   004
+....................          if(time<100) 
+0048:  MOVF   23,W
+0049:  SUBLW  63
+004A:  BTFSS  03.0
+004B:  GOTO   04E
+....................          { 
+....................             time=1000; 
+004C:  MOVLW  E8
+004D:  MOVWF  23
+....................          } 
+....................       } 
+....................       if(cond==true) 
+004E:  BTFSS  22.0
+004F:  GOTO   05A
+....................       { 
+....................          output_b(contador); 
+0050:  MOVF   21,W
+0051:  MOVWF  06
+....................          contador=contador+1; 
+0052:  MOVLW  01
+0053:  ADDWF  21,F
+....................          delay_ms(time); 
+0054:  MOVF   23,W
+0055:  MOVWF  25
+0056:  CALL   004
+....................          if(contador==255) 
+0057:  INCFSZ 21,W
+0058:  GOTO   05A
+....................          { 
+....................             contador=0; 
+0059:  CLRF   21
+....................          } 
+....................       } 
+....................       if(input(PIN_a0)==1) 
+005A:  BSF    03.5
+005B:  BSF    05.0
+005C:  BCF    03.5
+005D:  BTFSS  05.0
+005E:  GOTO   067
+....................       { 
+....................          cond=true; 
+005F:  BSF    22.0
+....................          delay_ms(300); 
+0060:  MOVLW  02
+0061:  MOVWF  24
+0062:  MOVLW  96
+0063:  MOVWF  25
+0064:  CALL   004
+0065:  DECFSZ 24,F
+0066:  GOTO   062
+....................       } 
+....................       if(input(PIN_a1)==1) 
+0067:  BSF    03.5
+0068:  BSF    05.1
+0069:  BCF    03.5
+006A:  BTFSS  05.1
+006B:  GOTO   074
+....................       { 
+....................          cond=false; 
+006C:  BCF    22.0
+....................          delay_ms(300); 
+006D:  MOVLW  02
+006E:  MOVWF  24
+006F:  MOVLW  96
+0070:  MOVWF  25
+0071:  CALL   004
+0072:  DECFSZ 24,F
+0073:  GOTO   06F
+....................       } 
+....................       if(input(PIN_a2)==1) 
+0074:  BSF    03.5
+0075:  BSF    05.2
+0076:  BCF    03.5
+0077:  BTFSS  05.2
+0078:  GOTO   07F
+....................       { 
+....................          contador=0, 
+....................          delay_ms(200); 
+0079:  CLRF   21
+007A:  MOVLW  C8
+007B:  MOVWF  25
+007C:  CALL   004
+....................          output_b(contador); 
+007D:  MOVF   21,W
+007E:  MOVWF  06
+....................       } 
+....................    }   
+007F:  GOTO   03E
+.................... } 
+0080:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F19   NOWDT NOPUT INTRC NOMCLR NOBROWNOUT NOLVP NOCPD NOPROTECT

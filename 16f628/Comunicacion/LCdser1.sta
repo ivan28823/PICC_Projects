@@ -1,0 +1,51 @@
+
+ROM used: 342 (17%)
+          342 (17%) including unused fragments
+
+          1 Average locations per line
+          16 Average locations per statement
+
+RAM used: 6 (3%) at main() level
+          34 (15%) worst case
+
+Stack used: 2 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   39    13  59  LCdser1.c
+  224     0   0  ..\..\..\..\..\..\Program Files\PICC\devices\16f628a.h
+   23     9  41  ..\..\..\..\..\..\Program Files\PICC\drivers\lcd_serial.c
+----- -----
+  286    22 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   6   1             @delay_ms1
+0     34  10   1             @PUTCHAR_1_
+0      4   1   0    17  0.8  lcd_serial_init
+0     19   6   2   170  1.9  lcd_serial_gotoxy
+0      7   2   0    42  1.4  lcd_clear
+0     73  21   1   300  3.1  MAIN
+0     14   4   0             @const78
+0     79  23  13             @DIV3232
+0     87  25  12             @PRINTF_L32U_65
+
+Program metrics:
+    Functions               4
+    Statements              22
+    Comments                72
+    Volume (V)              720
+    Difficilty (D)          7.2
+    Effort to implement (E) 5187
+    Time to implement (T)   5 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    131
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   338  1706  
+
+
+

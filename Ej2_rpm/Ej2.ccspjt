@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Ej2.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.007
+Compiler=PCH
+CCSVersion=5.007
+[Target Data]
+FileList=Ej2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Program Files (x86)\PICC\Drivers\C:\Program Files (x86)\PICC\Devices\;C:\Users\ivan-\Documents\MEGA\Compartido\Microcontroladores\ETS Microc\Ej2_rpm\
+[C:\Users\ivan-\Desktop\Ej2_rpm\Ej2]
+Type=4
+[mru-list]
+1=Ej2.c
+[Opened Files]
+1=Ej2.c
+2=PID_v1.c
+3=
+[Ej2.c]
+Type=4
+[Units]
+Count=1
+1=Ej2 (main)

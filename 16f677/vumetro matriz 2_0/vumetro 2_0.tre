@@ -1,0 +1,15 @@
+ÀÄvumetro 2_0
+   ÀÄmain  0/130  Ram=2
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ??0??
+      ÃÄanuncio  0/101  Ram=8
+      ³  ÃÄ@const75  0/330  Ram=0
+      ³  ÃÄ@delay_ms1  0/19  Ram=1
+      ³  ÀÄ@delay_us1  0/16  Ram=1
+      ÃÄanuncio  0/101  Ram=8
+      ³  ÃÄ@const75  0/330  Ram=0
+      ³  ÃÄ@delay_ms1  0/19  Ram=1
+      ³  ÀÄ@delay_us1  0/16  Ram=1
+      ÃÄcomprobar_adc  0/106  Ram=2
+      ÃÄ@delay_ms1  0/19  Ram=1
+      ÀÄ@delay_us1  0/16  Ram=1
